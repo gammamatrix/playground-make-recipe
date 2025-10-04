@@ -1,0 +1,102 @@
+<?php
+
+/**
+ * Playground
+ */
+
+declare(strict_types=1);
+
+namespace Playground\Make\Recipe;
+
+use Illuminate\Console\GeneratorCommand;
+use Illuminate\Foundation\Console\AboutCommand;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider;
+
+/**
+ * \Playground\Make\Recipe\ServiceProvider
+ */
+class ServiceProvider extends AuthServiceProvider
+{
+    public const string VERSION = '74.0.0';
+
+    public string $package = 'playground-make-recipe';
+
+    /**
+     * Bootstrap any package services.
+     * Register any authentication / authorization services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        /**
+         * @var array<string, mixed> $config
+         */
+        $config = config($this->package);
+
+        if (! empty($config['load']) && is_array($config['load'])) {
+
+            if (! empty($config['load']['commands'])) {
+                $this->boot_commands();
+            }
+
+            if (! empty($config['load']['translations'])) {
+                $this->loadTranslationsFrom(
+                    dirname(__DIR__).'/lang',
+                    $this->package
+                );
+            }
+
+            if ($this->app->runningInConsole()) {
+                // Publish configuration
+                $this->publishes([
+                    sprintf('%1$s/config/%2$s.php', dirname(__DIR__), $this->package) => config_path(sprintf('%1$s.php', $this->package)),
+                ], 'playground-config');
+            }
+        }
+
+        if (! empty($config['about'])) {
+            $this->about();
+        }
+    }
+
+    /**
+     * @return array<int, class-string<GeneratorCommand>>
+     */
+    public function boot_commands(): array
+    {
+        $commands = [];
+
+        $commands[] = Console\Commands\RecipeMakeCommand::class;
+
+        $this->commands($commands);
+
+        return $commands;
+    }
+
+    /**
+     * Register any application services.
+     */
+    public function register(): void
+    {
+        $this->mergeConfigFrom(
+            dirname(__DIR__).'/config/playground-make-recipe.php',
+            'playground-make-recipe'
+        );
+    }
+
+    public function about(): void
+    {
+        $config = config($this->package);
+        $config = is_array($config) ? $config : [];
+
+        $load = ! empty($config['load']) && is_array($config['load']) ? $config['load'] : [];
+
+        AboutCommand::add('Playground: Make Recipe', fn () => [
+            '<fg=yellow;options=bold>Load</> Commands' => ! empty($load['commands']) ? '<fg=green;options=bold>ENABLED</>' : '<fg=yellow;options=bold>DISABLED</>',
+            '<fg=yellow;options=bold>Load</> Translations' => ! empty($load['translations']) ? '<fg=green;options=bold>ENABLED</>' : '<fg=yellow;options=bold>DISABLED</>',
+            'Package' => $this->package,
+            'Version' => ServiceProvider::VERSION,
+        ]);
+    }
+}
