@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<crap_result>
+  <project/>
+  <timestamp>2025-10-04 19:55:07</timestamp>
+  <stats>
+    <name>Method Crap Stats</name>
+    <methodCount>13</methodCount>
+    <crapMethodCount>0</crapMethodCount>
+    <crapLoad>0</crapLoad>
+    <totalCrap>79</totalCrap>
+    <crapMethodPercent>0</crapMethodPercent>
+  </stats>
+  <methods>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Recipe</className>
+      <methodName>setOptions</methodName>
+      <methodSignature>setOptions(array $options): self</methodSignature>
+      <fullMethod>setOptions(array $options): self</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Recipe</className>
+      <methodName>addModels</methodName>
+      <methodSignature>addModels(array $options): self</methodSignature>
+      <fullMethod>addModels(array $options): self</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Recipe</className>
+      <methodName>description</methodName>
+      <methodSignature>description(): string</methodSignature>
+      <fullMethod>description(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Recipe</className>
+      <methodName>models</methodName>
+      <methodSignature>models(): array</methodSignature>
+      <fullMethod>models(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Console\Commands</package>
+      <className>Playground\Make\Recipe\Console\Commands\RecipeMakeCommand</className>
+      <methodName>prepareOptions</methodName>
+      <methodSignature>prepareOptions(): void</methodSignature>
+      <fullMethod>prepareOptions(): void</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Console\Commands</package>
+      <className>Playground\Make\Recipe\Console\Commands\RecipeMakeCommand</className>
+      <methodName>handle</methodName>
+      <methodSignature>handle()</methodSignature>
+      <fullMethod>handle()</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Console\Commands</package>
+      <className>Playground\Make\Recipe\Console\Commands\RecipeMakeCommand</className>
+      <methodName>getStub</methodName>
+      <methodSignature>getStub(): string</methodSignature>
+      <fullMethod>getStub(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Console\Commands</package>
+      <className>Playground\Make\Recipe\Console\Commands\RecipeMakeCommand</className>
+      <methodName>getOptions</methodName>
+      <methodSignature>getOptions(): array</methodSignature>
+      <fullMethod>getOptions(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Console\Commands</package>
+      <className>Playground\Make\Recipe\Console\Commands\RecipeMakeCommand</className>
+      <methodName>getConfigurationFilename</methodName>
+      <methodSignature>getConfigurationFilename(): string</methodSignature>
+      <fullMethod>getConfigurationFilename(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe</package>
+      <className>Playground\Make\Recipe\ServiceProvider</className>
+      <methodName>boot</methodName>
+      <methodSignature>boot()</methodSignature>
+      <fullMethod>boot()</fullMethod>
+      <crap>7</crap>
+      <complexity>7</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe</package>
+      <className>Playground\Make\Recipe\ServiceProvider</className>
+      <methodName>boot_commands</methodName>
+      <methodSignature>boot_commands(): array</methodSignature>
+      <fullMethod>boot_commands(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe</package>
+      <className>Playground\Make\Recipe\ServiceProvider</className>
+      <methodName>register</methodName>
+      <methodSignature>register(): void</methodSignature>
+      <fullMethod>register(): void</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe</package>
+      <className>Playground\Make\Recipe\ServiceProvider</className>
+      <methodName>about</methodName>
+      <methodSignature>about(): void</methodSignature>
+      <fullMethod>about(): void</fullMethod>
+      <crap>6</crap>
+      <complexity>6</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+  </methods>
+</crap_result>
