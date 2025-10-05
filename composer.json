@@ -24,6 +24,7 @@
     ],
     "require": {
         "php": "^8.4",
+        "gammamatrix/playground-blade": "*",
         "gammamatrix/playground-make": "*"
     },
     "require-dev": {
