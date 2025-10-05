@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-10-04 19:55:07</timestamp>
+  <timestamp>2025-10-05 18:18:16</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>13</methodCount>
+    <methodCount>16</methodCount>
     <crapMethodCount>0</crapMethodCount>
     <crapLoad>0</crapLoad>
-    <totalCrap>79</totalCrap>
+    <totalCrap>108</totalCrap>
     <crapMethodPercent>0</crapMethodPercent>
   </stats>
   <methods>
@@ -111,13 +111,35 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\Controller</className>
+      <methodName>packageInfo</methodName>
+      <methodSignature>packageInfo(): PackageInfo</methodSignature>
+      <fullMethod>packageInfo(): PackageInfo</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\IndexController</className>
+      <methodName>index</methodName>
+      <methodSignature>index(): View</methodSignature>
+      <fullMethod>index(): View</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
       <package>Playground\Make\Recipe</package>
       <className>Playground\Make\Recipe\ServiceProvider</className>
       <methodName>boot</methodName>
-      <methodSignature>boot()</methodSignature>
-      <fullMethod>boot()</fullMethod>
-      <crap>7</crap>
-      <complexity>7</complexity>
+      <methodSignature>boot(): void</methodSignature>
+      <fullMethod>boot(): void</fullMethod>
+      <crap>11</crap>
+      <complexity>11</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -146,11 +168,22 @@
     <method>
       <package>Playground\Make\Recipe</package>
       <className>Playground\Make\Recipe\ServiceProvider</className>
+      <methodName>routes</methodName>
+      <methodSignature>routes(array $config): void</methodSignature>
+      <fullMethod>routes(array $config): void</fullMethod>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe</package>
+      <className>Playground\Make\Recipe\ServiceProvider</className>
       <methodName>about</methodName>
       <methodSignature>about(): void</methodSignature>
       <fullMethod>about(): void</fullMethod>
-      <crap>6</crap>
-      <complexity>6</complexity>
+      <crap>25</crap>
+      <complexity>25</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
