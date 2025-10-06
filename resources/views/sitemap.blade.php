@@ -9,11 +9,9 @@ $viewForm = true;
 //    "roles" => ["admin", "manager", "publisher"],
 //])->allowed();
 
-if (
-    ! $viewForm
-) {
-    return;
-}
+//if (! $viewForm) {
+//    return;
+//}
 ?>
 
 <div class="card my-1">
@@ -25,9 +23,7 @@ if (
                 <div class="card">
                     <div class="card-header">
                         Recipes
-                        <small class="text-muted">
-                            recipe management
-                        </small>
+                        <small class="text-muted">recipe management</small>
                     </div>
                     <ul class="list-group list-group-flush">
                         @if ($viewForm)

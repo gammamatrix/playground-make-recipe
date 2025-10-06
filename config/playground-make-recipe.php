@@ -22,6 +22,9 @@ declare(strict_types=1);
  *            auth: string|string[],
  *            guest: string|string[]
  *        },
+ *        redis: array{
+ *            connection: string
+ *        },
  *        routes: array{
  *            form: bool,
  *        },
@@ -78,6 +81,18 @@ return [
         'default' => env('PLAYGROUND_MAKE_RECIPE_MIDDLEWARE_DEFAULT', ['web']),
         'auth' => env('PLAYGROUND_MAKE_RECIPE_MIDDLEWARE_AUTH', ['web', 'auth']),
         'guest' => env('PLAYGROUND_MAKE_RECIPE_MIDDLEWARE_GUEST', ['web']),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Redis
+    |--------------------------------------------------------------------------
+    |
+    |
+    */
+
+    'redis' => [
+        'connection' => env('PLAYGROUND_MAKE_RECIPE_REDIS_CONNECTION', 'default'),
     ],
 
     /*

@@ -17,6 +17,8 @@ class Recipe extends PrimaryConfiguration
 {
     protected string $description = '';
 
+    protected string $title = '';
+
     /**
      * @var array<string, string>
      */
@@ -26,30 +28,13 @@ class Recipe extends PrimaryConfiguration
      * @var array<string, mixed>
      */
     protected $properties = [
-        // 'class' => '',
-        // 'config' => '',
-        // 'fqdn' => '',
-        // 'model' => '',
-        // 'model_fqdn' => '',
-        // 'model_column' => '',
-        // 'model_label' => '',
-        // 'model_slug_plural' => '',
-        'module' => '',
-        'module_slug' => '',
-        'name' => '',
+        'class' => '',
+        'slug' => '',
         'description' => '',
-        'namespace' => '',
-        'organization' => '',
-        'package' => '',
-        // properties
+        'title' => '',
+        'name' => '',
         'models' => [],
-        // 'folder' => '',
         'type' => '',
-        // 'model_file' => '',
-        // 'model_revision_file' => '',
-        'model_package' => '',
-        'controller_package' => '',
-        // collection
     ];
 
     /**

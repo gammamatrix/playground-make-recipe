@@ -42,6 +42,9 @@ class ServiceProvider extends AuthServiceProvider
          *             auth: string|string[],
          *             guest: string|string[]
          *         },
+         *         redis: array{
+         *             connection: string
+         *         },
          *         routes: array{
          *             form: bool,
          *         },

@@ -28,7 +28,8 @@
         "gammamatrix/playground-make": "*"
     },
     "require-dev": {
-        "gammamatrix/playground-test": "*"
+        "gammamatrix/playground-test": "*",
+        "tomasvotruba/bladestan": "^0.11.3"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -63,6 +64,7 @@
     "scripts": {
         "analyse": "vendor/bin/phpstan analyse --verbose --debug --level max",
         "format": "vendor/bin/pint",
+        "format-blade": "npx prettier --write \"resources/views/**/*.blade.php\"",
         "test": "vendor/bin/testbench package:test",
         "test-dev": "vendor/bin/phpunit -c phpunit-dev.xml"
     }

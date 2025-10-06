@@ -1,4 +1,4 @@
-@extends("playground::layouts.resource.layout")
+@extends("playground::layouts.site")
 
 @section("title", "MAKE")
 
@@ -37,14 +37,47 @@
                                         <p class="card-text"></p>
                                         <a
                                             class="card-link"
-                                            href="{{ route("playground.make.recipe") }}"
+                                            href="{{ route("playground.make.recipe.form") }}"
                                         >
-                                            View Recipe
+                                            Recipe Form
                                         </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card my-1">
+                    <div class="card-header">
+                        <h1>Recipes</h1>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-responsive">
+                            <thead>
+                                <tr>
+                                    <th>Recipe</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($recipes as $recipe)
+                                    
+                                @endforeach
+
+                                <tr>
+                                    <td>
+                                        <a
+                                            href="{{ route("playground.make.recipe.form", ["slug" => $recipe]) }}"
+                                        >
+                                            {{ $recipe }}
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

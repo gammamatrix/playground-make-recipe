@@ -24,7 +24,11 @@ Route::group([
 
     Route::get('/', [
         'as' => 'playground.make.recipe',
-        'uses' => 'IndexController@index',
+        'uses' => 'FormController@index',
     ]);
 
+    Route::get('/form/{slug?}', [
+        'as' => 'playground.make.recipe.form',
+        'uses' => 'FormController@form',
+    ]);
 });
