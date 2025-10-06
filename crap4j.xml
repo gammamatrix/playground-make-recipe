@@ -1,16 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-10-05 18:18:16</timestamp>
+  <timestamp>2025-10-06 00:09:01</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>16</methodCount>
+    <methodCount>27</methodCount>
     <crapMethodCount>0</crapMethodCount>
     <crapLoad>0</crapLoad>
-    <totalCrap>108</totalCrap>
+    <totalCrap>192</totalCrap>
     <crapMethodPercent>0</crapMethodPercent>
   </stats>
   <methods>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Model</className>
+      <methodName>setOptions</methodName>
+      <methodSignature>setOptions(array $options): self</methodSignature>
+      <fullMethod>setOptions(array $options): self</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Model</className>
+      <methodName>description</methodName>
+      <methodSignature>description(): string</methodSignature>
+      <fullMethod>description(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
     <method>
       <package>Playground\Make\Recipe\Configuration</package>
       <className>Playground\Make\Recipe\Configuration\Recipe</className>
@@ -123,10 +145,109 @@
     </method>
     <method>
       <package>Playground\Make\Recipe\Http\Controllers</package>
-      <className>Playground\Make\Recipe\Http\Controllers\IndexController</className>
+      <className>Playground\Make\Recipe\Http\Controllers\FormController</className>
       <methodName>index</methodName>
-      <methodSignature>index(): View</methodSignature>
-      <fullMethod>index(): View</fullMethod>
+      <methodSignature>index(Manager $manager): View</methodSignature>
+      <fullMethod>index(Manager $manager): View</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\FormController</className>
+      <methodName>form</methodName>
+      <methodSignature>form(Manager $manager, ?string $slug): View</methodSignature>
+      <fullMethod>form(Manager $manager, ?string $slug): View</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\FormController</className>
+      <methodName>save</methodName>
+      <methodSignature>save(Manager $manager, ?string $slug): View</methodSignature>
+      <fullMethod>save(Manager $manager, ?string $slug): View</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Requests</package>
+      <className>Playground\Make\Recipe\Http\Requests\FormRequest</className>
+      <methodName>authorize</methodName>
+      <methodSignature>authorize(): bool</methodSignature>
+      <fullMethod>authorize(): bool</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Requests</package>
+      <className>Playground\Make\Recipe\Http\Requests\FormRequest</className>
+      <methodName>rules</methodName>
+      <methodSignature>rules(): array</methodSignature>
+      <fullMethod>rules(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Requests</package>
+      <className>Playground\Make\Recipe\Http\Requests\SaveRecipeRequest</className>
+      <methodName>authorize</methodName>
+      <methodSignature>authorize(): bool</methodSignature>
+      <fullMethod>authorize(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe</package>
+      <className>Playground\Make\Recipe\Manager</className>
+      <methodName>redis</methodName>
+      <methodSignature>redis(): Connection</methodSignature>
+      <fullMethod>redis(): Connection</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe</package>
+      <className>Playground\Make\Recipe\Manager</className>
+      <methodName>get</methodName>
+      <methodSignature>get(string $slug): ?Recipe</methodSignature>
+      <fullMethod>get(string $slug): ?Recipe</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe</package>
+      <className>Playground\Make\Recipe\Manager</className>
+      <methodName>index</methodName>
+      <methodSignature>index(): array</methodSignature>
+      <fullMethod>index(): array</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe</package>
+      <className>Playground\Make\Recipe\Manager</className>
+      <methodName>save</methodName>
+      <methodSignature>save(string $slug, Recipe $recipe): Manager</methodSignature>
+      <fullMethod>save(string $slug, Recipe $recipe): Manager</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
