@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-10-06 00:09:01</timestamp>
+  <timestamp>2025-10-10 18:03:32</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>27</methodCount>
-    <crapMethodCount>0</crapMethodCount>
-    <crapLoad>0</crapLoad>
-    <totalCrap>192</totalCrap>
-    <crapMethodPercent>0</crapMethodPercent>
+    <methodCount>38</methodCount>
+    <crapMethodCount>1</crapMethodCount>
+    <crapLoad>7</crapLoad>
+    <totalCrap>290</totalCrap>
+    <crapMethodPercent>2.63</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -39,10 +39,10 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>12</crap>
-      <complexity>3</complexity>
+      <crap>56</crap>
+      <complexity>7</complexity>
       <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
+      <crapLoad>7</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Configuration</package>
@@ -61,6 +61,28 @@
       <methodName>description</methodName>
       <methodSignature>description(): string</methodSignature>
       <fullMethod>description(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Recipe</className>
+      <methodName>slug</methodName>
+      <methodSignature>slug(): string</methodSignature>
+      <fullMethod>slug(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Recipe</className>
+      <methodName>title</methodName>
+      <methodSignature>title(): string</methodSignature>
+      <fullMethod>title(): string</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
@@ -145,10 +167,10 @@
     </method>
     <method>
       <package>Playground\Make\Recipe\Http\Controllers</package>
-      <className>Playground\Make\Recipe\Http\Controllers\FormController</className>
-      <methodName>index</methodName>
-      <methodSignature>index(Manager $manager): View</methodSignature>
-      <fullMethod>index(Manager $manager): View</fullMethod>
+      <className>Playground\Make\Recipe\Http\Controllers\ModelController</className>
+      <methodName>delete</methodName>
+      <methodSignature>delete(Manager $manager, string $slug): RedirectResponse</methodSignature>
+      <fullMethod>delete(Manager $manager, string $slug): RedirectResponse</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
@@ -156,7 +178,7 @@
     </method>
     <method>
       <package>Playground\Make\Recipe\Http\Controllers</package>
-      <className>Playground\Make\Recipe\Http\Controllers\FormController</className>
+      <className>Playground\Make\Recipe\Http\Controllers\ModelController</className>
       <methodName>form</methodName>
       <methodSignature>form(Manager $manager, ?string $slug): View</methodSignature>
       <fullMethod>form(Manager $manager, ?string $slug): View</fullMethod>
@@ -167,7 +189,18 @@
     </method>
     <method>
       <package>Playground\Make\Recipe\Http\Controllers</package>
-      <className>Playground\Make\Recipe\Http\Controllers\FormController</className>
+      <className>Playground\Make\Recipe\Http\Controllers\ModelController</className>
+      <methodName>index</methodName>
+      <methodSignature>index(Manager $manager): View</methodSignature>
+      <fullMethod>index(Manager $manager): View</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\ModelController</className>
       <methodName>save</methodName>
       <methodSignature>save(Manager $manager, ?string $slug): View</methodSignature>
       <fullMethod>save(Manager $manager, ?string $slug): View</fullMethod>
@@ -177,13 +210,79 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\ModelController</className>
+      <methodName>addModel</methodName>
+      <methodSignature>addModel(Manager $manager, Requests\AddModelRequest $request): RedirectResponse</methodSignature>
+      <fullMethod>addModel(Manager $manager, Requests\AddModelRequest $request): RedirectResponse</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\ModelController</className>
+      <methodName>deleteModel</methodName>
+      <methodSignature>deleteModel(Manager $manager, Requests\DeleteModelRequest $request): RedirectResponse</methodSignature>
+      <fullMethod>deleteModel(Manager $manager, Requests\DeleteModelRequest $request): RedirectResponse</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\RecipeController</className>
+      <methodName>delete</methodName>
+      <methodSignature>delete(Manager $manager, string $slug): RedirectResponse</methodSignature>
+      <fullMethod>delete(Manager $manager, string $slug): RedirectResponse</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\RecipeController</className>
+      <methodName>form</methodName>
+      <methodSignature>form(FormRecipeRequest $request, Manager $manager, ?string $slug): View</methodSignature>
+      <fullMethod>form(FormRecipeRequest $request, Manager $manager, ?string $slug): View</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\RecipeController</className>
+      <methodName>index</methodName>
+      <methodSignature>index(Manager $manager): View</methodSignature>
+      <fullMethod>index(Manager $manager): View</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\RecipeController</className>
+      <methodName>save</methodName>
+      <methodSignature>save(SaveRecipeRequest $request, Manager $manager, ?string $slug): RedirectResponse</methodSignature>
+      <fullMethod>save(SaveRecipeRequest $request, Manager $manager, ?string $slug): RedirectResponse</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
       <package>Playground\Make\Recipe\Http\Requests</package>
       <className>Playground\Make\Recipe\Http\Requests\FormRequest</className>
       <methodName>authorize</methodName>
       <methodSignature>authorize(): bool</methodSignature>
       <fullMethod>authorize(): bool</fullMethod>
-      <crap>6</crap>
-      <complexity>2</complexity>
+      <crap>2</crap>
+      <complexity>1</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -199,11 +298,11 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
-      <package>Playground\Make\Recipe\Http\Requests</package>
-      <className>Playground\Make\Recipe\Http\Requests\SaveRecipeRequest</className>
-      <methodName>authorize</methodName>
-      <methodSignature>authorize(): bool</methodSignature>
-      <fullMethod>authorize(): bool</fullMethod>
+      <package>Playground\Make\Recipe</package>
+      <className>Playground\Make\Recipe\Manager</className>
+      <methodName>slug</methodName>
+      <methodSignature>slug(): ?string</methodSignature>
+      <fullMethod>slug(): ?string</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
@@ -217,6 +316,17 @@
       <fullMethod>redis(): Connection</fullMethod>
       <crap>20</crap>
       <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe</package>
+      <className>Playground\Make\Recipe\Manager</className>
+      <methodName>delete</methodName>
+      <methodSignature>delete(string $slug): Manager</methodSignature>
+      <fullMethod>delete(string $slug): Manager</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -245,9 +355,20 @@
     <method>
       <package>Playground\Make\Recipe</package>
       <className>Playground\Make\Recipe\Manager</className>
+      <methodName>addModel</methodName>
+      <methodSignature>addModel(array $attributes): Manager</methodSignature>
+      <fullMethod>addModel(array $attributes): Manager</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe</package>
+      <className>Playground\Make\Recipe\Manager</className>
       <methodName>save</methodName>
-      <methodSignature>save(string $slug, Recipe $recipe): Manager</methodSignature>
-      <fullMethod>save(string $slug, Recipe $recipe): Manager</fullMethod>
+      <methodSignature>save(Recipe $recipe): Manager</methodSignature>
+      <fullMethod>save(Recipe $recipe): Manager</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>

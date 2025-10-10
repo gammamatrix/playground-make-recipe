@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.41666666666667" branch-rate="0" lines-covered="60" lines-valid="144" branches-covered="0" branches-valid="0" complexity="82" version="0.4" timestamp="1759709341">
+<coverage line-rate="0.2970297029703" branch-rate="0" lines-covered="60" lines-valid="202" branches-covered="0" branches-valid="0" complexity="102" version="0.4" timestamp="1760119412">
   <sources>
     <source>/app/src</source>
   </sources>
@@ -35,54 +35,78 @@
         </class>
       </classes>
     </package>
-    <package name="Configuration/Recipe.php" line-rate="0" branch-rate="0" complexity="9">
+    <package name="Configuration/Recipe.php" line-rate="0" branch-rate="0" complexity="15">
       <classes>
-        <class name="Playground\Make\Recipe\Configuration\Recipe" filename="Configuration/Recipe.php" line-rate="0" branch-rate="0" complexity="9">
+        <class name="Playground\Make\Recipe\Configuration\Recipe" filename="Configuration/Recipe.php" line-rate="0" branch-rate="0" complexity="15">
           <methods>
-            <method name="setOptions" signature="array $options" line-rate="0" branch-rate="0" complexity="3">
+            <method name="setOptions" signature="array $options" line-rate="0" branch-rate="0" complexity="7">
               <lines>
-                <line number="45" hits="0"/>
                 <line number="47" hits="0"/>
-                <line number="48" hits="0"/>
+                <line number="49" hits="0"/>
                 <line number="50" hits="0"/>
-                <line number="53" hits="0"/>
+                <line number="52" hits="0"/>
                 <line number="55" hits="0"/>
+                <line number="56" hits="0"/>
+                <line number="58" hits="0"/>
+                <line number="61" hits="0"/>
+                <line number="62" hits="0"/>
+                <line number="64" hits="0"/>
+                <line number="67" hits="0"/>
+                <line number="69" hits="0"/>
               </lines>
             </method>
             <method name="addModels" signature="array $options" line-rate="0" branch-rate="0" complexity="4">
               <lines>
-                <line number="63" hits="0"/>
-                <line number="64" hits="0"/>
-                <line number="66" hits="0"/>
-                <line number="67" hits="0"/>
-                <line number="71" hits="0"/>
+                <line number="77" hits="0"/>
+                <line number="78" hits="0"/>
+                <line number="80" hits="0"/>
+                <line number="81" hits="0"/>
+                <line number="85" hits="0"/>
               </lines>
             </method>
             <method name="description" signature="" line-rate="0" branch-rate="0" complexity="1">
               <lines>
-                <line number="76" hits="0"/>
+                <line number="90" hits="0"/>
+              </lines>
+            </method>
+            <method name="slug" signature="" line-rate="0" branch-rate="0" complexity="1">
+              <lines>
+                <line number="95" hits="0"/>
+              </lines>
+            </method>
+            <method name="title" signature="" line-rate="0" branch-rate="0" complexity="1">
+              <lines>
+                <line number="100" hits="0"/>
               </lines>
             </method>
             <method name="models" signature="" line-rate="0" branch-rate="0" complexity="1">
               <lines>
-                <line number="84" hits="0"/>
+                <line number="108" hits="0"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="45" hits="0"/>
             <line number="47" hits="0"/>
-            <line number="48" hits="0"/>
+            <line number="49" hits="0"/>
             <line number="50" hits="0"/>
-            <line number="53" hits="0"/>
+            <line number="52" hits="0"/>
             <line number="55" hits="0"/>
-            <line number="63" hits="0"/>
+            <line number="56" hits="0"/>
+            <line number="58" hits="0"/>
+            <line number="61" hits="0"/>
+            <line number="62" hits="0"/>
             <line number="64" hits="0"/>
-            <line number="66" hits="0"/>
             <line number="67" hits="0"/>
-            <line number="71" hits="0"/>
-            <line number="76" hits="0"/>
-            <line number="84" hits="0"/>
+            <line number="69" hits="0"/>
+            <line number="77" hits="0"/>
+            <line number="78" hits="0"/>
+            <line number="80" hits="0"/>
+            <line number="81" hits="0"/>
+            <line number="85" hits="0"/>
+            <line number="90" hits="0"/>
+            <line number="95" hits="0"/>
+            <line number="100" hits="0"/>
+            <line number="108" hits="0"/>
           </lines>
         </class>
       </classes>
@@ -169,174 +193,342 @@
         </class>
       </classes>
     </package>
-    <package name="Http/Controllers/FormController.php" line-rate="0" branch-rate="0" complexity="5">
+    <package name="Http/Controllers/ModelController.php" line-rate="0" branch-rate="0" complexity="8">
       <classes>
-        <class name="Playground\Make\Recipe\Http\Controllers\FormController" filename="Http/Controllers/FormController.php" line-rate="0" branch-rate="0" complexity="5">
+        <class name="Playground\Make\Recipe\Http\Controllers\ModelController" filename="Http/Controllers/ModelController.php" line-rate="0" branch-rate="0" complexity="8">
           <methods>
-            <method name="index" signature="Manager $manager" line-rate="0" branch-rate="0" complexity="1">
+            <method name="delete" signature="Manager $manager, string $slug" line-rate="0" branch-rate="0" complexity="1">
               <lines>
-                <line number="36" hits="0"/>
+                <line number="39" hits="0"/>
                 <line number="41" hits="0"/>
-                <line number="43" hits="0"/>
-                <line number="44" hits="0"/>
-                <line number="45" hits="0"/>
-                <line number="46" hits="0"/>
               </lines>
             </method>
             <method name="form" signature="Manager $manager, ?string $slug" line-rate="0" branch-rate="0" complexity="2">
               <lines>
+                <line number="49" hits="0"/>
                 <line number="54" hits="0"/>
+                <line number="56" hits="0"/>
+                <line number="57" hits="0"/>
+                <line number="58" hits="0"/>
                 <line number="59" hits="0"/>
-                <line number="61" hits="0"/>
-                <line number="62" hits="0"/>
-                <line number="63" hits="0"/>
-                <line number="64" hits="0"/>
-                <line number="65" hits="0"/>
+                <line number="60" hits="0"/>
+              </lines>
+            </method>
+            <method name="index" signature="Manager $manager" line-rate="0" branch-rate="0" complexity="1">
+              <lines>
+                <line number="68" hits="0"/>
+                <line number="73" hits="0"/>
+                <line number="75" hits="0"/>
+                <line number="76" hits="0"/>
+                <line number="77" hits="0"/>
+                <line number="78" hits="0"/>
               </lines>
             </method>
             <method name="save" signature="Manager $manager, ?string $slug" line-rate="0" branch-rate="0" complexity="2">
               <lines>
-                <line number="73" hits="0"/>
-                <line number="78" hits="0"/>
-                <line number="80" hits="0"/>
-                <line number="81" hits="0"/>
-                <line number="82" hits="0"/>
-                <line number="83" hits="0"/>
-                <line number="84" hits="0"/>
+                <line number="86" hits="0"/>
+                <line number="91" hits="0"/>
+                <line number="93" hits="0"/>
+                <line number="94" hits="0"/>
+                <line number="95" hits="0"/>
+                <line number="96" hits="0"/>
+                <line number="97" hits="0"/>
+              </lines>
+            </method>
+            <method name="addModel" signature="Manager $manager, Requests\AddModelRequest $request" line-rate="0" branch-rate="0" complexity="1">
+              <lines>
+                <line number="105" hits="0"/>
+                <line number="107" hits="0"/>
+                <line number="108" hits="0"/>
+                <line number="109" hits="0"/>
+              </lines>
+            </method>
+            <method name="deleteModel" signature="Manager $manager, Requests\DeleteModelRequest $request" line-rate="0" branch-rate="0" complexity="1">
+              <lines>
+                <line number="117" hits="0"/>
+                <line number="119" hits="0"/>
+                <line number="120" hits="0"/>
+                <line number="121" hits="0"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="36" hits="0"/>
+            <line number="39" hits="0"/>
             <line number="41" hits="0"/>
-            <line number="43" hits="0"/>
-            <line number="44" hits="0"/>
-            <line number="45" hits="0"/>
-            <line number="46" hits="0"/>
+            <line number="49" hits="0"/>
             <line number="54" hits="0"/>
+            <line number="56" hits="0"/>
+            <line number="57" hits="0"/>
+            <line number="58" hits="0"/>
             <line number="59" hits="0"/>
-            <line number="61" hits="0"/>
-            <line number="62" hits="0"/>
-            <line number="63" hits="0"/>
-            <line number="64" hits="0"/>
-            <line number="65" hits="0"/>
+            <line number="60" hits="0"/>
+            <line number="68" hits="0"/>
             <line number="73" hits="0"/>
+            <line number="75" hits="0"/>
+            <line number="76" hits="0"/>
+            <line number="77" hits="0"/>
             <line number="78" hits="0"/>
-            <line number="80" hits="0"/>
-            <line number="81" hits="0"/>
-            <line number="82" hits="0"/>
-            <line number="83" hits="0"/>
-            <line number="84" hits="0"/>
+            <line number="86" hits="0"/>
+            <line number="91" hits="0"/>
+            <line number="93" hits="0"/>
+            <line number="94" hits="0"/>
+            <line number="95" hits="0"/>
+            <line number="96" hits="0"/>
+            <line number="97" hits="0"/>
+            <line number="105" hits="0"/>
+            <line number="107" hits="0"/>
+            <line number="108" hits="0"/>
+            <line number="109" hits="0"/>
+            <line number="117" hits="0"/>
+            <line number="119" hits="0"/>
+            <line number="120" hits="0"/>
+            <line number="121" hits="0"/>
           </lines>
         </class>
       </classes>
     </package>
-    <package name="Http/Requests/FormRequest.php" line-rate="0" branch-rate="0" complexity="3">
+    <package name="Http/Controllers/RecipeController.php" line-rate="0" branch-rate="0" complexity="10">
       <classes>
-        <class name="Playground\Make\Recipe\Http\Requests\FormRequest" filename="Http/Requests/FormRequest.php" line-rate="0" branch-rate="0" complexity="3">
+        <class name="Playground\Make\Recipe\Http\Controllers\RecipeController" filename="Http/Controllers/RecipeController.php" line-rate="0" branch-rate="0" complexity="10">
           <methods>
-            <method name="authorize" signature="" line-rate="0" branch-rate="0" complexity="2">
+            <method name="delete" signature="Manager $manager, string $slug" line-rate="0" branch-rate="0" complexity="1">
               <lines>
-                <line number="29" hits="0"/>
-                <line number="31" hits="0"/>
-                <line number="32" hits="0"/>
-                <line number="35" hits="0"/>
-              </lines>
-            </method>
-            <method name="rules" signature="" line-rate="0" branch-rate="0" complexity="1">
-              <lines>
-                <line number="45" hits="0"/>
-              </lines>
-            </method>
-          </methods>
-          <lines>
-            <line number="29" hits="0"/>
-            <line number="31" hits="0"/>
-            <line number="32" hits="0"/>
-            <line number="35" hits="0"/>
-            <line number="45" hits="0"/>
-          </lines>
-        </class>
-      </classes>
-    </package>
-    <package name="Http/Requests/SaveRecipeRequest.php" line-rate="0" branch-rate="0" complexity="1">
-      <classes>
-        <class name="Playground\Make\Recipe\Http\Requests\SaveRecipeRequest" filename="Http/Requests/SaveRecipeRequest.php" line-rate="0" branch-rate="0" complexity="1">
-          <methods>
-            <method name="authorize" signature="" line-rate="0" branch-rate="0" complexity="1">
-              <lines>
-                <line number="29" hits="0"/>
-              </lines>
-            </method>
-          </methods>
-          <lines>
-            <line number="29" hits="0"/>
-          </lines>
-        </class>
-      </classes>
-    </package>
-    <package name="Manager.php" line-rate="0" branch-rate="0" complexity="11">
-      <classes>
-        <class name="Playground\Make\Recipe\Manager" filename="Manager.php" line-rate="0" branch-rate="0" complexity="11">
-          <methods>
-            <method name="redis" signature="" line-rate="0" branch-rate="0" complexity="4">
-              <lines>
-                <line number="29" hits="0"/>
-                <line number="30" hits="0"/>
-                <line number="31" hits="0"/>
-                <line number="32" hits="0"/>
-                <line number="33" hits="0"/>
-                <line number="36" hits="0"/>
-              </lines>
-            </method>
-            <method name="get" signature="string $slug" line-rate="0" branch-rate="0" complexity="4">
-              <lines>
-                <line number="41" hits="0"/>
+                <line number="40" hits="0"/>
                 <line number="42" hits="0"/>
-                <line number="44" hits="0"/>
-                <line number="45" hits="0"/>
-                <line number="48" hits="0"/>
               </lines>
             </method>
-            <method name="index" signature="" line-rate="0" branch-rate="0" complexity="2">
+            <method name="form" signature="FormRecipeRequest $request, Manager $manager, ?string $slug" line-rate="0" branch-rate="0" complexity="4">
               <lines>
+                <line number="50" hits="0"/>
+                <line number="52" hits="0"/>
+                <line number="54" hits="0"/>
                 <line number="56" hits="0"/>
                 <line number="58" hits="0"/>
                 <line number="59" hits="0"/>
                 <line number="62" hits="0"/>
+                <line number="64" hits="0"/>
+                <line number="70" hits="0"/>
+                <line number="72" hits="0"/>
+                <line number="73" hits="0"/>
+                <line number="74" hits="0"/>
+                <line number="75" hits="0"/>
+                <line number="76" hits="0"/>
+                <line number="81" hits="0"/>
+                <line number="83" hits="0"/>
               </lines>
             </method>
-            <method name="save" signature="string $slug, Recipe $recipe" line-rate="0" branch-rate="0" complexity="1">
+            <method name="index" signature="Manager $manager" line-rate="0" branch-rate="0" complexity="1">
               <lines>
-                <line number="68" hits="0"/>
-                <line number="69" hits="0"/>
-                <line number="70" hits="0"/>
-                <line number="71" hits="0"/>
-                <line number="73" hits="0"/>
+                <line number="91" hits="0"/>
+                <line number="96" hits="0"/>
+                <line number="98" hits="0"/>
+                <line number="99" hits="0"/>
+                <line number="100" hits="0"/>
+                <line number="101" hits="0"/>
+              </lines>
+            </method>
+            <method name="save" signature="SaveRecipeRequest $request, Manager $manager, ?string $slug" line-rate="0" branch-rate="0" complexity="4">
+              <lines>
+                <line number="115" hits="0"/>
+                <line number="117" hits="0"/>
+                <line number="118" hits="0"/>
+                <line number="120" hits="0"/>
+                <line number="123" hits="0"/>
+                <line number="125" hits="0"/>
+                <line number="127" hits="0"/>
+                <line number="128" hits="0"/>
+                <line number="136" hits="0"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="29" hits="0"/>
-            <line number="30" hits="0"/>
-            <line number="31" hits="0"/>
-            <line number="32" hits="0"/>
-            <line number="33" hits="0"/>
-            <line number="36" hits="0"/>
-            <line number="41" hits="0"/>
+            <line number="40" hits="0"/>
             <line number="42" hits="0"/>
-            <line number="44" hits="0"/>
-            <line number="45" hits="0"/>
-            <line number="48" hits="0"/>
+            <line number="50" hits="0"/>
+            <line number="52" hits="0"/>
+            <line number="54" hits="0"/>
             <line number="56" hits="0"/>
             <line number="58" hits="0"/>
             <line number="59" hits="0"/>
             <line number="62" hits="0"/>
-            <line number="68" hits="0"/>
-            <line number="69" hits="0"/>
+            <line number="64" hits="0"/>
             <line number="70" hits="0"/>
-            <line number="71" hits="0"/>
+            <line number="72" hits="0"/>
             <line number="73" hits="0"/>
+            <line number="74" hits="0"/>
+            <line number="75" hits="0"/>
+            <line number="76" hits="0"/>
+            <line number="81" hits="0"/>
+            <line number="83" hits="0"/>
+            <line number="91" hits="0"/>
+            <line number="96" hits="0"/>
+            <line number="98" hits="0"/>
+            <line number="99" hits="0"/>
+            <line number="100" hits="0"/>
+            <line number="101" hits="0"/>
+            <line number="115" hits="0"/>
+            <line number="117" hits="0"/>
+            <line number="118" hits="0"/>
+            <line number="120" hits="0"/>
+            <line number="123" hits="0"/>
+            <line number="125" hits="0"/>
+            <line number="127" hits="0"/>
+            <line number="128" hits="0"/>
+            <line number="136" hits="0"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="Http/Requests/FormRequest.php" line-rate="0" branch-rate="0" complexity="2">
+      <classes>
+        <class name="Playground\Make\Recipe\Http\Requests\FormRequest" filename="Http/Requests/FormRequest.php" line-rate="0" branch-rate="0" complexity="2">
+          <methods>
+            <method name="authorize" signature="" line-rate="0" branch-rate="0" complexity="1">
+              <lines>
+                <line number="34" hits="0"/>
+              </lines>
+            </method>
+            <method name="rules" signature="" line-rate="0" branch-rate="0" complexity="1">
+              <lines>
+                <line number="44" hits="0"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="34" hits="0"/>
+            <line number="44" hits="0"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="Http/Requests/Model/AddModelRequest.php" line-rate="0" branch-rate="0" complexity="0">
+      <classes>
+        <class name="Playground\Make\Recipe\Http\Requests\AddModelRequest" filename="Http/Requests/Model/AddModelRequest.php" line-rate="0" branch-rate="0" complexity="0">
+          <methods/>
+          <lines/>
+        </class>
+      </classes>
+    </package>
+    <package name="Http/Requests/Model/DeleteModelRequest.php" line-rate="0" branch-rate="0" complexity="0">
+      <classes>
+        <class name="Playground\Make\Recipe\Http\Requests\DeleteModelRequest" filename="Http/Requests/Model/DeleteModelRequest.php" line-rate="0" branch-rate="0" complexity="0">
+          <methods/>
+          <lines/>
+        </class>
+      </classes>
+    </package>
+    <package name="Http/Requests/Recipe/FormRecipeRequest.php" line-rate="0" branch-rate="0" complexity="0">
+      <classes>
+        <class name="Playground\Make\Recipe\Http\Requests\Recipe\FormRecipeRequest" filename="Http/Requests/Recipe/FormRecipeRequest.php" line-rate="0" branch-rate="0" complexity="0">
+          <methods/>
+          <lines/>
+        </class>
+      </classes>
+    </package>
+    <package name="Http/Requests/Recipe/SaveRecipeRequest.php" line-rate="0" branch-rate="0" complexity="0">
+      <classes>
+        <class name="Playground\Make\Recipe\Http\Requests\Recipe\SaveRecipeRequest" filename="Http/Requests/Recipe/SaveRecipeRequest.php" line-rate="0" branch-rate="0" complexity="0">
+          <methods/>
+          <lines/>
+        </class>
+      </classes>
+    </package>
+    <package name="Manager.php" line-rate="0" branch-rate="0" complexity="14">
+      <classes>
+        <class name="Playground\Make\Recipe\Manager" filename="Manager.php" line-rate="0" branch-rate="0" complexity="14">
+          <methods>
+            <method name="slug" signature="" line-rate="0" branch-rate="0" complexity="1">
+              <lines>
+                <line number="31" hits="0"/>
+              </lines>
+            </method>
+            <method name="redis" signature="" line-rate="0" branch-rate="0" complexity="4">
+              <lines>
+                <line number="36" hits="0"/>
+                <line number="37" hits="0"/>
+                <line number="38" hits="0"/>
+                <line number="39" hits="0"/>
+                <line number="40" hits="0"/>
+                <line number="43" hits="0"/>
+              </lines>
+            </method>
+            <method name="delete" signature="string $slug" line-rate="0" branch-rate="0" complexity="1">
+              <lines>
+                <line number="48" hits="0"/>
+                <line number="50" hits="0"/>
+              </lines>
+            </method>
+            <method name="get" signature="string $slug" line-rate="0" branch-rate="0" complexity="4">
+              <lines>
+                <line number="55" hits="0"/>
+                <line number="56" hits="0"/>
+                <line number="58" hits="0"/>
+                <line number="59" hits="0"/>
+                <line number="62" hits="0"/>
+                <line number="63" hits="0"/>
+                <line number="64" hits="0"/>
+              </lines>
+            </method>
+            <method name="index" signature="" line-rate="0" branch-rate="0" complexity="2">
+              <lines>
+                <line number="72" hits="0"/>
+                <line number="74" hits="0"/>
+                <line number="75" hits="0"/>
+                <line number="78" hits="0"/>
+              </lines>
+            </method>
+            <method name="addModel" signature="array $attributes" line-rate="0" branch-rate="0" complexity="1">
+              <lines>
+                <line number="86" hits="0"/>
+                <line number="87" hits="0"/>
+                <line number="88" hits="0"/>
+                <line number="89" hits="0"/>
+                <line number="91" hits="0"/>
+              </lines>
+            </method>
+            <method name="save" signature="Recipe $recipe" line-rate="0" branch-rate="0" complexity="1">
+              <lines>
+                <line number="100" hits="0"/>
+                <line number="102" hits="0"/>
+                <line number="103" hits="0"/>
+                <line number="104" hits="0"/>
+                <line number="105" hits="0"/>
+                <line number="107" hits="0"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="31" hits="0"/>
+            <line number="36" hits="0"/>
+            <line number="37" hits="0"/>
+            <line number="38" hits="0"/>
+            <line number="39" hits="0"/>
+            <line number="40" hits="0"/>
+            <line number="43" hits="0"/>
+            <line number="48" hits="0"/>
+            <line number="50" hits="0"/>
+            <line number="55" hits="0"/>
+            <line number="56" hits="0"/>
+            <line number="58" hits="0"/>
+            <line number="59" hits="0"/>
+            <line number="62" hits="0"/>
+            <line number="63" hits="0"/>
+            <line number="64" hits="0"/>
+            <line number="72" hits="0"/>
+            <line number="74" hits="0"/>
+            <line number="75" hits="0"/>
+            <line number="78" hits="0"/>
+            <line number="86" hits="0"/>
+            <line number="87" hits="0"/>
+            <line number="88" hits="0"/>
+            <line number="89" hits="0"/>
+            <line number="91" hits="0"/>
+            <line number="100" hits="0"/>
+            <line number="102" hits="0"/>
+            <line number="103" hits="0"/>
+            <line number="104" hits="0"/>
+            <line number="105" hits="0"/>
+            <line number="107" hits="0"/>
           </lines>
         </class>
       </classes>
