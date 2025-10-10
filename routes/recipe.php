@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * Playground
+ */
+
+declare(strict_types=1);
+
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Make Recipe Routes
+|--------------------------------------------------------------------------
+|
+|
+*/
+
+Route::group([
+    'prefix' => 'make',
+    'middleware' => config('playground-make-recipe.middleware.default'),
+    'namespace' => '\Playground\Make\Recipe\Http\Controllers',
+], function () {
+
+    Route::get('/', [
+        'as' => 'playground.make.recipe',
+        'uses' => 'RecipeController@index',
+    ]);
+
+    Route::get('/form/{slug?}', [
+        'as' => 'playground.make.recipe.form',
+        'uses' => 'RecipeController@form',
+    ]);
+
+    Route::post('/form/{slug?}', [
+        'as' => 'playground.make.recipe.save',
+        'uses' => 'RecipeController@save',
+    ]);
+
+    Route::get('/recipe/delete/{slug?}', [
+        'as' => 'playground.make.recipe.delete',
+        'uses' => 'RecipeController@delete',
+    ]);
+});

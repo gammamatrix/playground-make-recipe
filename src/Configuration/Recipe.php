@@ -17,6 +17,8 @@ class Recipe extends PrimaryConfiguration
 {
     protected string $description = '';
 
+    protected string $slug = '';
+
     protected string $title = '';
 
     /**
@@ -50,6 +52,18 @@ class Recipe extends PrimaryConfiguration
             $this->description = $options['description'];
         }
 
+        if (! empty($options['slug'])
+            && is_string($options['slug'])
+        ) {
+            $this->slug = strtolower($options['slug']);
+        }
+
+        if (! empty($options['title'])
+            && is_string($options['title'])
+        ) {
+            $this->title = $options['title'];
+        }
+
         $this->addModels($options);
 
         return $this;
@@ -74,6 +88,16 @@ class Recipe extends PrimaryConfiguration
     public function description(): string
     {
         return $this->description;
+    }
+
+    public function slug(): string
+    {
+        return $this->slug;
+    }
+
+    public function title(): string
+    {
+        return $this->title;
     }
 
     /**

@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Playground\Make\Recipe\Http\Requests;
 
-use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Foundation\Http\FormRequest as BaseFormRequest;
 
 /**
@@ -19,18 +18,18 @@ class FormRequest extends BaseFormRequest
     /**
      * @var array<string, string|array<mixed>>
      */
-    public const RULES = [];
+    public const array RULES = [];
 
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        $user = $this->user();
-
-        if (empty($user)) {
-            return false;
-        }
+        // $user = $this->user();
+        //
+        // if (empty($user)) {
+        //    return false;
+        // }
 
         return true;
     }

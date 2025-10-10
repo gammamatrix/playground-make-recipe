@@ -24,28 +24,44 @@ class Manager
 
     protected ?Connection $connection = null;
 
+    protected ?string $slug = null;
+
+    public function slug(): ?string
+    {
+        return $this->slug;
+    }
+
     public function redis(): Connection
     {
         if (empty($this->connection)) {
             $connection = config('playground.recipe.redis.connection');
             $this->connection = Redis::connection(
-                !empty($connection) && is_string($connection) ? $connection : null
+                ! empty($connection) && is_string($connection) ? $connection : null
             );
         }
 
         return $this->connection;
     }
 
+    public function delete(string $slug): Manager
+    {
+        $this->redis()->del(sprintf('%1$s:%2$s', self::KEY_RECIPE, $slug));
+
+        return $this;
+    }
+
     public function get(string $slug): ?Recipe
     {
-        $recipe = $this->redis()->get(sprintf('%1$s:%2$s', self::KEY_RECIPE, $slug));
-        $recipe = is_string($recipe) ? json_decode($recipe, true) : null;
+        $data = $this->redis()->get(sprintf('%1$s:%2$s', self::KEY_RECIPE, $slug));
+        $data = is_string($data) ? json_decode($data, true) : null;
 
-        if (empty($recipe) || ! is_array($recipe)) {
+        if (empty($data) || ! is_array($data)) {
             return null;
         }
 
-        return new Recipe($recipe);
+        $recipe = new Recipe($data);
+        $recipe->apply();
+        return $recipe;
     }
 
     /**
@@ -62,11 +78,29 @@ class Manager
         return $recipes;
     }
 
-    public function save(string $slug, Recipe $recipe): Manager
+    /**
+     * @param  array<string, mixed>  $attributes
+     */
+    public function addModel(array $attributes): Manager
     {
+        dump([
+            '__METHOD__' => __METHOD__,
+            '$attributes' => $attributes,
+        ]);
+
+        return $this;
+    }
+
+    public function save(Recipe $recipe): Manager
+    {
+        //        dd([
+        //            '__METHOD__' => __METHOD__,
+        //            '$recipe' => $recipe,
+        //        ]);
+        throw_if(empty($recipe->slug()), 'UnexpectedValueException', 'The recipe cannot be empty.');
 
         $this->redis()->set(
-            sprintf('%1$s:%2$s', self::KEY_RECIPE, $slug),
+            sprintf('%1$s:%2$s', self::KEY_RECIPE, $recipe->slug()),
             json_encode($recipe->toArray(), JSON_PRETTY_PRINT),
         );
 

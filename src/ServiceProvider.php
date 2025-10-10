@@ -137,7 +137,7 @@ class ServiceProvider extends AuthServiceProvider
     public function routes(array $config): void
     {
         if (! empty($config['form'])) {
-            $this->loadRoutesFrom(dirname(__DIR__).'/routes/form.php');
+            $this->loadRoutesFrom(dirname(__DIR__).'/routes/recipe.php');
         }
     }
 
