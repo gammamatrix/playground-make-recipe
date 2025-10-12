@@ -14,7 +14,7 @@ use Playground\Make\Recipe\Http\Requests\FormRequest;
 /**
  * \Playground\Make\Recipe\Http\Requests\Date\FormRecipeRequest
  */
-class SaveDateRequest extends FormRequest
+class SaveRequest extends FormRequest
 {
     public const array RULES = [
         'column' => ['required', 'string'],

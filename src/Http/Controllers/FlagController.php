@@ -10,15 +10,16 @@ namespace Playground\Make\Recipe\Http\Controllers;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
-use Playground\Make\Recipe\Configuration\Date;
-use Playground\Make\Recipe\Http\Requests\Date\FormRequest;
-use Playground\Make\Recipe\Http\Requests\Date\SaveRequest;
+use Playground\Make\Recipe\Configuration\Flag;
+use Playground\Make\Recipe\Configuration\Recipe;
+use Playground\Make\Recipe\Http\Requests\Flag\FormRequest;
+use Playground\Make\Recipe\Http\Requests\Flag\SaveRequest;
 use Playground\Make\Recipe\Manager;
 
 /**
  * \Playground\Make\Recipe\Http\Controllers\IndexController
  */
-class DateController extends Controller
+class FlagController extends Controller
 {
     /**
      * @var array<string, string>
@@ -53,7 +54,7 @@ class DateController extends Controller
                 __('playground-make-recipe::building.recipe.404', ['recipe' => $recipe_slug])
             );
         }
-        $recipe->removeDate($column);
+        $recipe->removeFlag($column);
 
         $recipe->apply();
 
@@ -86,7 +87,7 @@ class DateController extends Controller
         /**
          * @var view-string $view
          */
-        $view = sprintf('%1$s::date/index', $packageInfo->view());
+        $view = sprintf('%1$s::flag/index', $packageInfo->view());
 
         return view($view, [
             'recipe_slug' => $recipe_slug,
@@ -128,18 +129,18 @@ class DateController extends Controller
         }
 
         if (! empty($column) && is_string($column)) {
-            $date = $recipe->date($column);
+            $flag = $recipe->flag($column);
         }
 
-        if (empty($date)) {
-            $date = new Date($validated);
+        if (empty($flag)) {
+            $flag = new Flag($validated);
         } else {
-            $date->setOptions($validated);
+            $flag->setOptions($validated);
         }
 
-        $date->apply();
+        $flag->apply();
 
-        $flash = $date->toArray();
+        $flash = $flag->toArray();
 
         $flash['_return_url'] = $_return_url;
         //         dd([
@@ -151,17 +152,17 @@ class DateController extends Controller
 
         $data = [
             'packageInfo' => $packageInfo,
-            'date_slug' => $column,
+            'flag_slug' => $column,
             'recipe_slug' => $recipe_slug,
             'recipe' => $recipe,
-            'date' => $date,
+            'flag' => $flag,
             '_return_url' => $_return_url,
         ];
 
         /**
          * @var view-string $view
          */
-        $view = sprintf('%1$s::date/form', $packageInfo->view());
+        $view = sprintf('%1$s::flag/form', $packageInfo->view());
 
         return view($view, $data);
     }
@@ -205,28 +206,28 @@ class DateController extends Controller
             $column = $validated['column'] ?? '';
         }
 
-        $date = $recipe->date($column);
+        $flag = $recipe->flag($column);
 
-        if (empty($date)) {
-            $date = new Date($validated);
+        if (empty($flag)) {
+            $flag = new Flag($validated);
         } else {
-            $date->setOptions($validated);
+            $flag->setOptions($validated);
         }
 
-        // dump([
-        //    '__METHOD__' => __METHOD__,
-        //     '$column' => $column,
-        //     '$validated' => $validated,
-        //    '$date' => $date,
-        // ]);
-        $date->apply();
-        // dd([
-        //    '__METHOD__' => __METHOD__,
-        //    '$validated' => $validated,
-        //    '$date' => $date,
-        // ]);
+        //         dump([
+        //            '__METHOD__' => __METHOD__,
+        //             '$column' => $column,
+        //             '$validated' => $validated,
+        //            '$flag' => $flag,
+        //         ]);
+        $flag->apply();
+        //         dd([
+        //            '__METHOD__' => __METHOD__,
+        //            '$validated' => $validated,
+        //            '$flag' => $flag,
+        //         ]);
 
-        $recipe->addDate($column, $date);
+        $recipe->addFlag($column, $flag);
 
         $recipe->apply();
 
@@ -235,7 +236,7 @@ class DateController extends Controller
         //        dd([
         //            '__METHOD__' => __METHOD__,
         //            '$recipe' => $recipe,
-        //            '$date' => $date,
+        //            '$flag' => $flag,
         //            '$validated' => $validated,
         //        ]);
 

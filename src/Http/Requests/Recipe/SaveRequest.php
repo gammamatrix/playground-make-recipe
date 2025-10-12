@@ -13,12 +13,12 @@ use Playground\Make\Recipe\Http\Requests\FormRequest;
 /**
  * \Playground\Make\Recipe\Http\Requests\Recipe\SaveRecipeRequest
  */
-class FormRecipeRequest extends FormRequest
+class SaveRequest extends FormRequest
 {
     public const array RULES = [
         'description' => ['nullable', 'string'],
         'title' => ['nullable', 'string'],
         'slug' => ['nullable', 'string'],
-        '_return_url' => ['nullable', 'string'],
+        'extends' => ['nullable', 'string'],
     ];
 }

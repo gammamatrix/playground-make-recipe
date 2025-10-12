@@ -32,6 +32,11 @@ class Recipe extends PrimaryConfiguration
     protected array $dates = [];
 
     /**
+     * @var array<string, Flag>
+     */
+    protected array $flags = [];
+
+    /**
      * @var array<string, string>
      */
     protected array $models = [];
@@ -41,12 +46,15 @@ class Recipe extends PrimaryConfiguration
      */
     protected $properties = [
         'class' => '',
+        'extends' => 'Playground',
+        'extends_use' => '',
         'slug' => '',
         'description' => '',
         'title' => '',
         'name' => '',
         'columns' => [],
         'dates' => [],
+        'flags' => [],
         'models' => [],
         'type' => '',
     ];
@@ -78,6 +86,10 @@ class Recipe extends PrimaryConfiguration
 
         if (! empty($options['dates']) && is_array($options['dates'])) {
             $this->addDates($options['dates']);
+        }
+
+        if (! empty($options['flags']) && is_array($options['flags'])) {
+            $this->addFlags($options['flags']);
         }
         //        $this->addModels($options);
 
@@ -142,6 +154,63 @@ class Recipe extends PrimaryConfiguration
         return $this;
     }
 
+    public function addFlag(string $column, Flag $flag): self
+    {
+        throw_if(empty($column), 'InvalidArgumentException', '$column is not allowed to be empty.');
+        $this->flags[$column] = $flag;
+        $this->flags[$column]->apply();
+
+        return $this;
+    }
+
+    public function removeFlag(string $column): self
+    {
+        throw_if(empty($column), 'InvalidArgumentException', '$column is not allowed to be empty.');
+        unset($this->flags[$column]);
+
+        return $this;
+    }
+
+    /**
+     * @param  array<mixed>  $flags
+     */
+    public function addFlags(array $flags): self
+    {
+        foreach ($flags as $column => $meta) {
+            $flag = [];
+            if (! empty($column) && is_string($column) && is_array($meta)) {
+                if (array_key_exists('column', $meta)
+                    && ! empty($meta['column'])
+                    && is_string($meta['column'])
+                ) {
+                    $flag['column'] = $meta['column'];
+                } else {
+                    $flag['column'] = $column;
+                }
+                if (array_key_exists('description', $meta)
+                    && ! empty($meta['description'])
+                    && is_string($meta['description'])
+                ) {
+                    $flag['description'] = $meta['description'];
+                }
+                if (array_key_exists('label', $meta)
+                    && ! empty($meta['label'])
+                    && is_string($meta['label'])
+                ) {
+                    $flag['label'] = $meta['label'];
+                }
+                if (array_key_exists('index', $meta)) {
+                    $flag['index'] = ! empty($meta['index']);
+                }
+                if (array_key_exists('nullable', $meta)) {
+                    $flag['nullable'] = ! empty($meta['nullable']);
+                }
+                $this->addFlag($column, new Flag($flag));
+            }
+        }
+
+        return $this;
+    }
     //    /**
     //     * @param  array<string, mixed>  $options
     //     */
@@ -171,6 +240,21 @@ class Recipe extends PrimaryConfiguration
     public function dates(): array
     {
         return $this->dates;
+    }
+
+    public function flag(string $column): ?Flag
+    {
+        throw_if(empty($column), 'InvalidArgumentException', '$column is not allowed to be empty.');
+
+        return $this->flags[$column] ?? null;
+    }
+
+    /**
+     * @return array<string, Flag>
+     */
+    public function flags(): array
+    {
+        return $this->flags;
     }
 
     public function description(): string

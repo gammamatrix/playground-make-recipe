@@ -8,12 +8,12 @@ declare(strict_types=1);
 
 namespace Playground\Make\Recipe\Http\Requests\Date;
 
-use Playground\Make\Recipe\Http\Requests\FormRequest;
+use Playground\Make\Recipe\Http\Requests\FormRequest as BaseFormRequest;
 
 /**
  * \Playground\Make\Recipe\Http\Requests\Date\FormRecipeRequest
  */
-class FormDateRequest extends FormRequest
+class FormRequest extends BaseFormRequest
 {
     public const array RULES = [
         'column' => ['nullable', 'string'],

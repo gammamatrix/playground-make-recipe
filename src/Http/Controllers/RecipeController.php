@@ -11,8 +11,8 @@ namespace Playground\Make\Recipe\Http\Controllers;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Playground\Make\Recipe\Configuration\Recipe;
-use Playground\Make\Recipe\Http\Requests\Recipe\FormRecipeRequest;
-use Playground\Make\Recipe\Http\Requests\Recipe\SaveRecipeRequest;
+use Playground\Make\Recipe\Http\Requests\Recipe\FormRequest;
+use Playground\Make\Recipe\Http\Requests\Recipe\SaveRequest;
 use Playground\Make\Recipe\Manager;
 
 /**
@@ -35,8 +35,10 @@ class RecipeController extends Controller
     /**
      * Delete a recipe
      */
-    public function delete(Manager $manager, string $recipe_slug): RedirectResponse
-    {
+    public function delete(
+        Manager $manager,
+        string $recipe_slug
+    ): RedirectResponse {
         $manager->delete($recipe_slug);
 
         return response()->redirectToRoute('playground.make.recipe');
@@ -45,8 +47,11 @@ class RecipeController extends Controller
     /**
      * Show the form.
      */
-    public function form(FormRecipeRequest $request, Manager $manager, ?string $recipe_slug = null): View
-    {
+    public function form(
+        FormRequest $request,
+        Manager $manager,
+        ?string $recipe_slug = null
+    ): View {
         $packageInfo = $this->packageInfo();
 
         $validated = $request->validated();
@@ -106,7 +111,7 @@ class RecipeController extends Controller
      * Save a recipe
      */
     public function save(
-        SaveRecipeRequest $request,
+        SaveRequest $request,
         Manager $manager,
         ?string $recipe_slug = null
     ): RedirectResponse {
@@ -137,6 +142,8 @@ class RecipeController extends Controller
         //            '$recipe' => $recipe,
         //        ]);
 
-        return response()->redirectToRoute('playground.make.recipe.form', ['recipe_slug' => $recipe_slug]);
+        return response()->redirectToRoute('playground.make.recipe.form', [
+            'recipe_slug' => $recipe_slug,
+        ]);
     }
 }

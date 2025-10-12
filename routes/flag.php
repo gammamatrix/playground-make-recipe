@@ -17,23 +17,28 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group([
-    'prefix' => 'make',
+    'prefix' => 'make/{recipe_slug}/flag',
     'middleware' => config('playground-make-recipe.middleware.default'),
     'namespace' => '\Playground\Make\Recipe\Http\Controllers',
 ], function () {
 
     Route::get('/', [
-        'as' => 'playground.make.recipe',
-        'uses' => 'RecipeController@index',
+        'as' => 'playground.make.recipe.flag',
+        'uses' => 'FlagController@index',
     ]);
 
-    Route::get('/form/{slug?}', [
-        'as' => 'playground.make.recipe.form',
-        'uses' => 'RecipeController@form',
+    Route::get('/form/{column?}', [
+        'as' => 'playground.make.recipe.flag.form',
+        'uses' => 'FlagController@form',
     ]);
 
-    Route::get('/recipe/delete/{slug?}', [
-        'as' => 'playground.make.recipe.delete',
-        'uses' => 'RecipeController@delete',
+    Route::post('/form/{column?}', [
+        'as' => 'playground.make.recipe.flag.save',
+        'uses' => 'FlagController@save',
+    ]);
+
+    Route::get('/recipe/delete/{column?}', [
+        'as' => 'playground.make.recipe.flag.delete',
+        'uses' => 'FlagController@delete',
     ]);
 });

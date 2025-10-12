@@ -40,12 +40,22 @@
                 'maxlength' => 255,
             ]"
         ></x-playground::forms.column>
+
+        <x-playground::forms.column
+            column="extends"
+            label="Extends"
+            :autocomplete="false"
+            :rules="[
+                'required' => false,
+                'maxlength' => 255,
+            ]"
+        ></x-playground::forms.column>
     </fieldset>
 
     <fieldset class="mb-3">
         <div class="button-group float-end">
             <button type="submit" class="btn btn-primary">
-                {{ __("Submit") }}
+                {{ __("Save") }}
             </button>
             <button type="reset" class="btn btn-warning">
                 {{ __("Reset") }}

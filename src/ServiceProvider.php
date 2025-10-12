@@ -138,6 +138,7 @@ class ServiceProvider extends AuthServiceProvider
     {
         if (! empty($config['form'])) {
             $this->loadRoutesFrom(dirname(__DIR__).'/routes/date.php');
+            $this->loadRoutesFrom(dirname(__DIR__).'/routes/flag.php');
             $this->loadRoutesFrom(dirname(__DIR__).'/routes/recipe.php');
         }
     }
