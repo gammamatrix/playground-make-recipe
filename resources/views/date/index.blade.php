@@ -7,8 +7,22 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">
+                <li class="breadcrumb-item">
                     <a href="{{ route("playground.make.recipe") }}">MAKE</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a
+                        href="{{ route("playground.make.recipe.form", ["recipe_slug" => $recipe->slug()]) }}"
+                    >
+                        {{ $recipe->title() }}
+                    </a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    <a
+                        href="{{ route("playground.make.recipe.date", ["recipe_slug" => $recipe->slug()]) }}"
+                    >
+                        Dates
+                    </a>
                 </li>
             </ol>
         </nav>
@@ -56,7 +70,7 @@
                         <h1>Recipes</h1>
                     </div>
                     <div class="card-body">
-                        @include("playground-make-recipe::recipe/index-table")
+                        {{-- @include("playground-make-recipe::recipe/index-table") --}}
                     </div>
                 </div>
             </div>
@@ -64,4 +78,4 @@
     </div>
 @endsection
 
-@include("playground-make-recipe::recipe/index-modal-delete")
+{{-- @include("playground-make-recipe::recipe/index-modal-delete") --}}

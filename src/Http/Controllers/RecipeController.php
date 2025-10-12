@@ -35,9 +35,9 @@ class RecipeController extends Controller
     /**
      * Delete a recipe
      */
-    public function delete(Manager $manager, string $slug): RedirectResponse
+    public function delete(Manager $manager, string $recipe_slug): RedirectResponse
     {
-        $manager->delete($slug);
+        $manager->delete($recipe_slug);
 
         return response()->redirectToRoute('playground.make.recipe');
     }
@@ -45,7 +45,7 @@ class RecipeController extends Controller
     /**
      * Show the form.
      */
-    public function form(FormRecipeRequest $request, Manager $manager, ?string $slug = null): View
+    public function form(FormRecipeRequest $request, Manager $manager, ?string $recipe_slug = null): View
     {
         $packageInfo = $this->packageInfo();
 
@@ -53,7 +53,7 @@ class RecipeController extends Controller
 
         $_return_url = empty($validated['_return_url']) ? route('playground.make.recipe') : $validated['_return_url'];
 
-        $recipe = empty($slug) ? null : $manager->get($slug);
+        $recipe = empty($recipe_slug) ? null : $manager->get($recipe_slug);
 
         if (empty($recipe)) {
             $recipe = new Recipe;
@@ -62,17 +62,18 @@ class RecipeController extends Controller
         $flash = $recipe->toArray();
 
         $flash['_return_url'] = $_return_url;
-        // dd([
-        //    '__METHOD__' => __METHOD__,
-        //    '$flash' => $flash,
-        //    '$recipe' => $recipe,
-        // ]);
+        //         dd([
+        //            '__METHOD__' => __METHOD__,
+        //            '$flash' => $flash,
+        //            '$recipe' => $recipe,
+        //         ]);
         session()->flashInput($flash);
 
         $data = [
             'packageInfo' => $packageInfo,
             '_return_url' => $_return_url,
             'recipe' => $recipe,
+            'recipe_slug' => $recipe_slug,
         ];
 
         /**
@@ -104,15 +105,18 @@ class RecipeController extends Controller
     /**
      * Save a recipe
      */
-    public function save(SaveRecipeRequest $request, Manager $manager, ?string $slug = null): RedirectResponse
-    {
+    public function save(
+        SaveRecipeRequest $request,
+        Manager $manager,
+        ?string $recipe_slug = null
+    ): RedirectResponse {
         //        dd([
         //            '__METHOD__' => __METHOD__,
         //            '$request' => $request,
-        //            '$slug' => $slug,
+        //            '$recipe_slug' => $recipe_slug,
         //        ]);
 
-        $recipe = empty($slug) ? null : $manager->get($slug);
+        $recipe = empty($recipe_slug) ? null : $manager->get($recipe_slug);
 
         if (empty($recipe)) {
             $recipe = new Recipe($request->validated());
@@ -124,15 +128,15 @@ class RecipeController extends Controller
 
         $manager->save($recipe);
 
-        if (empty($slug)) {
-            $slug = $recipe->slug();
+        if (empty($recipe_slug)) {
+            $recipe_slug = $recipe->slug();
         }
         //        dd([
         //            '__METHOD__' => __METHOD__,
-        //            '$slug' => $slug,
+        //            '$recipe_slug' => $recipe_slug,
         //            '$recipe' => $recipe,
         //        ]);
 
-        return response()->redirectToRoute('playground.make.recipe.form', ['slug' => $slug]);
+        return response()->redirectToRoute('playground.make.recipe.form', ['recipe_slug' => $recipe_slug]);
     }
 }

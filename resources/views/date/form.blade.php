@@ -10,8 +10,24 @@
                 <li class="breadcrumb-item">
                     <a href="{{ route("playground.make.recipe") }}">MAKE</a>
                 </li>
+                <li class="breadcrumb-item">
+                    <a
+                        href="{{ route("playground.make.recipe.form", ["recipe_slug" => $recipe->slug()]) }}"
+                    >
+                        {{ $recipe->title() }}
+                    </a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a
+                        href="{{ route("playground.make.recipe.date", ["recipe_slug" => $recipe->slug()]) }}"
+                    >
+                        Dates
+                    </a>
+                </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                    <a href="{{ route("playground.make.recipe.form") }}">
+                    <a
+                        href="{{ route("playground.make.recipe.date.form", ["recipe_slug" => $recipe->slug(), "column" => $date_slug]) }}"
+                    >
                         Form
                     </a>
                 </li>
@@ -24,31 +40,9 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                @include("playground-make-recipe::recipe/form-info")
+                @include("playground-make-recipe::date/form-info")
             </div>
         </div>
-        @if ($recipe->slug())
-            <div class="row justify-content-center">
-                <div class="col-md-12">
-                    @include("playground-make-recipe::recipe/form-models")
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-12">
-                    @include("playground-make-recipe::recipe/form-columns")
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-12">
-                    @include("playground-make-recipe::recipe/form-dates")
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-12">
-                    @include("playground-make-recipe::recipe/form-flags")
-                </div>
-            </div>
-        @endif
     </div>
 @endsection
 
@@ -65,5 +59,3 @@
         };
     </script>
 @endpush
-
-@include("playground-make-recipe::recipe/index-modal-delete")

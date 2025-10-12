@@ -11,7 +11,7 @@ namespace Playground\Make\Recipe\Http\Requests\Recipe;
 use Playground\Make\Recipe\Http\Requests\FormRequest;
 
 /**
- * \Playground\Make\Recipe\Http\Requests\FormRecipeRequest
+ * \Playground\Make\Recipe\Http\Requests\Recipe\SaveRecipeRequest
  */
 class FormRecipeRequest extends FormRequest
 {

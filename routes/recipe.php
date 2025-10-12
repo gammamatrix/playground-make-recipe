@@ -27,17 +27,17 @@ Route::group([
         'uses' => 'RecipeController@index',
     ]);
 
-    Route::get('/form/{slug?}', [
+    Route::get('/form/{recipe_slug?}', [
         'as' => 'playground.make.recipe.form',
         'uses' => 'RecipeController@form',
     ]);
 
-    Route::post('/form/{slug?}', [
+    Route::post('/form/{recipe_slug?}', [
         'as' => 'playground.make.recipe.save',
         'uses' => 'RecipeController@save',
     ]);
 
-    Route::get('/recipe/delete/{slug?}', [
+    Route::get('/recipe/delete/{recipe_slug?}', [
         'as' => 'playground.make.recipe.delete',
         'uses' => 'RecipeController@delete',
     ]);

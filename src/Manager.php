@@ -61,6 +61,7 @@ class Manager
 
         $recipe = new Recipe($data);
         $recipe->apply();
+
         return $recipe;
     }
 
