@@ -1,16 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-10-10 18:03:32</timestamp>
+  <timestamp>2025-10-12 00:29:00</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>38</methodCount>
-    <crapMethodCount>1</crapMethodCount>
-    <crapLoad>7</crapLoad>
-    <totalCrap>290</totalCrap>
-    <crapMethodPercent>2.63</crapMethodPercent>
+    <methodCount>55</methodCount>
+    <crapMethodCount>4</crapMethodCount>
+    <crapLoad>42</crapLoad>
+    <totalCrap>850</totalCrap>
+    <crapMethodPercent>7.27</crapMethodPercent>
   </stats>
   <methods>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Column</className>
+      <methodName>setOptions</methodName>
+      <methodSignature>setOptions(array $options): self</methodSignature>
+      <fullMethod>setOptions(array $options): self</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Column</className>
+      <methodName>description</methodName>
+      <methodSignature>description(): string</methodSignature>
+      <fullMethod>description(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Date</className>
+      <methodName>setOptions</methodName>
+      <methodSignature>setOptions(array $options): self</methodSignature>
+      <fullMethod>setOptions(array $options): self</fullMethod>
+      <crap>90</crap>
+      <complexity>9</complexity>
+      <coverage>0</coverage>
+      <crapLoad>9</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Date</className>
+      <methodName>column</methodName>
+      <methodSignature>column(): string</methodSignature>
+      <fullMethod>column(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Date</className>
+      <methodName>description</methodName>
+      <methodSignature>description(): string</methodSignature>
+      <fullMethod>description(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Date</className>
+      <methodName>label</methodName>
+      <methodSignature>label(): string</methodSignature>
+      <fullMethod>label(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Date</className>
+      <methodName>index</methodName>
+      <methodSignature>index(): bool</methodSignature>
+      <fullMethod>index(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Date</className>
+      <methodName>nullable</methodName>
+      <methodSignature>nullable(): bool</methodSignature>
+      <fullMethod>nullable(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
     <method>
       <package>Playground\Make\Recipe\Configuration</package>
       <className>Playground\Make\Recipe\Configuration\Model</className>
@@ -39,19 +127,63 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>56</crap>
-      <complexity>7</complexity>
+      <crap>90</crap>
+      <complexity>9</complexity>
       <coverage>0</coverage>
-      <crapLoad>7</crapLoad>
+      <crapLoad>9</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Configuration</package>
       <className>Playground\Make\Recipe\Configuration\Recipe</className>
-      <methodName>addModels</methodName>
-      <methodSignature>addModels(array $options): self</methodSignature>
-      <fullMethod>addModels(array $options): self</fullMethod>
-      <crap>20</crap>
-      <complexity>4</complexity>
+      <methodName>addDate</methodName>
+      <methodSignature>addDate(string $column, Date $date): self</methodSignature>
+      <fullMethod>addDate(string $column, Date $date): self</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Recipe</className>
+      <methodName>removeDate</methodName>
+      <methodSignature>removeDate(string $column): self</methodSignature>
+      <fullMethod>removeDate(string $column): self</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Recipe</className>
+      <methodName>addDates</methodName>
+      <methodSignature>addDates(array $dates): self</methodSignature>
+      <fullMethod>addDates(array $dates): self</fullMethod>
+      <crap>272</crap>
+      <complexity>16</complexity>
+      <coverage>0</coverage>
+      <crapLoad>16</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Recipe</className>
+      <methodName>date</methodName>
+      <methodSignature>date(string $column): ?Date</methodSignature>
+      <fullMethod>date(string $column): ?Date</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Recipe</className>
+      <methodName>dates</methodName>
+      <methodSignature>dates(): array</methodSignature>
+      <fullMethod>dates(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -167,6 +299,50 @@
     </method>
     <method>
       <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\DateController</className>
+      <methodName>delete</methodName>
+      <methodSignature>delete(Manager $manager, string $recipe_slug, string $column): RedirectResponse</methodSignature>
+      <fullMethod>delete(Manager $manager, string $recipe_slug, string $column): RedirectResponse</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\DateController</className>
+      <methodName>index</methodName>
+      <methodSignature>index(string $recipe_slug, Manager $manager): View|RedirectResponse</methodSignature>
+      <fullMethod>index(string $recipe_slug, Manager $manager): View|RedirectResponse</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\DateController</className>
+      <methodName>form</methodName>
+      <methodSignature>form(string $recipe_slug, FormDateRequest $request, Manager $manager, ?string $column): View|RedirectResponse</methodSignature>
+      <fullMethod>form(string $recipe_slug, FormDateRequest $request, Manager $manager, ?string $column): View|RedirectResponse</fullMethod>
+      <crap>56</crap>
+      <complexity>7</complexity>
+      <coverage>0</coverage>
+      <crapLoad>7</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\DateController</className>
+      <methodName>save</methodName>
+      <methodSignature>save(string $recipe_slug, SaveDateRequest $request, Manager $manager, ?string $column): RedirectResponse</methodSignature>
+      <fullMethod>save(string $recipe_slug, SaveDateRequest $request, Manager $manager, ?string $column): RedirectResponse</fullMethod>
+      <crap>42</crap>
+      <complexity>6</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
       <className>Playground\Make\Recipe\Http\Controllers\ModelController</className>
       <methodName>delete</methodName>
       <methodSignature>delete(Manager $manager, string $slug): RedirectResponse</methodSignature>
@@ -235,8 +411,8 @@
       <package>Playground\Make\Recipe\Http\Controllers</package>
       <className>Playground\Make\Recipe\Http\Controllers\RecipeController</className>
       <methodName>delete</methodName>
-      <methodSignature>delete(Manager $manager, string $slug): RedirectResponse</methodSignature>
-      <fullMethod>delete(Manager $manager, string $slug): RedirectResponse</fullMethod>
+      <methodSignature>delete(Manager $manager, string $recipe_slug): RedirectResponse</methodSignature>
+      <fullMethod>delete(Manager $manager, string $recipe_slug): RedirectResponse</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
@@ -246,8 +422,8 @@
       <package>Playground\Make\Recipe\Http\Controllers</package>
       <className>Playground\Make\Recipe\Http\Controllers\RecipeController</className>
       <methodName>form</methodName>
-      <methodSignature>form(FormRecipeRequest $request, Manager $manager, ?string $slug): View</methodSignature>
-      <fullMethod>form(FormRecipeRequest $request, Manager $manager, ?string $slug): View</fullMethod>
+      <methodSignature>form(FormRecipeRequest $request, Manager $manager, ?string $recipe_slug): View</methodSignature>
+      <fullMethod>form(FormRecipeRequest $request, Manager $manager, ?string $recipe_slug): View</fullMethod>
       <crap>20</crap>
       <complexity>4</complexity>
       <coverage>0</coverage>
@@ -268,10 +444,21 @@
       <package>Playground\Make\Recipe\Http\Controllers</package>
       <className>Playground\Make\Recipe\Http\Controllers\RecipeController</className>
       <methodName>save</methodName>
-      <methodSignature>save(SaveRecipeRequest $request, Manager $manager, ?string $slug): RedirectResponse</methodSignature>
-      <fullMethod>save(SaveRecipeRequest $request, Manager $manager, ?string $slug): RedirectResponse</fullMethod>
+      <methodSignature>save(SaveRecipeRequest $request, Manager $manager, ?string $recipe_slug): RedirectResponse</methodSignature>
+      <fullMethod>save(SaveRecipeRequest $request, Manager $manager, ?string $recipe_slug): RedirectResponse</fullMethod>
       <crap>20</crap>
       <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Requests\Date</package>
+      <className>Playground\Make\Recipe\Http\Requests\Date\SaveDateRequest</className>
+      <methodName>prepareForValidation</methodName>
+      <methodSignature>prepareForValidation()</methodSignature>
+      <fullMethod>prepareForValidation()</fullMethod>
+      <crap>42</crap>
+      <complexity>6</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
