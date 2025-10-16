@@ -6,30 +6,22 @@
 
 declare(strict_types=1);
 
-namespace Playground\Make\Recipe\Http\Requests\Flag;
+namespace Playground\Make\Recipe\Http\Requests\Column;
 
 use Illuminate\Validation\Validator;
 use Playground\Make\Recipe\Http\Requests\FormRequest;
 
 /**
- * \Playground\Make\Recipe\Http\Requests\Flag\SaveRequest
+ * \Playground\Make\Recipe\Http\Requests\Column\FormRecipeRequest
  */
 class SaveRequest extends FormRequest
 {
     public const array RULES = [
         'column' => ['required', 'string'],
-        'default' => ['nullable'],
         'description' => ['nullable', 'string'],
-        'hasDefault' => ['boolean'],
-        'html' => ['boolean'],
-        'icon' => ['nullable', 'string'],
-        'index' => ['boolean'],
         'label' => ['nullable', 'string'],
+        'index' => ['boolean'],
         'nullable' => ['boolean'],
-        'precision' => ['nullable', 'integer', 'min:0', 'max:65'],
-        'scale' => ['nullable', 'integer', 'min:0'],
-        'size' => ['nullable', 'integer', 'min:0'],
-        'readOnly' => ['boolean'],
         '_return_url' => ['nullable', 'string'],
     ];
 

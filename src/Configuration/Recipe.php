@@ -15,26 +15,15 @@ use Playground\Make\Configuration\PrimaryConfiguration;
  */
 class Recipe extends PrimaryConfiguration
 {
+    use Concerns\Columns;
+    use Concerns\Dates;
+    use Concerns\Flags;
+
     protected string $description = '';
 
     protected string $slug = '';
 
     protected string $title = '';
-
-    /**
-     * @var array<string, Column>
-     */
-    protected array $columns = [];
-
-    /**
-     * @var array<string, Date>
-     */
-    protected array $dates = [];
-
-    /**
-     * @var array<string, Flag>
-     */
-    protected array $flags = [];
 
     /**
      * @var array<string, string>
@@ -84,6 +73,10 @@ class Recipe extends PrimaryConfiguration
             $this->title = $options['title'];
         }
 
+        if (! empty($options['columns']) && is_array($options['columns'])) {
+            $this->addColumns($options['columns']);
+        }
+
         if (! empty($options['dates']) && is_array($options['dates'])) {
             $this->addDates($options['dates']);
         }
@@ -96,121 +89,6 @@ class Recipe extends PrimaryConfiguration
         return $this;
     }
 
-    public function addDate(string $column, Date $date): self
-    {
-        throw_if(empty($column), 'InvalidArgumentException', '$column is not allowed to be empty.');
-        $this->dates[$column] = $date;
-        $this->dates[$column]->apply();
-
-        return $this;
-    }
-
-    public function removeDate(string $column): self
-    {
-        throw_if(empty($column), 'InvalidArgumentException', '$column is not allowed to be empty.');
-        unset($this->dates[$column]);
-
-        return $this;
-    }
-
-    /**
-     * @param  array<mixed>  $dates
-     */
-    public function addDates(array $dates): self
-    {
-        foreach ($dates as $column => $meta) {
-            $date = [];
-            if (! empty($column) && is_string($column) && is_array($meta)) {
-                if (array_key_exists('column', $meta)
-                    && ! empty($meta['column'])
-                    && is_string($meta['column'])
-                ) {
-                    $date['column'] = $meta['column'];
-                } else {
-                    $date['column'] = $column;
-                }
-                if (array_key_exists('description', $meta)
-                    && ! empty($meta['description'])
-                    && is_string($meta['description'])
-                ) {
-                    $date['description'] = $meta['description'];
-                }
-                if (array_key_exists('label', $meta)
-                    && ! empty($meta['label'])
-                    && is_string($meta['label'])
-                ) {
-                    $date['label'] = $meta['label'];
-                }
-                if (array_key_exists('index', $meta)) {
-                    $date['index'] = ! empty($meta['index']);
-                }
-                if (array_key_exists('nullable', $meta)) {
-                    $date['nullable'] = ! empty($meta['nullable']);
-                }
-                $this->addDate($column, new Date($date));
-            }
-        }
-
-        return $this;
-    }
-
-    public function addFlag(string $column, Flag $flag): self
-    {
-        throw_if(empty($column), 'InvalidArgumentException', '$column is not allowed to be empty.');
-        $this->flags[$column] = $flag;
-        $this->flags[$column]->apply();
-
-        return $this;
-    }
-
-    public function removeFlag(string $column): self
-    {
-        throw_if(empty($column), 'InvalidArgumentException', '$column is not allowed to be empty.');
-        unset($this->flags[$column]);
-
-        return $this;
-    }
-
-    /**
-     * @param  array<mixed>  $flags
-     */
-    public function addFlags(array $flags): self
-    {
-        foreach ($flags as $column => $meta) {
-            $flag = [];
-            if (! empty($column) && is_string($column) && is_array($meta)) {
-                if (array_key_exists('column', $meta)
-                    && ! empty($meta['column'])
-                    && is_string($meta['column'])
-                ) {
-                    $flag['column'] = $meta['column'];
-                } else {
-                    $flag['column'] = $column;
-                }
-                if (array_key_exists('description', $meta)
-                    && ! empty($meta['description'])
-                    && is_string($meta['description'])
-                ) {
-                    $flag['description'] = $meta['description'];
-                }
-                if (array_key_exists('label', $meta)
-                    && ! empty($meta['label'])
-                    && is_string($meta['label'])
-                ) {
-                    $flag['label'] = $meta['label'];
-                }
-                if (array_key_exists('index', $meta)) {
-                    $flag['index'] = ! empty($meta['index']);
-                }
-                if (array_key_exists('nullable', $meta)) {
-                    $flag['nullable'] = ! empty($meta['nullable']);
-                }
-                $this->addFlag($column, new Flag($flag));
-            }
-        }
-
-        return $this;
-    }
     //    /**
     //     * @param  array<string, mixed>  $options
     //     */
@@ -226,36 +104,6 @@ class Recipe extends PrimaryConfiguration
     //
     //        return $this;
     //    }
-
-    public function date(string $column): ?Date
-    {
-        throw_if(empty($column), 'InvalidArgumentException', '$column is not allowed to be empty.');
-
-        return $this->dates[$column] ?? null;
-    }
-
-    /**
-     * @return array<string, Date>
-     */
-    public function dates(): array
-    {
-        return $this->dates;
-    }
-
-    public function flag(string $column): ?Flag
-    {
-        throw_if(empty($column), 'InvalidArgumentException', '$column is not allowed to be empty.');
-
-        return $this->flags[$column] ?? null;
-    }
-
-    /**
-     * @return array<string, Flag>
-     */
-    public function flags(): array
-    {
-        return $this->flags;
-    }
 
     public function description(): string
     {
