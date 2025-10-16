@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-10-12 21:53:29</timestamp>
+  <timestamp>2025-10-16 22:13:55</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>74</methodCount>
-    <crapMethodCount>7</crapMethodCount>
-    <crapLoad>82</crapLoad>
-    <totalCrap>1550</totalCrap>
-    <crapMethodPercent>9.46</crapMethodPercent>
+    <methodCount>97</methodCount>
+    <crapMethodCount>10</crapMethodCount>
+    <crapLoad>142</crapLoad>
+    <totalCrap>3236</totalCrap>
+    <crapMethodPercent>10.31</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -17,8 +17,30 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>12</crap>
-      <complexity>3</complexity>
+      <crap>1190</crap>
+      <complexity>34</complexity>
+      <coverage>0</coverage>
+      <crapLoad>35</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Column</className>
+      <methodName>column</methodName>
+      <methodSignature>column(): string</methodSignature>
+      <fullMethod>column(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Column</className>
+      <methodName>comment</methodName>
+      <methodSignature>comment(): string</methodSignature>
+      <fullMethod>comment(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -28,6 +50,292 @@
       <methodName>description</methodName>
       <methodSignature>description(): string</methodSignature>
       <fullMethod>description(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Column</className>
+      <methodName>label</methodName>
+      <methodSignature>label(): string</methodSignature>
+      <fullMethod>label(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Column</className>
+      <methodName>default</methodName>
+      <methodSignature>default(): mixed</methodSignature>
+      <fullMethod>default(): mixed</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Column</className>
+      <methodName>hasDefault</methodName>
+      <methodSignature>hasDefault(): bool</methodSignature>
+      <fullMethod>hasDefault(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Column</className>
+      <methodName>icon</methodName>
+      <methodSignature>icon(): string</methodSignature>
+      <fullMethod>icon(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Column</className>
+      <methodName>html</methodName>
+      <methodSignature>html(): bool</methodSignature>
+      <fullMethod>html(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Column</className>
+      <methodName>index</methodName>
+      <methodSignature>index(): bool</methodSignature>
+      <fullMethod>index(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Column</className>
+      <methodName>nullable</methodName>
+      <methodSignature>nullable(): bool</methodSignature>
+      <fullMethod>nullable(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Column</className>
+      <methodName>readOnly</methodName>
+      <methodSignature>readOnly(): bool</methodSignature>
+      <fullMethod>readOnly(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Column</className>
+      <methodName>precision</methodName>
+      <methodSignature>precision(): ?int</methodSignature>
+      <fullMethod>precision(): ?int</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Column</className>
+      <methodName>scale</methodName>
+      <methodSignature>scale(): ?int</methodSignature>
+      <fullMethod>scale(): ?int</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Column</className>
+      <methodName>unsigned</methodName>
+      <methodSignature>unsigned(): bool</methodSignature>
+      <fullMethod>unsigned(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\Columns</className>
+      <methodName>addColumn</methodName>
+      <methodSignature>addColumn(string $column_slug, Column $column): self</methodSignature>
+      <fullMethod>addColumn(string $column_slug, Column $column): self</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\Columns</className>
+      <methodName>removeColumn</methodName>
+      <methodSignature>removeColumn(string $column): self</methodSignature>
+      <fullMethod>removeColumn(string $column): self</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\Columns</className>
+      <methodName>addColumns</methodName>
+      <methodSignature>addColumns(array $columns): self</methodSignature>
+      <fullMethod>addColumns(array $columns): self</fullMethod>
+      <crap>272</crap>
+      <complexity>16</complexity>
+      <coverage>0</coverage>
+      <crapLoad>16</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\Columns</className>
+      <methodName>column</methodName>
+      <methodSignature>column(string $column): ?Column</methodSignature>
+      <fullMethod>column(string $column): ?Column</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\Columns</className>
+      <methodName>columns</methodName>
+      <methodSignature>columns(): array</methodSignature>
+      <fullMethod>columns(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\Dates</className>
+      <methodName>addDate</methodName>
+      <methodSignature>addDate(string $column, Date $date): self</methodSignature>
+      <fullMethod>addDate(string $column, Date $date): self</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\Dates</className>
+      <methodName>removeDate</methodName>
+      <methodSignature>removeDate(string $column): self</methodSignature>
+      <fullMethod>removeDate(string $column): self</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\Dates</className>
+      <methodName>addDates</methodName>
+      <methodSignature>addDates(array $dates): self</methodSignature>
+      <fullMethod>addDates(array $dates): self</fullMethod>
+      <crap>272</crap>
+      <complexity>16</complexity>
+      <coverage>0</coverage>
+      <crapLoad>16</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\Dates</className>
+      <methodName>date</methodName>
+      <methodSignature>date(string $column): ?Date</methodSignature>
+      <fullMethod>date(string $column): ?Date</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\Dates</className>
+      <methodName>dates</methodName>
+      <methodSignature>dates(): array</methodSignature>
+      <fullMethod>dates(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\Flags</className>
+      <methodName>addFlag</methodName>
+      <methodSignature>addFlag(string $column, Flag $flag): self</methodSignature>
+      <fullMethod>addFlag(string $column, Flag $flag): self</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\Flags</className>
+      <methodName>removeFlag</methodName>
+      <methodSignature>removeFlag(string $column): self</methodSignature>
+      <fullMethod>removeFlag(string $column): self</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\Flags</className>
+      <methodName>addFlags</methodName>
+      <methodSignature>addFlags(array $flags): self</methodSignature>
+      <fullMethod>addFlags(array $flags): self</fullMethod>
+      <crap>272</crap>
+      <complexity>16</complexity>
+      <coverage>0</coverage>
+      <crapLoad>16</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\Flags</className>
+      <methodName>flag</methodName>
+      <methodSignature>flag(string $column): ?Flag</methodSignature>
+      <fullMethod>flag(string $column): ?Flag</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\Flags</className>
+      <methodName>flags</methodName>
+      <methodSignature>flags(): array</methodSignature>
+      <fullMethod>flags(): array</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
@@ -226,120 +534,10 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>132</crap>
-      <complexity>11</complexity>
+      <crap>182</crap>
+      <complexity>13</complexity>
       <coverage>0</coverage>
-      <crapLoad>11</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Make\Recipe\Configuration</package>
-      <className>Playground\Make\Recipe\Configuration\Recipe</className>
-      <methodName>addDate</methodName>
-      <methodSignature>addDate(string $column, Date $date): self</methodSignature>
-      <fullMethod>addDate(string $column, Date $date): self</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Make\Recipe\Configuration</package>
-      <className>Playground\Make\Recipe\Configuration\Recipe</className>
-      <methodName>removeDate</methodName>
-      <methodSignature>removeDate(string $column): self</methodSignature>
-      <fullMethod>removeDate(string $column): self</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Make\Recipe\Configuration</package>
-      <className>Playground\Make\Recipe\Configuration\Recipe</className>
-      <methodName>addDates</methodName>
-      <methodSignature>addDates(array $dates): self</methodSignature>
-      <fullMethod>addDates(array $dates): self</fullMethod>
-      <crap>272</crap>
-      <complexity>16</complexity>
-      <coverage>0</coverage>
-      <crapLoad>16</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Make\Recipe\Configuration</package>
-      <className>Playground\Make\Recipe\Configuration\Recipe</className>
-      <methodName>addFlag</methodName>
-      <methodSignature>addFlag(string $column, Flag $flag): self</methodSignature>
-      <fullMethod>addFlag(string $column, Flag $flag): self</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Make\Recipe\Configuration</package>
-      <className>Playground\Make\Recipe\Configuration\Recipe</className>
-      <methodName>removeFlag</methodName>
-      <methodSignature>removeFlag(string $column): self</methodSignature>
-      <fullMethod>removeFlag(string $column): self</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Make\Recipe\Configuration</package>
-      <className>Playground\Make\Recipe\Configuration\Recipe</className>
-      <methodName>addFlags</methodName>
-      <methodSignature>addFlags(array $flags): self</methodSignature>
-      <fullMethod>addFlags(array $flags): self</fullMethod>
-      <crap>272</crap>
-      <complexity>16</complexity>
-      <coverage>0</coverage>
-      <crapLoad>16</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Make\Recipe\Configuration</package>
-      <className>Playground\Make\Recipe\Configuration\Recipe</className>
-      <methodName>date</methodName>
-      <methodSignature>date(string $column): ?Date</methodSignature>
-      <fullMethod>date(string $column): ?Date</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Make\Recipe\Configuration</package>
-      <className>Playground\Make\Recipe\Configuration\Recipe</className>
-      <methodName>dates</methodName>
-      <methodSignature>dates(): array</methodSignature>
-      <fullMethod>dates(): array</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Make\Recipe\Configuration</package>
-      <className>Playground\Make\Recipe\Configuration\Recipe</className>
-      <methodName>flag</methodName>
-      <methodSignature>flag(string $column): ?Flag</methodSignature>
-      <fullMethod>flag(string $column): ?Flag</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Make\Recipe\Configuration</package>
-      <className>Playground\Make\Recipe\Configuration\Recipe</className>
-      <methodName>flags</methodName>
-      <methodSignature>flags(): array</methodSignature>
-      <fullMethod>flags(): array</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
+      <crapLoad>13</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Configuration</package>
@@ -437,6 +635,50 @@
       <fullMethod>getConfigurationFilename(): string</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\ColumnController</className>
+      <methodName>delete</methodName>
+      <methodSignature>delete(Manager $manager, string $recipe_slug, string $column_slug): RedirectResponse</methodSignature>
+      <fullMethod>delete(Manager $manager, string $recipe_slug, string $column_slug): RedirectResponse</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\ColumnController</className>
+      <methodName>index</methodName>
+      <methodSignature>index(string $recipe_slug, Manager $manager): View|RedirectResponse</methodSignature>
+      <fullMethod>index(string $recipe_slug, Manager $manager): View|RedirectResponse</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\ColumnController</className>
+      <methodName>form</methodName>
+      <methodSignature>form(string $recipe_slug, FormRequest $request, Manager $manager, ?string $column_slug): View|RedirectResponse</methodSignature>
+      <fullMethod>form(string $recipe_slug, FormRequest $request, Manager $manager, ?string $column_slug): View|RedirectResponse</fullMethod>
+      <crap>56</crap>
+      <complexity>7</complexity>
+      <coverage>0</coverage>
+      <crapLoad>7</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\ColumnController</className>
+      <methodName>save</methodName>
+      <methodSignature>save(string $recipe_slug, SaveRequest $request, Manager $manager, ?string $column_slug): RedirectResponse</methodSignature>
+      <fullMethod>save(string $recipe_slug, SaveRequest $request, Manager $manager, ?string $column_slug): RedirectResponse</fullMethod>
+      <crap>42</crap>
+      <complexity>6</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -646,6 +888,17 @@
       <fullMethod>save(SaveRequest $request, Manager $manager, ?string $recipe_slug): RedirectResponse</fullMethod>
       <crap>20</crap>
       <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Requests\Column</package>
+      <className>Playground\Make\Recipe\Http\Requests\Column\SaveRequest</className>
+      <methodName>prepareForValidation</methodName>
+      <methodSignature>prepareForValidation()</methodSignature>
+      <fullMethod>prepareForValidation()</fullMethod>
+      <crap>42</crap>
+      <complexity>6</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
