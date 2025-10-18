@@ -8,78 +8,9 @@
 
     <input type="hidden" name="_return_url" value="{{ $_return_url }}" />
 
-    <fieldset class="mb-3 fieldset-basic" id="fieldset-info">
-        <legend>{{ __("Information") }}</legend>
-
-        <x-playground::forms.column
-            column="column"
-            label="Column"
-            :autocomplete="false"
-            :rules="[
-                'required' => true,
-                'maxlength' => 255,
-            ]"
-        ></x-playground::forms.column>
-
-        <x-playground::forms.column
-            column="label"
-            label="Label"
-            :autocomplete="false"
-            :rules="[
-                'required' => false,
-                'maxlength' => 255,
-            ]"
-        ></x-playground::forms.column>
-
-        <x-playground::forms.column
-            column="description"
-            label="Description"
-            :autocomplete="false"
-            :rules="[
-                'required' => false,
-                'maxlength' => 255,
-            ]"
-        ></x-playground::forms.column>
-
-        <div class="row">
-            <div class="col">
-                <div class="form-check form-check-inline">
-                    <input type="hidden" name="index" value="0" />
-                    <input
-                        class="form-check-input"
-                        type="checkbox"
-                        id="form-input-index"
-                        name="index"
-                        value="1"
-                        {{ old("index") ? "checked" : "" }}
-                    />
-                    <label class="form-check-label" for="form-input-index">
-                        <i class="fa-solid fa-address-book text-info"></i>
-                        {{ __("index") }}
-                    </label>
-                </div>
-            </div>
-            <div class="col">
-                <div class="form-check form-check-inline">
-                    <input type="hidden" name="nullable" value="0" />
-                    <input
-                        class="form-check-input"
-                        type="checkbox"
-                        id="form-input-nullable"
-                        name="nullable"
-                        value="1"
-                        {{ old("nullable") ? "checked" : "" }}
-                    />
-                    <label class="form-check-label" for="form-input-nullable">
-                        <i
-                            class="fa-solid fa-ban fa-rotate-90 text-warning"
-                        ></i>
-                        {{ __("nullable") }}
-                    </label>
-                </div>
-            </div>
-        </div>
-    </fieldset>
+    @include("playground-make-recipe::io.form-info")
+    @include("playground-make-recipe::io.form-indexes")
+    @include("playground-make-recipe::io.form-defaults")
 
     <fieldset class="mb-3">
         <div class="button-group float-end">

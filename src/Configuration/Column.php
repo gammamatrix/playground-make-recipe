@@ -87,7 +87,7 @@ class Column extends PrimaryConfiguration
     ];
 
     /**
-     * @var array<int, string>
+     * @var string[]
      */
     public array $allowed_types = [
         'uuid',
@@ -106,9 +106,16 @@ class Column extends PrimaryConfiguration
         'tinyInteger',
         'dateTime',
         'decimal',
-        'float',
-        'double',
+        'float', // double
     ];
+
+    /**
+     * @return string[]
+     */
+    public function allowedTypes(): array
+    {
+        return $this->allowed_types;
+    }
 
     /**
      * @param  array<string, mixed>  $options
