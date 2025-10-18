@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-10-16 22:13:55</timestamp>
+  <timestamp>2025-10-18 19:39:32</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>97</methodCount>
+    <methodCount>98</methodCount>
     <crapMethodCount>10</crapMethodCount>
     <crapLoad>142</crapLoad>
-    <totalCrap>3236</totalCrap>
-    <crapMethodPercent>10.31</crapMethodPercent>
+    <totalCrap>3238</totalCrap>
+    <crapMethodPercent>10.2</crapMethodPercent>
   </stats>
   <methods>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Column</className>
+      <methodName>allowedTypes</methodName>
+      <methodSignature>allowedTypes(): array</methodSignature>
+      <fullMethod>allowedTypes(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
     <method>
       <package>Playground\Make\Recipe\Configuration</package>
       <className>Playground\Make\Recipe\Configuration\Column</className>
