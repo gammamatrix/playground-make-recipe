@@ -7,7 +7,106 @@
     "title": "CRM",
     "name": "",
     "columns": [],
-    "dates": [],
+    "dates": {
+        "canceled_at": {
+            "column": "canceled_at",
+            "description": "",
+            "label": "",
+            "index": false,
+            "nullable": true
+        },
+        "closed_at": {
+            "column": "closed_at",
+            "description": "",
+            "label": "",
+            "index": true,
+            "nullable": true
+        },
+        "embargo_at": {
+            "column": "embargo_at",
+            "description": "",
+            "label": "",
+            "index": false,
+            "nullable": true
+        },
+        "fixed_at": {
+            "column": "fixed_at",
+            "description": "",
+            "label": "",
+            "index": false,
+            "nullable": true
+        },
+        "planned_end_at": {
+            "column": "planned_end_at",
+            "description": "",
+            "label": "",
+            "index": false,
+            "nullable": true
+        },
+        "planned_start_at": {
+            "column": "planned_start_at",
+            "description": "",
+            "label": "",
+            "index": false,
+            "nullable": true
+        },
+        "postponed_at": {
+            "column": "postponed_at",
+            "description": "",
+            "label": "",
+            "index": false,
+            "nullable": true
+        },
+        "published_at": {
+            "column": "published_at",
+            "description": "",
+            "label": "",
+            "index": false,
+            "nullable": true
+        },
+        "released_at": {
+            "column": "released_at",
+            "description": "",
+            "label": "",
+            "index": false,
+            "nullable": true
+        },
+        "resumed_at": {
+            "column": "resumed_at",
+            "description": "",
+            "label": "",
+            "index": false,
+            "nullable": true
+        },
+        "resolved_at": {
+            "column": "resolved_at",
+            "description": "",
+            "label": "",
+            "index": true,
+            "nullable": true
+        },
+        "suspended_at": {
+            "column": "suspended_at",
+            "description": "",
+            "label": "",
+            "index": false,
+            "nullable": true
+        },
+        "timer_end_at": {
+            "column": "timer_end_at",
+            "description": "",
+            "label": "",
+            "index": true,
+            "nullable": true
+        },
+        "timer_start_at": {
+            "column": "timer_start_at",
+            "description": "",
+            "label": "",
+            "index": true,
+            "nullable": true
+        }
+    },
     "flags": [],
     "models": [],
     "type": "",

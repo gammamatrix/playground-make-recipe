@@ -16,6 +16,7 @@
                 <th>Column</th>
                 <th>Label</th>
                 <th>Description</th>
+                <th>Icon</th>
                 <th>Index</th>
                 <th>Nullable</th>
                 <th>Read Only</th>
@@ -33,6 +34,11 @@
                     </td>
                     <td>
                         {{ $flag->description() }}
+                    </td>
+                    <td>
+                        @if ($flag->icon())
+                            <i class="{{ $flag->icon() }}"></i>
+                        @endif
                     </td>
                     <td>
                         @if ($flag->index())

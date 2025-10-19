@@ -136,7 +136,7 @@ class Manager
             }
         }
 
-        //dd([
+        // dd([
         //    '__METHOD__' => __METHOD__,
         //    '$pathToConfigurations' => $pathToConfigurations,
         //    '$configurations' => $configurations,
@@ -144,7 +144,7 @@ class Manager
         //    '$files' => $files,
         //    '$level' => $level,
         //    '$with' => $with,
-        //]);
+        // ]);
 
         return [$level, $with];
     }

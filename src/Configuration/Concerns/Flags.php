@@ -54,16 +54,19 @@ trait Flags
                     $flag['column'] = $column;
                 }
                 if (array_key_exists('description', $meta)
-                    && ! empty($meta['description'])
                     && is_string($meta['description'])
                 ) {
                     $flag['description'] = $meta['description'];
                 }
                 if (array_key_exists('label', $meta)
-                    && ! empty($meta['label'])
                     && is_string($meta['label'])
                 ) {
                     $flag['label'] = $meta['label'];
+                }
+                if (array_key_exists('icon', $meta)
+                    && is_string($meta['icon'])
+                ) {
+                    $flag['icon'] = $meta['icon'];
                 }
                 if (array_key_exists('index', $meta)) {
                     $flag['index'] = ! empty($meta['index']);

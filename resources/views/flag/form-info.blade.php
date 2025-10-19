@@ -12,7 +12,7 @@
 
     @include("playground-make-recipe::io.form-indexes")
     @include("playground-make-recipe::io.form-defaults")
-    @include("playground-make-recipe::io.form-options")
+    @include("playground-make-recipe::io.form-options", ["withReadOnly" => true, "withIcon" => true])
 
     <fieldset class="mb-3">
         <div class="button-group float-end">
