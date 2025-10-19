@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-10-19 21:30:18</timestamp>
+  <timestamp>2025-10-19 21:50:35</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>113</methodCount>
-    <crapMethodCount>11</crapMethodCount>
-    <crapLoad>157</crapLoad>
-    <totalCrap>3630</totalCrap>
-    <crapMethodPercent>9.73</crapMethodPercent>
+    <methodCount>117</methodCount>
+    <crapMethodCount>12</crapMethodCount>
+    <crapLoad>171</crapLoad>
+    <totalCrap>3838</totalCrap>
+    <crapMethodPercent>10.26</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -358,10 +358,10 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>90</crap>
-      <complexity>9</complexity>
+      <crap>110</crap>
+      <complexity>10</complexity>
       <coverage>0</coverage>
-      <crapLoad>9</crapLoad>
+      <crapLoad>10</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Configuration</package>
@@ -413,6 +413,50 @@
       <methodName>nullable</methodName>
       <methodSignature>nullable(): bool</methodSignature>
       <fullMethod>nullable(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\FactoryState</className>
+      <methodName>setOptions</methodName>
+      <methodSignature>setOptions(array $options): self</methodSignature>
+      <fullMethod>setOptions(array $options): self</fullMethod>
+      <crap>182</crap>
+      <complexity>13</complexity>
+      <coverage>0</coverage>
+      <crapLoad>13</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\FactoryState</className>
+      <methodName>description</methodName>
+      <methodSignature>description(): string</methodSignature>
+      <fullMethod>description(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\FactoryState</className>
+      <methodName>type</methodName>
+      <methodSignature>type(): string</methodSignature>
+      <fullMethod>type(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\FactoryState</className>
+      <methodName>value</methodName>
+      <methodSignature>value(): mixed</methodSignature>
+      <fullMethod>value(): mixed</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
