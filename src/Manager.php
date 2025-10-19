@@ -115,7 +115,7 @@ class Manager
         foreach ($files as $recipe_slug => $path) {
             $payload = json_decode(file_get_contents($path) ?: '', true);
             if (! empty($with)) {
-                $with .= ' ';
+                $with .= '<br>';
             }
             if (is_array($payload) && ! empty($payload)) {
                 $recipes[$recipe_slug] = new Recipe($payload);
