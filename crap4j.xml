@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-10-19 17:26:51</timestamp>
+  <timestamp>2025-10-19 18:28:07</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>104</methodCount>
+    <methodCount>108</methodCount>
     <crapMethodCount>10</crapMethodCount>
     <crapLoad>148</crapLoad>
-    <totalCrap>3448</totalCrap>
-    <crapMethodPercent>9.62</crapMethodPercent>
+    <totalCrap>3488</totalCrap>
+    <crapMethodPercent>9.26</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -960,11 +960,33 @@
     <method>
       <package>Playground\Make\Recipe\Http\Controllers</package>
       <className>Playground\Make\Recipe\Http\Controllers\RecipeController</className>
+      <methodName>load</methodName>
+      <methodSignature>load(LoadRequest $request, Manager $manager, string $recipe_slug): RedirectResponse</methodSignature>
+      <fullMethod>load(LoadRequest $request, Manager $manager, string $recipe_slug): RedirectResponse</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\RecipeController</className>
       <methodName>save</methodName>
       <methodSignature>save(SaveRequest $request, Manager $manager, ?string $recipe_slug): RedirectResponse</methodSignature>
       <fullMethod>save(SaveRequest $request, Manager $manager, ?string $recipe_slug): RedirectResponse</fullMethod>
       <crap>20</crap>
       <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\RecipeController</className>
+      <methodName>write</methodName>
+      <methodSignature>write(WriteRequest $request, Manager $manager, string $recipe_slug): RedirectResponse</methodSignature>
+      <fullMethod>write(WriteRequest $request, Manager $manager, string $recipe_slug): RedirectResponse</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -1081,6 +1103,17 @@
     <method>
       <package>Playground\Make\Recipe</package>
       <className>Playground\Make\Recipe\Manager</className>
+      <methodName>load</methodName>
+      <methodSignature>load(string $recipe_slug): void</methodSignature>
+      <fullMethod>load(string $recipe_slug): void</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe</package>
+      <className>Playground\Make\Recipe\Manager</className>
       <methodName>addModel</methodName>
       <methodSignature>addModel(array $attributes): Manager</methodSignature>
       <fullMethod>addModel(array $attributes): Manager</fullMethod>
@@ -1097,6 +1130,17 @@
       <fullMethod>save(Recipe $recipe): Manager</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe</package>
+      <className>Playground\Make\Recipe\Manager</className>
+      <methodName>write</methodName>
+      <methodSignature>write(string $recipe_slug, bool $asPhp): void</methodSignature>
+      <fullMethod>write(string $recipe_slug, bool $asPhp): void</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
