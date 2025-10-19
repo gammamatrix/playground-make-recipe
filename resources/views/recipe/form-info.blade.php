@@ -52,6 +52,8 @@
         ></x-playground::forms.column>
     </fieldset>
 
+    @include("playground-make-recipe::recipe/form-playground")
+
     <fieldset class="mb-3">
         <div class="button-group float-end">
             <button type="submit" class="btn btn-primary">

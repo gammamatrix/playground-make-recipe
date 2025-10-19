@@ -29,10 +29,10 @@ trait Columns
         return $this;
     }
 
-    public function removeColumn(string $column): self
+    public function removeColumn(string $column_slug): self
     {
-        throw_if(empty($column), 'InvalidArgumentException', '$column is not allowed to be empty.');
-        unset($this->columns[$column]);
+        throw_if(empty($column_slug), 'InvalidArgumentException', '$column_slug is not allowed to be empty.');
+        unset($this->columns[$column_slug]);
 
         return $this;
     }
@@ -71,18 +71,18 @@ trait Columns
                 if (array_key_exists('nullable', $meta)) {
                     $column['nullable'] = ! empty($meta['nullable']);
                 }
-                $this->addColumn($column_slug, new Column($column_slug));
+                $this->addColumn($column_slug, new Column($column));
             }
         }
 
         return $this;
     }
 
-    public function column(string $column): ?Column
+    public function column(string $column_slug): ?Column
     {
-        throw_if(empty($column), 'InvalidArgumentException', '$column is not allowed to be empty.');
+        throw_if(empty($column_slug), 'InvalidArgumentException', '$column_slug is not allowed to be empty.');
 
-        return $this->columns[$column] ?? null;
+        return $this->columns[$column_slug] ?? null;
     }
 
     /**

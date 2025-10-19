@@ -67,11 +67,11 @@ class RecipeController extends Controller
         $flash = $recipe->toArray();
 
         $flash['_return_url'] = $_return_url;
-        //         dd([
-        //            '__METHOD__' => __METHOD__,
-        //            '$flash' => $flash,
-        //            '$recipe' => $recipe,
-        //         ]);
+        // dd([
+        //    '__METHOD__' => __METHOD__,
+        //    '$flash' => $flash,
+        //    '$recipe' => $recipe,
+        // ]);
         session()->flashInput($flash);
 
         $data = [

@@ -20,5 +20,15 @@ class SaveRequest extends FormRequest
         'title' => ['nullable', 'string'],
         'slug' => ['nullable', 'string'],
         'extends' => ['nullable', 'string'],
+
+        'playground' => ['boolean'],
+        'withLifecycle' => ['boolean'],
+        'withMatrix' => ['boolean'],
+        'withPermissions' => ['boolean'],
+        'withPlanning' => ['boolean'],
+        'withPublishing' => ['boolean'],
+        'withStatus' => ['boolean'],
+
+        '_return_url' => ['nullable', 'string'],
     ];
 }

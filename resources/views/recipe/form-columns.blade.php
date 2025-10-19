@@ -22,7 +22,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($recipe->columns() as $column => $column)
+            @foreach ($recipe->columns() as $column_slug => $column)
                 <tr>
                     <td>
                         {{ $column->column() }}
