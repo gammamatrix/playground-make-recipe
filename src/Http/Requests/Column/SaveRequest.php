@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Playground\Make\Recipe\Http\Requests\Column;
 
-use Illuminate\Validation\Validator;
 use Playground\Make\Recipe\Http\Requests\FormRequest;
 
 /**
@@ -40,24 +39,5 @@ class SaveRequest extends FormRequest
         if (! empty($merge)) {
             $this->merge($merge);
         }
-        //            dd([
-        //                '__METHOD__' => __METHOD__,
-        //                '$this->input()' => $this->input(),
-        //                '$this->has(description)' => $this->has('description'),
-        //                '$this->has(label)' => $this->has('label'),
-        //            ]);
     }
-    //
-    //    protected function failedValidation(Validator|\Illuminate\Contracts\Validation\Validator $validator)
-    //    {
-    //        dd([
-    //            '__METHOD__' => __METHOD__,
-    //            '$this->input()' => $this->input(),
-    //            '$validator' => $validator,
-    //        ]);
-    //        $exception = $validator->getException();
-    //
-    //        throw new $exception($validator);
-    //    }
-
 }

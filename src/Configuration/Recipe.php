@@ -17,6 +17,7 @@ class Recipe extends PrimaryConfiguration
 {
     use Concerns\Columns;
     use Concerns\Dates;
+    use Concerns\FactoryStates;
     use Concerns\Flags;
 
     protected string $description = '';
@@ -165,6 +166,10 @@ class Recipe extends PrimaryConfiguration
 
         if (! empty($options['dates']) && is_array($options['dates'])) {
             $this->addDates($options['dates']);
+        }
+
+        if (! empty($options['factoryStates']) && is_array($options['factoryStates'])) {
+            $this->addFactoryStates($options['factoryStates']);
         }
 
         if (! empty($options['flags']) && is_array($options['flags'])) {

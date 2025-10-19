@@ -11,7 +11,7 @@ namespace Playground\Make\Recipe\Configuration\Concerns;
 use Playground\Make\Recipe\Configuration\Flag;
 
 /**
- * \Playground\Make\Recipe\Configuration\Concerns\Columns
+ * \Playground\Make\Recipe\Configuration\Concerns\Flags
  */
 trait Flags
 {

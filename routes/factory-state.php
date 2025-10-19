@@ -17,23 +17,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group([
-    'prefix' => 'make/{recipe_slug}/flag',
+    'prefix' => 'make/{recipe_slug}/factory-state',
     'middleware' => config('playground-make-recipe.middleware.default'),
     'namespace' => '\Playground\Make\Recipe\Http\Controllers',
 ], function () {
 
     Route::get('/form/{column?}', [
-        'as' => 'playground.make.recipe.flag.form',
-        'uses' => 'FlagController@form',
+        'as' => 'playground.make.recipe.factory-state.form',
+        'uses' => 'FactoryStateController@form',
     ]);
 
     Route::post('/form/{column?}', [
-        'as' => 'playground.make.recipe.flag.save',
-        'uses' => 'FlagController@save',
+        'as' => 'playground.make.recipe.factory-state.save',
+        'uses' => 'FactoryStateController@save',
     ]);
 
     Route::get('/recipe/delete/{column?}', [
-        'as' => 'playground.make.recipe.flag.delete',
-        'uses' => 'FlagController@delete',
+        'as' => 'playground.make.recipe.factory-state.delete',
+        'uses' => 'FactoryStateController@delete',
     ]);
 });

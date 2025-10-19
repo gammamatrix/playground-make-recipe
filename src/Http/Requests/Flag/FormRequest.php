@@ -16,14 +16,14 @@ use Playground\Make\Recipe\Http\Requests\FormRequest as BaseFormRequest;
 class FormRequest extends BaseFormRequest
 {
     public const array RULES = [
-        'column' => ['nullable', 'string'],
-        'default' => ['nullable'],
-        'description' => ['nullable', 'string'],
-        'icon' => ['nullable', 'string'],
-        'index' => ['boolean'],
-        'label' => ['nullable', 'string'],
-        'nullable' => ['boolean'],
-        'readOnly' => ['boolean'],
+        //        'column' => ['nullable', 'string'],
+        //        'default' => ['nullable'],
+        //        'description' => ['nullable', 'string'],
+        //        'icon' => ['nullable', 'string'],
+        //        'index' => ['boolean'],
+        //        'label' => ['nullable', 'string'],
+        //        'nullable' => ['boolean'],
+        //        'readOnly' => ['boolean'],
         '_return_url' => ['nullable', 'string'],
     ];
 }

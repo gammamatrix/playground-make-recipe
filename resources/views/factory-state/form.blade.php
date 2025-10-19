@@ -1,19 +1,6 @@
 @extends("playground::layouts.site")
 
-<?php
-$column_slug =
-    ! empty($column) &&
-    $column instanceof \Playground\Make\Recipe\Configuration\Column
-        ? $column->column()
-        : "";
-if ($column_slug) {
-    $title = "Column Form";
-} else {
-    $title = "Edit: " . $column_slug;
-}
-?>
-
-@section("title", $title)
+@section("title", "MAKE")
 
 @section("breadcrumbs")
     <div class="container-fluid mt-3">
@@ -32,14 +19,14 @@ if ($column_slug) {
                 </li>
                 <li class="breadcrumb-item">
                     <a
-                        href="{{ route("playground.make.recipe.column", ["recipe_slug" => $recipe->slug()]) }}"
+                        href="{{ route("playground.make.recipe.date", ["recipe_slug" => $recipe->slug()]) }}"
                     >
-                        Columns
+                        Dates
                     </a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
                     <a
-                        href="{{ route("playground.make.recipe.column.form", ["recipe_slug" => $recipe->slug(), "column" => $column_slug]) }}"
+                        href="{{ route("playground.make.recipe.date.form", ["recipe_slug" => $recipe->slug(), "column" => $date_slug]) }}"
                     >
                         Form
                     </a>
@@ -53,7 +40,7 @@ if ($column_slug) {
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                @include("playground-make-recipe::column/form-info")
+                @include("playground-make-recipe::factory-state/form-info")
             </div>
         </div>
     </div>

@@ -22,11 +22,6 @@ Route::group([
     'namespace' => '\Playground\Make\Recipe\Http\Controllers',
 ], function () {
 
-    Route::get('/', [
-        'as' => 'playground.make.recipe.column',
-        'uses' => 'ColumnController@index',
-    ]);
-
     Route::get('/form/{column_slug?}', [
         'as' => 'playground.make.recipe.column.form',
         'uses' => 'ColumnController@form',

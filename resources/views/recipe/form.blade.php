@@ -1,6 +1,19 @@
 @extends("playground::layouts.site")
 
-@section("title", "MAKE")
+<?php
+$recipe_slug =
+    ! empty($recipe) &&
+    $recipe instanceof \Playground\Make\Recipe\Configuration\Recipe
+        ? $recipe->slug()
+        : "";
+if ($recipe_slug) {
+    $title = "Recipe Form";
+} else {
+    $title = "Edit: " . $recipe_slug;
+}
+?>
+
+@section("title", $title)
 
 @section("breadcrumbs")
     <div class="container-fluid mt-3">
@@ -10,11 +23,20 @@
                 <li class="breadcrumb-item">
                     <a href="{{ route("playground.make.recipe") }}">MAKE</a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">
+                <li class="breadcrumb-item">
                     <a href="{{ route("playground.make.recipe.form") }}">
                         Form
                     </a>
                 </li>
+                @if ($recipe->slug())
+                    <li class="breadcrumb-item active" aria-current="page">
+                        <a
+                            href="{{ route("playground.make.recipe.form", ["recipe_slug" => $recipe->slug()]) }}"
+                        >
+                            Edit: {{ $recipe->title() ?: $recipe->slug() }}
+                        </a>
+                    </li>
+                @endif
             </ol>
         </nav>
     </div>

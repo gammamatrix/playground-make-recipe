@@ -22,11 +22,6 @@ Route::group([
     'namespace' => '\Playground\Make\Recipe\Http\Controllers',
 ], function () {
 
-    Route::get('/', [
-        'as' => 'playground.make.recipe.date',
-        'uses' => 'DateController@index',
-    ]);
-
     Route::get('/form/{column?}', [
         'as' => 'playground.make.recipe.date.form',
         'uses' => 'DateController@form',

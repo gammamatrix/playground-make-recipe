@@ -18,18 +18,22 @@ class FactoryState extends PrimaryConfiguration
 {
     protected string $description = '';
 
+    protected string $state = '';
+
     protected string $type = '';
 
     protected mixed $value = null;
 
     /**
      * @var array{
+     *     state: string,
      *     description: string,
      *     type: string,
      *     value: mixed,
      * }
      */
     protected $properties = [
+        'state' => '',
         'description' => '',
         'type' => '',
         'value' => null,
@@ -46,6 +50,13 @@ class FactoryState extends PrimaryConfiguration
     public function setOptions(array $options = []): self
     {
         parent::setOptions($options);
+
+        if (array_key_exists('state', $options)
+            && ! empty($options['state'])
+            && is_string($options['state'])
+        ) {
+            $this->state = $options['state'];
+        }
 
         if (array_key_exists('description', $options)
             && is_string($options['description'])
@@ -90,6 +101,11 @@ class FactoryState extends PrimaryConfiguration
     public function description(): string
     {
         return $this->description;
+    }
+
+    public function state(): string
+    {
+        return $this->state;
     }
 
     public function type(): string

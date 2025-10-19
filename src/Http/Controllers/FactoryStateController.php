@@ -10,15 +10,15 @@ namespace Playground\Make\Recipe\Http\Controllers;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
-use Playground\Make\Recipe\Configuration\Date;
-use Playground\Make\Recipe\Http\Requests\Date\FormRequest;
-use Playground\Make\Recipe\Http\Requests\Date\SaveRequest;
+use Playground\Make\Recipe\Configuration\FactoryState;
+use Playground\Make\Recipe\Http\Requests\FactoryState\FormRequest;
+use Playground\Make\Recipe\Http\Requests\FactoryState\SaveRequest;
 use Playground\Make\Recipe\Manager;
 
 /**
  * \Playground\Make\Recipe\Http\Controllers\IndexController
  */
-class DateController extends Controller
+class FactoryStateController extends Controller
 {
     /**
      * @var array<string, string>
@@ -53,7 +53,7 @@ class DateController extends Controller
                 __('playground-make-recipe::building.recipe.404', ['recipe' => $recipe_slug])
             );
         }
-        $recipe->removeDate($column);
+        $recipe->removeFactoryState($column);
 
         $recipe->apply();
 
@@ -95,18 +95,18 @@ class DateController extends Controller
         }
 
         if (! empty($column) && is_string($column)) {
-            $date = $recipe->date($column);
+            $factoryState = $recipe->factoryState($column);
         }
 
-        if (empty($date)) {
-            $date = new Date($validated);
+        if (empty($factoryState)) {
+            $factoryState = new FactoryState($validated);
         } else {
-            $date->setOptions($validated);
+            $factoryState->setOptions($validated);
         }
 
-        $date->apply();
+        $factoryState->apply();
 
-        $flash = $date->toArray();
+        $flash = $factoryState->toArray();
 
         $flash['_return_url'] = $_return_url;
         //         dd([
@@ -118,17 +118,17 @@ class DateController extends Controller
 
         $data = [
             'packageInfo' => $packageInfo,
-            'date_slug' => $column,
+            'factoryState_slug' => $column,
             'recipe_slug' => $recipe_slug,
             'recipe' => $recipe,
-            'date' => $date,
+            'factoryState' => $factoryState,
             '_return_url' => $_return_url,
         ];
 
         /**
          * @var view-string $view
          */
-        $view = sprintf('%1$s::date/form', $packageInfo->view());
+        $view = sprintf('%1$s::factory-state/form', $packageInfo->view());
 
         return view($view, $data);
     }
@@ -172,28 +172,28 @@ class DateController extends Controller
             $column = $validated['column'] ?? '';
         }
 
-        $date = $recipe->date($column);
+        $factoryState = $recipe->factoryState($column);
 
-        if (empty($date)) {
-            $date = new Date($validated);
+        if (empty($factoryState)) {
+            $factoryState = new FactoryState($validated);
         } else {
-            $date->setOptions($validated);
+            $factoryState->setOptions($validated);
         }
 
-        // dump([
-        //    '__METHOD__' => __METHOD__,
-        //     '$column' => $column,
-        //     '$validated' => $validated,
-        //    '$date' => $date,
-        // ]);
-        $date->apply();
-        // dd([
-        //    '__METHOD__' => __METHOD__,
-        //    '$validated' => $validated,
-        //    '$date' => $date,
-        // ]);
+        //         dump([
+        //            '__METHOD__' => __METHOD__,
+        //             '$column' => $column,
+        //             '$validated' => $validated,
+        //            '$factoryState' => $factoryState,
+        //         ]);
+        $factoryState->apply();
+        //         dd([
+        //            '__METHOD__' => __METHOD__,
+        //            '$validated' => $validated,
+        //            '$factoryState' => $factoryState,
+        //         ]);
 
-        $recipe->addDate($column, $date);
+        $recipe->addFactoryState($column, $factoryState);
 
         $recipe->apply();
 
@@ -202,7 +202,7 @@ class DateController extends Controller
         //        dd([
         //            '__METHOD__' => __METHOD__,
         //            '$recipe' => $recipe,
-        //            '$date' => $date,
+        //            '$factoryState' => $factoryState,
         //            '$validated' => $validated,
         //        ]);
 

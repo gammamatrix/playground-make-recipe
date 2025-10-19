@@ -17,10 +17,10 @@ class FormRequest extends BaseFormRequest
 {
     public const array RULES = [
         'column' => ['nullable', 'string'],
-        'description' => ['nullable', 'string'],
-        'label' => ['nullable', 'string'],
-        'index' => ['boolean'],
-        'nullable' => ['boolean'],
+        //        'description' => ['nullable', 'string'],
+        //        'label' => ['nullable', 'string'],
+        //        'index' => ['boolean'],
+        //        'nullable' => ['boolean'],
         '_return_url' => ['nullable', 'string'],
     ];
 }

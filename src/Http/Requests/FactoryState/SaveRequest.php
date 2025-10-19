@@ -6,21 +6,19 @@
 
 declare(strict_types=1);
 
-namespace Playground\Make\Recipe\Http\Requests\Date;
+namespace Playground\Make\Recipe\Http\Requests\FactoryState;
 
 use Playground\Make\Recipe\Http\Requests\FormRequest;
 
 /**
- * \Playground\Make\Recipe\Http\Requests\Date\FormRecipeRequest
+ * \Playground\Make\Recipe\Http\Requests\FactoryState\SaveRequest
  */
 class SaveRequest extends FormRequest
 {
     public const array RULES = [
-        'column' => ['required', 'string'],
+        'type' => ['required', 'string', 'in:flag'],
         'description' => ['nullable', 'string'],
-        'label' => ['nullable', 'string'],
-        'index' => ['boolean'],
-        'nullable' => ['boolean'],
+        'value' => ['sometimes'],
         '_return_url' => ['nullable', 'string'],
     ];
 
@@ -30,10 +28,6 @@ class SaveRequest extends FormRequest
 
         if ($this->has('description') && empty($this->input('description'))) {
             $merge['description'] = '';
-        }
-
-        if ($this->has('label') && empty($this->input('label'))) {
-            $merge['label'] = '';
         }
 
         if (! empty($merge)) {

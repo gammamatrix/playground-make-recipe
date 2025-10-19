@@ -11,7 +11,7 @@ namespace Playground\Make\Recipe\Configuration\Concerns;
 use Playground\Make\Recipe\Configuration\Date;
 
 /**
- * \Playground\Make\Recipe\Configuration\Concerns\Columns
+ * \Playground\Make\Recipe\Configuration\Concerns\Dates
  */
 trait Dates
 {

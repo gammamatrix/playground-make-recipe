@@ -22,11 +22,6 @@ Route::group([
     'namespace' => '\Playground\Make\Recipe\Http\Controllers',
 ], function () {
 
-    Route::get('/', [
-        'as' => 'playground.make.recipe.model',
-        'uses' => 'ModelController@index',
-    ]);
-
     Route::get('/form/{slug?}', [
         'as' => 'playground.make.recipe.model.form',
         'uses' => 'ModelController@form',

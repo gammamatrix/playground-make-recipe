@@ -64,39 +64,6 @@ class ColumnController extends Controller
     }
 
     /**
-     * Show the index.
-     */
-    public function index(
-        string $recipe_slug,
-        Manager $manager
-    ): View|RedirectResponse {
-        $recipe = $manager->get($recipe_slug);
-        // dd([
-        //    '__METHOD__' => __METHOD__,
-        //    '$recipe' => $recipe,
-        // ]);
-        if (empty($recipe)) {
-            return response()->redirectToRoute('playground.make.recipe')->with(
-                'error',
-                __('playground-make-recipe::building.recipe.404', ['recipe' => $recipe_slug])
-            );
-        }
-
-        $packageInfo = $this->packageInfo();
-
-        /**
-         * @var view-string $view
-         */
-        $view = sprintf('%1$s::column/index', $packageInfo->view());
-
-        return view($view, [
-            'recipe_slug' => $recipe_slug,
-            'packageInfo' => $packageInfo,
-            'recipe' => $recipe,
-        ]);
-    }
-
-    /**
      * Show the form.
      */
     public function form(
