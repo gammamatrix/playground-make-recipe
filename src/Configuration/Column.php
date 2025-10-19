@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Log;
 use Playground\Make\Configuration\PrimaryConfiguration;
 
 /**
- * \Playground\Make\Recipe\Configuration\Model
+ * \Playground\Make\Recipe\Configuration\Column
  */
 class Column extends PrimaryConfiguration
 {
@@ -133,13 +133,14 @@ class Column extends PrimaryConfiguration
         if (! empty($options['type'])
             && is_string($options['type'])
         ) {
-            $this->type = $options['type'];
-            if (! in_array($this->type, $this->allowed_types)) {
-                Log::warning(__('playground-make::model.CreateColumn.type.unexpected', [
+            if (! in_array($options['type'], $this->allowed_types)) {
+                Log::warning(__('playground-make-recipe::building.Column.type.unexpected', [
                     'column' => $this->column,
                     'type' => $this->type,
                     'allowed' => implode(', ', $this->allowed_types),
                 ]));
+            } else {
+                $this->type = $options['type'];
             }
         }
 

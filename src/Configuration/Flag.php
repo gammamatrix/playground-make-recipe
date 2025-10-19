@@ -11,7 +11,7 @@ namespace Playground\Make\Recipe\Configuration;
 use Playground\Make\Configuration\PrimaryConfiguration;
 
 /**
- * \Playground\Make\Recipe\Configuration\Model
+ * \Playground\Make\Recipe\Configuration\Flag
  */
 class Flag extends PrimaryConfiguration
 {

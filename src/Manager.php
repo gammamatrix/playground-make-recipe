@@ -136,16 +136,6 @@ class Manager
             }
         }
 
-        // dd([
-        //    '__METHOD__' => __METHOD__,
-        //    '$pathToConfigurations' => $pathToConfigurations,
-        //    '$configurations' => $configurations,
-        //    '$recipes' => $recipes,
-        //    '$files' => $files,
-        //    '$level' => $level,
-        //    '$with' => $with,
-        // ]);
-
         return [$level, $with];
     }
 
@@ -164,10 +154,6 @@ class Manager
 
     public function save(Recipe $recipe): Manager
     {
-        //        dd([
-        //            '__METHOD__' => __METHOD__,
-        //            '$recipe' => $recipe,
-        //        ]);
         throw_if(empty($recipe->slug()), 'UnexpectedValueException', 'The recipe cannot be empty.');
 
         $this->redis()->set(
@@ -218,7 +204,12 @@ class Manager
     public function saveConfiguration(Recipe $recipe): array
     {
         $path = $this->getConfigurationPath($recipe->slug());
-        throw_if(! is_dir($this->directory) || ! is_writable($this->directory), 'RuntimeException', 'Expecting the recipe configuration directory to exist and be writable: '.$this->directory);
+
+        throw_if(
+            ! is_dir($this->directory) || ! is_writable($this->directory),
+            'RuntimeException',
+            'Expecting the recipe configuration directory to exist and be writable: '.$this->directory
+        );
 
         $bytes = file_put_contents($path, json_encode($recipe->toArray(), JSON_PRETTY_PRINT));
         if ($bytes === false) {
@@ -238,16 +229,6 @@ class Manager
             );
         }
 
-        //        dd([
-        //            '__METHOD__' => __METHOD__,
-        //            '$recipe' => $recipe,
-        //            '$this->directory' => $this->directory,
-        //            '$path' => $path,
-        //            'is_dir($this->directory)' => is_dir($this->directory),
-        //            'file_exists($this->directory)' => file_exists($this->directory),
-        //            'is_dir($path)' => is_dir($path),
-        //            'file_exists($path)' => file_exists($path),
-        //        ]);
         return [$level, $with];
     }
 

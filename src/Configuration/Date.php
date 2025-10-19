@@ -11,7 +11,7 @@ namespace Playground\Make\Recipe\Configuration;
 use Playground\Make\Configuration\PrimaryConfiguration;
 
 /**
- * \Playground\Make\Recipe\Configuration\Model
+ * \Playground\Make\Recipe\Configuration\Date
  */
 class Date extends PrimaryConfiguration
 {
@@ -50,6 +50,7 @@ class Date extends PrimaryConfiguration
         parent::setOptions($options);
 
         if (array_key_exists('column', $options)
+            && ! empty($options['column'])
             && is_string($options['column'])
         ) {
             $this->column = $options['column'];
