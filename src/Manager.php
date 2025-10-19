@@ -22,7 +22,18 @@ class Manager
 
     public const string KEY_RECIPES = 'make:recipe:*';
 
+    public const string PATH_CONF = 'resources/configurations';
+
+    public const string PATH_RECIPES = 'resources/recipes';
+
     protected ?Connection $connection = null;
+
+    /**
+     * The filesystem instance.
+     *
+     * @var \Illuminate\Filesystem\Filesystem
+     */
+    protected $files;
 
     protected ?string $slug = null;
 
@@ -81,8 +92,61 @@ class Manager
 
     /**
      * Load existing recipe files into the manager.
+     *
+     * @return string[]
      */
-    public function load(string $recipe_slug = ''): void {}
+    public function load(string $recipe_slug = ''): array
+    {
+        $level = 'success';
+        $with = '';
+
+        $pathToConfigurations = $this->pathToConfigurations();
+        $configurations = scandir($pathToConfigurations);
+        $recipes = [];
+        $files = [];
+        if (is_array($configurations)) {
+            foreach ($configurations as $filename) {
+                if (preg_match('/^([a-z-_]+)\.json/', $filename, $matches)) {
+                    $files[$matches[1]] = $pathToConfigurations.DIRECTORY_SEPARATOR.$matches[1].'.json';
+                }
+            }
+        }
+
+        foreach ($files as $recipe_slug => $path) {
+            $payload = json_decode(file_get_contents($path) ?: '', true);
+            if (! empty($with)) {
+                $with .= ' ';
+            }
+            if (is_array($payload) && ! empty($payload)) {
+                $recipes[$recipe_slug] = new Recipe($payload);
+                $this->save($recipes[$recipe_slug]);
+                $with .= sprintf(
+                    'Loaded recipe configuration for %1$s at %2$s',
+                    $recipe_slug,
+                    $path,
+                );
+            } else {
+                $level = 'warning';
+                $with .= sprintf(
+                    'Unable to load recipe configuration for %1$s at %2$s',
+                    $recipe_slug,
+                    $path,
+                );
+            }
+        }
+
+        //        dd([
+        //            '__METHOD__' => __METHOD__,
+        //            '$pathToConfigurations' => $pathToConfigurations,
+        //            '$configurations' => $configurations,
+        //            '$recipes' => $recipes,
+        //            '$files' => $files,
+        //            '$level' => $level,
+        //            '$with' => $with,
+        //        ]);
+
+        return [$level, $with];
+    }
 
     /**
      * @param  array<string, mixed>  $attributes
@@ -113,12 +177,94 @@ class Manager
         return $this;
     }
 
+    protected string $directory;
+
+    protected string $pathToConfigurations;
+
+    public function directory(): string
+    {
+        if (empty($this->directory)) {
+            $this->directory = dirname(__DIR__);
+        }
+
+        return $this->directory;
+    }
+
+    public function pathToConfigurations(): string
+    {
+        if (empty($this->pathToConfigurations)) {
+            $directory = $this->directory();
+            $this->pathToConfigurations = $directory.DIRECTORY_SEPARATOR.self::PATH_CONF;
+        }
+
+        return $this->pathToConfigurations;
+    }
+
+    public function getConfigurationPath(string $recipe_slug): string
+    {
+        return sprintf(
+            '%1$s/%2$s.json',
+            $this->pathToConfigurations(),
+            $recipe_slug
+        );
+    }
+
+    /**
+     * Save a recipe configuration to this package.
+     *
+     * @return string[] Returns a message that should be sent to the client.
+     */
+    public function saveConfiguration(Recipe $recipe): array
+    {
+        $path = $this->getConfigurationPath($recipe->slug());
+        throw_if(! is_dir($this->directory) || ! is_writable($this->directory), 'RuntimeException', 'Expecting the recipe configuration directory to exist and be writable: '.$this->directory);
+
+        $bytes = file_put_contents($path, json_encode($recipe->toArray(), JSON_PRETTY_PRINT));
+        if ($bytes === false) {
+            $level = 'error';
+            $with = sprintf(
+                'Unable to find recipe configuration for %1$s',
+                $recipe->slug(),
+            );
+
+        } else {
+            $level = 'success';
+            $with = sprintf(
+                'Saved recipe configuration for %1$s [%3$s bytes] at %2$s',
+                $recipe->slug(),
+                $path,
+                number_format($bytes, 0),
+            );
+        }
+
+        //        dd([
+        //            '__METHOD__' => __METHOD__,
+        //            '$recipe' => $recipe,
+        //            '$this->directory' => $this->directory,
+        //            '$path' => $path,
+        //            'is_dir($this->directory)' => is_dir($this->directory),
+        //            'file_exists($this->directory)' => file_exists($this->directory),
+        //            'is_dir($path)' => is_dir($path),
+        //            'file_exists($path)' => file_exists($path),
+        //        ]);
+        return [$level, $with];
+    }
+
     /**
      * Write a recipe source code file
      */
-    public function write(string $recipe_slug, bool $asPhp = false): void
+    public function saveSource(Recipe $recipe, bool $asPhp = false): string
     {
         $extension = $asPhp ? 'php' : 'phps';
+        $path = sprintf('%1$s/%2$s.%3$s', self::PATH_RECIPES, $recipe->slug(), $extension);
 
+        //        dd([
+        //            '__METHOD__' => __METHOD__,
+        //            '$recipe' => $recipe,
+        //            '$asPhp' => $asPhp,
+        //            '$extension' => $extension,
+        //            '$path' => $path,
+        //        ]);
+        return $path;
     }
 }

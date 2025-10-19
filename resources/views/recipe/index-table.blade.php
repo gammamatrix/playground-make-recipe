@@ -34,10 +34,26 @@
                     </a>
                     <a
                         class="btn btn-warning"
-                        href="{{ route("playground.make.recipe.write", ["recipe_slug" => $recipe, "_return_url" => route("playground.make.recipe")]) }}"
+                        href="{{ route("playground.make.recipe.configuration", ["recipe_slug" => $recipe, "_return_url" => route("playground.make.recipe")]) }}"
                     >
                         <i class="fas fa-edit"></i>
-                        Write
+                        Configuration
+                    </a>
+                    <a
+                        class="btn btn-warning"
+                        href="{{ route("playground.make.recipe.source", ["recipe_slug" => $recipe, "asPhp" => 1, "_return_url" => route("playground.make.recipe")]) }}"
+                    >
+                        <i class="fas fa-edit"></i>
+                        Source:
+                        <code>php</code>
+                    </a>
+                    <a
+                        class="btn btn-warning"
+                        href="{{ route("playground.make.recipe.source", ["recipe_slug" => $recipe, "_return_url" => route("playground.make.recipe")]) }}"
+                    >
+                        <i class="fas fa-edit"></i>
+                        Source:
+                        <code>phps</code>
                     </a>
                 </td>
             </tr>

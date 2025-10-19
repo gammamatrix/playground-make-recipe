@@ -1,0 +1,38 @@
+{
+    "class": "",
+    "extends": "Playground",
+    "extends_use": "",
+    "slug": "restaurant",
+    "description": "",
+    "title": "Restaurant",
+    "name": "",
+    "columns": {
+        "price": {
+            "column": "price",
+            "default": null,
+            "description": "A money column.",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": true,
+            "label": "Price",
+            "nullable": true,
+            "precision": null,
+            "readOnly": false,
+            "scale": null,
+            "size": null,
+            "type": "string"
+        }
+    },
+    "dates": [],
+    "flags": [],
+    "models": [],
+    "type": "",
+    "playground": true,
+    "withLifecycle": true,
+    "withMatrix": true,
+    "withPermissions": true,
+    "withPlanning": true,
+    "withPublishing": true,
+    "withStatus": true
+}

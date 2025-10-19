@@ -42,9 +42,14 @@ Route::group([
         'uses' => 'RecipeController@load',
     ]);
 
-    Route::get('/recipe/write/{recipe_slug}', [
-        'as' => 'playground.make.recipe.write',
-        'uses' => 'RecipeController@write',
+    Route::get('/recipe/configuration/{recipe_slug}', [
+        'as' => 'playground.make.recipe.configuration',
+        'uses' => 'RecipeController@saveConfiguration',
+    ]);
+
+    Route::get('/recipe/source/{recipe_slug}', [
+        'as' => 'playground.make.recipe.source',
+        'uses' => 'RecipeController@saveSource',
     ]);
 
     Route::get('/recipe/delete/{recipe_slug?}', [

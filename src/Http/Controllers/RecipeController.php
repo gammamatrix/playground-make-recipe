@@ -120,17 +120,17 @@ class RecipeController extends Controller
 
         $validated = $request->validated();
 
-        $manager->load($recipe_slug);
+        [$level, $with] = $manager->load($recipe_slug);
 
         if (! empty($validated['_return_url']) && is_string($validated['_return_url'])) {
-            return response()->redirectTo($validated['_return_url']);
+            return response()->redirectTo($validated['_return_url'])->with($level, $with);
         } elseif (! empty($recipe_slug)) {
             return response()->redirectToRoute(
                 'playground.make.recipe.form', ['recipe_slug' => $recipe_slug]
-            );
+            )->with($level, $with);
         }
 
-        return response()->redirectToRoute('playground.make.recipe.form');
+        return response()->redirectToRoute('playground.make.recipe.form')->with($level, $with);
     }
 
     /**
@@ -176,18 +176,66 @@ class RecipeController extends Controller
     /**
      * Write a recipe
      */
-    public function write(
+    public function saveConfiguration(
         WriteRequest $request,
         Manager $manager,
         string $recipe_slug
     ): RedirectResponse {
         $validated = $request->validated();
-        $manager->write($recipe_slug);
 
-        if (! empty($validated['_return_url']) && is_string($validated['_return_url'])) {
-            return response()->redirectTo($validated['_return_url']);
+        $recipe = $manager->get($recipe_slug);
+
+        if (! empty($recipe)) {
+            [$level, $with] = $manager->saveConfiguration($recipe);
+        } else {
+            $level = 'error';
+            $with = sprintf(
+                'Unable to find recipe configuration for %1$s',
+                $recipe_slug,
+            );
         }
 
-        return response()->redirectToRoute('playground.make.recipe.form', ['recipe_slug' => $recipe_slug]);
+        if (! empty($validated['_return_url']) && is_string($validated['_return_url'])) {
+            return response()->redirectTo($validated['_return_url'])->with($level, $with);
+        }
+
+        return response()->redirectToRoute('playground.make.recipe.form', [
+            'recipe_slug' => $recipe_slug,
+        ])->with($level, $with);
+    }
+
+    /**
+     * Write a recipe
+     */
+    public function saveSource(
+        WriteRequest $request,
+        Manager $manager,
+        string $recipe_slug
+    ): RedirectResponse {
+        $validated = $request->validated();
+
+        $recipe = $manager->get($recipe_slug);
+
+        if (! empty($recipe)) {
+            $path = $manager->saveSource($recipe, ! empty($validated['asPhp']));
+            $with = sprintf(
+                'Saved recipe configuration for %1$s at %2$s',
+                $recipe_slug,
+                $path,
+            );
+        } else {
+            $with = sprintf(
+                'Unable to find recipe configuration for %1$s',
+                $recipe_slug,
+            );
+        }
+
+        if (! empty($validated['_return_url']) && is_string($validated['_return_url'])) {
+            return response()->redirectTo($validated['_return_url'])->with('info', $with);
+        }
+
+        return response()->redirectToRoute('playground.make.recipe.form', [
+            'recipe_slug' => $recipe_slug,
+        ])->with('info', $with);
     }
 }
