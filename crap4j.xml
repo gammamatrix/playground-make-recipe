@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-10-19 18:28:07</timestamp>
+  <timestamp>2025-10-19 20:05:27</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>108</methodCount>
-    <crapMethodCount>10</crapMethodCount>
-    <crapLoad>148</crapLoad>
-    <totalCrap>3488</totalCrap>
-    <crapMethodPercent>9.26</crapMethodPercent>
+    <methodCount>113</methodCount>
+    <crapMethodCount>11</crapMethodCount>
+    <crapLoad>157</crapLoad>
+    <totalCrap>3630</totalCrap>
+    <crapMethodPercent>9.73</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -982,11 +982,22 @@
     <method>
       <package>Playground\Make\Recipe\Http\Controllers</package>
       <className>Playground\Make\Recipe\Http\Controllers\RecipeController</className>
-      <methodName>write</methodName>
-      <methodSignature>write(WriteRequest $request, Manager $manager, string $recipe_slug): RedirectResponse</methodSignature>
-      <fullMethod>write(WriteRequest $request, Manager $manager, string $recipe_slug): RedirectResponse</fullMethod>
-      <crap>12</crap>
-      <complexity>3</complexity>
+      <methodName>saveConfiguration</methodName>
+      <methodSignature>saveConfiguration(WriteRequest $request, Manager $manager, string $recipe_slug): RedirectResponse</methodSignature>
+      <fullMethod>saveConfiguration(WriteRequest $request, Manager $manager, string $recipe_slug): RedirectResponse</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\RecipeController</className>
+      <methodName>saveSource</methodName>
+      <methodSignature>saveSource(WriteRequest $request, Manager $manager, string $recipe_slug): RedirectResponse</methodSignature>
+      <fullMethod>saveSource(WriteRequest $request, Manager $manager, string $recipe_slug): RedirectResponse</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -1104,12 +1115,12 @@
       <package>Playground\Make\Recipe</package>
       <className>Playground\Make\Recipe\Manager</className>
       <methodName>load</methodName>
-      <methodSignature>load(string $recipe_slug): void</methodSignature>
-      <fullMethod>load(string $recipe_slug): void</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
+      <methodSignature>load(string $recipe_slug): array</methodSignature>
+      <fullMethod>load(string $recipe_slug): array</fullMethod>
+      <crap>90</crap>
+      <complexity>9</complexity>
       <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
+      <crapLoad>9</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe</package>
@@ -1136,9 +1147,53 @@
     <method>
       <package>Playground\Make\Recipe</package>
       <className>Playground\Make\Recipe\Manager</className>
-      <methodName>write</methodName>
-      <methodSignature>write(string $recipe_slug, bool $asPhp): void</methodSignature>
-      <fullMethod>write(string $recipe_slug, bool $asPhp): void</fullMethod>
+      <methodName>directory</methodName>
+      <methodSignature>directory(): string</methodSignature>
+      <fullMethod>directory(): string</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe</package>
+      <className>Playground\Make\Recipe\Manager</className>
+      <methodName>pathToConfigurations</methodName>
+      <methodSignature>pathToConfigurations(): string</methodSignature>
+      <fullMethod>pathToConfigurations(): string</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe</package>
+      <className>Playground\Make\Recipe\Manager</className>
+      <methodName>getConfigurationPath</methodName>
+      <methodSignature>getConfigurationPath(string $recipe_slug): string</methodSignature>
+      <fullMethod>getConfigurationPath(string $recipe_slug): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe</package>
+      <className>Playground\Make\Recipe\Manager</className>
+      <methodName>saveConfiguration</methodName>
+      <methodSignature>saveConfiguration(Recipe $recipe): array</methodSignature>
+      <fullMethod>saveConfiguration(Recipe $recipe): array</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe</package>
+      <className>Playground\Make\Recipe\Manager</className>
+      <methodName>saveSource</methodName>
+      <methodSignature>saveSource(Recipe $recipe, bool $asPhp): string</methodSignature>
+      <fullMethod>saveSource(Recipe $recipe, bool $asPhp): string</fullMethod>
       <crap>6</crap>
       <complexity>2</complexity>
       <coverage>0</coverage>
