@@ -12,7 +12,9 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Playground\Make\Recipe\Configuration\Recipe;
 use Playground\Make\Recipe\Http\Requests\Recipe\FormRequest;
+use Playground\Make\Recipe\Http\Requests\Recipe\LoadRequest;
 use Playground\Make\Recipe\Http\Requests\Recipe\SaveRequest;
+use Playground\Make\Recipe\Http\Requests\Recipe\WriteRequest;
 use Playground\Make\Recipe\Manager;
 
 /**
@@ -108,6 +110,30 @@ class RecipeController extends Controller
     }
 
     /**
+     * Load recipes
+     */
+    public function load(
+        LoadRequest $request,
+        Manager $manager,
+        string $recipe_slug = ''
+    ): RedirectResponse {
+
+        $validated = $request->validated();
+
+        $manager->load($recipe_slug);
+
+        if (! empty($validated['_return_url']) && is_string($validated['_return_url'])) {
+            return response()->redirectTo($validated['_return_url']);
+        } elseif (! empty($recipe_slug)) {
+            return response()->redirectToRoute(
+                'playground.make.recipe.form', ['recipe_slug' => $recipe_slug]
+            );
+        }
+
+        return response()->redirectToRoute('playground.make.recipe.form');
+    }
+
+    /**
      * Save a recipe
      */
     public function save(
@@ -145,5 +171,23 @@ class RecipeController extends Controller
         return response()->redirectToRoute('playground.make.recipe.form', [
             'recipe_slug' => $recipe_slug,
         ]);
+    }
+
+    /**
+     * Write a recipe
+     */
+    public function write(
+        WriteRequest $request,
+        Manager $manager,
+        string $recipe_slug
+    ): RedirectResponse {
+        $validated = $request->validated();
+        $manager->write($recipe_slug);
+
+        if (! empty($validated['_return_url']) && is_string($validated['_return_url'])) {
+            return response()->redirectTo($validated['_return_url']);
+        }
+
+        return response()->redirectToRoute('playground.make.recipe.form', ['recipe_slug' => $recipe_slug]);
     }
 }

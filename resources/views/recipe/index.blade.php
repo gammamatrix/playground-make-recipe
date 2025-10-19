@@ -28,18 +28,41 @@
                             <div class="col-sm-6">
                                 <div class="card m-1">
                                     <div class="card-body">
-                                        <h5 class="card-title">Recipe</h5>
+                                        <h5 class="card-title">
+                                            Recipe Creator
+                                        </h5>
                                         <h6
                                             class="card-subtitle mb-2 text-muted"
                                         >
-                                            Manage recipes
+                                            Create a new recipe.
                                         </h6>
                                         <p class="card-text"></p>
                                         <a
-                                            class="card-link"
+                                            class="btn btn-success"
                                             href="{{ route("playground.make.recipe.form") }}"
                                         >
                                             Recipe Form
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="card m-1">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            Recipe Loader
+                                        </h5>
+                                        <h6
+                                            class="card-subtitle mb-2 text-muted"
+                                        >
+                                            Load existing recipes.
+                                        </h6>
+                                        <p class="card-text"></p>
+                                        <a
+                                            class="btn btn-success"
+                                            href="{{ route("playground.make.recipe.load", ["_return_url" => route("playground.make.recipe")]) }}"
+                                        >
+                                            Load Recipe
                                         </a>
                                     </div>
                                 </div>

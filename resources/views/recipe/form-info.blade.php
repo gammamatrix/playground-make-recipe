@@ -8,49 +8,7 @@
 
     <input type="hidden" name="_return_url" value="{{ $_return_url }}" />
 
-    <fieldset class="mb-3 fieldset-basic" id="fieldset-info">
-        <legend>{{ __("Information") }}</legend>
-
-        <x-playground::forms.column
-            column="title"
-            label="Title"
-            :autocomplete="false"
-            :rules="[
-                'required' => true,
-                'maxlength' => 255,
-            ]"
-        ></x-playground::forms.column>
-
-        <x-playground::forms.column
-            column="slug"
-            label="Slug"
-            :autocomplete="false"
-            :rules="[
-                'required' => true,
-                'maxlength' => 255,
-            ]"
-        ></x-playground::forms.column>
-
-        <x-playground::forms.column
-            column="description"
-            label="Description"
-            :autocomplete="false"
-            :rules="[
-                'required' => false,
-                'maxlength' => 255,
-            ]"
-        ></x-playground::forms.column>
-
-        <x-playground::forms.column
-            column="extends"
-            label="Extends"
-            :autocomplete="false"
-            :rules="[
-                'required' => false,
-                'maxlength' => 255,
-            ]"
-        ></x-playground::forms.column>
-    </fieldset>
+    @include("playground-make-recipe::io/form-info", ["withExtends" => true, "withSlug" => true, "withTitle" => true])
 
     @include("playground-make-recipe::recipe/form-playground")
 

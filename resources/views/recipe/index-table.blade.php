@@ -32,6 +32,13 @@
                         <i class="fas fa-close"></i>
                         Delete
                     </a>
+                    <a
+                        class="btn btn-warning"
+                        href="{{ route("playground.make.recipe.write", ["recipe_slug" => $recipe, "_return_url" => route("playground.make.recipe")]) }}"
+                    >
+                        <i class="fas fa-edit"></i>
+                        Write
+                    </a>
                 </td>
             </tr>
         @endforeach

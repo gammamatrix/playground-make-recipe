@@ -80,6 +80,11 @@ class Manager
     }
 
     /**
+     * Load existing recipe files into the manager.
+     */
+    public function load(string $recipe_slug = ''): void {}
+
+    /**
      * @param  array<string, mixed>  $attributes
      */
     public function addModel(array $attributes): Manager
@@ -106,5 +111,14 @@ class Manager
         );
 
         return $this;
+    }
+
+    /**
+     * Write a recipe source code file
+     */
+    public function write(string $recipe_slug, bool $asPhp = false): void
+    {
+        $extension = $asPhp ? 'php' : 'phps';
+
     }
 }

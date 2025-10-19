@@ -37,6 +37,16 @@ Route::group([
         'uses' => 'RecipeController@save',
     ]);
 
+    Route::get('/recipe/load/{recipe_slug?}', [
+        'as' => 'playground.make.recipe.load',
+        'uses' => 'RecipeController@load',
+    ]);
+
+    Route::get('/recipe/write/{recipe_slug}', [
+        'as' => 'playground.make.recipe.write',
+        'uses' => 'RecipeController@write',
+    ]);
+
     Route::get('/recipe/delete/{recipe_slug?}', [
         'as' => 'playground.make.recipe.delete',
         'uses' => 'RecipeController@delete',

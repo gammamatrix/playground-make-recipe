@@ -8,7 +8,7 @@
 
     <input type="hidden" name="_return_url" value="{{ $_return_url }}" />
 
-    @include("playground-make-recipe::io.form-info")
+    @include("playground-make-recipe::io.form-info", ["withLabel" => true, "withColumn" => true, "withSize" => true])
 
     @include("playground-make-recipe::io.form-indexes")
     @include("playground-make-recipe::io.form-defaults")
