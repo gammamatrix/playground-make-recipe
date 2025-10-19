@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-10-18 19:39:32</timestamp>
+  <timestamp>2025-10-19 17:26:51</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>98</methodCount>
+    <methodCount>104</methodCount>
     <crapMethodCount>10</crapMethodCount>
-    <crapLoad>142</crapLoad>
-    <totalCrap>3238</totalCrap>
-    <crapMethodPercent>10.2</crapMethodPercent>
+    <crapLoad>148</crapLoad>
+    <totalCrap>3448</totalCrap>
+    <crapMethodPercent>9.62</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -202,8 +202,8 @@
       <package>Playground\Make\Recipe\Configuration\Concerns</package>
       <className>Playground\Make\Recipe\Configuration\Concerns\Columns</className>
       <methodName>removeColumn</methodName>
-      <methodSignature>removeColumn(string $column): self</methodSignature>
-      <fullMethod>removeColumn(string $column): self</fullMethod>
+      <methodSignature>removeColumn(string $column_slug): self</methodSignature>
+      <fullMethod>removeColumn(string $column_slug): self</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
@@ -224,8 +224,8 @@
       <package>Playground\Make\Recipe\Configuration\Concerns</package>
       <className>Playground\Make\Recipe\Configuration\Concerns\Columns</className>
       <methodName>column</methodName>
-      <methodSignature>column(string $column): ?Column</methodSignature>
-      <fullMethod>column(string $column): ?Column</fullMethod>
+      <methodSignature>column(string $column_slug): ?Column</methodSignature>
+      <fullMethod>column(string $column_slug): ?Column</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
@@ -545,10 +545,10 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>182</crap>
-      <complexity>13</complexity>
+      <crap>380</crap>
+      <complexity>19</complexity>
       <coverage>0</coverage>
-      <crapLoad>13</crapLoad>
+      <crapLoad>19</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Configuration</package>
@@ -589,6 +589,72 @@
       <methodName>models</methodName>
       <methodSignature>models(): array</methodSignature>
       <fullMethod>models(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Recipe</className>
+      <methodName>withLifecycle</methodName>
+      <methodSignature>withLifecycle(): bool</methodSignature>
+      <fullMethod>withLifecycle(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Recipe</className>
+      <methodName>withMatrix</methodName>
+      <methodSignature>withMatrix(): bool</methodSignature>
+      <fullMethod>withMatrix(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Recipe</className>
+      <methodName>withPermissions</methodName>
+      <methodSignature>withPermissions(): bool</methodSignature>
+      <fullMethod>withPermissions(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Recipe</className>
+      <methodName>withPlanning</methodName>
+      <methodSignature>withPlanning(): bool</methodSignature>
+      <fullMethod>withPlanning(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Recipe</className>
+      <methodName>withPublishing</methodName>
+      <methodSignature>withPublishing(): bool</methodSignature>
+      <fullMethod>withPublishing(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Recipe</className>
+      <methodName>withStatus</methodName>
+      <methodSignature>withStatus(): bool</methodSignature>
+      <fullMethod>withStatus(): bool</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
