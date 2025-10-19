@@ -1,0 +1,21 @@
+{
+    "class": "",
+    "extends": "Playground",
+    "extends_use": "",
+    "slug": "crm",
+    "description": "The recipe for the client relationship manager packages.",
+    "title": "CRM",
+    "name": "",
+    "columns": [],
+    "dates": [],
+    "flags": [],
+    "models": [],
+    "type": "",
+    "playground": true,
+    "withLifecycle": true,
+    "withMatrix": true,
+    "withPermissions": true,
+    "withPlanning": true,
+    "withPublishing": true,
+    "withStatus": true
+}

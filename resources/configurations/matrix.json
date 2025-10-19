@@ -1,0 +1,21 @@
+{
+    "class": "",
+    "extends": "Playground",
+    "extends_use": "",
+    "slug": "matrix",
+    "description": "The recipe for the project management and task system packages.",
+    "title": "Matrix",
+    "name": "",
+    "columns": [],
+    "dates": [],
+    "flags": [],
+    "models": [],
+    "type": "",
+    "playground": true,
+    "withLifecycle": true,
+    "withMatrix": true,
+    "withPermissions": true,
+    "withPlanning": true,
+    "withPublishing": true,
+    "withStatus": true
+}

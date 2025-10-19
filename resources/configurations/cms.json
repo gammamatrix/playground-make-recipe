@@ -1,0 +1,21 @@
+{
+    "class": "",
+    "extends": "Playground",
+    "extends_use": "",
+    "slug": "cms",
+    "description": "The recipe for the content management system packages.",
+    "title": "CMS",
+    "name": "",
+    "columns": [],
+    "dates": [],
+    "flags": [],
+    "models": [],
+    "type": "",
+    "playground": true,
+    "withLifecycle": true,
+    "withMatrix": true,
+    "withPermissions": true,
+    "withPlanning": true,
+    "withPublishing": true,
+    "withStatus": true
+}

@@ -119,6 +119,7 @@ class Manager
             }
             if (is_array($payload) && ! empty($payload)) {
                 $recipes[$recipe_slug] = new Recipe($payload);
+                $recipes[$recipe_slug]->apply();
                 $this->save($recipes[$recipe_slug]);
                 $with .= sprintf(
                     'Loaded recipe configuration for %1$s at %2$s',
@@ -135,15 +136,15 @@ class Manager
             }
         }
 
-        //        dd([
-        //            '__METHOD__' => __METHOD__,
-        //            '$pathToConfigurations' => $pathToConfigurations,
-        //            '$configurations' => $configurations,
-        //            '$recipes' => $recipes,
-        //            '$files' => $files,
-        //            '$level' => $level,
-        //            '$with' => $with,
-        //        ]);
+        //dd([
+        //    '__METHOD__' => __METHOD__,
+        //    '$pathToConfigurations' => $pathToConfigurations,
+        //    '$configurations' => $configurations,
+        //    '$recipes' => $recipes,
+        //    '$files' => $files,
+        //    '$level' => $level,
+        //    '$with' => $with,
+        //]);
 
         return [$level, $with];
     }

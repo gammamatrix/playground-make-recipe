@@ -1,0 +1,21 @@
+{
+    "class": "",
+    "extends": "Playground",
+    "extends_use": "",
+    "slug": "taxonomy",
+    "description": "The recipe for the taxonomy system packages.",
+    "title": "Taxonomy",
+    "name": "",
+    "columns": [],
+    "dates": [],
+    "flags": [],
+    "models": [],
+    "type": "",
+    "playground": true,
+    "withLifecycle": true,
+    "withMatrix": true,
+    "withPermissions": true,
+    "withPlanning": true,
+    "withPublishing": true,
+    "withStatus": true
+}

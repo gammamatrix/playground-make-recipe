@@ -1,0 +1,21 @@
+{
+    "class": "",
+    "extends": "Playground",
+    "extends_use": "",
+    "slug": "lead",
+    "description": "The recipe for the lead and sales campaign system packages.",
+    "title": "Lead",
+    "name": "",
+    "columns": [],
+    "dates": [],
+    "flags": [],
+    "models": [],
+    "type": "",
+    "playground": true,
+    "withLifecycle": true,
+    "withMatrix": true,
+    "withPermissions": true,
+    "withPlanning": true,
+    "withPublishing": true,
+    "withStatus": true
+}
