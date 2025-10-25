@@ -70,6 +70,16 @@ if ($recipe_slug) {
                     @include("playground-make-recipe::recipe/form-flags")
                 </div>
             </div>
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    @include("playground-make-recipe::recipe/form-flavors")
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    @include("playground-make-recipe::recipe/form-factory-states")
+                </div>
+            </div>
         @endif
     </div>
 @endsection

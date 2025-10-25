@@ -18,7 +18,7 @@ use Playground\Make\Recipe\Http\Requests\Recipe\WriteRequest;
 use Playground\Make\Recipe\Manager;
 
 /**
- * \Playground\Make\Recipe\Http\Controllers\IndexController
+ * \Playground\Make\Recipe\Http\Controllers\RecipeController
  */
 class RecipeController extends Controller
 {

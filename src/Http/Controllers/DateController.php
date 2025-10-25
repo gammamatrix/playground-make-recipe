@@ -16,7 +16,7 @@ use Playground\Make\Recipe\Http\Requests\Date\SaveRequest;
 use Playground\Make\Recipe\Manager;
 
 /**
- * \Playground\Make\Recipe\Http\Controllers\IndexController
+ * \Playground\Make\Recipe\Http\Controllers\DateController
  */
 class DateController extends Controller
 {

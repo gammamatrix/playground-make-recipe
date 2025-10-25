@@ -162,6 +162,12 @@
             "readOnly": false
         }
     },
+    "flavors": [
+        "parent",
+        "playground",
+        "revision",
+        "routing"
+    ],
     "models": [],
     "type": "",
     "playground": true,

@@ -10,15 +10,14 @@ namespace Playground\Make\Recipe\Http\Controllers;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
-use Playground\Make\Recipe\Configuration\Flag;
-use Playground\Make\Recipe\Http\Requests\Flag\FormRequest;
-use Playground\Make\Recipe\Http\Requests\Flag\SaveRequest;
+use Playground\Make\Recipe\Http\Requests\Flavor\FormRequest;
+use Playground\Make\Recipe\Http\Requests\Flavor\SaveRequest;
 use Playground\Make\Recipe\Manager;
 
 /**
- * \Playground\Make\Recipe\Http\Controllers\FlagController
+ * \Playground\Make\Recipe\Http\Controllers\FlavorController
  */
-class FlagController extends Controller
+class FlavorController extends Controller
 {
     /**
      * @var array<string, string>
@@ -33,12 +32,12 @@ class FlagController extends Controller
     ];
 
     /**
-     * Delete a recipe
+     * Delete a flavor
      */
     public function delete(
         Manager $manager,
         string $recipe_slug,
-        string $column
+        string $flavor
     ): RedirectResponse {
         $recipe = $manager->get($recipe_slug);
 
@@ -48,7 +47,8 @@ class FlagController extends Controller
                 __('playground-make-recipe::building.recipe.404', ['recipe' => $recipe_slug])
             );
         }
-        $recipe->removeFlag($column);
+
+        $recipe->removeFlavor($flavor);
 
         $recipe->apply();
 
@@ -58,13 +58,13 @@ class FlagController extends Controller
     }
 
     /**
-     * Show the form.
+     * Show the flavor form.
      */
     public function form(
         string $recipe_slug,
         FormRequest $request,
         Manager $manager,
-        ?string $column = null
+        ?string $flavor = null
     ): View|RedirectResponse {
 
         $recipe = $manager->get($recipe_slug);
@@ -82,23 +82,13 @@ class FlagController extends Controller
 
         $_return_url = empty($validated['_return_url']) ? route('playground.make.recipe.form', ['recipe_slug' => $recipe_slug]) : $validated['_return_url'];
 
-        if (empty($column)) {
-            $column = $validated['column'] ?? '';
+        if (empty($flavor)) {
+            $flavor = $validated['flavor'] ?? '';
         }
 
-        if (! empty($column) && is_string($column)) {
-            $flag = $recipe->flag($column);
-        }
-
-        if (empty($flag)) {
-            $flag = new Flag($validated);
-        } else {
-            $flag->setOptions($validated);
-        }
-
-        $flag->apply();
-
-        $flash = $flag->toArray();
+        $flash = [
+            'flavor' => $flavor,
+        ];
 
         $flash['_return_url'] = $_return_url;
 
@@ -106,17 +96,17 @@ class FlagController extends Controller
 
         $data = [
             'packageInfo' => $packageInfo,
-            'flag_slug' => $column,
+            'flavor_slug' => $flavor,
             'recipe_slug' => $recipe_slug,
             'recipe' => $recipe,
-            'flag' => $flag,
+            'flavor' => $flavor,
             '_return_url' => $_return_url,
         ];
 
         /**
          * @var view-string $view
          */
-        $view = sprintf('%1$s::flag/form', $packageInfo->view());
+        $view = sprintf('%1$s::flavor/form', $packageInfo->view());
 
         return view($view, $data);
     }
@@ -128,7 +118,7 @@ class FlagController extends Controller
         string $recipe_slug,
         SaveRequest $request,
         Manager $manager,
-        ?string $column = null
+        ?string $flavor = null
     ): RedirectResponse {
 
         $recipe = $manager->get($recipe_slug);
@@ -142,31 +132,17 @@ class FlagController extends Controller
 
         /**
          * @var array{
-         *     column?: string,
-         *     description?: string,
-         *     label?: string,
-         *     index?: bool,
-         *     nullable?: bool,
+         *     flavor?: string,
          *     _return_url?: string,
          * } $validated
          */
         $validated = $request->validated();
 
-        if (empty($column)) {
-            $column = $validated['column'] ?? '';
+        if (empty($flavor)) {
+            $flavor = $validated['flavor'] ?? '';
         }
 
-        $flag = $recipe->flag($column);
-
-        if (empty($flag)) {
-            $flag = new Flag($validated);
-        } else {
-            $flag->setOptions($validated);
-        }
-
-        $flag->apply();
-
-        $recipe->addFlag($column, $flag);
+        $recipe->addFlavor($flavor);
 
         $recipe->apply();
 

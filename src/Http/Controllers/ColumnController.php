@@ -11,13 +11,12 @@ namespace Playground\Make\Recipe\Http\Controllers;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Playground\Make\Recipe\Configuration\Column;
-use Playground\Make\Recipe\Configuration\Recipe;
 use Playground\Make\Recipe\Http\Requests\Column\FormRequest;
 use Playground\Make\Recipe\Http\Requests\Column\SaveRequest;
 use Playground\Make\Recipe\Manager;
 
 /**
- * \Playground\Make\Recipe\Http\Controllers\IndexController
+ * \Playground\Make\Recipe\Http\Controllers\ColumnController
  */
 class ColumnController extends Controller
 {
@@ -42,12 +41,7 @@ class ColumnController extends Controller
         string $column_slug
     ): RedirectResponse {
         $recipe = $manager->get($recipe_slug);
-        //         dd([
-        //            '__METHOD__' => __METHOD__,
-        //             '$recipe' => $recipe,
-        //             '$recipe_slug' => $recipe_slug,
-        //             '$column' => $column,
-        //         ]);
+
         if (empty($recipe)) {
             return response()->redirectToRoute('playground.make.recipe')->with(
                 'error',
@@ -74,10 +68,7 @@ class ColumnController extends Controller
     ): View|RedirectResponse {
 
         $recipe = $manager->get($recipe_slug);
-        // dd([
-        //    '__METHOD__' => __METHOD__,
-        //    '$recipe' => $recipe,
-        // ]);
+
         if (empty($recipe)) {
             return response()->redirectToRoute('playground.make.recipe')->with(
                 'error',
@@ -110,11 +101,7 @@ class ColumnController extends Controller
         $flash = $column->toArray();
 
         $flash['_return_url'] = $_return_url;
-        //         dd([
-        //            '__METHOD__' => __METHOD__,
-        //            '$flash' => $flash,
-        //            '$recipe' => $recipe,
-        //         ]);
+
         session()->flashInput($flash);
 
         $data = [
@@ -145,10 +132,6 @@ class ColumnController extends Controller
     ): RedirectResponse {
 
         $recipe = $manager->get($recipe_slug);
-        //        dd([
-        //            '__METHOD__' => __METHOD__,
-        //            '$recipe' => $recipe,
-        //        ]);
 
         if (empty($recipe)) {
             return response()->redirectToRoute('playground.make.recipe')->with(
@@ -181,31 +164,13 @@ class ColumnController extends Controller
             $column->setOptions($validated);
         }
 
-        //         dump([
-        //            '__METHOD__' => __METHOD__,
-        //             '$column' => $column,
-        //             '$validated' => $validated,
-        //            '$column' => $column,
-        //         ]);
         $column->apply();
-        //         dd([
-        //            '__METHOD__' => __METHOD__,
-        //            '$validated' => $validated,
-        //            '$column' => $column,
-        //         ]);
 
         $recipe->addColumn($column_slug, $column);
 
         $recipe->apply();
 
         $manager->save($recipe);
-
-        //        dd([
-        //            '__METHOD__' => __METHOD__,
-        //            '$recipe' => $recipe,
-        //            '$column' => $column,
-        //            '$validated' => $validated,
-        //        ]);
 
         if (! empty($validated['_return_url']) && is_string($validated['_return_url'])) {
             return response()->redirectTo($validated['_return_url']);

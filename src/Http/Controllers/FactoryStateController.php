@@ -16,7 +16,7 @@ use Playground\Make\Recipe\Http\Requests\FactoryState\SaveRequest;
 use Playground\Make\Recipe\Manager;
 
 /**
- * \Playground\Make\Recipe\Http\Controllers\IndexController
+ * \Playground\Make\Recipe\Http\Controllers\FactoryStateController
  */
 class FactoryStateController extends Controller
 {
@@ -38,7 +38,7 @@ class FactoryStateController extends Controller
     public function delete(
         Manager $manager,
         string $recipe_slug,
-        string $column
+        string $slug
     ): RedirectResponse {
         $recipe = $manager->get($recipe_slug);
         //         dd([
@@ -53,7 +53,7 @@ class FactoryStateController extends Controller
                 __('playground-make-recipe::building.recipe.404', ['recipe' => $recipe_slug])
             );
         }
-        $recipe->removeFactoryState($column);
+        $recipe->removeFactoryState($slug);
 
         $recipe->apply();
 
@@ -69,7 +69,7 @@ class FactoryStateController extends Controller
         string $recipe_slug,
         FormRequest $request,
         Manager $manager,
-        ?string $column = null
+        ?string $slug = null
     ): View|RedirectResponse {
 
         $recipe = $manager->get($recipe_slug);
@@ -90,12 +90,12 @@ class FactoryStateController extends Controller
 
         $_return_url = empty($validated['_return_url']) ? route('playground.make.recipe.form', ['recipe_slug' => $recipe_slug]) : $validated['_return_url'];
 
-        if (empty($column)) {
-            $column = $validated['column'] ?? '';
+        if (empty($slug)) {
+            $slug = $validated['slug'] ?? '';
         }
 
-        if (! empty($column) && is_string($column)) {
-            $factoryState = $recipe->factoryState($column);
+        if (! empty($slug) && is_string($slug)) {
+            $factoryState = $recipe->factoryState($slug);
         }
 
         if (empty($factoryState)) {
@@ -118,7 +118,7 @@ class FactoryStateController extends Controller
 
         $data = [
             'packageInfo' => $packageInfo,
-            'factoryState_slug' => $column,
+            'factoryState_slug' => $slug,
             'recipe_slug' => $recipe_slug,
             'recipe' => $recipe,
             'factoryState' => $factoryState,
@@ -140,7 +140,7 @@ class FactoryStateController extends Controller
         string $recipe_slug,
         SaveRequest $request,
         Manager $manager,
-        ?string $column = null
+        ?string $slug = null
     ): RedirectResponse {
 
         $recipe = $manager->get($recipe_slug);
@@ -168,11 +168,11 @@ class FactoryStateController extends Controller
          */
         $validated = $request->validated();
 
-        if (empty($column)) {
-            $column = $validated['column'] ?? '';
+        if (empty($slug)) {
+            $slug = $validated['slug'] ?? '';
         }
 
-        $factoryState = $recipe->factoryState($column);
+        $factoryState = $recipe->factoryState($slug);
 
         if (empty($factoryState)) {
             $factoryState = new FactoryState($validated);
@@ -193,7 +193,7 @@ class FactoryStateController extends Controller
         //            '$factoryState' => $factoryState,
         //         ]);
 
-        $recipe->addFactoryState($column, $factoryState);
+        $recipe->addFactoryState($slug, $factoryState);
 
         $recipe->apply();
 

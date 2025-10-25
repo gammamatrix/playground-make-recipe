@@ -19,6 +19,7 @@ class Recipe extends PrimaryConfiguration
     use Concerns\Dates;
     use Concerns\FactoryStates;
     use Concerns\Flags;
+    use Concerns\Flavors;
 
     protected string $description = '';
 
@@ -124,6 +125,7 @@ class Recipe extends PrimaryConfiguration
         'columns' => [],
         'dates' => [],
         'flags' => [],
+        'flavors' => [],
         'models' => [],
         'type' => '',
         'playground' => false,
@@ -175,6 +177,11 @@ class Recipe extends PrimaryConfiguration
         if (! empty($options['flags']) && is_array($options['flags'])) {
             $this->addFlags($options['flags']);
         }
+
+        if (! empty($options['flavors']) && is_array($options['flavors'])) {
+            $this->addFlavors($options['flavors']);
+        }
+
         //        $this->addModels($options);
 
         if (array_key_exists('withLifecycle', $options)) {

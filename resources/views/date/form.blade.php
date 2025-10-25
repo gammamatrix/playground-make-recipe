@@ -17,13 +17,6 @@
                         {{ $recipe->title() }}
                     </a>
                 </li>
-                <li class="breadcrumb-item">
-                    <a
-                        href="{{ route("playground.make.recipe.date", ["recipe_slug" => $recipe->slug()]) }}"
-                    >
-                        Dates
-                    </a>
-                </li>
                 <li class="breadcrumb-item active" aria-current="page">
                     <a
                         href="{{ route("playground.make.recipe.date.form", ["recipe_slug" => $recipe->slug(), "column" => $date_slug]) }}"

@@ -1,46 +1,39 @@
 <fieldset class="mb-3">
-    <legend>{{ __("Factory States") }}</legend>
+    <legend>{{ __("Flavors") }}</legend>
 
     <div class="button-group float-end mb-3">
         <a
             class="btn btn-success"
-            href="{{ route("playground.make.recipe.factory-state.form", ["recipe_slug" => $recipe->slug()]) }}"
+            href="{{ route("playground.make.recipe.flavor.form", ["recipe_slug" => $recipe->slug()]) }}"
         >
-            {{ __("Add Factory State") }}
+            {{ __("Add Flavor") }}
         </a>
     </div>
 
     <table class="table table-responsive">
         <thead>
             <tr>
-                <th>Type</th>
-                <th>Description</th>
-                <th>Value</th>
+                <th>Flavor</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($recipe->factoryStates() as $column => $factoryState)
+            @foreach ($recipe->flavors() as $flavor)
                 <tr>
                     <td>
-                        {{ $factoryState->type() }}
-                    </td>
-                    <td>
-                        {{ $factoryState->description() }}
-                    </td>
-                    <td>
-                        {{ $factoryState->value() }}
+                        {{ $flavor }}
                     </td>
                     <td>
                         <a
                             class="btn btn-success"
-                            href="{{ route("playground.make.recipe.factoryState.form", ["recipe_slug" => $recipe_slug, "column" => $column]) }}"
+                            href="{{ route("playground.make.recipe.flavor.form", ["recipe_slug" => $recipe_slug, "flavor" => $flavor]) }}"
                         >
                             <i class="fas fa-edit"></i>
                             Edit
                         </a>
                         <a
                             class="btn btn-danger confirm-delete"
-                            href="{{ route("playground.make.recipe.factoryState.delete", ["recipe_slug" => $recipe_slug, "column" => $column]) }}"
+                            href="{{ route("playground.make.recipe.flavor.delete", ["recipe_slug" => $recipe_slug, "flavor" => $flavor]) }}"
                             data-bs-toggle="modal"
                             data-bs-target="#modal-recipe-delete"
                         >

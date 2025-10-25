@@ -23,20 +23,6 @@ if ($column_slug) {
                 <li class="breadcrumb-item">
                     <a href="{{ route("playground.make.recipe") }}">MAKE</a>
                 </li>
-                <li class="breadcrumb-item">
-                    <a
-                        href="{{ route("playground.make.recipe.form", ["recipe_slug" => $recipe->slug()]) }}"
-                    >
-                        {{ $recipe->title() }}
-                    </a>
-                </li>
-                <li class="breadcrumb-item">
-                    <a
-                        href="{{ route("playground.make.recipe.column", ["recipe_slug" => $recipe->slug()]) }}"
-                    >
-                        Columns
-                    </a>
-                </li>
                 <li class="breadcrumb-item active" aria-current="page">
                     <a
                         href="{{ route("playground.make.recipe.column.form", ["recipe_slug" => $recipe->slug(), "column" => $column_slug]) }}"

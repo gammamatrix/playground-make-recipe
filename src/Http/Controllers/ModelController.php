@@ -15,7 +15,7 @@ use Playground\Make\Recipe\Http\Requests;
 use Playground\Make\Recipe\Manager;
 
 /**
- * \Playground\Make\Recipe\Http\Controllers\IndexController
+ * \Playground\Make\Recipe\Http\Controllers\ModelController
  */
 class ModelController extends Controller
 {

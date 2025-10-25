@@ -1,19 +1,6 @@
 @extends("playground::layouts.site")
 
-<?php
-$factoryState_slug =
-    ! empty($factoryState) &&
-    $factoryState instanceof \Playground\Make\Recipe\Configuration\FactoryState
-        ? $factoryState->type()
-        : "";
-if ($factoryState_slug) {
-    $title = "Factory State Form";
-} else {
-    $title = "Edit: " . $factoryState_slug;
-}
-?>
-
-@section("title", $title)
+@section("title", "MAKE")
 
 @section("breadcrumbs")
     <div class="container-fluid mt-3">
@@ -32,7 +19,7 @@ if ($factoryState_slug) {
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
                     <a
-                        href="{{ route("playground.make.recipe.factory-state.form", ["recipe_slug" => $recipe->slug(), "factoryState" => $factoryState_slug]) }}"
+                        href="{{ route("playground.make.recipe.flavor.form", ["recipe_slug" => $recipe->slug(), "column" => $flavor_slug]) }}"
                     >
                         Form
                     </a>
@@ -46,7 +33,7 @@ if ($factoryState_slug) {
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                @include("playground-make-recipe::factory-state/form-info")
+                @include("playground-make-recipe::flavor/form-info")
             </div>
         </div>
     </div>

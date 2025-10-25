@@ -22,17 +22,17 @@ Route::group([
     'namespace' => '\Playground\Make\Recipe\Http\Controllers',
 ], function () {
 
-    Route::get('/form/{column?}', [
+    Route::get('/form/{slug?}', [
         'as' => 'playground.make.recipe.factory-state.form',
         'uses' => 'FactoryStateController@form',
     ]);
 
-    Route::post('/form/{column?}', [
+    Route::post('/form/{slug?}', [
         'as' => 'playground.make.recipe.factory-state.save',
         'uses' => 'FactoryStateController@save',
     ]);
 
-    Route::get('/recipe/delete/{column?}', [
+    Route::get('/recipe/delete/{slug?}', [
         'as' => 'playground.make.recipe.factory-state.delete',
         'uses' => 'FactoryStateController@delete',
     ]);

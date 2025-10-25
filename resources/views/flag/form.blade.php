@@ -17,13 +17,6 @@
                         {{ $recipe->title() }}
                     </a>
                 </li>
-                <li class="breadcrumb-item">
-                    <a
-                        href="{{ route("playground.make.recipe.flag", ["recipe_slug" => $recipe->slug()]) }}"
-                    >
-                        Flags
-                    </a>
-                </li>
                 <li class="breadcrumb-item active" aria-current="page">
                     <a
                         href="{{ route("playground.make.recipe.flag.form", ["recipe_slug" => $recipe->slug(), "column" => $flag_slug]) }}"
