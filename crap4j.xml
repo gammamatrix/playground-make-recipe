@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-10-19 23:51:30</timestamp>
+  <timestamp>2025-10-25 20:14:31</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>124</methodCount>
+    <methodCount>131</methodCount>
     <crapMethodCount>14</crapMethodCount>
-    <crapLoad>194</crapLoad>
-    <totalCrap>4236</totalCrap>
-    <crapMethodPercent>11.29</crapMethodPercent>
+    <crapLoad>196</crapLoad>
+    <totalCrap>4404</totalCrap>
+    <crapMethodPercent>10.69</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -408,6 +408,50 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\Flavors</className>
+      <methodName>addFlavor</methodName>
+      <methodSignature>addFlavor(string $flavor): self</methodSignature>
+      <fullMethod>addFlavor(string $flavor): self</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\Flavors</className>
+      <methodName>removeFlavor</methodName>
+      <methodSignature>removeFlavor(string $flavor): self</methodSignature>
+      <fullMethod>removeFlavor(string $flavor): self</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\Flavors</className>
+      <methodName>addFlavors</methodName>
+      <methodSignature>addFlavors(array $flavors): self</methodSignature>
+      <fullMethod>addFlavors(array $flavors): self</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\Flavors</className>
+      <methodName>flavors</methodName>
+      <methodSignature>flavors(): array</methodSignature>
+      <fullMethod>flavors(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
       <package>Playground\Make\Recipe\Configuration</package>
       <className>Playground\Make\Recipe\Configuration\Date</className>
       <methodName>setOptions</methodName>
@@ -655,10 +699,10 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>462</crap>
-      <complexity>21</complexity>
+      <crap>552</crap>
+      <complexity>23</complexity>
       <coverage>0</coverage>
-      <crapLoad>21</crapLoad>
+      <crapLoad>23</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Configuration</package>
@@ -906,8 +950,8 @@
       <package>Playground\Make\Recipe\Http\Controllers</package>
       <className>Playground\Make\Recipe\Http\Controllers\FactoryStateController</className>
       <methodName>delete</methodName>
-      <methodSignature>delete(Manager $manager, string $recipe_slug, string $column): RedirectResponse</methodSignature>
-      <fullMethod>delete(Manager $manager, string $recipe_slug, string $column): RedirectResponse</fullMethod>
+      <methodSignature>delete(Manager $manager, string $recipe_slug, string $slug): RedirectResponse</methodSignature>
+      <fullMethod>delete(Manager $manager, string $recipe_slug, string $slug): RedirectResponse</fullMethod>
       <crap>6</crap>
       <complexity>2</complexity>
       <coverage>0</coverage>
@@ -917,8 +961,8 @@
       <package>Playground\Make\Recipe\Http\Controllers</package>
       <className>Playground\Make\Recipe\Http\Controllers\FactoryStateController</className>
       <methodName>form</methodName>
-      <methodSignature>form(string $recipe_slug, FormRequest $request, Manager $manager, ?string $column): View|RedirectResponse</methodSignature>
-      <fullMethod>form(string $recipe_slug, FormRequest $request, Manager $manager, ?string $column): View|RedirectResponse</fullMethod>
+      <methodSignature>form(string $recipe_slug, FormRequest $request, Manager $manager, ?string $slug): View|RedirectResponse</methodSignature>
+      <fullMethod>form(string $recipe_slug, FormRequest $request, Manager $manager, ?string $slug): View|RedirectResponse</fullMethod>
       <crap>56</crap>
       <complexity>7</complexity>
       <coverage>0</coverage>
@@ -928,8 +972,8 @@
       <package>Playground\Make\Recipe\Http\Controllers</package>
       <className>Playground\Make\Recipe\Http\Controllers\FactoryStateController</className>
       <methodName>save</methodName>
-      <methodSignature>save(string $recipe_slug, SaveRequest $request, Manager $manager, ?string $column): RedirectResponse</methodSignature>
-      <fullMethod>save(string $recipe_slug, SaveRequest $request, Manager $manager, ?string $column): RedirectResponse</fullMethod>
+      <methodSignature>save(string $recipe_slug, SaveRequest $request, Manager $manager, ?string $slug): RedirectResponse</methodSignature>
+      <fullMethod>save(string $recipe_slug, SaveRequest $request, Manager $manager, ?string $slug): RedirectResponse</fullMethod>
       <crap>42</crap>
       <complexity>6</complexity>
       <coverage>0</coverage>
@@ -965,6 +1009,39 @@
       <fullMethod>save(string $recipe_slug, SaveRequest $request, Manager $manager, ?string $column): RedirectResponse</fullMethod>
       <crap>42</crap>
       <complexity>6</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\FlavorController</className>
+      <methodName>delete</methodName>
+      <methodSignature>delete(Manager $manager, string $recipe_slug, string $flavor): RedirectResponse</methodSignature>
+      <fullMethod>delete(Manager $manager, string $recipe_slug, string $flavor): RedirectResponse</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\FlavorController</className>
+      <methodName>form</methodName>
+      <methodSignature>form(string $recipe_slug, FormRequest $request, Manager $manager, ?string $flavor): View|RedirectResponse</methodSignature>
+      <fullMethod>form(string $recipe_slug, FormRequest $request, Manager $manager, ?string $flavor): View|RedirectResponse</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\FlavorController</className>
+      <methodName>save</methodName>
+      <methodSignature>save(string $recipe_slug, SaveRequest $request, Manager $manager, ?string $flavor): RedirectResponse</methodSignature>
+      <fullMethod>save(string $recipe_slug, SaveRequest $request, Manager $manager, ?string $flavor): RedirectResponse</fullMethod>
+      <crap>30</crap>
+      <complexity>5</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
