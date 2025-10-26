@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-10-26 19:08:44</timestamp>
+  <timestamp>2025-10-26 21:06:27</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>157</methodCount>
+    <methodCount>159</methodCount>
     <crapMethodCount>21</crapMethodCount>
     <crapLoad>308</crapLoad>
-    <totalCrap>6844</totalCrap>
-    <crapMethodPercent>13.38</crapMethodPercent>
+    <totalCrap>6876</totalCrap>
+    <crapMethodPercent>13.21</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -1383,6 +1383,28 @@
       <fullMethod>deleteModel(Manager $manager, Requests\DeleteModelRequest $request): RedirectResponse</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\RecipeController</className>
+      <methodName>copy</methodName>
+      <methodSignature>copy(CopyRequest $request, Manager $manager, ?string $recipe_slug): RedirectResponse</methodSignature>
+      <fullMethod>copy(CopyRequest $request, Manager $manager, ?string $recipe_slug): RedirectResponse</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\RecipeController</className>
+      <methodName>copyForm</methodName>
+      <methodSignature>copyForm(CopyFormRequest $request, Manager $manager, ?string $recipe_slug): View|RedirectResponse</methodSignature>
+      <fullMethod>copyForm(CopyFormRequest $request, Manager $manager, ?string $recipe_slug): View|RedirectResponse</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
