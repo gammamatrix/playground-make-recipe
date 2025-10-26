@@ -1,16 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-10-26 04:18:12</timestamp>
+  <timestamp>2025-10-26 16:43:49</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>148</methodCount>
-    <crapMethodCount>18</crapMethodCount>
-    <crapLoad>273</crapLoad>
-    <totalCrap>6292</totalCrap>
-    <crapMethodPercent>12.16</crapMethodPercent>
+    <methodCount>155</methodCount>
+    <crapMethodCount>19</crapMethodCount>
+    <crapLoad>283</crapLoad>
+    <totalCrap>6452</totalCrap>
+    <crapMethodPercent>12.26</crapMethodPercent>
   </stats>
   <methods>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildDates</className>
+      <methodName>buildClass_dates</methodName>
+      <methodSignature>buildClass_dates(array $dates): void</methodSignature>
+      <fullMethod>buildClass_dates(array $dates): void</fullMethod>
+      <crap>72</crap>
+      <complexity>8</complexity>
+      <coverage>0</coverage>
+      <crapLoad>8</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\CookBook</className>
+      <methodName>getStub</methodName>
+      <methodSignature>getStub(): string</methodSignature>
+      <fullMethod>getStub(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\CookBook</className>
+      <methodName>replace</methodName>
+      <methodSignature>replace(string $destination): void</methodSignature>
+      <fullMethod>replace(string $destination): void</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\CookBook</className>
+      <methodName>search_and_replace</methodName>
+      <methodSignature>search_and_replace(string $stub): self</methodSignature>
+      <fullMethod>search_and_replace(string $stub): self</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\CookBook</className>
+      <methodName>mix</methodName>
+      <methodSignature>mix(Recipe $recipe): void</methodSignature>
+      <fullMethod>mix(Recipe $recipe): void</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\CookBook</className>
+      <methodName>bake</methodName>
+      <methodSignature>bake(Recipe $recipe, string $path): void</methodSignature>
+      <fullMethod>bake(Recipe $recipe, string $path): void</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
     <method>
       <package>Playground\Make\Recipe\Configuration</package>
       <className>Playground\Make\Recipe\Configuration\Column</className>
@@ -574,6 +640,17 @@
     </method>
     <method>
       <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Date</className>
+      <methodName>readOnly</methodName>
+      <methodSignature>readOnly(): bool</methodSignature>
+      <fullMethod>readOnly(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
       <className>Playground\Make\Recipe\Configuration\FactoryState</className>
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
@@ -842,10 +919,10 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>650</crap>
-      <complexity>25</complexity>
+      <crap>702</crap>
+      <complexity>26</complexity>
       <coverage>0</coverage>
-      <crapLoad>26</crapLoad>
+      <crapLoad>27</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Configuration</package>
