@@ -17,6 +17,7 @@ use Playground\Make\Recipe\Configuration\Recipe;
 class CookBook
 {
     use BuildDates;
+    use BuildFactoryStates;
     use BuildJsonColumns;
 
     /**
@@ -87,6 +88,7 @@ class CookBook
     public function bake(Recipe $recipe, string $path): void
     {
         $this->buildClass_dates($recipe->dates());
+        $this->buildClass_factoryStates($recipe->factoryStates());
         $this->buildClass_jsonColumns($recipe->json());
 
         $destination = sprintf('%1$s/%2$s', dirname(__DIR__, 2), $path);

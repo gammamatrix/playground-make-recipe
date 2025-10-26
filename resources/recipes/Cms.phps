@@ -74,6 +74,17 @@ class Cms extends Playground
         ],
     ];
 
+    protected array $factoryState = [
+        'locked' => [
+            'type' => 'flag',
+            'value' => true,
+        ],
+        'published' => [
+            'type' => 'flag',
+            'value' => true,
+        ],
+    ];
+
     protected array $json = [
         'address' => [
             'default' => '{}',

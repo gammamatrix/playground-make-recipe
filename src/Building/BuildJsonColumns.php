@@ -58,7 +58,7 @@ trait BuildJsonColumns
 
             switch (gettype($default)) {
                 case 'boolean':
-                    $defaultString = $json->default() ? 'true' : 'false';
+                    $defaultString = $default ? 'true' : 'false';
                     break;
                 case 'string':
                     $defaultString = sprintf('\'%1$s\'', $default);
