@@ -11,16 +11,16 @@ namespace Playground\Make\Recipe\Http\Requests\Recipe;
 use Playground\Make\Recipe\Http\Requests\FormRequest;
 
 /**
- * \Playground\Make\Recipe\Http\Requests\Recipe\SaveRequest
+ * \Playground\Make\Recipe\Http\Requests\Recipe\CopyRequest
  */
-class SaveRequest extends FormRequest
+class CopyRequest extends FormRequest
 {
     public const array RULES = [
         'class' => ['nullable', 'string'],
         'description' => ['nullable', 'string'],
         'extends' => ['nullable', 'string'],
-        'title' => ['nullable', 'string'],
         'slug' => ['nullable', 'string'],
+        'title' => ['nullable', 'string'],
 
         'playground' => ['boolean'],
         'withLifecycle' => ['boolean'],

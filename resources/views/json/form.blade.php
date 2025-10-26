@@ -81,13 +81,10 @@
     </div>
 @endsection
 
-@push("body")
+@push("body-last")
     <script type="application/javascript">
         window.onload = function () {
             'use strict';
-            // if (typeof playground === 'object') {
-            //     playground.forms.editor('#form-input-content');
-            // }
             if (typeof playground === 'object') {
                 playground.forms.validation();
             }

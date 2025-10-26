@@ -6,11 +6,7 @@ $recipe_slug =
     $recipe instanceof \Playground\Make\Recipe\Configuration\Recipe
         ? $recipe->slug()
         : "";
-if ($recipe_slug) {
-    $title = "Recipe Form";
-} else {
-    $title = "Edit: " . $recipe_slug;
-}
+$title = "Copying: " . $recipe_slug;
 ?>
 
 @section("title", $title)
@@ -33,7 +29,7 @@ if ($recipe_slug) {
                         <a
                             href="{{ route("playground.make.recipe.form", ["recipe_slug" => $recipe->slug()]) }}"
                         >
-                            Edit: {{ $recipe->title() ?: $recipe->slug() }}
+                            Copy: {{ $recipe->title() ?: $recipe->slug() }}
                         </a>
                     </li>
                 @endif
@@ -58,46 +54,9 @@ if ($recipe_slug) {
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                @include("playground-make-recipe::recipe/form-info")
+                @include("playground-make-recipe::recipe/copy-form-info")
             </div>
         </div>
-        @if ($recipe->slug())
-            <div class="row justify-content-center">
-                <div class="col-md-12">
-                    @include("playground-make-recipe::recipe/form-models")
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-12">
-                    @include("playground-make-recipe::recipe/form-columns")
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-12">
-                    @include("playground-make-recipe::recipe/form-dates")
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-12">
-                    @include("playground-make-recipe::recipe/form-flags")
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-12">
-                    @include("playground-make-recipe::recipe/form-json-columns")
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-12">
-                    @include("playground-make-recipe::recipe/form-flavors")
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-12">
-                    @include("playground-make-recipe::recipe/form-factory-states")
-                </div>
-            </div>
-        @endif
     </div>
 @endsection
 
@@ -105,9 +64,6 @@ if ($recipe_slug) {
     <script type="application/javascript">
         window.onload = function () {
             'use strict';
-            // if (typeof playground === 'object') {
-            //     playground.forms.editor('#form-input-content');
-            // }
             if (typeof playground === 'object') {
                 playground.forms.validation();
             }

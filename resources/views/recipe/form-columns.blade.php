@@ -48,14 +48,14 @@
                     <td>
                         <a
                             class="btn btn-success"
-                            href="{{ route("playground.make.recipe.column.form", ["recipe_slug" => $recipe_slug, "column" => $column_slug]) }}"
+                            href="{{ route("playground.make.recipe.column.form", ["recipe_slug" => $recipe_slug, "column_slug" => $column_slug]) }}"
                         >
                             <i class="fas fa-edit"></i>
                             Edit
                         </a>
                         <a
                             class="btn btn-danger confirm-delete"
-                            href="{{ route("playground.make.recipe.column.delete", ["recipe_slug" => $recipe_slug, "column" => $column_slug]) }}"
+                            href="{{ route("playground.make.recipe.column.delete", ["recipe_slug" => $recipe_slug, "column_slug" => $column_slug]) }}"
                             data-bs-toggle="modal"
                             data-bs-target="#modal-recipe-delete"
                         >

@@ -1,5 +1,5 @@
 {
-    "class": "",
+    "class": "Cms",
     "extends": "Playground",
     "extends_use": "",
     "slug": "cms",
@@ -159,13 +159,13 @@
             "state": "locked",
             "description": "",
             "type": "flag",
-            "value": false
+            "value": true
         },
         "published": {
             "state": "published",
             "description": "",
             "type": "flag",
-            "value": false
+            "value": true
         }
     },
     "flags": {
@@ -200,7 +200,7 @@
         "address": {
             "column": "address",
             "comment": "",
-            "default": null,
+            "default": "{}",
             "description": "",
             "label": "",
             "type": "JSON_OBJECT",
@@ -210,7 +210,7 @@
         "assets": {
             "column": "assets",
             "comment": "",
-            "default": null,
+            "default": "{}",
             "description": "",
             "label": "",
             "type": "JSON_OBJECT",
@@ -220,7 +220,7 @@
         "contact": {
             "column": "contact",
             "comment": "",
-            "default": null,
+            "default": "{}",
             "description": "",
             "label": "",
             "type": "JSON_OBJECT",
@@ -230,7 +230,7 @@
         "meta": {
             "column": "meta",
             "comment": "",
-            "default": null,
+            "default": "{}",
             "description": "",
             "label": "",
             "type": "JSON_OBJECT",
@@ -241,6 +241,26 @@
             "column": "notes",
             "comment": "Array of note objects",
             "default": "[]",
+            "description": "",
+            "label": "",
+            "type": "JSON_ARRAY",
+            "nullable": true,
+            "readOnly": false
+        },
+        "options": {
+            "column": "options",
+            "comment": "",
+            "default": "{}",
+            "description": "",
+            "label": "",
+            "type": "JSON_OBJECT",
+            "nullable": true,
+            "readOnly": false
+        },
+        "sources": {
+            "column": "sources",
+            "comment": "",
+            "default": "{}",
             "description": "",
             "label": "",
             "type": "JSON_OBJECT",

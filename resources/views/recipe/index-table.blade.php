@@ -55,6 +55,13 @@
                         Source:
                         <code>phps</code>
                     </a>
+                    <a
+                        class="btn btn-info"
+                        href="{{ route("playground.make.recipe.copy", ["recipe_slug" => $recipe]) }}"
+                    >
+                        <i class="fas fa-edit"></i>
+                        Copy
+                    </a>
                 </td>
             </tr>
         @endforeach

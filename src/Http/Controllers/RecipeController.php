@@ -11,6 +11,8 @@ namespace Playground\Make\Recipe\Http\Controllers;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Playground\Make\Recipe\Configuration\Recipe;
+use Playground\Make\Recipe\Http\Requests\Recipe\CopyFormRequest;
+use Playground\Make\Recipe\Http\Requests\Recipe\CopyRequest;
 use Playground\Make\Recipe\Http\Requests\Recipe\FormRequest;
 use Playground\Make\Recipe\Http\Requests\Recipe\LoadRequest;
 use Playground\Make\Recipe\Http\Requests\Recipe\SaveRequest;
@@ -33,6 +35,77 @@ class RecipeController extends Controller
         'privilege' => 'playground-make-recipe',
         'view' => 'playground-make-recipe',
     ];
+
+    /**
+     * Copy a recipe
+     */
+    public function copy(
+        CopyRequest $request,
+        Manager $manager,
+        ?string $recipe_slug = null
+    ): RedirectResponse {
+
+        $recipe = empty($recipe_slug) ? null : $manager->get($recipe_slug);
+
+        if (empty($recipe)) {
+            return response()->redirectToRoute('playground.make.recipe')->with('error', 'Recipe not found: '.$recipe_slug);
+        }
+
+        $recipe->setOptions($request->validated());
+
+        $recipe->apply();
+
+        $manager->save($recipe);
+
+        return response()->redirectToRoute('playground.make.recipe.form', [
+            'recipe_slug' => $recipe->slug(),
+        ]);
+    }
+
+    /**
+     * Show the copy form.
+     */
+    public function copyForm(
+        CopyFormRequest $request,
+        Manager $manager,
+        ?string $recipe_slug = null
+    ): View|RedirectResponse {
+        $packageInfo = $this->packageInfo();
+
+        $validated = $request->validated();
+
+        $_return_url = empty($validated['_return_url']) ? route('playground.make.recipe') : $validated['_return_url'];
+
+        $recipe = empty($recipe_slug) ? null : $manager->get($recipe_slug);
+
+        if (empty($recipe)) {
+            return response()->redirectToRoute('playground.make.recipe')->with('error', 'Recipe not found: '.$recipe_slug);
+        }
+
+        $flash = $recipe->toArray();
+
+        $flash['class'] = '';
+        $flash['title'] = '';
+        $flash['slug'] = '';
+
+        $flash['_return_url'] = $_return_url;
+
+        session()->flashInput($flash);
+
+        $data = [
+            'packageInfo' => $packageInfo,
+            '_return_url' => $_return_url,
+            'recipe' => $recipe,
+            'recipe_slug' => $recipe_slug,
+        ];
+
+        /**
+         * @var view-string $view
+         */
+        $view = sprintf('%1$s::recipe/copy-form', $packageInfo->view());
+
+        return view($view, $data);
+    }
 
     /**
      * Delete a recipe
@@ -141,11 +214,6 @@ class RecipeController extends Controller
         Manager $manager,
         ?string $recipe_slug = null
     ): RedirectResponse {
-        //        dd([
-        //            '__METHOD__' => __METHOD__,
-        //            '$request' => $request,
-        //            '$recipe_slug' => $recipe_slug,
-        //        ]);
 
         $recipe = empty($recipe_slug) ? null : $manager->get($recipe_slug);
 
@@ -162,11 +230,6 @@ class RecipeController extends Controller
         if (empty($recipe_slug)) {
             $recipe_slug = $recipe->slug();
         }
-        //        dd([
-        //            '__METHOD__' => __METHOD__,
-        //            '$recipe_slug' => $recipe_slug,
-        //            '$recipe' => $recipe,
-        //        ]);
 
         return response()->redirectToRoute('playground.make.recipe.form', [
             'recipe_slug' => $recipe_slug,

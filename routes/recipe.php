@@ -27,6 +27,16 @@ Route::group([
         'uses' => 'RecipeController@index',
     ]);
 
+    Route::get('/copy/{recipe_slug?}', [
+        'as' => 'playground.make.recipe.copy-form',
+        'uses' => 'RecipeController@copyForm',
+    ]);
+
+    Route::post('/copy/{recipe_slug}', [
+        'as' => 'playground.make.recipe.copy',
+        'uses' => 'RecipeController@copy',
+    ]);
+
     Route::get('/form/{recipe_slug?}', [
         'as' => 'playground.make.recipe.form',
         'uses' => 'RecipeController@form',
