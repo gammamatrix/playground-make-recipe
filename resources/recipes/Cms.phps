@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 
+ *
  */
 
 declare(strict_types=1);
@@ -10,7 +10,7 @@ namespace Playground\Make\Models;
 
 
 /**
- * \Playground\Make\Models\Cms
+ * \Playground\Make\Models\Recipe\Cms
  */
 class Cms extends Playground
 {

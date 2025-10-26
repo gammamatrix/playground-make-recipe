@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 
+ *
  */
 
 declare(strict_types=1);
@@ -10,12 +10,12 @@ namespace Playground\Make\Models;
 
 
 /**
- * \Playground\Make\Models\Crm
+ * \Playground\Make\Models\Recipe\Crm
  */
 class Crm extends Playground
 {
 
-    protected $dates = [
+    protected array $dates = [
         'canceled_at' => [
             'nullable' => true,
             'index' => false,
@@ -71,6 +71,56 @@ class Crm extends Playground
         'timer_start_at' => [
             'nullable' => true,
             'index' => true,
+        ],
+    ];
+
+    protected array $factoryState = [
+        'locked' => [
+            'type' => 'flag',
+            'value' => true,
+        ],
+        'featured' => [
+            'type' => 'flag',
+            'value' => true,
+        ],
+    ];
+
+    protected array $json = [
+        'address' => [
+            'default' => '{}',
+            'nullable' => true,
+            'type' => 'JSON_OBJECT',
+        ],
+        'assets' => [
+            'default' => '{}',
+            'nullable' => true,
+            'type' => 'JSON_OBJECT',
+        ],
+        'contact' => [
+            'default' => '{}',
+            'nullable' => true,
+            'type' => 'JSON_OBJECT',
+        ],
+        'meta' => [
+            'default' => '{}',
+            'nullable' => true,
+            'type' => 'JSON_OBJECT',
+        ],
+        'notes' => [
+            'comment' => 'Array of note objects',
+            'default' => '[]',
+            'nullable' => true,
+            'type' => 'JSON_ARRAY',
+        ],
+        'options' => [
+            'default' => '{}',
+            'nullable' => true,
+            'type' => 'JSON_OBJECT',
+        ],
+        'sources' => [
+            'default' => '{}',
+            'nullable' => true,
+            'type' => 'JSON_OBJECT',
         ],
     ];
 

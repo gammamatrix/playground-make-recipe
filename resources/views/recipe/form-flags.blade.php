@@ -20,6 +20,7 @@
                 <th>Index</th>
                 <th>Nullable</th>
                 <th>Read Only</th>
+                <th>Default</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -62,6 +63,9 @@
                                 style="background: MistyRose"
                             ></i>
                         @endif
+                    </td>
+                    <td>
+                        {{ json_encode($flag->default()) }}
                     </td>
                     <td>
                         <a

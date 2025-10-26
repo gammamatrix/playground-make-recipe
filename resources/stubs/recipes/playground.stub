@@ -10,7 +10,7 @@ namespace {{ namespace }}Make\Models;
 
 {{ use }}
 /**
- * \{{ namespace }}Make\Models\{{ class }}{{ docblock }}
+ * \{{ namespace }}Make\Models\Recipe\{{ class }}{{ docblock }}
  */
 class {{ class }} extends {{ extends }}{{ implements }}
 {
