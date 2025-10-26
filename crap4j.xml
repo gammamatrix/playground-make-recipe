@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-10-26 18:42:24</timestamp>
+  <timestamp>2025-10-26 18:51:14</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>156</methodCount>
-    <crapMethodCount>20</crapMethodCount>
-    <crapLoad>299</crapLoad>
-    <totalCrap>6754</totalCrap>
-    <crapMethodPercent>12.82</crapMethodPercent>
+    <methodCount>157</methodCount>
+    <crapMethodCount>21</crapMethodCount>
+    <crapLoad>308</crapLoad>
+    <totalCrap>6844</totalCrap>
+    <crapMethodPercent>13.38</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -21,6 +21,17 @@
       <complexity>8</complexity>
       <coverage>0</coverage>
       <crapLoad>8</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildFactoryStates</className>
+      <methodName>buildClass_factoryStates</methodName>
+      <methodSignature>buildClass_factoryStates(array $factoryStates): void</methodSignature>
+      <fullMethod>buildClass_factoryStates(array $factoryStates): void</fullMethod>
+      <crap>90</crap>
+      <complexity>9</complexity>
+      <coverage>0</coverage>
+      <crapLoad>9</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Building</package>
