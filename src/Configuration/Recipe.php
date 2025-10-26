@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Playground\Make\Recipe\Configuration;
 
+use Illuminate\Support\Str;
 use Playground\Make\Configuration\PrimaryConfiguration;
 
 /**
@@ -157,6 +158,9 @@ class Recipe extends PrimaryConfiguration
             && is_string($options['slug'])
         ) {
             $this->slug = strtolower($options['slug']);
+            if (empty($this->class)) {
+                $this->class = Str::of($this->slug)->studly()->toString();
+            }
         }
 
         if (! empty($options['title'])

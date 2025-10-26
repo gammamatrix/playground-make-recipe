@@ -9,8 +9,10 @@ declare(strict_types=1);
 namespace Playground\Make\Recipe;
 
 use Illuminate\Redis\Connections\Connection;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Str;
+use Playground\Make\Recipe\Building\CookBook;
 use Playground\Make\Recipe\Configuration\Recipe;
 
 /**
@@ -238,7 +240,14 @@ class Manager
     public function saveSource(Recipe $recipe, bool $asPhp = false): string
     {
         $extension = $asPhp ? 'php' : 'phps';
-        $path = sprintf('%1$s/%2$s.%3$s', self::PATH_RECIPES, $recipe->slug(), $extension);
+        $path = sprintf(
+            '%1$s/%2$s.%3$s',
+            self::PATH_RECIPES,
+            Str::of($recipe->slug())->studly()->toString(),
+            $extension
+        );
+
+        App::make(CookBook::class)->bake($recipe, $path);
 
         //        dd([
         //            '__METHOD__' => __METHOD__,

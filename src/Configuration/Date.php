@@ -111,4 +111,9 @@ class Date extends PrimaryConfiguration
     {
         return $this->nullable;
     }
+
+    public function readOnly(): bool
+    {
+        return $this->readOnly;
+    }
 }

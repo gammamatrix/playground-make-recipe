@@ -42,6 +42,18 @@ if ($recipe_slug) {
     </div>
 @endsection
 
+@section("form-info-start")
+    <x-playground::forms.column
+        column="class"
+        label="Class"
+        :autocomplete="false"
+        :rules="[
+            'required' => false,
+            'maxlength' => 255,
+        ]"
+    ></x-playground::forms.column>
+@endsection
+
 @section("content")
     <div class="container-fluid">
         <div class="row justify-content-center">
