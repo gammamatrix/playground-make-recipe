@@ -73,10 +73,7 @@ class FactoryStateController extends Controller
     ): View|RedirectResponse {
 
         $recipe = $manager->get($recipe_slug);
-        // dd([
-        //    '__METHOD__' => __METHOD__,
-        //    '$recipe' => $recipe,
-        // ]);
+
         if (empty($recipe)) {
             return response()->redirectToRoute('playground.make.recipe')->with(
                 'error',
@@ -91,7 +88,7 @@ class FactoryStateController extends Controller
         $_return_url = empty($validated['_return_url']) ? route('playground.make.recipe.form', ['recipe_slug' => $recipe_slug]) : $validated['_return_url'];
 
         if (empty($slug)) {
-            $slug = $validated['slug'] ?? '';
+            $slug = $validated['state'] ?? '';
         }
 
         if (! empty($slug) && is_string($slug)) {
@@ -119,11 +116,7 @@ class FactoryStateController extends Controller
         }
 
         $flash['_return_url'] = $_return_url;
-        //         dd([
-        //            '__METHOD__' => __METHOD__,
-        //            '$flash' => $flash,
-        //            '$recipe' => $recipe,
-        //         ]);
+
         session()->flashInput($flash);
 
         $data = [
@@ -154,10 +147,6 @@ class FactoryStateController extends Controller
     ): RedirectResponse {
 
         $recipe = $manager->get($recipe_slug);
-        //        dd([
-        //            '__METHOD__' => __METHOD__,
-        //            '$recipe' => $recipe,
-        //        ]);
 
         if (empty($recipe)) {
             return response()->redirectToRoute('playground.make.recipe')->with(

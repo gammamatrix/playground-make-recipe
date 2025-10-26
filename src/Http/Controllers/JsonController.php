@@ -167,12 +167,7 @@ class JsonController extends Controller
         }
 
         $json = $recipe->jsonColumn($column);
-        // dump([
-        //    '__METHOD__' => __METHOD__,
-        //    '$column' => $column,
-        //    '$json' => $json,
-        //    '$validated' => $validated,
-        // ]);
+
         if (empty($json)) {
             $json = new Json($validated);
         } else {
@@ -180,11 +175,6 @@ class JsonController extends Controller
         }
 
         $json->apply();
-        //        dd([
-        //            '__METHOD__' => __METHOD__,
-        //            '$column' => $column,
-        //            '$json' => $json,
-        //        ]);
 
         $recipe->addJsonColumn($column, $json);
 

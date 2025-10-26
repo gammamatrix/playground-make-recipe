@@ -1,16 +1,17 @@
 @extends("playground::layouts.site")
 
 <?php
-$factoryState_slug =
-    ! empty($factoryState) &&
-    $factoryState instanceof \Playground\Make\Recipe\Configuration\FactoryState
-        ? $factoryState->type()
-        : "";
-if ($factoryState_slug) {
-    $title = "Factory State Form";
-} else {
-    $title = "Edit: " . $factoryState_slug;
-}
+//$factoryState_slug =
+//    ! empty($factoryState) &&
+//    $factoryState instanceof \Playground\Make\Recipe\Configuration\FactoryState
+//        ? $factoryState->type()
+//        : "";
+//if ($factoryState_slug) {
+//    $title = "Factory State Form";
+//} else {
+//    $title = "Edit: " . $factoryState_slug;
+//}
+$title = "Factory State Form";
 ?>
 
 @section("title", $title)

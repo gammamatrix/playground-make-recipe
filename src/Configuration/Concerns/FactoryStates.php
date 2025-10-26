@@ -42,10 +42,6 @@ trait FactoryStates
      */
     public function addFactoryStates(array $factoryStates): self
     {
-        //        dump([
-        //            '__METHOD__' => __METHOD__,
-        //            '$factoryStates' => $factoryStates,
-        //        ]);
         foreach ($factoryStates as $column => $meta) {
             $payload = [];
             if (! empty($column) && is_string($column) && is_array($meta)) {
@@ -69,11 +65,6 @@ trait FactoryStates
                 if (array_key_exists('value', $meta)) {
                     $payload['value'] = $meta['value'];
                 }
-                //                dump([
-                //                    '__METHOD__' => __METHOD__,
-                //                    '$column' => $column,
-                //                    '$payload' => $payload,
-                //                ]);
                 $this->addFactoryState($column, new FactoryState($payload));
             }
         }

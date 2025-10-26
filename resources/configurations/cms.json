@@ -160,6 +160,12 @@
             "description": "",
             "type": "flag",
             "value": false
+        },
+        "published": {
+            "state": "published",
+            "description": "",
+            "type": "flag",
+            "value": false
         }
     },
     "flags": {

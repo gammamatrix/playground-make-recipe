@@ -33,7 +33,7 @@
                         {{ $factoryState->description() }}
                     </td>
                     <td>
-                        {{ $factoryState->value() }}
+                        {{ json_encode($factoryState->value()) }}
                     </td>
                     <td>
                         <a
