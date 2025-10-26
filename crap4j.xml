@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-10-26 16:43:49</timestamp>
+  <timestamp>2025-10-26 18:42:24</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>155</methodCount>
-    <crapMethodCount>19</crapMethodCount>
-    <crapLoad>283</crapLoad>
-    <totalCrap>6452</totalCrap>
-    <crapMethodPercent>12.26</crapMethodPercent>
+    <methodCount>156</methodCount>
+    <crapMethodCount>20</crapMethodCount>
+    <crapLoad>299</crapLoad>
+    <totalCrap>6754</totalCrap>
+    <crapMethodPercent>12.82</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -21,6 +21,17 @@
       <complexity>8</complexity>
       <coverage>0</coverage>
       <crapLoad>8</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildJsonColumns</className>
+      <methodName>buildClass_jsonColumns</methodName>
+      <methodSignature>buildClass_jsonColumns(array $jsonColumns): void</methodSignature>
+      <fullMethod>buildClass_jsonColumns(array $jsonColumns): void</fullMethod>
+      <crap>182</crap>
+      <complexity>13</complexity>
+      <coverage>0</coverage>
+      <crapLoad>13</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Building</package>
@@ -545,10 +556,10 @@
       <methodName>addJsonColumns</methodName>
       <methodSignature>addJsonColumns(array $json): self</methodSignature>
       <fullMethod>addJsonColumns(array $json): self</fullMethod>
-      <crap>342</crap>
-      <complexity>18</complexity>
+      <crap>462</crap>
+      <complexity>21</complexity>
       <coverage>0</coverage>
-      <crapLoad>18</crapLoad>
+      <crapLoad>21</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Configuration\Concerns</package>
