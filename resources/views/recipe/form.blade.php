@@ -72,6 +72,11 @@ if ($recipe_slug) {
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-12">
+                    @include("playground-make-recipe::recipe/form-json-columns")
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-12">
                     @include("playground-make-recipe::recipe/form-flavors")
                 </div>
             </div>

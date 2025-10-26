@@ -1,51 +1,63 @@
 <fieldset class="mb-3">
-    <legend>{{ __("Factory States") }}</legend>
+    <legend>{{ __("Json Columns") }}</legend>
 
     <div class="button-group float-end mb-3">
         <a
             class="btn btn-success"
-            href="{{ route("playground.make.recipe.factory-state.form", ["recipe_slug" => $recipe->slug()]) }}"
+            href="{{ route("playground.make.recipe.json.form", ["recipe_slug" => $recipe->slug()]) }}"
         >
-            {{ __("Add Factory State") }}
+            {{ __("Add Json Column") }}
         </a>
     </div>
 
     <table class="table table-responsive">
         <thead>
             <tr>
-                <th>State</th>
+                <th>Column</th>
                 <th>Type</th>
+                <th>Label</th>
+                <th>Comment</th>
                 <th>Description</th>
-                <th>Value</th>
+                <th>Nullable</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($recipe->factoryStates() as $state => $factoryState)
+            @foreach ($recipe->json() as $column => $json)
                 <tr>
                     <td>
-                        {{ $factoryState->state() }}
+                        {{ $json->column() }}
                     </td>
                     <td>
-                        {{ $factoryState->type() }}
+                        {{ $json->type() }}
                     </td>
                     <td>
-                        {{ $factoryState->description() }}
+                        {{ $json->label() }}
                     </td>
                     <td>
-                        {{ $factoryState->value() }}
+                        {{ $json->comment() }}
+                    </td>
+                    <td>
+                        {{ $json->description() }}
+                    </td>
+                    <td>
+                        @if ($json->nullable())
+                            <i
+                                class="fa-solid fa-ban fa-rotate-90 text-warning"
+                            ></i>
+                        @endif
                     </td>
                     <td>
                         <a
                             class="btn btn-success"
-                            href="{{ route("playground.make.recipe.factory-state.form", ["recipe_slug" => $recipe_slug, "slug" => $state]) }}"
+                            href="{{ route("playground.make.recipe.json.form", ["recipe_slug" => $recipe_slug, "column" => $column]) }}"
                         >
                             <i class="fas fa-edit"></i>
                             Edit
                         </a>
                         <a
                             class="btn btn-danger confirm-delete"
-                            href="{{ route("playground.make.recipe.factory-state.delete", ["recipe_slug" => $recipe_slug, "slug" => $state]) }}"
+                            href="{{ route("playground.make.recipe.json.delete", ["recipe_slug" => $recipe_slug, "column" => $column]) }}"
                             data-bs-toggle="modal"
                             data-bs-target="#modal-recipe-delete"
                         >

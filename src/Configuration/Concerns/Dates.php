@@ -43,35 +43,38 @@ trait Dates
     public function addDates(array $dates): self
     {
         foreach ($dates as $column => $meta) {
-            $date = [];
+            $payload = [];
             if (! empty($column) && is_string($column) && is_array($meta)) {
                 if (array_key_exists('column', $meta)
                     && ! empty($meta['column'])
                     && is_string($meta['column'])
                 ) {
-                    $date['column'] = $meta['column'];
+                    $payload['column'] = $meta['column'];
                 } else {
-                    $date['column'] = $column;
+                    $payload['column'] = $column;
                 }
                 if (array_key_exists('description', $meta)
                     && ! empty($meta['description'])
                     && is_string($meta['description'])
                 ) {
-                    $date['description'] = $meta['description'];
+                    $payload['description'] = $meta['description'];
                 }
                 if (array_key_exists('label', $meta)
                     && ! empty($meta['label'])
                     && is_string($meta['label'])
                 ) {
-                    $date['label'] = $meta['label'];
+                    $payload['label'] = $meta['label'];
                 }
                 if (array_key_exists('index', $meta)) {
-                    $date['index'] = ! empty($meta['index']);
+                    $payload['index'] = ! empty($meta['index']);
                 }
                 if (array_key_exists('nullable', $meta)) {
-                    $date['nullable'] = ! empty($meta['nullable']);
+                    $payload['nullable'] = ! empty($meta['nullable']);
                 }
-                $this->addDate($column, new Date($date));
+                if (array_key_exists('readOnly', $meta)) {
+                    $payload['readOnly'] = ! empty($meta['readOnly']);
+                }
+                $this->addDate($column, new Date($payload));
             }
         }
 

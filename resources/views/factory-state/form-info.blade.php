@@ -62,7 +62,7 @@
                     label="Value"
                     :autocomplete="false"
                     :rules="[
-                        'required' => true,
+                        'required' => false,
                         'maxlength' => 255,
                     ]"
                 ></x-playground::forms.column>

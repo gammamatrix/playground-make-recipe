@@ -11,17 +11,21 @@ namespace Playground\Make\Recipe\Configuration;
 use Playground\Make\Configuration\PrimaryConfiguration;
 
 /**
- * \Playground\Make\Recipe\Configuration\Date
+ * \Playground\Make\Recipe\Configuration\Json
  */
-class Date extends PrimaryConfiguration
+class Json extends PrimaryConfiguration
 {
     protected string $column = '';
+
+    protected string $comment = '';
+
+    protected mixed $default = null;
 
     protected string $description = '';
 
     protected string $label = '';
 
-    protected bool $index = false;
+    protected string $type = 'JSON_OBJECT';
 
     protected bool $nullable = false;
 
@@ -30,20 +34,24 @@ class Date extends PrimaryConfiguration
     /**
      * @var array{
      *     column: string,
+     *     comment: string,
+     *     default: mixed,
      *     description: string,
      *     label: string,
-     *     index: bool,
+     *     type: 'JSON_ARRAY'|'JSON_OBJECT',
      *     nullable: bool,
      *     readOnly: bool,
      * }
      */
     protected $properties = [
         'column' => '',
+        'comment' => '',
+        'default' => null,
         'description' => '',
         'label' => '',
-        'index' => false,
+        'type' => 'JSON_OBJECT',
         'nullable' => true,
-        'readOnly' => false,
+        'readOnly' => true,
     ];
 
     /**
@@ -54,10 +62,15 @@ class Date extends PrimaryConfiguration
         parent::setOptions($options);
 
         if (array_key_exists('column', $options)
-            && ! empty($options['column'])
             && is_string($options['column'])
         ) {
             $this->column = $options['column'];
+        }
+
+        if (array_key_exists('comment', $options)
+            && is_string($options['comment'])
+        ) {
+            $this->comment = $options['comment'];
         }
 
         if (array_key_exists('description', $options)
@@ -66,14 +79,26 @@ class Date extends PrimaryConfiguration
             $this->description = $options['description'];
         }
 
+        if (array_key_exists('type', $options)
+            && is_string($options['type'])
+            && in_array($options['type'], ['JSON_ARRAY', 'JSON_OBJECT'])
+        ) {
+            $this->type = $options['type'];
+        }
+
         if (array_key_exists('label', $options)
             && is_string($options['label'])
         ) {
             $this->label = $options['label'];
         }
 
-        if (array_key_exists('index', $options)) {
-            $this->index = ! empty($options['index']);
+        if (array_key_exists('default', $options) && in_array(gettype($options['default']), [
+            'boolean',
+            'integer',
+            'string',
+            'NULL',
+        ])) {
+            $this->default = $options['default'];
         }
 
         if (array_key_exists('nullable', $options)) {
@@ -84,6 +109,11 @@ class Date extends PrimaryConfiguration
             $this->readOnly = ! empty($options['readOnly']);
         }
 
+        // dd([
+        //    '__METHOD__' => __METHOD__,
+        //    '$options' => $options,
+        //    '$this' => $this,
+        // ]);
         return $this;
     }
 
@@ -92,9 +122,19 @@ class Date extends PrimaryConfiguration
         return $this->column;
     }
 
+    public function comment(): string
+    {
+        return $this->comment;
+    }
+
     public function description(): string
     {
         return $this->description;
+    }
+
+    public function default(): mixed
+    {
+        return $this->default;
     }
 
     public function label(): string
@@ -102,13 +142,13 @@ class Date extends PrimaryConfiguration
         return $this->label;
     }
 
-    public function index(): bool
-    {
-        return $this->index;
-    }
-
     public function nullable(): bool
     {
         return $this->nullable;
+    }
+
+    public function readOnly(): bool
+    {
+        return $this->readOnly;
     }
 }

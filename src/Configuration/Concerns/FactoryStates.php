@@ -42,24 +42,39 @@ trait FactoryStates
      */
     public function addFactoryStates(array $factoryStates): self
     {
+        //        dump([
+        //            '__METHOD__' => __METHOD__,
+        //            '$factoryStates' => $factoryStates,
+        //        ]);
         foreach ($factoryStates as $column => $meta) {
-            $factoryState = [];
+            $payload = [];
             if (! empty($column) && is_string($column) && is_array($meta)) {
+                if (array_key_exists('state', $meta)
+                    && is_string($meta['state'])
+                ) {
+                    $payload['state'] = $meta['state'];
+                } else {
+                    $payload['column'] = $column;
+                }
                 if (array_key_exists('description', $meta)
                     && is_string($meta['description'])
                 ) {
-                    $factoryState['description'] = $meta['description'];
+                    $payload['description'] = $meta['description'];
                 }
                 if (array_key_exists('type', $meta)
                     && is_string($meta['type'])
                 ) {
-                    $factoryState['type'] = $meta['type'];
+                    $payload['type'] = $meta['type'];
                 }
-                if (array_key_exists('value', $meta)
-                ) {
-                    $factoryState['value'] = $meta['value'];
+                if (array_key_exists('value', $meta)) {
+                    $payload['value'] = $meta['value'];
                 }
-                $this->addFactoryState($column, new FactoryState($factoryState));
+                //                dump([
+                //                    '__METHOD__' => __METHOD__,
+                //                    '$column' => $column,
+                //                    '$payload' => $payload,
+                //                ]);
+                $this->addFactoryState($column, new FactoryState($payload));
             }
         }
 

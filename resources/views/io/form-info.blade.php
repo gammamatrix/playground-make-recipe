@@ -11,6 +11,8 @@ $withTitle = ! empty($withTitle);
 <fieldset class="mb-3 fieldset-basic" id="fieldset-info">
     <legend>{{ __("Information") }}</legend>
 
+    @yield("form-info-start")
+
     @if ($withTitle)
         <x-playground::forms.column
             column="title"
@@ -95,4 +97,6 @@ $withTitle = ! empty($withTitle);
             ]"
         ></x-playground::forms.column>
     @endif
+
+    @yield("form-info-end")
 </fieldset>

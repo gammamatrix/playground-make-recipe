@@ -6,12 +6,12 @@
 
 declare(strict_types=1);
 
-namespace Playground\Make\Recipe\Http\Requests\FactoryState;
+namespace Playground\Make\Recipe\Http\Requests\Json;
 
 use Playground\Make\Recipe\Http\Requests\FormRequest as BaseFormRequest;
 
 /**
- * \Playground\Make\Recipe\Http\Requests\FactoryState\FormRequest
+ * \Playground\Make\Recipe\Http\Requests\Json\FormRequest
  */
 class FormRequest extends BaseFormRequest
 {

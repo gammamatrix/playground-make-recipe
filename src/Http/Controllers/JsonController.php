@@ -10,15 +10,15 @@ namespace Playground\Make\Recipe\Http\Controllers;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
-use Playground\Make\Recipe\Configuration\FactoryState;
-use Playground\Make\Recipe\Http\Requests\FactoryState\FormRequest;
-use Playground\Make\Recipe\Http\Requests\FactoryState\SaveRequest;
+use Playground\Make\Recipe\Configuration\Json;
+use Playground\Make\Recipe\Http\Requests\Json\FormRequest;
+use Playground\Make\Recipe\Http\Requests\Json\SaveRequest;
 use Playground\Make\Recipe\Manager;
 
 /**
- * \Playground\Make\Recipe\Http\Controllers\FactoryStateController
+ * \Playground\Make\Recipe\Http\Controllers\JsonController
  */
-class FactoryStateController extends Controller
+class JsonController extends Controller
 {
     /**
      * @var array<string, string>
@@ -38,22 +38,17 @@ class FactoryStateController extends Controller
     public function delete(
         Manager $manager,
         string $recipe_slug,
-        string $slug
+        string $column
     ): RedirectResponse {
         $recipe = $manager->get($recipe_slug);
-        //         dd([
-        //            '__METHOD__' => __METHOD__,
-        //             '$recipe' => $recipe,
-        //             '$recipe_slug' => $recipe_slug,
-        //             '$column' => $column,
-        //         ]);
+
         if (empty($recipe)) {
             return response()->redirectToRoute('playground.make.recipe')->with(
                 'error',
                 __('playground-make-recipe::building.recipe.404', ['recipe' => $recipe_slug])
             );
         }
-        $recipe->removeFactoryState($slug);
+        $recipe->removeJson($column);
 
         $recipe->apply();
 
@@ -69,14 +64,11 @@ class FactoryStateController extends Controller
         string $recipe_slug,
         FormRequest $request,
         Manager $manager,
-        ?string $slug = null
+        ?string $column = null
     ): View|RedirectResponse {
 
         $recipe = $manager->get($recipe_slug);
-        // dd([
-        //    '__METHOD__' => __METHOD__,
-        //    '$recipe' => $recipe,
-        // ]);
+
         if (empty($recipe)) {
             return response()->redirectToRoute('playground.make.recipe')->with(
                 'error',
@@ -90,55 +82,49 @@ class FactoryStateController extends Controller
 
         $_return_url = empty($validated['_return_url']) ? route('playground.make.recipe.form', ['recipe_slug' => $recipe_slug]) : $validated['_return_url'];
 
-        if (empty($slug)) {
-            $slug = $validated['slug'] ?? '';
+        if (empty($column)) {
+            $column = $validated['column'] ?? '';
         }
 
-        if (! empty($slug) && is_string($slug)) {
-            $factoryState = $recipe->factoryState($slug);
+        if (! empty($column) && is_string($column)) {
+            $json = $recipe->jsonColumn($column);
         }
 
-        if (empty($factoryState)) {
-            $factoryState = new FactoryState($validated);
+        if (empty($json)) {
+            $json = new Json($validated);
         } else {
-            $factoryState->setOptions($validated);
+            $json->setOptions($validated);
         }
+        // dump([
+        //    '__METHOD__' => __METHOD__,
+        //    '$column' => $column,
+        //    '$recipe' => $recipe,
+        //    '$json' => $json,
+        //    '$validated' => $validated,
+        // ]);
 
-        $factoryState->apply();
+        $json->apply();
 
-        $flash = $factoryState->toArray();
+        $flash = $json->toArray();
 
-        if (array_key_exists('value', $flash)) {
-            if (is_bool($flash['value'])) {
-                $flash['value'] = empty($flash['value']) ? 'false' : 'true';
-            } elseif (is_array($flash['value'])) {
-                $flash['value'] = json_encode($flash['value']);
-            } elseif (is_object($flash['value'])) {
-                $flash['value'] = json_encode($flash['value']);
-            }
-        }
-
+        // $flash['default'] = !is_string($flash['default']) ? json_encode($flash['default'], JSON_PRETTY_PRINT) : $flash['default'];
         $flash['_return_url'] = $_return_url;
-        //         dd([
-        //            '__METHOD__' => __METHOD__,
-        //            '$flash' => $flash,
-        //            '$recipe' => $recipe,
-        //         ]);
+
         session()->flashInput($flash);
 
         $data = [
             'packageInfo' => $packageInfo,
-            'factoryState_slug' => $slug,
+            'json_slug' => $column,
             'recipe_slug' => $recipe_slug,
             'recipe' => $recipe,
-            'factoryState' => $factoryState,
+            'json' => $json,
             '_return_url' => $_return_url,
         ];
 
         /**
          * @var view-string $view
          */
-        $view = sprintf('%1$s::factory-state/form', $packageInfo->view());
+        $view = sprintf('%1$s::json/form', $packageInfo->view());
 
         return view($view, $data);
     }
@@ -150,14 +136,10 @@ class FactoryStateController extends Controller
         string $recipe_slug,
         SaveRequest $request,
         Manager $manager,
-        ?string $slug = null
+        ?string $column = null
     ): RedirectResponse {
 
         $recipe = $manager->get($recipe_slug);
-        //        dd([
-        //            '__METHOD__' => __METHOD__,
-        //            '$recipe' => $recipe,
-        //        ]);
 
         if (empty($recipe)) {
             return response()->redirectToRoute('playground.make.recipe')->with(
@@ -169,7 +151,9 @@ class FactoryStateController extends Controller
         /**
          * @var array{
          *     column?: string,
+         *     comment?: string,
          *     description?: string,
+         *     default?: string,
          *     label?: string,
          *     index?: bool,
          *     nullable?: bool,
@@ -178,21 +162,31 @@ class FactoryStateController extends Controller
          */
         $validated = $request->validated();
 
-        if (empty($slug)) {
-            $slug = $validated['state'] ?? '';
+        if (empty($column)) {
+            $column = $validated['column'] ?? '';
         }
 
-        $factoryState = $recipe->factoryState($slug);
-
-        if (empty($factoryState)) {
-            $factoryState = new FactoryState($validated);
+        $json = $recipe->jsonColumn($column);
+        // dump([
+        //    '__METHOD__' => __METHOD__,
+        //    '$column' => $column,
+        //    '$json' => $json,
+        //    '$validated' => $validated,
+        // ]);
+        if (empty($json)) {
+            $json = new Json($validated);
         } else {
-            $factoryState->setOptions($validated);
+            $json->setOptions($validated);
         }
 
-        $factoryState->apply();
+        $json->apply();
+        //        dd([
+        //            '__METHOD__' => __METHOD__,
+        //            '$column' => $column,
+        //            '$json' => $json,
+        //        ]);
 
-        $recipe->addFactoryState($slug, $factoryState);
+        $recipe->addJsonColumn($column, $json);
 
         $recipe->apply();
 

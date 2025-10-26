@@ -39,9 +39,9 @@ class Column extends PrimaryConfiguration
 
     protected ?int $size = null;
 
-    protected bool $readOnly = false;
-
     protected bool $nullable = false;
+
+    protected bool $readOnly = false;
 
     protected string $type = 'string';
 

@@ -46,98 +46,120 @@
             "description": "",
             "label": "",
             "index": false,
-            "nullable": true
+            "nullable": true,
+            "readOnly": false
         },
         "closed_at": {
             "column": "closed_at",
             "description": "",
             "label": "",
             "index": true,
-            "nullable": true
+            "nullable": true,
+            "readOnly": false
         },
         "embargo_at": {
             "column": "embargo_at",
             "description": "",
             "label": "",
             "index": false,
-            "nullable": true
+            "nullable": true,
+            "readOnly": false
         },
         "fixed_at": {
             "column": "fixed_at",
             "description": "",
             "label": "",
             "index": false,
-            "nullable": true
+            "nullable": true,
+            "readOnly": false
         },
         "planned_end_at": {
             "column": "planned_end_at",
             "description": "",
             "label": "",
             "index": false,
-            "nullable": true
+            "nullable": true,
+            "readOnly": false
         },
         "planned_start_at": {
             "column": "planned_start_at",
             "description": "",
             "label": "",
             "index": false,
-            "nullable": true
+            "nullable": true,
+            "readOnly": false
         },
         "postponed_at": {
             "column": "postponed_at",
             "description": "",
             "label": "",
             "index": false,
-            "nullable": true
+            "nullable": true,
+            "readOnly": false
         },
         "published_at": {
             "column": "published_at",
             "description": "",
             "label": "",
             "index": false,
-            "nullable": true
+            "nullable": true,
+            "readOnly": false
         },
         "released_at": {
             "column": "released_at",
             "description": "",
             "label": "",
             "index": false,
-            "nullable": true
+            "nullable": true,
+            "readOnly": false
         },
         "resumed_at": {
             "column": "resumed_at",
             "description": "",
             "label": "",
             "index": false,
-            "nullable": true
+            "nullable": true,
+            "readOnly": false
         },
         "resolved_at": {
             "column": "resolved_at",
             "description": "",
             "label": "",
             "index": true,
-            "nullable": true
+            "nullable": true,
+            "readOnly": false
         },
         "suspended_at": {
             "column": "suspended_at",
             "description": "",
             "label": "",
             "index": false,
-            "nullable": true
+            "nullable": true,
+            "readOnly": false
         },
         "timer_end_at": {
             "column": "timer_end_at",
             "description": "",
             "label": "",
             "index": true,
-            "nullable": true
+            "nullable": true,
+            "readOnly": false
         },
         "timer_start_at": {
             "column": "timer_start_at",
             "description": "",
             "label": "",
             "index": true,
-            "nullable": true
+            "nullable": true,
+            "readOnly": false
+        }
+    },
+    "factoryStates": {
+        "locked": {
+            "state": "locked",
+            "description": "",
+            "type": "flag",
+            "value": false
         }
     },
     "flags": {
@@ -168,6 +190,58 @@
         "revision",
         "routing"
     ],
+    "json": {
+        "address": {
+            "column": "address",
+            "comment": "",
+            "default": null,
+            "description": "",
+            "label": "",
+            "type": "JSON_OBJECT",
+            "nullable": true,
+            "readOnly": false
+        },
+        "assets": {
+            "column": "assets",
+            "comment": "",
+            "default": null,
+            "description": "",
+            "label": "",
+            "type": "JSON_OBJECT",
+            "nullable": true,
+            "readOnly": false
+        },
+        "contact": {
+            "column": "contact",
+            "comment": "",
+            "default": null,
+            "description": "",
+            "label": "",
+            "type": "JSON_OBJECT",
+            "nullable": true,
+            "readOnly": false
+        },
+        "meta": {
+            "column": "meta",
+            "comment": "",
+            "default": null,
+            "description": "",
+            "label": "",
+            "type": "JSON_OBJECT",
+            "nullable": true,
+            "readOnly": false
+        },
+        "notes": {
+            "column": "notes",
+            "comment": "Array of note objects",
+            "default": "[]",
+            "description": "",
+            "label": "",
+            "type": "JSON_OBJECT",
+            "nullable": true,
+            "readOnly": false
+        }
+    },
     "models": [],
     "type": "",
     "playground": true,

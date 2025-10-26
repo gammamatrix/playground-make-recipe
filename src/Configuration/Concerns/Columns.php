@@ -43,35 +43,66 @@ trait Columns
     public function addColumns(array $columns): self
     {
         foreach ($columns as $column_slug => $meta) {
-            $column = [];
+            $payload = [];
             if (! empty($column_slug) && is_string($column_slug) && is_array($meta)) {
                 if (array_key_exists('column', $meta)
                     && ! empty($meta['column'])
                     && is_string($meta['column'])
                 ) {
-                    $column['column'] = $meta['column'];
+                    $payload['column'] = $meta['column'];
                 } else {
-                    $column['column'] = $column_slug;
+                    $payload['column'] = $column_slug;
                 }
                 if (array_key_exists('description', $meta)
                     && ! empty($meta['description'])
                     && is_string($meta['description'])
                 ) {
-                    $column['description'] = $meta['description'];
+                    $payload['description'] = $meta['description'];
                 }
                 if (array_key_exists('label', $meta)
                     && ! empty($meta['label'])
                     && is_string($meta['label'])
                 ) {
-                    $column['label'] = $meta['label'];
+                    $payload['label'] = $meta['label'];
+                }
+                if (array_key_exists('default', $meta)
+                    && is_string($meta['default'])
+                ) {
+                    $payload['default'] = $meta['default'];
+                }
+                if (array_key_exists('icon', $meta)
+                    && is_string($meta['icon'])
+                ) {
+                    $payload['icon'] = $meta['icon'];
+                }
+                if (array_key_exists('precision', $meta)
+                    && (is_numeric($meta['precision']) || is_null($meta['precision']))
+                ) {
+                    $payload['precision'] = $meta['precision'];
+                }
+                if (array_key_exists('scale', $meta)
+                    && (is_numeric($meta['scale']) || is_null($meta['scale']))
+                ) {
+                    $payload['scale'] = $meta['scale'];
+                }
+                if (array_key_exists('size', $meta)
+                    && (is_numeric($meta['size']) || is_null($meta['size']))
+                ) {
+                    $payload['size'] = $meta['size'];
+                }
+                if (array_key_exists('html', $meta)) {
+                    $payload['html'] = ! empty($meta['html']);
                 }
                 if (array_key_exists('index', $meta)) {
-                    $column['index'] = ! empty($meta['index']);
+                    $payload['index'] = ! empty($meta['index']);
+                }
+                if (array_key_exists('readOnly', $meta)) {
+                    $payload['readOnly'] = ! empty($meta['readOnly']);
                 }
                 if (array_key_exists('nullable', $meta)) {
-                    $column['nullable'] = ! empty($meta['nullable']);
+                    $payload['nullable'] = ! empty($meta['nullable']);
                 }
-                $this->addColumn($column_slug, new Column($column));
+                $this->addColumn($column_slug, new Column($payload));
             }
         }
 

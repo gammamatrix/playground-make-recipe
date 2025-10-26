@@ -89,6 +89,8 @@ class FactoryState extends PrimaryConfiguration
                     $this->value = [];
                 } elseif ($options['value'] === '{}') {
                     $this->value = [];
+                } else {
+                    $this->value = $options['value'];
                 }
             } else {
                 $this->value = $options['value'];

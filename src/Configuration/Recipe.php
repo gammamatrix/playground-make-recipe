@@ -20,6 +20,7 @@ class Recipe extends PrimaryConfiguration
     use Concerns\FactoryStates;
     use Concerns\Flags;
     use Concerns\Flavors;
+    use Concerns\JsonColumns;
 
     protected string $description = '';
 
@@ -124,8 +125,10 @@ class Recipe extends PrimaryConfiguration
         'name' => '',
         'columns' => [],
         'dates' => [],
+        'factoryStates' => [],
         'flags' => [],
         'flavors' => [],
+        'json' => [],
         'models' => [],
         'type' => '',
         'playground' => false,
@@ -182,6 +185,9 @@ class Recipe extends PrimaryConfiguration
             $this->addFlavors($options['flavors']);
         }
 
+        if (! empty($options['json']) && is_array($options['json'])) {
+            $this->addJsonColumns($options['json']);
+        }
         //        $this->addModels($options);
 
         if (array_key_exists('withLifecycle', $options)) {

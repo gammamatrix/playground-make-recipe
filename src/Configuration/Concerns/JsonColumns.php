@@ -8,41 +8,41 @@ declare(strict_types=1);
 
 namespace Playground\Make\Recipe\Configuration\Concerns;
 
-use Playground\Make\Recipe\Configuration\Flag;
+use Playground\Make\Recipe\Configuration\Json;
 
 /**
- * \Playground\Make\Recipe\Configuration\Concerns\Flags
+ * \Playground\Make\Recipe\Configuration\Concerns\JsonColumns
  */
-trait Flags
+trait JsonColumns
 {
     /**
-     * @var array<string, Flag>
+     * @var array<string, Json>
      */
-    protected array $flags = [];
+    protected array $json = [];
 
-    public function addFlag(string $column, Flag $flag): self
+    public function addJsonColumn(string $column, Json $json): self
     {
         throw_if(empty($column), 'InvalidArgumentException', '$column is not allowed to be empty.');
-        $this->flags[$column] = $flag;
-        $this->flags[$column]->apply();
+        $this->json[$column] = $json;
+        $this->json[$column]->apply();
 
         return $this;
     }
 
-    public function removeFlag(string $column): self
+    public function removeJson(string $column): self
     {
         throw_if(empty($column), 'InvalidArgumentException', '$column is not allowed to be empty.');
-        unset($this->flags[$column]);
+        unset($this->json[$column]);
 
         return $this;
     }
 
     /**
-     * @param  array<mixed>  $flags
+     * @param  array<mixed>  $json
      */
-    public function addFlags(array $flags): self
+    public function addJsonColumns(array $json): self
     {
-        foreach ($flags as $column => $meta) {
+        foreach ($json as $column => $meta) {
             $payload = [];
             if (! empty($column) && is_string($column) && is_array($meta)) {
                 if (array_key_exists('column', $meta)
@@ -52,6 +52,11 @@ trait Flags
                     $payload['column'] = $meta['column'];
                 } else {
                     $payload['column'] = $column;
+                }
+                if (array_key_exists('comment', $meta)
+                    && is_string($meta['comment'])
+                ) {
+                    $payload['comment'] = $meta['comment'];
                 }
                 if (array_key_exists('description', $meta)
                     && is_string($meta['description'])
@@ -63,13 +68,10 @@ trait Flags
                 ) {
                     $payload['label'] = $meta['label'];
                 }
-                if (array_key_exists('icon', $meta)
-                    && is_string($meta['icon'])
+                if (array_key_exists('default', $meta)
+                    && is_string($meta['default'])
                 ) {
-                    $payload['icon'] = $meta['icon'];
-                }
-                if (array_key_exists('index', $meta)) {
-                    $payload['index'] = ! empty($meta['index']);
+                    $payload['default'] = $meta['default'];
                 }
                 if (array_key_exists('nullable', $meta)) {
                     $payload['nullable'] = ! empty($meta['nullable']);
@@ -77,25 +79,25 @@ trait Flags
                 if (array_key_exists('readOnly', $meta)) {
                     $payload['readOnly'] = ! empty($meta['readOnly']);
                 }
-                $this->addFlag($column, new Flag($payload));
+                $this->addJsonColumn($column, new Json($payload));
             }
         }
 
         return $this;
     }
 
-    public function flag(string $column): ?Flag
+    public function jsonColumn(string $column): ?Json
     {
         throw_if(empty($column), 'InvalidArgumentException', '$column is not allowed to be empty.');
 
-        return $this->flags[$column] ?? null;
+        return $this->json[$column] ?? null;
     }
 
     /**
-     * @return array<string, Flag>
+     * @return array<string, Json>
      */
-    public function flags(): array
+    public function json(): array
     {
-        return $this->flags;
+        return $this->json;
     }
 }

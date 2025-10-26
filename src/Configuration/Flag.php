@@ -85,7 +85,7 @@ class Flag extends PrimaryConfiguration
             $this->label = $options['label'];
         }
 
-        if (array_key_exists('default', $options) && in_array(gettype($options['label']), [
+        if (array_key_exists('default', $options) && in_array(gettype($options['default']), [
             'boolean',
             'integer',
             'string',

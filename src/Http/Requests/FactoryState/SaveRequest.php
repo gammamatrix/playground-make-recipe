@@ -16,6 +16,7 @@ use Playground\Make\Recipe\Http\Requests\FormRequest;
 class SaveRequest extends FormRequest
 {
     public const array RULES = [
+        'state' => ['required', 'string', 'regex:/^[a-z][a-zA-Z0-9]+$/'],
         'type' => ['required', 'string', 'in:flag'],
         'description' => ['nullable', 'string'],
         'value' => ['sometimes'],
@@ -28,6 +29,10 @@ class SaveRequest extends FormRequest
 
         if ($this->has('description') && empty($this->input('description'))) {
             $merge['description'] = '';
+        }
+
+        if ($this->has('value') && empty($this->input('value'))) {
+            $merge['value'] = $this->input('value');
         }
 
         if (! empty($merge)) {
