@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-10-25 20:14:31</timestamp>
+  <timestamp>2025-10-26 03:58:35</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>131</methodCount>
-    <crapMethodCount>14</crapMethodCount>
-    <crapLoad>196</crapLoad>
-    <totalCrap>4404</totalCrap>
-    <crapMethodPercent>10.69</crapMethodPercent>
+    <methodCount>148</methodCount>
+    <crapMethodCount>18</crapMethodCount>
+    <crapLoad>273</crapLoad>
+    <totalCrap>6292</totalCrap>
+    <crapMethodPercent>12.16</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -215,10 +215,10 @@
       <methodName>addColumns</methodName>
       <methodSignature>addColumns(array $columns): self</methodSignature>
       <fullMethod>addColumns(array $columns): self</fullMethod>
-      <crap>272</crap>
-      <complexity>16</complexity>
+      <crap>992</crap>
+      <complexity>31</complexity>
       <coverage>0</coverage>
-      <crapLoad>16</crapLoad>
+      <crapLoad>32</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Configuration\Concerns</package>
@@ -270,10 +270,10 @@
       <methodName>addDates</methodName>
       <methodSignature>addDates(array $dates): self</methodSignature>
       <fullMethod>addDates(array $dates): self</fullMethod>
-      <crap>272</crap>
-      <complexity>16</complexity>
+      <crap>306</crap>
+      <complexity>17</complexity>
       <coverage>0</coverage>
-      <crapLoad>16</crapLoad>
+      <crapLoad>17</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Configuration\Concerns</package>
@@ -325,10 +325,10 @@
       <methodName>addFactoryStates</methodName>
       <methodSignature>addFactoryStates(array $factoryStates): self</methodSignature>
       <fullMethod>addFactoryStates(array $factoryStates): self</fullMethod>
-      <crap>110</crap>
-      <complexity>10</complexity>
+      <crap>156</crap>
+      <complexity>12</complexity>
       <coverage>0</coverage>
-      <crapLoad>10</crapLoad>
+      <crapLoad>12</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Configuration\Concerns</package>
@@ -380,10 +380,10 @@
       <methodName>addFlags</methodName>
       <methodSignature>addFlags(array $flags): self</methodSignature>
       <fullMethod>addFlags(array $flags): self</fullMethod>
-      <crap>272</crap>
-      <complexity>16</complexity>
+      <crap>306</crap>
+      <complexity>17</complexity>
       <coverage>0</coverage>
-      <crapLoad>16</crapLoad>
+      <crapLoad>17</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Configuration\Concerns</package>
@@ -452,15 +452,70 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\JsonColumns</className>
+      <methodName>addJsonColumn</methodName>
+      <methodSignature>addJsonColumn(string $column, Json $json): self</methodSignature>
+      <fullMethod>addJsonColumn(string $column, Json $json): self</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\JsonColumns</className>
+      <methodName>removeJson</methodName>
+      <methodSignature>removeJson(string $column): self</methodSignature>
+      <fullMethod>removeJson(string $column): self</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\JsonColumns</className>
+      <methodName>addJsonColumns</methodName>
+      <methodSignature>addJsonColumns(array $json): self</methodSignature>
+      <fullMethod>addJsonColumns(array $json): self</fullMethod>
+      <crap>342</crap>
+      <complexity>18</complexity>
+      <coverage>0</coverage>
+      <crapLoad>18</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\JsonColumns</className>
+      <methodName>jsonColumn</methodName>
+      <methodSignature>jsonColumn(string $column): ?Json</methodSignature>
+      <fullMethod>jsonColumn(string $column): ?Json</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\JsonColumns</className>
+      <methodName>json</methodName>
+      <methodSignature>json(): array</methodSignature>
+      <fullMethod>json(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
       <package>Playground\Make\Recipe\Configuration</package>
       <className>Playground\Make\Recipe\Configuration\Date</className>
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>110</crap>
-      <complexity>10</complexity>
+      <crap>132</crap>
+      <complexity>11</complexity>
       <coverage>0</coverage>
-      <crapLoad>10</crapLoad>
+      <crapLoad>11</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Configuration</package>
@@ -673,6 +728,94 @@
     </method>
     <method>
       <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Json</className>
+      <methodName>setOptions</methodName>
+      <methodSignature>setOptions(array $options): self</methodSignature>
+      <fullMethod>setOptions(array $options): self</fullMethod>
+      <crap>272</crap>
+      <complexity>16</complexity>
+      <coverage>0</coverage>
+      <crapLoad>16</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Json</className>
+      <methodName>column</methodName>
+      <methodSignature>column(): string</methodSignature>
+      <fullMethod>column(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Json</className>
+      <methodName>comment</methodName>
+      <methodSignature>comment(): string</methodSignature>
+      <fullMethod>comment(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Json</className>
+      <methodName>description</methodName>
+      <methodSignature>description(): string</methodSignature>
+      <fullMethod>description(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Json</className>
+      <methodName>default</methodName>
+      <methodSignature>default(): mixed</methodSignature>
+      <fullMethod>default(): mixed</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Json</className>
+      <methodName>label</methodName>
+      <methodSignature>label(): string</methodSignature>
+      <fullMethod>label(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Json</className>
+      <methodName>nullable</methodName>
+      <methodSignature>nullable(): bool</methodSignature>
+      <fullMethod>nullable(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Json</className>
+      <methodName>readOnly</methodName>
+      <methodSignature>readOnly(): bool</methodSignature>
+      <fullMethod>readOnly(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
       <className>Playground\Make\Recipe\Configuration\Model</className>
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
@@ -699,10 +842,10 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>552</crap>
-      <complexity>23</complexity>
+      <crap>650</crap>
+      <complexity>25</complexity>
       <coverage>0</coverage>
-      <crapLoad>23</crapLoad>
+      <crapLoad>26</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Configuration</package>
@@ -963,10 +1106,10 @@
       <methodName>form</methodName>
       <methodSignature>form(string $recipe_slug, FormRequest $request, Manager $manager, ?string $slug): View|RedirectResponse</methodSignature>
       <fullMethod>form(string $recipe_slug, FormRequest $request, Manager $manager, ?string $slug): View|RedirectResponse</fullMethod>
-      <crap>56</crap>
-      <complexity>7</complexity>
+      <crap>156</crap>
+      <complexity>12</complexity>
       <coverage>0</coverage>
-      <crapLoad>7</crapLoad>
+      <crapLoad>12</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Http\Controllers</package>
@@ -1042,6 +1185,39 @@
       <fullMethod>save(string $recipe_slug, SaveRequest $request, Manager $manager, ?string $flavor): RedirectResponse</fullMethod>
       <crap>30</crap>
       <complexity>5</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\JsonController</className>
+      <methodName>delete</methodName>
+      <methodSignature>delete(Manager $manager, string $recipe_slug, string $column): RedirectResponse</methodSignature>
+      <fullMethod>delete(Manager $manager, string $recipe_slug, string $column): RedirectResponse</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\JsonController</className>
+      <methodName>form</methodName>
+      <methodSignature>form(string $recipe_slug, FormRequest $request, Manager $manager, ?string $column): View|RedirectResponse</methodSignature>
+      <fullMethod>form(string $recipe_slug, FormRequest $request, Manager $manager, ?string $column): View|RedirectResponse</fullMethod>
+      <crap>56</crap>
+      <complexity>7</complexity>
+      <coverage>0</coverage>
+      <crapLoad>7</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\JsonController</className>
+      <methodName>save</methodName>
+      <methodSignature>save(string $recipe_slug, SaveRequest $request, Manager $manager, ?string $column): RedirectResponse</methodSignature>
+      <fullMethod>save(string $recipe_slug, SaveRequest $request, Manager $manager, ?string $column): RedirectResponse</fullMethod>
+      <crap>42</crap>
+      <complexity>6</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -1216,8 +1392,8 @@
       <methodName>prepareForValidation</methodName>
       <methodSignature>prepareForValidation()</methodSignature>
       <fullMethod>prepareForValidation()</fullMethod>
-      <crap>20</crap>
-      <complexity>4</complexity>
+      <crap>42</crap>
+      <complexity>6</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -1253,6 +1429,17 @@
       <complexity>1</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Requests\Json</package>
+      <className>Playground\Make\Recipe\Http\Requests\Json\SaveRequest</className>
+      <methodName>prepareForValidation</methodName>
+      <methodSignature>prepareForValidation()</methodSignature>
+      <fullMethod>prepareForValidation()</fullMethod>
+      <crap>72</crap>
+      <complexity>8</complexity>
+      <coverage>0</coverage>
+      <crapLoad>8</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe</package>
