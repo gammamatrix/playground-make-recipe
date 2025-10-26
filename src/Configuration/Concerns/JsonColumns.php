@@ -63,6 +63,12 @@ trait JsonColumns
                 ) {
                     $payload['description'] = $meta['description'];
                 }
+                if (array_key_exists('type', $meta)
+                    && is_string($meta['type'])
+                    && in_array($meta['type'], ['JSON_ARRAY', 'JSON_OBJECT'])
+                ) {
+                    $payload['type'] = $meta['type'];
+                }
                 if (array_key_exists('label', $meta)
                     && is_string($meta['label'])
                 ) {

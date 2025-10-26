@@ -17,6 +17,7 @@ use Playground\Make\Recipe\Configuration\Recipe;
 class CookBook
 {
     use BuildDates;
+    use BuildJsonColumns;
 
     /**
      * @var array<string, string>
@@ -86,19 +87,20 @@ class CookBook
     public function bake(Recipe $recipe, string $path): void
     {
         $this->buildClass_dates($recipe->dates());
+        $this->buildClass_jsonColumns($recipe->json());
 
         $destination = sprintf('%1$s/%2$s', dirname(__DIR__, 2), $path);
 
         $this->mix($recipe);
 
         $this->replace($destination);
-        dd([
-            '__METHOD__' => __METHOD__,
-            '$recipe' => $recipe,
-            '$path' => $path,
-            '$destination' => $destination,
-            '$this->searches' => $this->searches,
-            '$this->getStub()' => $this->getStub(),
-        ]);
+        //        dd([
+        //            '__METHOD__' => __METHOD__,
+        //            '$recipe' => $recipe,
+        //            '$path' => $path,
+        //            '$destination' => $destination,
+        //            '$this->searches' => $this->searches,
+        //            '$this->getStub()' => $this->getStub(),
+        //        ]);
     }
 }

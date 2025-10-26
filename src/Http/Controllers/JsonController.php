@@ -152,11 +152,13 @@ class JsonController extends Controller
          * @var array{
          *     column?: string,
          *     comment?: string,
-         *     description?: string,
          *     default?: string,
+         *     description?: string,
+         *     type?: 'JSON_ARRAY'|'JSON_OBJECT',
          *     label?: string,
          *     index?: bool,
          *     nullable?: bool,
+         *     readOnly?: bool,
          *     _return_url?: string,
          * } $validated
          */
@@ -167,7 +169,12 @@ class JsonController extends Controller
         }
 
         $json = $recipe->jsonColumn($column);
-
+        // dump([
+        //    '__METHOD__' => __METHOD__,
+        //    '$json' => $json,
+        //    '$column' => $column,
+        //    '$validated' => $validated,
+        // ]);
         if (empty($json)) {
             $json = new Json($validated);
         } else {
@@ -176,6 +183,10 @@ class JsonController extends Controller
 
         $json->apply();
 
+        // dd([
+        //    '__METHOD__' => __METHOD__,
+        //    '$json' => $json,
+        // ]);
         $recipe->addJsonColumn($column, $json);
 
         $recipe->apply();

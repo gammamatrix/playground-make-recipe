@@ -109,9 +109,12 @@ class Json extends PrimaryConfiguration
             $this->readOnly = ! empty($options['readOnly']);
         }
 
-        // dd([
+        // dump([
         //    '__METHOD__' => __METHOD__,
-        //    '$options' => $options,
+        //     '$options' => $options,
+        //     '$options[type]' => $options['type'] ?? null,
+        //     '$this->column' => $this->column,
+        //     '$this->type' => $this->type,
         //    '$this' => $this,
         // ]);
         return $this;

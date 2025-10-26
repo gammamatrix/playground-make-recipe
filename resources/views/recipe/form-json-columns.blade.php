@@ -19,6 +19,7 @@
                 <th>Comment</th>
                 <th>Description</th>
                 <th>Nullable</th>
+                <th>Default</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -46,6 +47,9 @@
                                 class="fa-solid fa-ban fa-rotate-90 text-warning"
                             ></i>
                         @endif
+                    </td>
+                    <td>
+                        <code>{{ $json->default() }}</code>
                     </td>
                     <td>
                         <a

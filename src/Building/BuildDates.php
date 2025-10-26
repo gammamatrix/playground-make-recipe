@@ -29,11 +29,11 @@ trait BuildDates
         $this->searches['dates'] .= PHP_EOL;
 
         foreach ($dates as $column => $date) {
-            dump([
-                '__METHOD__' => __METHOD__,
-                '$column' => $column,
-                '$date' => $date,
-            ]);
+            //            dump([
+            //                '__METHOD__' => __METHOD__,
+            //                '$column' => $column,
+            //                '$date' => $date,
+            //            ]);
             $code .= str_repeat(' ', 8);
             $code .= sprintf('\'%1$s\' => [', $column);
 
@@ -66,7 +66,7 @@ trait BuildDates
 
         $code .= str_repeat(' ', 4);
 
-        $this->searches['dates'] .= sprintf('    protected $dates = [%1$s];',
+        $this->searches['dates'] .= sprintf('    protected array $dates = [%1$s];',
             $code
         );
 

@@ -20,6 +20,7 @@
         </div>
         <div class="col">
             <div class="form-check form-check-inline">
+                {{-- TODO not sure I will use hasDefault here --}}
                 <input type="hidden" name="hasDefault" value="0" />
                 <input
                     class="form-check-input"

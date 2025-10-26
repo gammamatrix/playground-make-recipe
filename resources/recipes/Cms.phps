@@ -15,7 +15,7 @@ namespace Playground\Make\Models;
 class Cms extends Playground
 {
 
-    protected $dates = [
+    protected array $dates = [
         'canceled_at' => [
             'nullable' => true,
             'index' => false,
@@ -71,6 +71,45 @@ class Cms extends Playground
         'timer_start_at' => [
             'nullable' => true,
             'index' => true,
+        ],
+    ];
+
+    protected array $json = [
+        'address' => [
+            'default' => '{}',
+            'nullable' => true,
+            'type' => 'JSON_OBJECT',
+        ],
+        'assets' => [
+            'default' => '{}',
+            'nullable' => true,
+            'type' => 'JSON_OBJECT',
+        ],
+        'contact' => [
+            'default' => '{}',
+            'nullable' => true,
+            'type' => 'JSON_OBJECT',
+        ],
+        'meta' => [
+            'default' => '{}',
+            'nullable' => true,
+            'type' => 'JSON_OBJECT',
+        ],
+        'notes' => [
+            'comment' => 'Array of note objects',
+            'default' => '[]',
+            'nullable' => true,
+            'type' => 'JSON_ARRAY',
+        ],
+        'options' => [
+            'default' => '{}',
+            'nullable' => true,
+            'type' => 'JSON_OBJECT',
+        ],
+        'sources' => [
+            'default' => '{}',
+            'nullable' => true,
+            'type' => 'JSON_OBJECT',
         ],
     ];
 
