@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-10-26 21:06:27</timestamp>
+  <timestamp>2025-11-02 21:54:16</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>159</methodCount>
-    <crapMethodCount>21</crapMethodCount>
-    <crapLoad>308</crapLoad>
-    <totalCrap>6876</totalCrap>
-    <crapMethodPercent>13.21</crapMethodPercent>
+    <methodCount>180</methodCount>
+    <crapMethodCount>24</crapMethodCount>
+    <crapLoad>364</crapLoad>
+    <totalCrap>8170</totalCrap>
+    <crapMethodPercent>13.33</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -595,6 +595,61 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\PackageModels</className>
+      <methodName>addPackageModel</methodName>
+      <methodSignature>addPackageModel(string $className, PackageModel $model): self</methodSignature>
+      <fullMethod>addPackageModel(string $className, PackageModel $model): self</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\PackageModels</className>
+      <methodName>removePackageModel</methodName>
+      <methodSignature>removePackageModel(string $className): self</methodSignature>
+      <fullMethod>removePackageModel(string $className): self</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\PackageModels</className>
+      <methodName>addPackageModels</methodName>
+      <methodSignature>addPackageModels(array $models): self</methodSignature>
+      <fullMethod>addPackageModels(array $models): self</fullMethod>
+      <crap>272</crap>
+      <complexity>16</complexity>
+      <coverage>0</coverage>
+      <crapLoad>16</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\PackageModels</className>
+      <methodName>packageModel</methodName>
+      <methodSignature>packageModel(string $className): ?PackageModel</methodSignature>
+      <fullMethod>packageModel(string $className): ?PackageModel</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\PackageModels</className>
+      <methodName>packageModels</methodName>
+      <methodSignature>packageModels(): array</methodSignature>
+      <fullMethod>packageModels(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
       <package>Playground\Make\Recipe\Configuration</package>
       <className>Playground\Make\Recipe\Configuration\Date</className>
       <methodName>setOptions</methodName>
@@ -915,21 +970,142 @@
     </method>
     <method>
       <package>Playground\Make\Recipe\Configuration</package>
-      <className>Playground\Make\Recipe\Configuration\Model</className>
+      <className>Playground\Make\Recipe\Configuration\PackageModel</className>
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>12</crap>
-      <complexity>3</complexity>
+      <crap>600</crap>
+      <complexity>24</complexity>
+      <coverage>0</coverage>
+      <crapLoad>24</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\PackageModel</className>
+      <methodName>description</methodName>
+      <methodSignature>description(): string</methodSignature>
+      <fullMethod>description(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Configuration</package>
-      <className>Playground\Make\Recipe\Configuration\Model</className>
-      <methodName>description</methodName>
-      <methodSignature>description(): string</methodSignature>
-      <fullMethod>description(): string</fullMethod>
+      <className>Playground\Make\Recipe\Configuration\PackageModel</className>
+      <methodName>model_column</methodName>
+      <methodSignature>model_column(): string</methodSignature>
+      <fullMethod>model_column(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\PackageModel</className>
+      <methodName>model_label</methodName>
+      <methodSignature>model_label(): string</methodSignature>
+      <fullMethod>model_label(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\PackageModel</className>
+      <methodName>model_attribute</methodName>
+      <methodSignature>model_attribute(): string</methodSignature>
+      <fullMethod>model_attribute(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\PackageModel</className>
+      <methodName>model_plural</methodName>
+      <methodSignature>model_plural(): string</methodSignature>
+      <fullMethod>model_plural(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\PackageModel</className>
+      <methodName>model_revision</methodName>
+      <methodSignature>model_revision(): string</methodSignature>
+      <fullMethod>model_revision(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\PackageModel</className>
+      <methodName>model_singular</methodName>
+      <methodSignature>model_singular(): string</methodSignature>
+      <fullMethod>model_singular(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\PackageModel</className>
+      <methodName>model_slug</methodName>
+      <methodSignature>model_slug(): string</methodSignature>
+      <fullMethod>model_slug(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\PackageModel</className>
+      <methodName>model_slug_plural</methodName>
+      <methodSignature>model_slug_plural(): string</methodSignature>
+      <fullMethod>model_slug_plural(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\PackageModel</className>
+      <methodName>recipe</methodName>
+      <methodSignature>recipe(): string</methodSignature>
+      <fullMethod>recipe(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\PackageModel</className>
+      <methodName>table</methodName>
+      <methodSignature>table(): string</methodSignature>
+      <fullMethod>table(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\PackageModel</className>
+      <methodName>revision</methodName>
+      <methodSignature>revision(): bool</methodSignature>
+      <fullMethod>revision(): bool</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
@@ -941,10 +1117,10 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>702</crap>
-      <complexity>26</complexity>
+      <crap>870</crap>
+      <complexity>29</complexity>
       <coverage>0</coverage>
-      <crapLoad>27</crapLoad>
+      <crapLoad>30</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Configuration</package>
@@ -1040,6 +1216,17 @@
       <methodName>withPublishing</methodName>
       <methodSignature>withPublishing(): bool</methodSignature>
       <fullMethod>withPublishing(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Recipe</className>
+      <methodName>withRevisions</methodName>
+      <methodSignature>withRevisions(): bool</methodSignature>
+      <fullMethod>withRevisions(): bool</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
@@ -1388,6 +1575,39 @@
     </method>
     <method>
       <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\PackageModelController</className>
+      <methodName>delete</methodName>
+      <methodSignature>delete(Manager $manager, string $recipe_slug, string $slug): RedirectResponse</methodSignature>
+      <fullMethod>delete(Manager $manager, string $recipe_slug, string $slug): RedirectResponse</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\PackageModelController</className>
+      <methodName>form</methodName>
+      <methodSignature>form(string $recipe_slug, FormRequest $request, Manager $manager, ?string $slug): View|RedirectResponse</methodSignature>
+      <fullMethod>form(string $recipe_slug, FormRequest $request, Manager $manager, ?string $slug): View|RedirectResponse</fullMethod>
+      <crap>156</crap>
+      <complexity>12</complexity>
+      <coverage>0</coverage>
+      <crapLoad>12</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\PackageModelController</className>
+      <methodName>save</methodName>
+      <methodSignature>save(string $recipe_slug, SaveRequest $request, Manager $manager, ?string $slug): RedirectResponse</methodSignature>
+      <fullMethod>save(string $recipe_slug, SaveRequest $request, Manager $manager, ?string $slug): RedirectResponse</fullMethod>
+      <crap>42</crap>
+      <complexity>6</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
       <className>Playground\Make\Recipe\Http\Controllers\RecipeController</className>
       <methodName>copy</methodName>
       <methodSignature>copy(CopyRequest $request, Manager $manager, ?string $recipe_slug): RedirectResponse</methodSignature>
@@ -1561,6 +1781,17 @@
       <complexity>8</complexity>
       <coverage>0</coverage>
       <crapLoad>8</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Requests\PackageModel</package>
+      <className>Playground\Make\Recipe\Http\Requests\PackageModel\SaveRequest</className>
+      <methodName>prepareForValidation</methodName>
+      <methodSignature>prepareForValidation()</methodSignature>
+      <fullMethod>prepareForValidation()</fullMethod>
+      <crap>30</crap>
+      <complexity>5</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe</package>
