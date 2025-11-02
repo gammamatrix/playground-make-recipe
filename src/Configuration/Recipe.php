@@ -22,6 +22,7 @@ class Recipe extends PrimaryConfiguration
     use Concerns\Flags;
     use Concerns\Flavors;
     use Concerns\JsonColumns;
+    use Concerns\PackageModels;
 
     protected string $description = '';
 
@@ -101,17 +102,17 @@ class Recipe extends PrimaryConfiguration
     protected bool $withPublishing = false;
 
     /**
+     * Required to enable revisions on models.
+     */
+    protected bool $withRevisions = false;
+
+    /**
      * Includes:
      * - rank
      * - size
      * - status
      */
     protected bool $withStatus = false;
-
-    /**
-     * @var array<string, string>
-     */
-    protected array $models = [];
 
     /**
      * @var array<string, mixed>
@@ -131,6 +132,7 @@ class Recipe extends PrimaryConfiguration
         'flavors' => [],
         'json' => [],
         'models' => [],
+        'packageModels' => [],
         'type' => '',
         'playground' => false,
         'withLifecycle' => false,
@@ -138,6 +140,7 @@ class Recipe extends PrimaryConfiguration
         'withPermissions' => false,
         'withPlanning' => false,
         'withPublishing' => false,
+        'withRevisions' => false,
         'withStatus' => false,
     ];
 
@@ -192,7 +195,10 @@ class Recipe extends PrimaryConfiguration
         if (! empty($options['json']) && is_array($options['json'])) {
             $this->addJsonColumns($options['json']);
         }
-        //        $this->addModels($options);
+
+        if (! empty($options['packageModels']) && is_array($options['packageModels'])) {
+            $this->addPackageModels($options['packageModels']);
+        }
 
         if (array_key_exists('withLifecycle', $options)) {
             $this->withLifecycle = ! empty($options['withLifecycle']);
@@ -214,28 +220,16 @@ class Recipe extends PrimaryConfiguration
             $this->withPublishing = ! empty($options['withPublishing']);
         }
 
+        if (array_key_exists('withRevisions', $options)) {
+            $this->withRevisions = ! empty($options['withRevisions']);
+        }
+
         if (array_key_exists('withStatus', $options)) {
             $this->withStatus = ! empty($options['withStatus']);
         }
 
         return $this;
     }
-
-    //    /**
-    //     * @param  array<string, mixed>  $options
-    //     */
-    //    public function addModels(array $options): self
-    //    {
-    //        if (! empty($options['models'])
-    //            && is_array($options['models'])
-    //        ) {
-    //            foreach ($options['models'] as $key => $file) {
-    //                $this->addMappedClassTo('models', $key, $file);
-    //            }
-    //        }
-    //
-    //        return $this;
-    //    }
 
     public function description(): string
     {
@@ -283,6 +277,11 @@ class Recipe extends PrimaryConfiguration
     public function withPublishing(): bool
     {
         return $this->withPublishing;
+    }
+
+    public function withRevisions(): bool
+    {
+        return $this->withRevisions;
     }
 
     public function withStatus(): bool

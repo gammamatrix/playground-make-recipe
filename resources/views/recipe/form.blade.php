@@ -64,7 +64,7 @@ if ($recipe_slug) {
         @if ($recipe->slug())
             <div class="row justify-content-center">
                 <div class="col-md-12">
-                    @include("playground-make-recipe::recipe/form-models")
+                    @include("playground-make-recipe::recipe/form-package-models")
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -105,9 +105,6 @@ if ($recipe_slug) {
     <script type="application/javascript">
         window.onload = function () {
             'use strict';
-            // if (typeof playground === 'object') {
-            //     playground.forms.editor('#form-input-content');
-            // }
             if (typeof playground === 'object') {
                 playground.forms.validation();
             }

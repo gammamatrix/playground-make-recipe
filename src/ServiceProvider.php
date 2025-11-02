@@ -143,6 +143,7 @@ class ServiceProvider extends AuthServiceProvider
             $this->loadRoutesFrom(dirname(__DIR__).'/routes/flag.php');
             $this->loadRoutesFrom(dirname(__DIR__).'/routes/flavor.php');
             $this->loadRoutesFrom(dirname(__DIR__).'/routes/json.php');
+            $this->loadRoutesFrom(dirname(__DIR__).'/routes/package-model.php');
             $this->loadRoutesFrom(dirname(__DIR__).'/routes/recipe.php');
         }
     }
