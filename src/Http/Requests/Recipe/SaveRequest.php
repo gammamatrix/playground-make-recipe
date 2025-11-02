@@ -28,6 +28,7 @@ class SaveRequest extends FormRequest
         'withPermissions' => ['boolean'],
         'withPlanning' => ['boolean'],
         'withPublishing' => ['boolean'],
+        'withRevisions' => ['boolean'],
         'withStatus' => ['boolean'],
 
         '_return_url' => ['nullable', 'string'],

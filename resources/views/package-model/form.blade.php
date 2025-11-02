@@ -63,6 +63,7 @@ $title = "Package Model Form";
 
                     @include("playground-make-recipe::package-model/form-info")
                     @include("playground-make-recipe::package-model/form-grammar")
+                    @includeWhen($recipe->withRevisions(), "playground-make-recipe::package-model/form-revision")
 
                     <fieldset class="mb-3">
                         <div class="button-group float-end">

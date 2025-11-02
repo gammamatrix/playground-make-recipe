@@ -1,6 +1,6 @@
 <form
     method="POST"
-    action="{{ route("playground.make.recipe.save", ["slug" => $recipe->slug() ?: null]) }}"
+    action="{{ route("playground.make.recipe.save", ["recipe_slug" => $recipe->slug() ?: null]) }}"
     class="needs-validation"
     novalidate
 >

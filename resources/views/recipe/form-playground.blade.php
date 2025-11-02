@@ -134,4 +134,24 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="form-check form-check-inline">
+                <input type="hidden" name="withRevisions" value="0" />
+                <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="form-input-withRevisions"
+                    name="withRevisions"
+                    value="1"
+                    {{ old("withRevisions") ? "checked" : "" }}
+                />
+                <label class="form-check-label" for="form-input-withRevisions">
+                    <i class="fa-solid fa-book"></i>
+                    {{ __("withRevisions") }}
+                </label>
+            </div>
+        </div>
+    </div>
 </fieldset>
