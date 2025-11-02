@@ -30,14 +30,14 @@
                     <td>
                         <a
                             class="btn btn-success"
-                            href="{{ route("playground.make.recipe.package-model.form", ["recipe_slug" => $recipe_slug, "className" => $className]) }}"
+                            href="{{ route("playground.make.recipe.package-model.form", ["recipe_slug" => $recipe_slug, "slug" => $className]) }}"
                         >
                             <i class="fas fa-edit"></i>
                             Edit
                         </a>
                         <a
                             class="btn btn-danger confirm-delete"
-                            href="{{ route("playground.make.recipe.package-model.delete", ["recipe_slug" => $recipe_slug, "className" => $className]) }}"
+                            href="{{ route("playground.make.recipe.package-model.delete", ["recipe_slug" => $recipe_slug, "slug" => $className]) }}"
                             data-bs-toggle="modal"
                             data-bs-target="#modal-recipe-delete"
                         >

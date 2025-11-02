@@ -17,15 +17,15 @@ class PackageModel extends PrimaryConfiguration
 {
     protected string $description = '';
 
+    protected string $model_attribute = '';
+
     protected string $model_column = '';
+
+    protected string $model_revision = '';
 
     protected string $model_label = '';
 
-    protected string $model_attribute = '';
-
     protected string $model_plural = '';
-
-    protected string $model_revision = '';
 
     protected string $model_singular = '';
 
