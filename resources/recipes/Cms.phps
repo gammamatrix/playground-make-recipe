@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 
+ *
  */
 
 declare(strict_types=1);
@@ -74,7 +74,7 @@ class Cms extends Playground
         ],
     ];
 
-    protected array $factoryState = [
+    protected array $factoryStates = [
         'locked' => [
             'type' => 'flag',
             'value' => true,

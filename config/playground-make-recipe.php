@@ -35,6 +35,16 @@ declare(strict_types=1);
  *             guest: bool,
  *             user: bool,
  *             view: string
+ *        },
+ *        defaults: array{
+ *             email: string,
+ *             github: string,
+ *             organization: string,
+ *             package: string,
+ *             packagist: string,
+ *             namespace: string,
+ *             license: string,
+ *             version: string
  *        }
  *    }
  */
@@ -155,4 +165,22 @@ return [
             'playground-make-recipe:form:viewAny',
         ],
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Command Generation Defaults
+    |--------------------------------------------------------------------------
+    |
+    |
+    */
+
+    'defaults' => [
+        'email' => env('PLAYGROUND_MAKE_RECIPE_DEFAULTS_EMAIL', 'jeremy.postlethwaite@gmail.com'),
+        'github' => env('PLAYGROUND_MAKE_RECIPE_DEFAULTS_GITHUB', 'gammamatrix'),
+        'organization' => env('PLAYGROUND_MAKE_RECIPE_DEFAULTS_ORGANIZATION', 'Playground'),
+        'namespace' => env('PLAYGROUND_MAKE_RECIPE_DEFAULTS_NAMESPACE', 'Playground'),
+        'license' => env('PLAYGROUND_MAKE_RECIPE_DEFAULTS_LICENSE', 'MIT'),
+        'version' => env('PLAYGROUND_MAKE_RECIPE_DEFAULTS_VERSION', 'v74.0.0'),
+    ],
+
 ];

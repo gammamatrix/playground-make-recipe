@@ -87,6 +87,15 @@ trait PackageModels
 
                 }
 
+                if (array_key_exists('flavors', $meta) && is_array($meta['flavors'])) {
+                    $payload['flavors'] = [];
+                    foreach ($meta['flavors'] as $flavor) {
+                        if (is_string($flavor) && ! in_array($flavor, $payload['flavors'])) {
+                            $payload['flavors'][] = $flavor;
+                        }
+                    }
+                }
+
                 if (array_key_exists('playground', $meta)) {
                     $payload['playground'] = ! empty($meta['playground']);
                 }

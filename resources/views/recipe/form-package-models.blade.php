@@ -44,6 +44,13 @@
                             <i class="fas fa-close"></i>
                             Delete
                         </a>
+                        <a
+                            class="btn btn-warning"
+                            href="{{ route("playground.make.recipe.package-model.form", ["recipe_slug" => $recipe_slug, "slug" => $className]) }}"
+                        >
+                            <i class="fas fa-edit"></i>
+                            Defaults
+                        </a>
                     </td>
                 </tr>
             @endforeach

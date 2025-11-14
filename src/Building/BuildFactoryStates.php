@@ -73,7 +73,7 @@ trait BuildFactoryStates
 
         $code .= str_repeat(' ', 4);
 
-        $this->searches['factoryStates'] .= sprintf('    protected array $factoryState = [%1$s];',
+        $this->searches['factoryStates'] .= sprintf('    protected array $factoryStates = [%1$s];',
             $code
         );
 

@@ -9,8 +9,11 @@ declare(strict_types=1);
 namespace Playground\Make\Recipe\Http\Controllers;
 
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Playground\Make\Recipe\Configuration\Recipe;
+use Playground\Make\Recipe\Http\Requests\Recipe\CommandFormRequest;
+use Playground\Make\Recipe\Http\Requests\Recipe\CommandRequest;
 use Playground\Make\Recipe\Http\Requests\Recipe\CopyFormRequest;
 use Playground\Make\Recipe\Http\Requests\Recipe\CopyRequest;
 use Playground\Make\Recipe\Http\Requests\Recipe\FormRequest;
@@ -35,6 +38,125 @@ class RecipeController extends Controller
         'privilege' => 'playground-make-recipe',
         'view' => 'playground-make-recipe',
     ];
+
+    /**
+     * Show the command form.
+     */
+    public function commandForm(
+        CommandFormRequest $request,
+        Manager $manager,
+        ?string $recipe_slug = null
+    ): View|RedirectResponse {
+        $packageInfo = $this->packageInfo();
+
+        $validated = $request->validated();
+
+        $_return_url = empty($validated['_return_url']) ? route('playground.make.recipe') : $validated['_return_url'];
+
+        $recipe = empty($recipe_slug) ? null : $manager->get($recipe_slug);
+
+        if (empty($recipe)) {
+            return response()->redirectToRoute('playground.make.recipe')->with('error', 'Recipe not found: '.$recipe_slug);
+        }
+
+        /**
+         * @var array<string, string> $defaults
+         */
+        $defaults = config('playground-make-recipe.defaults');
+
+        $flash = [];
+
+        $flash['command'] = $validated['command'] ?? '';
+        $flash['type'] = $validated['type'] ?? '';
+
+        $flash['_return_url'] = $_return_url;
+
+        foreach ($defaults as $key => $value) {
+            $flash[$key] = $value;
+        }
+
+        $flash['module'] = $recipe->title() ?: $recipe->slug();
+        $flash['package'] = sprintf(
+            '%1$s-%2$s',
+            Str::of($defaults['organization'])->slug()->toString(),
+            $recipe->slug()
+        );
+
+        $flash['namespace'] = Str::of($defaults['namespace'])->finish('/'.$recipe->class())->toString();
+
+        if ($flash['type'] === 'playground-api') {
+            $flash['package'] .= '-api';
+            $flash['namespace'] .= '/Api';
+        } elseif ($flash['type'] === 'playground-resource') {
+            $flash['package'] .= '-resource';
+            $flash['namespace'] .= '/Resource';
+        }
+
+        $flash['packagist'] = sprintf(
+            '%1$s/%2$s',
+            $defaults['github'],
+            $flash['package']
+        );
+
+        //        dd([
+        //            '__METHOD__' => __METHOD__,
+        //            '$validated' => $validated,
+        //            '$flash' => $flash,
+        //            '$recipe' => $recipe,
+        //        ]);
+
+        session()->flashInput($flash);
+
+        $data = [
+            'packageInfo' => $packageInfo,
+            '_return_url' => $_return_url,
+            'recipe' => $recipe,
+            'recipe_slug' => $recipe_slug,
+        ];
+
+        /**
+         * @var view-string $view
+         */
+        $view = sprintf('%1$s::recipe/command-form', $packageInfo->view());
+
+        return view($view, $data);
+    }
+
+    /**
+     * command a recipe
+     */
+    public function command(
+        CommandRequest $request,
+        Manager $manager,
+        ?string $recipe_slug = null
+    ): RedirectResponse {
+
+        $recipe = empty($recipe_slug) ? null : $manager->get($recipe_slug);
+
+        $validated = $request->validated();
+
+        $_return_url = empty($validated['_return_url']) || ! is_string($validated['_return_url']) ? route('playground.make.recipe') : $validated['_return_url'];
+
+        if (empty($recipe)) {
+            return response()->redirectToRoute('playground.make.recipe')->with('error', 'Recipe not found: '.$recipe_slug);
+        }
+
+        $recipe->apply();
+
+        $command = $manager->command($recipe, $validated);
+
+        // dd([
+        //    '__METHOD__' => __METHOD__,
+        //    '$validated' => $validated,
+        //    '$command' => $command,
+        //    '$recipe' => $recipe,
+        //    '$command->toString()' => $command->toString(),
+        // ]);
+        return response()->redirectTo($_return_url)->with(
+            $command?->level() ?? 'error',
+            $command?->toString() ?? 'Unable to build the command for the recipe: '.$recipe->slug(),
+        );
+    }
 
     /**
      * Copy a recipe

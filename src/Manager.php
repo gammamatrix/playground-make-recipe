@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Str;
 use Playground\Make\Recipe\Building\CookBook;
 use Playground\Make\Recipe\Configuration\Recipe;
+use Playground\Make\Recipe\Manager\Command;
+use Playground\Make\Recipe\Manager\ModelCommand;
+use Playground\Make\Recipe\Manager\PackageCommand;
 
 /**
  * \Playground\Make\Recipe\Manager
@@ -54,6 +57,24 @@ class Manager
         }
 
         return $this->connection;
+    }
+
+    /**
+     * @param  array<string, mixed>  $options
+     */
+    public function command(
+        Recipe $recipe,
+        array $options
+    ): ?Command {
+        $command = $options['command'] ?? null;
+
+        if ($command === 'package') {
+            return new PackageCommand($recipe, $options);
+        } elseif ($command === 'model') {
+            return new ModelCommand($recipe, $options);
+        }
+
+        return null;
     }
 
     public function delete(string $slug): Manager

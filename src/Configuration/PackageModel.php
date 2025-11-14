@@ -17,6 +17,11 @@ class PackageModel extends PrimaryConfiguration
 {
     protected string $description = '';
 
+    /**
+     * @var string[]
+     */
+    protected array $flavors = [];
+
     protected string $model_attribute = '';
 
     protected string $model_column = '';
@@ -150,12 +155,50 @@ class PackageModel extends PrimaryConfiguration
             $this->revision = ! empty($options['revision']);
         }
 
+        if (! empty($options['flavors'])
+            && is_array($options['flavors'])
+        ) {
+            $this->setFlavors($options['flavors']);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param  array<mixed>  $flavors
+     */
+    public function setFlavors(array $flavors): self
+    {
+        $this->flavors = [];
+        foreach ($flavors as $flavor) {
+            if (is_string($flavor)) {
+                $this->addFlavor($flavor);
+            }
+        }
+
+        return $this;
+    }
+
+    public function addFlavor(string $flavor): self
+    {
+        if (! empty($flavor) && ! in_array($flavor, $this->flavors)) {
+            $this->flavors[] = $flavor;
+        }
+
         return $this;
     }
 
     public function description(): string
     {
         return $this->description;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function flavors(): array
+    {
+        return $this->flavors;
     }
 
     public function model_column(): string

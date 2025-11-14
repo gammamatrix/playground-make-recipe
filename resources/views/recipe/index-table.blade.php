@@ -62,6 +62,27 @@
                         <i class="fas fa-edit"></i>
                         Copy
                     </a>
+                    <a
+                        class="btn btn-info"
+                        href="{{ route("playground.make.recipe.command", ["recipe_slug" => $recipe, "command" => "package", "type" => "playground-api"]) }}"
+                    >
+                        <i class="fas fa-edit"></i>
+                        Command: API
+                    </a>
+                    <a
+                        class="btn btn-info"
+                        href="{{ route("playground.make.recipe.command", ["recipe_slug" => $recipe, "command" => "package", "type" => "playground-resource"]) }}"
+                    >
+                        <i class="fas fa-edit"></i>
+                        Command: Resource
+                    </a>
+                    <a
+                        class="btn btn-info"
+                        href="{{ route("playground.make.recipe.command", ["recipe_slug" => $recipe, "command" => "package", "type" => "playground-model"]) }}"
+                    >
+                        <i class="fas fa-edit"></i>
+                        Command: Model
+                    </a>
                 </td>
             </tr>
         @endforeach

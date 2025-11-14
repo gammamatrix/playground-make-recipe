@@ -1,17 +1,12 @@
 @extends("playground::layouts.site")
 
 <?php
-//$packageModel_slug =
-//    ! empty($packageModel) &&
-//    $packageModel instanceof \Playground\Make\Recipe\Configuration\PackageModel
-//        ? $packageModel->type()
-//        : "";
-//if ($packageModel_slug) {
-//    $title = "Package Model Form";
-//} else {
-//    $title = "Edit: " . $packageModel_slug;
-//}
-$title = "Package Model Form";
+$recipe_slug =
+    ! empty($recipe) &&
+    $recipe instanceof \Playground\Make\Recipe\Configuration\Recipe
+        ? $recipe->slug()
+        : "";
+$title = "Command: " . $recipe_slug;
 ?>
 
 @section("title", $title)
@@ -25,22 +20,34 @@ $title = "Package Model Form";
                     <a href="{{ route("playground.make.recipe") }}">MAKE</a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a
-                        href="{{ route("playground.make.recipe.form", ["recipe_slug" => $recipe->slug()]) }}"
-                    >
-                        {{ $recipe->title() }}
-                    </a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">
-                    <a
-                        href="{{ route("playground.make.recipe.package-model.form", ["recipe_slug" => $recipe->slug(), "packageModel" => $packageModel_slug]) }}"
-                    >
+                    <a href="{{ route("playground.make.recipe.form") }}">
                         Form
                     </a>
                 </li>
+                @if ($recipe->slug())
+                    <li class="breadcrumb-item active" aria-current="page">
+                        <a
+                            href="{{ route("playground.make.recipe.form", ["recipe_slug" => $recipe->slug()]) }}"
+                        >
+                            Command: {{ $recipe->title() ?: $recipe->slug() }}
+                        </a>
+                    </li>
+                @endif
             </ol>
         </nav>
     </div>
+@endsection
+
+@section("form-info-start")
+    <x-playground::forms.column
+        column="class"
+        label="Class"
+        :autocomplete="false"
+        :rules="[
+            'required' => false,
+            'maxlength' => 255,
+        ]"
+    ></x-playground::forms.column>
 @endsection
 
 @section("content")
@@ -49,7 +56,7 @@ $title = "Package Model Form";
             <div class="col-md-12">
                 <form
                     method="POST"
-                    action="{{ route("playground.make.recipe.package-model.save", ["recipe_slug" => $recipe_slug, "slug" => $packageModel_slug]) }}"
+                    action="{{ route("playground.make.recipe.command", ["recipe_slug" => $recipe->slug() ?: null]) }}"
                     class="needs-validation"
                     novalidate
                 >
@@ -60,16 +67,23 @@ $title = "Package Model Form";
                         name="_return_url"
                         value="{{ $_return_url }}"
                     />
+                    <input
+                        type="hidden"
+                        name="command"
+                        value="{{ old("command") }}"
+                    />
+                    <input
+                        type="hidden"
+                        name="type"
+                        value="{{ old("type") }}"
+                    />
 
-                    @include("playground-make-recipe::package-model/form-info")
-                    @include("playground-make-recipe::package-model/form-grammar")
-                    @include("playground-make-recipe::package-model/form-flavors")
-                    @includeWhen($recipe->withRevisions(), "playground-make-recipe::package-model/form-revision")
+                    @include("playground-make-recipe::recipe/command-form-info")
 
                     <fieldset class="mb-3">
                         <div class="button-group float-end">
                             <button type="submit" class="btn btn-primary">
-                                {{ __("Save") }}
+                                {{ __("Generate") }}
                             </button>
                             <button type="reset" class="btn btn-warning">
                                 {{ __("Reset") }}
@@ -98,3 +112,5 @@ $title = "Package Model Form";
         };
     </script>
 @endpush
+
+@include("playground-make-recipe::recipe/index-modal-delete")
