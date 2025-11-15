@@ -1,13 +1,12 @@
 <?php
 
 /**
- *
+ * Playground
  */
 
 declare(strict_types=1);
 
 namespace Playground\Make\Models;
-
 
 /**
  * \Playground\Make\Models\Recipe\Cms
@@ -71,6 +70,40 @@ class Cms extends Playground
         'timer_start_at' => [
             'nullable' => true,
             'index' => true,
+        ],
+    ];
+
+    protected array $ids = [
+        'parent_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => null,
+            ],
+            'nullable' => true,
+            'index' => true,
+            'trait' => 'WithParent',
+            'type' => 'uuid',
+        ],
+        'page_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'cms_pages',
+            ],
+            'nullable' => true,
+            'index' => true,
+            'type' => 'uuid',
+        ],
+        'snippet_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'cms_snippets',
+            ],
+            'nullable' => true,
+            'index' => true,
+            'type' => 'uuid',
         ],
     ];
 

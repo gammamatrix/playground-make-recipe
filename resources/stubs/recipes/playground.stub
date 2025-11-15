@@ -7,7 +7,6 @@
 declare(strict_types=1);
 
 namespace {{ namespace }}Make\Models;
-
 {{ use }}
 /**
  * \{{ namespace }}Make\Models\Recipe\{{ class }}{{ docblock }}

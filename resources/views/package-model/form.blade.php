@@ -62,6 +62,7 @@ $title = "Package Model Form";
                     />
 
                     @include("playground-make-recipe::package-model/form-info")
+                    @include("playground-make-recipe::package-model/form-playground")
                     @include("playground-make-recipe::package-model/form-grammar")
                     @include("playground-make-recipe::package-model/form-flavors")
                     @includeWhen($recipe->withRevisions(), "playground-make-recipe::package-model/form-revision")

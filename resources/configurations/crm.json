@@ -6,7 +6,40 @@
     "description": "The recipe for the client relationship manager packages.",
     "title": "CRM",
     "name": "",
-    "columns": [],
+    "columns": {
+        "email": {
+            "column": "email",
+            "default": null,
+            "description": "",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": false,
+            "label": "",
+            "nullable": true,
+            "precision": null,
+            "readOnly": false,
+            "scale": null,
+            "size": null,
+            "type": "string"
+        },
+        "phone": {
+            "column": "phone",
+            "default": null,
+            "description": "",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": false,
+            "label": "",
+            "nullable": true,
+            "precision": null,
+            "readOnly": false,
+            "scale": null,
+            "size": null,
+            "type": "string"
+        }
+    },
     "dates": {
         "canceled_at": {
             "column": "canceled_at",

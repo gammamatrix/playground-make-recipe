@@ -14,7 +14,7 @@
                     {{ old("playground") ? "checked" : "" }}
                 />
                 <label class="form-check-label" for="form-input-playground">
-                    <i class="fa-solid fa-play"></i>
+                    <i class="fa-solid fa-play text-success"></i>
                     {{ __("Playground") }}
                 </label>
             </div>

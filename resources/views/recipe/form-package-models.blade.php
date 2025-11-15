@@ -15,6 +15,7 @@
             <tr>
                 <th>Class Name</th>
                 <th>Description</th>
+                <th>Playground</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -26,6 +27,11 @@
                     </td>
                     <td>
                         {{ $packageModel->description() }}
+                    </td>
+                    <td>
+                        @if ($packageModel->playground())
+                            <i class="fa-solid fa-play text-success"></i>
+                        @endif
                     </td>
                     <td>
                         <a
