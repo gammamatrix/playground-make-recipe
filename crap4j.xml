@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-11-14 21:20:10</timestamp>
+  <timestamp>2025-11-15 19:19:45</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>191</methodCount>
+    <methodCount>193</methodCount>
     <crapMethodCount>25</crapMethodCount>
     <crapLoad>379</crapLoad>
-    <totalCrap>8654</totalCrap>
-    <crapMethodPercent>13.09</crapMethodPercent>
+    <totalCrap>8704</totalCrap>
+    <crapMethodPercent>12.95</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -37,10 +37,10 @@
       <package>Playground\Make\Recipe\Building</package>
       <className>Playground\Make\Recipe\Building\BuildIds</className>
       <methodName>buildClass_ids</methodName>
-      <methodSignature>buildClass_ids(array $packageModels): void</methodSignature>
-      <fullMethod>buildClass_ids(array $packageModels): void</fullMethod>
-      <crap>12</crap>
-      <complexity>3</complexity>
+      <methodSignature>buildClass_ids(Recipe $recipe): void</methodSignature>
+      <fullMethod>buildClass_ids(Recipe $recipe): void</fullMethod>
+      <crap>30</crap>
+      <complexity>5</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -48,8 +48,19 @@
       <package>Playground\Make\Recipe\Building</package>
       <className>Playground\Make\Recipe\Building\BuildIds</className>
       <methodName>buildClass_id</methodName>
-      <methodSignature>buildClass_id(PackageModel $packageModel): string</methodSignature>
-      <fullMethod>buildClass_id(PackageModel $packageModel): string</fullMethod>
+      <methodSignature>buildClass_id(Recipe $recipe, PackageModel $packageModel): string</methodSignature>
+      <fullMethod>buildClass_id(Recipe $recipe, PackageModel $packageModel): string</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildIds</className>
+      <methodName>buildClass_parent_id</methodName>
+      <methodSignature>buildClass_parent_id(Recipe $recipe): string</methodSignature>
+      <fullMethod>buildClass_parent_id(Recipe $recipe): string</fullMethod>
       <crap>6</crap>
       <complexity>2</complexity>
       <coverage>0</coverage>
@@ -96,6 +107,17 @@
       <fullMethod>search_and_replace(string $stub): self</fullMethod>
       <crap>6</crap>
       <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\CookBook</className>
+      <methodName>defaults</methodName>
+      <methodSignature>defaults(Recipe $recipe): void</methodSignature>
+      <fullMethod>defaults(Recipe $recipe): void</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
