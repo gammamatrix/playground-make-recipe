@@ -21,7 +21,6 @@ trait BuildIds
     {
         $this->searches['ids'] = '';
 
-
         $parent_id = $this->buildClass_parent_id($recipe);
 
         if (empty($parent_id) && empty($recipe->packageModels())) {
@@ -45,19 +44,19 @@ trait BuildIds
         $this->searches['ids'] .= sprintf('    protected array $ids = [%1$s];',
             $code
         );
+        //        dd([
+        //            '__METHOD__' => __METHOD__,
+        //            '$this->searches' => $this->searches,
+        //        ]);
 
         $this->searches['ids'] .= PHP_EOL;
     }
 
     protected function buildClass_id(Recipe $recipe, PackageModel $packageModel): string
     {
-        $snake = $packageModel->model_attribute() ?: Str::of($packageModel->model_singular())->snake()->toString();
-        $snakes = $packageModel->model_attribute() ?: Str::of($packageModel->model_plural())->snake()->toString();
-        // dd([
-        //    '__METHOD__' => __METHOD__,
-        //    '$snake' => $snake,
-        //    '$packageModel' => $packageModel,
-        // ]);
+        $attribute = $packageModel->model_attribute();
+        $snake = $attribute ?: Str::of($packageModel->model_singular())->snake()->toString();
+        $snakes = Str::of($packageModel->model_plural())->snake()->toString();
 
         $code = str_repeat(' ', 8);
         $code .= sprintf('\'%1$s_id\' => [', $snake);
@@ -94,6 +93,12 @@ trait BuildIds
         $code .= '],';
 
         $code .= PHP_EOL;
+        //        dump([
+        //            '__METHOD__' => __METHOD__,
+        //            '$snake' => $snake,
+        //            '$snakes' => $snakes,
+        //            '$code' => $code,
+        //        ]);
 
         return $code;
     }

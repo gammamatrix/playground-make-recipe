@@ -140,7 +140,28 @@
             "nullable": true
         }
     },
-    "flags": [],
+    "flags": {
+        "featured": {
+            "column": "featured",
+            "default": false,
+            "description": "",
+            "icon": "fa-solid fa-star text-primary",
+            "index": false,
+            "label": "",
+            "nullable": false,
+            "readOnly": false
+        },
+        "sms": {
+            "column": "sms",
+            "default": false,
+            "description": "",
+            "icon": "fa-solid fa-comment-sms",
+            "index": false,
+            "label": "",
+            "nullable": false,
+            "readOnly": false
+        }
+    },
     "models": [],
     "type": "",
     "playground": true,

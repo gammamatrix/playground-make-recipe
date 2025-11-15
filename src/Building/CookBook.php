@@ -18,7 +18,9 @@ class CookBook
 {
     use BuildDates;
     use BuildFactoryStates;
+    use BuildHasOne;
     use BuildIds;
+    use BuildInit;
     use BuildJsonColumns;
 
     /**
@@ -104,8 +106,11 @@ class CookBook
 
         $this->buildClass_dates($recipe->dates());
         $this->buildClass_factoryStates($recipe->factoryStates());
+        // $this->buildClass_hasOnes($recipe);
         $this->buildClass_ids($recipe);
         $this->buildClass_jsonColumns($recipe->json());
+
+        $this->buildClass_init($recipe);
 
         $destination = sprintf('%1$s/%2$s', dirname(__DIR__, 2), $path);
 

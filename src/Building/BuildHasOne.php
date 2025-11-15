@@ -1,0 +1,94 @@
+<?php
+
+/**
+ * Playground
+ */
+
+declare(strict_types=1);
+
+namespace Playground\Make\Recipe\Building;
+
+use Illuminate\Support\Str;
+use Playground\Make\Recipe\Configuration\PackageModel;
+use Playground\Make\Recipe\Configuration\Recipe;
+
+/**
+ * \Playground\Make\Recipe\Building\BuildHasOne
+ */
+trait BuildHasOne
+{
+    protected function buildClass_hasOnes(Recipe $recipe): void
+    {
+        $this->searches['HasOne'] = '';
+
+        if (empty($recipe->packageModels())) {
+            return;
+        }
+
+        $code = PHP_EOL;
+
+        foreach ($recipe->packageModels() as $basename => $packageModel) {
+            if ($packageModel->revision()) {
+                // Do not add revision models
+                continue;
+            }
+            $code .= $this->buildClass_hasOne($recipe, $packageModel);
+        }
+
+        $code .= str_repeat(' ', 4);
+
+        $this->searches['HasOne'] .= PHP_EOL;
+
+        $this->searches['HasOne'] .= sprintf('    protected array $hasOne = [%1$s];',
+            $code
+        );
+
+        $this->searches['HasOne'] .= PHP_EOL;
+    }
+
+    protected function buildClass_hasOne(Recipe $recipe, PackageModel $packageModel): string
+    {
+        $attribute = $packageModel->model_attribute();
+        $snake = $attribute ?: Str::of($packageModel->model_singular())->snake()->toString();
+        $camel = Str::of($packageModel->model_singular())->camel()->toString();
+        // dd([
+        //    '__METHOD__' => __METHOD__,
+        //    '$snake' => $snake,
+        //    '$packageModel' => $packageModel,
+        // ]);
+
+        $code = str_repeat(' ', 8);
+        $code .= sprintf('\'%1$s_id\' => [', $snake);
+
+        if ($packageModel->playground()) {
+
+            //            'comment' => 'The page of the revision.',
+            //            'accessor' => 'page',
+            //            'related' => 'Page',
+            //            'foreignKey' => 'id',
+            //            'localKey' => 'page_id',
+
+            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= sprintf('\'comment\' => \'The %1$s of the revision\',', $packageModel->description());
+
+            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= sprintf('\'accessor\' => \'%1$s\',', $camel);
+
+            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= sprintf('\'related\' => \'%1$s\',', $packageModel->model());
+
+            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= sprintf('\'foreignKey\' => \'%1$s\',', 'id');
+
+            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= sprintf('\'localKey\' => \'%1$s_id\',', $snake);
+        }
+
+        $code .= PHP_EOL.str_repeat(' ', 8);
+        $code .= '],';
+
+        $code .= PHP_EOL;
+
+        return $code;
+    }
+}
