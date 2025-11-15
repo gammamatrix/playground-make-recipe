@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Playground\Make\Recipe\Building;
 
+use Playground\Make\Recipe\Configuration\Column;
 use Playground\Make\Recipe\Configuration\Flag;
 use Playground\Make\Recipe\Configuration\Recipe;
 
@@ -22,15 +23,26 @@ trait BuildInit
 
         $code = '';
 
+        $columns = $this->buildClass_init_addColumns($recipe);
+
+        if (! empty($columns)) {
+            $this->searches['init'] .= $this->buildClass_addColumns_method($columns);
+            $code .= str_repeat(' ', 8);
+            $code .= '$this->addColumns();';
+        }
+
         $flags = $this->buildClass_init_addFlags($recipe);
 
         if (! empty($flags)) {
             $this->searches['init'] .= $this->buildClass_addFlags_method($flags);
+            if (! empty($code)) {
+                $code .= PHP_EOL;
+            }
             $code .= str_repeat(' ', 8);
             $code .= '$this->addFlags();';
         }
 
-        if (empty($flags)) {
+        if (empty($flags) && empty($columns)) {
             return;
         }
 
@@ -71,6 +83,107 @@ $code
     }
 
 PHP_CODE;
+    }
+
+    protected function buildClass_init_addColumns(Recipe $recipe): string
+    {
+        $code = '';
+
+        $i = 0;
+        $total = count($recipe->columns());
+        foreach ($recipe->columns() as $key => $column) {
+            $code .= $this->buildClass_init_addColumn($column);
+            $i++;
+            if ($i < $total) {
+                $code .= PHP_EOL.PHP_EOL;
+            }
+        }
+
+        return $code;
+    }
+
+    protected function buildClass_init_addColumn(Column $column): string
+    {
+        $code = str_repeat(' ', 8);
+        $code .= sprintf('$this->columns[\'%1$s\'] = [', $column->column());
+
+        if ($column->comment()) {
+            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= sprintf('\'comment\' => \'%1$s\',', $column->comment());
+        }
+
+        if ($column->description()) {
+            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= sprintf('\'description\' => \'%1$s\',', $column->description());
+        }
+
+        if ($column->icon()) {
+            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= sprintf('\'icon\' => \'%1$s\',', $column->icon());
+        }
+
+        if ($column->hasDefault()) {
+            $code .= PHP_EOL.str_repeat(' ', 12);
+            if (is_bool($column->default())) {
+                $code .= sprintf('\'default\' => %1$s,', $column->default() ? 'true' : 'false');
+            } elseif (is_string($column->default())) {
+                $code .= sprintf('\'default\' => \'%1$s\',', $column->default());
+            } elseif (is_numeric($column->default())) {
+                $code .= sprintf('\'default\' => %1$s,', $column->default());
+            } else {
+                // TODO there could be other value types here.
+                $code .= sprintf('\'default\' => %1$s,', null);
+            }
+        }
+
+        if ($column->label()) {
+            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= sprintf('\'label\' => \'%1$s\',', $column->label());
+        }
+
+        if (is_int($column->precision())) {
+            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= sprintf('\'precision\' => %1$d,', $column->precision());
+        }
+
+        if ($column->html()) {
+            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= sprintf('\'html\' => %1$s,', 'true');
+        }
+
+        if ($column->index()) {
+            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= sprintf('\'index\' => %1$s,', 'true');
+        }
+
+        if ($column->nullable()) {
+            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= sprintf('\'nullable\' => %1$s,', 'true');
+        }
+
+        if ($column->readOnly()) {
+            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= sprintf('\'readOnly\' => %1$s,', 'true');
+        }
+
+        if (in_array($column->type(), [
+            'integer',
+            'bigInteger',
+            'mediumInteger',
+            'smallInteger',
+            'tinyInteger',
+        ])) {
+            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= sprintf('\'unsigned\' => %1$s,', 'true');
+        }
+
+        $code .= PHP_EOL.str_repeat(' ', 12);
+        $code .= sprintf('\'type\' => \'%1$s\',', $column->type());
+
+        $code .= PHP_EOL.str_repeat(' ', 8);
+        $code .= '];';
+
+        return $code;
     }
 
     protected function buildClass_init_addFlags(Recipe $recipe): string

@@ -1,16 +1,15 @@
 <?php
 
 /**
- * 
+ * Playground
  */
 
 declare(strict_types=1);
 
 namespace Playground\Make\Models;
 
-
 /**
- * \Playground\Make\Models\Directory
+ * \Playground\Make\Models\Recipe\Directory
  */
 class Directory extends Playground
 {
@@ -74,14 +73,14 @@ class Directory extends Playground
         ],
     ];
 
-    protected array $factoryState = [
+    protected array $factoryStates = [
         'locked' => [
             'type' => 'flag',
-            'value' => true,
+            'value' => false,
         ],
         'published' => [
             'type' => 'flag',
-            'value' => true,
+            'value' => false,
         ],
     ];
 

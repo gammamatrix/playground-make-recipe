@@ -123,6 +123,19 @@ class Crm extends Playground
         ],
     ];
 
+    public function addColumns(): void
+    {
+        $this->columns['email'] = [
+            'nullable' => true,
+            'type' => 'string',
+        ];
+
+        $this->columns['phone'] = [
+            'nullable' => true,
+            'type' => 'string',
+        ];
+    }
+
     public function addFlags(): void
     {
         $this->flags['featured'] = [
@@ -140,6 +153,7 @@ class Crm extends Playground
 
     public function init(): void
     {
+        $this->addColumns();
         $this->addFlags();
     }
 }
