@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-11-15 19:19:45</timestamp>
+  <timestamp>2025-11-15 21:51:57</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>193</methodCount>
-    <crapMethodCount>25</crapMethodCount>
-    <crapLoad>379</crapLoad>
-    <totalCrap>8704</totalCrap>
-    <crapMethodPercent>12.95</crapMethodPercent>
+    <methodCount>201</methodCount>
+    <crapMethodCount>26</crapMethodCount>
+    <crapLoad>387</crapLoad>
+    <totalCrap>8814</totalCrap>
+    <crapMethodPercent>12.94</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -35,6 +35,28 @@
     </method>
     <method>
       <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildHasOne</className>
+      <methodName>buildClass_hasOnes</methodName>
+      <methodSignature>buildClass_hasOnes(Recipe $recipe): void</methodSignature>
+      <fullMethod>buildClass_hasOnes(Recipe $recipe): void</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildHasOne</className>
+      <methodName>buildClass_hasOne</methodName>
+      <methodSignature>buildClass_hasOne(Recipe $recipe, PackageModel $packageModel): string</methodSignature>
+      <fullMethod>buildClass_hasOne(Recipe $recipe, PackageModel $packageModel): string</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
       <className>Playground\Make\Recipe\Building\BuildIds</className>
       <methodName>buildClass_ids</methodName>
       <methodSignature>buildClass_ids(Recipe $recipe): void</methodSignature>
@@ -50,8 +72,8 @@
       <methodName>buildClass_id</methodName>
       <methodSignature>buildClass_id(Recipe $recipe, PackageModel $packageModel): string</methodSignature>
       <fullMethod>buildClass_id(Recipe $recipe, PackageModel $packageModel): string</fullMethod>
-      <crap>20</crap>
-      <complexity>4</complexity>
+      <crap>12</crap>
+      <complexity>3</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -65,6 +87,72 @@
       <complexity>2</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildInit</className>
+      <methodName>buildClass_init</methodName>
+      <methodSignature>buildClass_init(Recipe $recipe): void</methodSignature>
+      <fullMethod>buildClass_init(Recipe $recipe): void</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildInit</className>
+      <methodName>buildClass_init_method</methodName>
+      <methodSignature>buildClass_init_method(string $code): string</methodSignature>
+      <fullMethod>buildClass_init_method(string $code): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildInit</className>
+      <methodName>buildClass_addFlags_method</methodName>
+      <methodSignature>buildClass_addFlags_method(string $code): string</methodSignature>
+      <fullMethod>buildClass_addFlags_method(string $code): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildInit</className>
+      <methodName>buildClass_addColumns_method</methodName>
+      <methodSignature>buildClass_addColumns_method(string $code): string</methodSignature>
+      <fullMethod>buildClass_addColumns_method(string $code): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildInit</className>
+      <methodName>buildClass_init_addFlags</methodName>
+      <methodSignature>buildClass_init_addFlags(Recipe $recipe): string</methodSignature>
+      <fullMethod>buildClass_init_addFlags(Recipe $recipe): string</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildInit</className>
+      <methodName>buildClass_init_addFlag</methodName>
+      <methodSignature>buildClass_init_addFlag(Flag $flag): string</methodSignature>
+      <fullMethod>buildClass_init_addFlag(Flag $flag): string</fullMethod>
+      <crap>56</crap>
+      <complexity>7</complexity>
+      <coverage>0</coverage>
+      <crapLoad>7</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Building</package>
