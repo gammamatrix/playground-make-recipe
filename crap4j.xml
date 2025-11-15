@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-11-15 22:00:05</timestamp>
+  <timestamp>2025-11-15 22:20:17</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>201</methodCount>
-    <crapMethodCount>26</crapMethodCount>
-    <crapLoad>387</crapLoad>
-    <totalCrap>8814</totalCrap>
-    <crapMethodPercent>12.94</crapMethodPercent>
+    <methodCount>203</methodCount>
+    <crapMethodCount>27</crapMethodCount>
+    <crapLoad>403</crapLoad>
+    <totalCrap>9128</totalCrap>
+    <crapMethodPercent>13.3</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -94,8 +94,8 @@
       <methodName>buildClass_init</methodName>
       <methodSignature>buildClass_init(Recipe $recipe): void</methodSignature>
       <fullMethod>buildClass_init(Recipe $recipe): void</fullMethod>
-      <crap>12</crap>
-      <complexity>3</complexity>
+      <crap>42</crap>
+      <complexity>6</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -131,6 +131,28 @@
       <complexity>1</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildInit</className>
+      <methodName>buildClass_init_addColumns</methodName>
+      <methodSignature>buildClass_init_addColumns(Recipe $recipe): string</methodSignature>
+      <fullMethod>buildClass_init_addColumns(Recipe $recipe): string</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildInit</className>
+      <methodName>buildClass_init_addColumn</methodName>
+      <methodSignature>buildClass_init_addColumn(Column $column): string</methodSignature>
+      <fullMethod>buildClass_init_addColumn(Column $column): string</fullMethod>
+      <crap>272</crap>
+      <complexity>16</complexity>
+      <coverage>0</coverage>
+      <crapLoad>16</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Building</package>
