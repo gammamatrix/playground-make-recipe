@@ -119,17 +119,7 @@ class Cms extends Playground
     ];
 
     protected array $json = [
-        'address' => [
-            'default' => '{}',
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
         'assets' => [
-            'default' => '{}',
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-        'contact' => [
             'default' => '{}',
             'nullable' => true,
             'type' => 'JSON_OBJECT',

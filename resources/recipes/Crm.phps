@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * Playground
  */
 
 declare(strict_types=1);
@@ -73,7 +73,7 @@ class Crm extends Playground
         ],
     ];
 
-    protected array $factoryState = [
+    protected array $factoryStates = [
         'locked' => [
             'type' => 'flag',
             'value' => true,
@@ -123,4 +123,23 @@ class Crm extends Playground
         ],
     ];
 
+    public function addFlags(): void
+    {
+        $this->flags['featured'] = [
+            'icon' => 'fa-solid fa-star text-primary',
+            'default' => false,
+            'type' => 'boolean',
+        ];
+
+        $this->flags['sms'] = [
+            'icon' => 'fa-solid fa-comment-sms',
+            'default' => false,
+            'type' => 'boolean',
+        ];
+    }
+
+    public function init(): void
+    {
+        $this->addFlags();
+    }
 }
