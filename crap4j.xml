@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-11-15 22:20:17</timestamp>
+  <timestamp>2025-11-23 18:21:06</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>203</methodCount>
-    <crapMethodCount>27</crapMethodCount>
-    <crapLoad>403</crapLoad>
-    <totalCrap>9128</totalCrap>
-    <crapMethodPercent>13.3</crapMethodPercent>
+    <crapMethodCount>28</crapMethodCount>
+    <crapLoad>418</crapLoad>
+    <totalCrap>9390</totalCrap>
+    <crapMethodPercent>13.79</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -1799,10 +1799,10 @@
       <methodName>commandForm</methodName>
       <methodSignature>commandForm(CommandFormRequest $request, Manager $manager, ?string $recipe_slug): View|RedirectResponse</methodSignature>
       <fullMethod>commandForm(CommandFormRequest $request, Manager $manager, ?string $recipe_slug): View|RedirectResponse</fullMethod>
-      <crap>72</crap>
-      <complexity>8</complexity>
+      <crap>240</crap>
+      <complexity>15</complexity>
       <coverage>0</coverage>
-      <crapLoad>8</crapLoad>
+      <crapLoad>15</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Http\Controllers</package>
@@ -1810,8 +1810,8 @@
       <methodName>command</methodName>
       <methodSignature>command(CommandRequest $request, Manager $manager, ?string $recipe_slug): RedirectResponse</methodSignature>
       <fullMethod>command(CommandRequest $request, Manager $manager, ?string $recipe_slug): RedirectResponse</fullMethod>
-      <crap>30</crap>
-      <complexity>5</complexity>
+      <crap>42</crap>
+      <complexity>6</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -2162,8 +2162,8 @@
       <methodName>__construct</methodName>
       <methodSignature>__construct(Recipe $recipe, array $options)</methodSignature>
       <fullMethod>__construct(Recipe $recipe, array $options)</fullMethod>
-      <crap>20</crap>
-      <complexity>4</complexity>
+      <crap>42</crap>
+      <complexity>6</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -2184,10 +2184,10 @@
       <methodName>toString</methodName>
       <methodSignature>toString(): string</methodSignature>
       <fullMethod>toString(): string</fullMethod>
-      <crap>12</crap>
-      <complexity>3</complexity>
+      <crap>72</crap>
+      <complexity>8</complexity>
       <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
+      <crapLoad>8</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe</package>
