@@ -60,7 +60,22 @@ class RecipeController extends Controller
         }
 
         /**
-         * @var array<string, string> $defaults
+         * @var array{
+         *              email: string,
+         *              github: string,
+         *              organization: string,
+         *              namespace: string,
+         *              license: string,
+         *              package-version: string,
+         *              covers: bool,
+         *              factories: bool,
+         *              force: bool,
+         *              migrations: bool,
+         *              models: bool,
+         *              playground: bool,
+         *              skeleton: bool,
+         *              test: bool
+         *         } $defaults
          */
         $defaults = config('playground-make-recipe.defaults');
 
@@ -71,8 +86,33 @@ class RecipeController extends Controller
 
         $flash['_return_url'] = $_return_url;
 
+        if ($flash['command'] === 'model') {
+            $defaults['all'] = true;
+            $defaults['covers'] = false;
+            $defaults['migrations'] = false;
+            $defaults['factories'] = false;
+            $defaults['models'] = false;
+            $defaults['skeleton'] = true;
+            $defaults['test'] = false;
+        }
+
         foreach ($defaults as $key => $value) {
             $flash[$key] = $value;
+        }
+
+        $model = null;
+
+        if ($flash['command'] === 'package') {
+            $flash['class'] = $recipe->class();
+
+            $flash['revision'] = $recipe->withRevisions();
+
+        } elseif ($flash['command'] === 'model') {
+            $flash['class'] = $validated['model'] ?? '';
+            if (! empty($flash['class']) && is_string($flash['class']) && ! empty($recipe->packageModels()[$flash['class']])) {
+                $model = $recipe->packageModels()[$flash['class']];
+                $flash['revision'] = $model->revision();
+            }
         }
 
         $flash['module'] = $recipe->title() ?: $recipe->slug();
@@ -90,6 +130,7 @@ class RecipeController extends Controller
         } elseif ($flash['type'] === 'playground-resource') {
             $flash['package'] .= '-resource';
             $flash['namespace'] .= '/Resource';
+        } elseif ($flash['type'] === 'playground-model') {
         }
 
         $flash['packagist'] = sprintf(
@@ -111,6 +152,7 @@ class RecipeController extends Controller
             'packageInfo' => $packageInfo,
             '_return_url' => $_return_url,
             'recipe' => $recipe,
+            'command' => $validated['command'] ?? '',
             'recipe_slug' => $recipe_slug,
         ];
 
@@ -135,7 +177,17 @@ class RecipeController extends Controller
 
         $validated = $request->validated();
 
-        $_return_url = empty($validated['_return_url']) || ! is_string($validated['_return_url']) ? route('playground.make.recipe') : $validated['_return_url'];
+        $command_type = $validated['command'] ?? '';
+
+        if (empty($validated['_return_url']) || ! is_string($validated['_return_url'])) {
+            if ($command_type === 'model') {
+                $_return_url = route('playground.make.recipe.form', ['recipe_slug' => $recipe_slug]);
+            } else {
+                $_return_url = route('playground.make.recipe');
+            }
+        } else {
+            $_return_url = $validated['_return_url'];
+        }
 
         if (empty($recipe)) {
             return response()->redirectToRoute('playground.make.recipe')->with('error', 'Recipe not found: '.$recipe_slug);
@@ -145,13 +197,14 @@ class RecipeController extends Controller
 
         $command = $manager->command($recipe, $validated);
 
-        // dd([
-        //    '__METHOD__' => __METHOD__,
-        //    '$validated' => $validated,
-        //    '$command' => $command,
-        //    '$recipe' => $recipe,
-        //    '$command->toString()' => $command->toString(),
-        // ]);
+        //         dd([
+        //            '__METHOD__' => __METHOD__,
+        //            '$validated' => $validated,
+        //            '$command' => $command,
+        //             '$recipe' => $recipe,
+        //             '$_return_url' => $_return_url,
+        //            '$command->toString()' => $command->toString(),
+        //         ]);
         return response()->redirectTo($_return_url)->with(
             $command?->level() ?? 'error',
             $command?->toString() ?? 'Unable to build the command for the recipe: '.$recipe->slug(),

@@ -19,6 +19,8 @@ abstract class Command
 
     public string $command = 'playground:make';
 
+    public string $class = '';
+
     public string $email = '';
 
     public string $license = '';
@@ -37,7 +39,55 @@ abstract class Command
 
     public string $version = '';
 
-    public string $_level = 'info';
+    public bool $covers = false;
+
+    public bool $factories = false;
+
+    public bool $force = false;
+
+    public bool $migrations = false;
+
+    public bool $models = false;
+
+    public bool $playground = false;
+
+    public bool $skeleton = false;
+
+    public bool $test = false;
+
+    public string $_level = 'command';
+
+    /**
+     * @var string[]
+     */
+    protected array $flags = [
+        'all',
+        'covers',
+        'factories',
+        'force',
+        'migrations',
+        'models',
+        'playground',
+        'revision',
+        'skeleton',
+        'test',
+    ];
+
+    /**
+     * @var string[]
+     */
+    protected array $strings = [
+        'class',
+        'email',
+        'license',
+        'module',
+        'namespace',
+        'organization',
+        'package',
+        'packagist',
+        'type',
+        'package-version',
+    ];
 
     /**
      * @param  array<string, mixed>  $options
@@ -46,18 +96,13 @@ abstract class Command
     {
         $this->recipe = $recipe;
 
-        $strings = [
-            'email',
-            'license',
-            'module',
-            'namespace',
-            'organization',
-            'package',
-            'packagist',
-            'type',
-            'version',
-        ];
-        foreach ($strings as $key) {
+        foreach ($this->flags as $key) {
+            if (isset($options[$key])) {
+                $this->{$key} = ! empty($options[$key]);
+            }
+        }
+
+        foreach ($this->strings as $key) {
             if (isset($options[$key])) {
                 $this->{$key} = is_string($options[$key]) ? trim($options[$key]) : '';
             }
@@ -71,24 +116,25 @@ abstract class Command
 
     public function toString(): string
     {
-        $command = sprintf('artisan %1$s', $this->command);
+        $command = sprintf('artisan %1$s %2$s', $this->command, $this->class);
 
-        $strings = [
-            'email',
-            'license',
-            'module',
-            'namespace',
-            'organization',
-            'package',
-            'packagist',
-            'type',
-            'version',
-        ];
-
-        foreach ($strings as $key) {
-            if (! empty($this->{$key})) {
+        foreach ($this->strings as $key) {
+            if ($key === 'class') {
+                continue;
+            }
+            if (! empty($this->{$key}) && is_string($this->{$key})) {
                 $command .= sprintf(' --%1$s "%2$s"', $key, $this->{$key});
             }
+        }
+
+        foreach ($this->flags as $key) {
+            if (! empty($this->{$key})) {
+                $command .= sprintf(' --%1$s', $key);
+            }
+        }
+
+        if ($this instanceof ModelCommand) {
+            $command .= sprintf(' --%1$s "%2$s"', 'recipe', $this->recipe->slug());
         }
 
         return $command;

@@ -38,18 +38,6 @@ $title = "Command: " . $recipe_slug;
     </div>
 @endsection
 
-@section("form-info-start")
-    <x-playground::forms.column
-        column="class"
-        label="Class"
-        :autocomplete="false"
-        :rules="[
-            'required' => false,
-            'maxlength' => 255,
-        ]"
-    ></x-playground::forms.column>
-@endsection
-
 @section("content")
     <div class="container-fluid">
         <div class="row justify-content-center">
@@ -64,11 +52,6 @@ $title = "Command: " . $recipe_slug;
 
                     <input
                         type="hidden"
-                        name="_return_url"
-                        value="{{ $_return_url }}"
-                    />
-                    <input
-                        type="hidden"
                         name="command"
                         value="{{ old("command") }}"
                     />
@@ -79,6 +62,7 @@ $title = "Command: " . $recipe_slug;
                     />
 
                     @include("playground-make-recipe::recipe/command-form-info")
+                    @include("playground-make-recipe::recipe/command-form-options")
 
                     <fieldset class="mb-3">
                         <div class="button-group float-end">

@@ -1,31 +1,33 @@
 <fieldset class="mb-3 fieldset-basic" id="fieldset-info">
     <legend>{{ __("Information") }}</legend>
 
-    <div class="row">
-        <div class="col">
-            <x-playground::forms.column
-                column="email"
-                label="Email"
-                :autocomplete="true"
-                type="email"
-                :rules="[
-                    'required' => false,
-                    'maxlength' => 255,
-                ]"
-            ></x-playground::forms.column>
+    @if ($command === "package")
+        <div class="row">
+            <div class="col">
+                <x-playground::forms.column
+                    column="email"
+                    label="Email"
+                    :autocomplete="true"
+                    type="email"
+                    :rules="[
+                        'required' => false,
+                        'maxlength' => 255,
+                    ]"
+                ></x-playground::forms.column>
+            </div>
+            <div class="col">
+                <x-playground::forms.column
+                    column="organization"
+                    label="Organization"
+                    :autocomplete="true"
+                    :rules="[
+                        'required' => false,
+                        'maxlength' => 255,
+                    ]"
+                ></x-playground::forms.column>
+            </div>
         </div>
-        <div class="col">
-            <x-playground::forms.column
-                column="organization"
-                label="Organization"
-                :autocomplete="true"
-                :rules="[
-                    'required' => false,
-                    'maxlength' => 255,
-                ]"
-            ></x-playground::forms.column>
-        </div>
-    </div>
+    @endif
 
     <div class="row">
         <div class="col">
@@ -64,17 +66,20 @@
                 ]"
             ></x-playground::forms.column>
         </div>
-        <div class="col">
-            <x-playground::forms.column
-                column="packagist"
-                label="Packagist"
-                :autocomplete="true"
-                :rules="[
-                    'required' => false,
-                    'maxlength' => 255,
-                ]"
-            ></x-playground::forms.column>
-        </div>
+        @if ($command === "package")
+            <div class="col">
+                <x-playground::forms.column
+                    column="packagist"
+                    label="Packagist"
+                    :autocomplete="true"
+                    :rules="[
+                        'required' => false,
+                        'maxlength' => 255,
+                    ]"
+                ></x-playground::forms.column>
+            </div>
+        @endif
+
         <div class="col">
             <x-playground::forms.column
                 column="github"
@@ -88,28 +93,30 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col">
-            <x-playground::forms.column
-                column="license"
-                label="License"
-                :autocomplete="true"
-                :rules="[
-                    'required' => false,
-                    'maxlength' => 255,
-                ]"
-            ></x-playground::forms.column>
+    @if ($command === "package")
+        <div class="row">
+            <div class="col">
+                <x-playground::forms.column
+                    column="license"
+                    label="License"
+                    :autocomplete="true"
+                    :rules="[
+                        'required' => false,
+                        'maxlength' => 255,
+                    ]"
+                ></x-playground::forms.column>
+            </div>
+            <div class="col">
+                <x-playground::forms.column
+                    column="package-version"
+                    label="Package version"
+                    :autocomplete="true"
+                    :rules="[
+                        'required' => false,
+                        'maxlength' => 255,
+                    ]"
+                ></x-playground::forms.column>
+            </div>
         </div>
-        <div class="col">
-            <x-playground::forms.column
-                column="version"
-                label="Package version"
-                :autocomplete="true"
-                :rules="[
-                    'required' => false,
-                    'maxlength' => 255,
-                ]"
-            ></x-playground::forms.column>
-        </div>
-    </div>
+    @endif
 </fieldset>

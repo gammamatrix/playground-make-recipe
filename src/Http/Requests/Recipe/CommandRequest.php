@@ -18,6 +18,7 @@ class CommandRequest extends FormRequest
     public const array RULES = [
         'command' => ['nullable', 'string'],
 
+        'class' => ['nullable', 'string'],
         'email' => ['nullable', 'string'],
         'license' => ['nullable', 'string'],
         'module' => ['nullable', 'string'],
@@ -27,9 +28,18 @@ class CommandRequest extends FormRequest
         'package' => ['nullable', 'string'],
         'packagist' => ['nullable', 'string'],
         'type' => ['nullable', 'string'],
-        'version' => ['nullable', 'string'],
+        'package-version' => ['nullable', 'string'],
 
+        'all' => ['boolean'],
+        'covers' => ['boolean'],
+        'factories' => ['boolean'],
+        'force' => ['boolean'],
+        'migrations' => ['boolean'],
+        'models' => ['boolean'],
         'playground' => ['boolean'],
+        'revision' => ['boolean'],
+        'skeleton' => ['boolean'],
+        'test' => ['boolean'],
 
         '_return_url' => ['nullable', 'string'],
     ];

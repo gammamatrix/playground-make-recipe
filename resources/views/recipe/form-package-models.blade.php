@@ -57,6 +57,13 @@
                             <i class="fas fa-edit"></i>
                             Defaults
                         </a>
+                        <a
+                            class="btn btn-info"
+                            href="{{ route("playground.make.recipe.command", ["recipe_slug" => $recipe_slug, "model" => $className, "command" => "model", "type" => "playground-model"]) }}"
+                        >
+                            <i class="fas fa-edit"></i>
+                            Command: Model
+                        </a>
                     </td>
                 </tr>
             @endforeach

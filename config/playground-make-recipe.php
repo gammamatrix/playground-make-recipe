@@ -40,11 +40,17 @@ declare(strict_types=1);
  *             email: string,
  *             github: string,
  *             organization: string,
- *             package: string,
- *             packagist: string,
  *             namespace: string,
  *             license: string,
- *             version: string
+ *             package-version: string,
+ *             covers: bool,
+ *             factories: bool,
+ *             force: bool,
+ *             migrations: bool,
+ *             models: bool,
+ *             playground: bool,
+ *             skeleton: bool,
+ *             test: bool
  *        }
  *    }
  */
@@ -180,7 +186,16 @@ return [
         'organization' => env('PLAYGROUND_MAKE_RECIPE_DEFAULTS_ORGANIZATION', 'Playground'),
         'namespace' => env('PLAYGROUND_MAKE_RECIPE_DEFAULTS_NAMESPACE', 'Playground'),
         'license' => env('PLAYGROUND_MAKE_RECIPE_DEFAULTS_LICENSE', 'MIT'),
-        'version' => env('PLAYGROUND_MAKE_RECIPE_DEFAULTS_VERSION', 'v74.0.0'),
+        'package-version' => env('PLAYGROUND_MAKE_RECIPE_DEFAULTS_PACKAGE_VERSION', '74.0.0'),
+
+        'covers' => (bool) env('PLAYGROUND_MAKE_RECIPE_DEFAULTS_COVERS', true),
+        'factories' => (bool) env('PLAYGROUND_MAKE_RECIPE_DEFAULTS_FACTORIES', true),
+        'force' => (bool) env('PLAYGROUND_MAKE_RECIPE_DEFAULTS_FORCE', true),
+        'migrations' => (bool) env('PLAYGROUND_MAKE_RECIPE_DEFAULTS_MIGRATIONS', true),
+        'models' => (bool) env('PLAYGROUND_MAKE_RECIPE_DEFAULTS_MODELS', true),
+        'playground' => (bool) env('PLAYGROUND_MAKE_RECIPE_DEFAULTS_PLAYGROUND', true),
+        'skeleton' => (bool) env('PLAYGROUND_MAKE_RECIPE_DEFAULTS_SKELETON', true),
+        'test' => (bool) env('PLAYGROUND_MAKE_RECIPE_DEFAULTS_TEST', true),
     ],
 
 ];

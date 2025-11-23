@@ -17,6 +17,7 @@ class CommandFormRequest extends BaseFormRequest
 {
     public const array RULES = [
         'command' => ['nullable', 'string'],
+        'model' => ['nullable', 'string'],
         'type' => ['nullable', 'string'],
         '_return_url' => ['nullable', 'string'],
     ];
