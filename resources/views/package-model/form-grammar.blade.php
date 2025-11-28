@@ -51,28 +51,4 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col">
-            <x-playground::forms.column
-                column="model_slug"
-                label="model: slug"
-                :autocomplete="false"
-                :rules="[
-                    'required' => false,
-                    'maxlength' => 255,
-                ]"
-            ></x-playground::forms.column>
-        </div>
-        <div class="col">
-            <x-playground::forms.column
-                column="model_slug_plural"
-                label="model: slug plural"
-                :autocomplete="false"
-                :rules="[
-                    'required' => false,
-                    'maxlength' => 255,
-                ]"
-            ></x-playground::forms.column>
-        </div>
-    </div>
 </fieldset>

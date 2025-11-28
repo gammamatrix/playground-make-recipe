@@ -80,19 +80,19 @@
             "nullable": true,
             "readOnly": false
         },
-        "resumed_at": {
-            "column": "resumed_at",
-            "description": "",
-            "label": "",
-            "index": false,
-            "nullable": true,
-            "readOnly": false
-        },
         "resolved_at": {
             "column": "resolved_at",
             "description": "",
             "label": "",
             "index": true,
+            "nullable": true,
+            "readOnly": false
+        },
+        "resumed_at": {
+            "column": "resumed_at",
+            "description": "",
+            "label": "",
+            "index": false,
             "nullable": true,
             "readOnly": false
         },
