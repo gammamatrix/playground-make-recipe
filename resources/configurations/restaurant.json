@@ -1,5 +1,5 @@
 {
-    "class": "",
+    "class": "Restaurant",
     "extends": "Playground",
     "extends_use": "",
     "slug": "restaurant",
@@ -25,8 +25,12 @@
         }
     },
     "dates": [],
+    "factoryStates": [],
     "flags": [],
+    "flavors": [],
+    "json": [],
     "models": [],
+    "packageModels": [],
     "type": "",
     "playground": true,
     "withLifecycle": true,
@@ -34,5 +38,6 @@
     "withPermissions": true,
     "withPlanning": true,
     "withPublishing": true,
+    "withRevisions": true,
     "withStatus": true
 }

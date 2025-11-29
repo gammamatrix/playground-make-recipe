@@ -54,9 +54,9 @@
                             Edit
                         </a>
                         <a
-                            class="btn btn-danger confirm-delete"
+                            class="btn btn-danger confirm-delete-disabled"
                             href="{{ route("playground.make.recipe.column.delete", ["recipe_slug" => $recipe_slug, "column_slug" => $column_slug]) }}"
-                            data-bs-toggle="modal"
+                            data-bs-toggle="modal-disabled"
                             data-bs-target="#modal-recipe-delete"
                         >
                             <i class="fas fa-close"></i>

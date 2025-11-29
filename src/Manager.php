@@ -181,7 +181,7 @@ class Manager
 
         $this->redis()->set(
             sprintf('%1$s:%2$s', self::KEY_RECIPE, $recipe->slug()),
-            json_encode($recipe->toArray(), JSON_PRETTY_PRINT),
+            json_encode($recipe->toArray(), JSON_PRETTY_PRINT).PHP_EOL,
         );
 
         return $this;
@@ -234,7 +234,7 @@ class Manager
             'Expecting the recipe configuration directory to exist and be writable: '.$this->directory
         );
 
-        $bytes = file_put_contents($path, json_encode($recipe->toArray(), JSON_PRETTY_PRINT));
+        $bytes = file_put_contents($path, json_encode($recipe->toArray(), JSON_PRETTY_PRINT).PHP_EOL);
         if ($bytes === false) {
             $level = 'error';
             $with = sprintf(

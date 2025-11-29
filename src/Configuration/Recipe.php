@@ -37,6 +37,12 @@ class Recipe extends PrimaryConfiguration
      * - canceled_at
      * - closed
      * - closed_at
+     * - completed
+     * - cron
+     * - duplicate
+     * - fixed
+     * - flagged
+     * - internal
      * - pending
      * - problem
      * - resolved

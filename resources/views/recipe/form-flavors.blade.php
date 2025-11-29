@@ -32,9 +32,9 @@
                             Edit
                         </a>
                         <a
-                            class="btn btn-danger confirm-delete"
+                            class="btn btn-danger confirm-delete-disabled"
                             href="{{ route("playground.make.recipe.flavor.delete", ["recipe_slug" => $recipe_slug, "flavor" => $flavor]) }}"
-                            data-bs-toggle="modal"
+                            data-bs-toggle="modal-disabled"
                             data-bs-target="#modal-recipe-delete"
                         >
                             <i class="fas fa-close"></i>

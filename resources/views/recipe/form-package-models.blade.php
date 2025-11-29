@@ -42,9 +42,9 @@
                             Edit
                         </a>
                         <a
-                            class="btn btn-danger confirm-delete"
+                            class="btn btn-danger confirm-delete-disabled"
                             href="{{ route("playground.make.recipe.package-model.delete", ["recipe_slug" => $recipe_slug, "slug" => $className]) }}"
-                            data-bs-toggle="modal"
+                            data-bs-toggle="modal-disabled"
                             data-bs-target="#modal-recipe-delete"
                         >
                             <i class="fas fa-close"></i>

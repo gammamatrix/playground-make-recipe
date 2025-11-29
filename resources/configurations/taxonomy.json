@@ -1,5 +1,5 @@
 {
-    "class": "",
+    "class": "Taxonomy",
     "extends": "Playground",
     "extends_use": "",
     "slug": "taxonomy",
@@ -8,8 +8,12 @@
     "name": "",
     "columns": [],
     "dates": [],
+    "factoryStates": [],
     "flags": [],
+    "flavors": [],
+    "json": [],
     "models": [],
+    "packageModels": [],
     "type": "",
     "playground": true,
     "withLifecycle": true,
@@ -17,5 +21,6 @@
     "withPermissions": true,
     "withPlanning": true,
     "withPublishing": true,
+    "withRevisions": true,
     "withStatus": true
 }

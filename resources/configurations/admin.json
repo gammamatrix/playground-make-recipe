@@ -1,10 +1,10 @@
 {
-    "class": "Directory",
+    "class": "Admin",
     "extends": "Playground",
     "extends_use": "",
-    "slug": "directory",
-    "description": "The recipe for the directory management system packages.",
-    "title": "Directory",
+    "slug": "admin",
+    "description": "The recipe for the admin system packages.",
+    "title": "Admin",
     "name": "",
     "columns": [],
     "dates": {
@@ -126,42 +126,46 @@
             "state": "locked",
             "description": "",
             "type": "flag",
-            "value": false
+            "value": true
         },
         "published": {
             "state": "published",
             "description": "",
             "type": "flag",
-            "value": false
+            "value": true
         }
     },
-    "flags": [],
-    "flavors": [],
-    "json": {
-        "address": {
-            "column": "address",
-            "comment": "",
-            "default": null,
+    "flags": {
+        "encrypted": {
+            "column": "encrypted",
+            "default": false,
             "description": "",
+            "icon": "fa-solid fa-language",
+            "index": false,
             "label": "",
-            "type": "JSON_OBJECT",
-            "nullable": true,
+            "nullable": false,
             "readOnly": false
         },
+        "secure": {
+            "column": "secure",
+            "default": false,
+            "description": "",
+            "icon": "fa-solid fa-shield",
+            "index": false,
+            "label": "",
+            "nullable": false,
+            "readOnly": false
+        }
+    },
+    "flavors": [
+        "parent",
+        "playground"
+    ],
+    "json": {
         "assets": {
             "column": "assets",
             "comment": "",
-            "default": null,
-            "description": "",
-            "label": "",
-            "type": "JSON_OBJECT",
-            "nullable": true,
-            "readOnly": false
-        },
-        "contact": {
-            "column": "contact",
-            "comment": "",
-            "default": null,
+            "default": "{}",
             "description": "",
             "label": "",
             "type": "JSON_OBJECT",
@@ -171,7 +175,7 @@
         "meta": {
             "column": "meta",
             "comment": "",
-            "default": null,
+            "default": "{}",
             "description": "",
             "label": "",
             "type": "JSON_OBJECT",
@@ -184,13 +188,66 @@
             "default": "[]",
             "description": "",
             "label": "",
+            "type": "JSON_ARRAY",
+            "nullable": true,
+            "readOnly": false
+        },
+        "options": {
+            "column": "options",
+            "comment": "",
+            "default": "{}",
+            "description": "",
+            "label": "",
+            "type": "JSON_OBJECT",
+            "nullable": true,
+            "readOnly": false
+        },
+        "sources": {
+            "column": "sources",
+            "comment": "",
+            "default": "{}",
+            "description": "",
+            "label": "",
             "type": "JSON_OBJECT",
             "nullable": true,
             "readOnly": false
         }
     },
     "models": [],
-    "packageModels": [],
+    "packageModels": {
+        "Setting": {
+            "model": "Setting",
+            "model_fqdn": "",
+            "model_column": "",
+            "model_label": "",
+            "model_attribute": "",
+            "model_plural": "settings",
+            "model_revision": "",
+            "model_singular": "setting",
+            "model_slug": "setting",
+            "model_slug_plural": "settings",
+            "name": "",
+            "namespace": "",
+            "organization": "",
+            "description": "",
+            "recipe": "",
+            "table": "",
+            "type": "",
+            "playground": true,
+            "revision": false,
+            "HasOne": [],
+            "HasMany": [],
+            "columns": [],
+            "dates": [],
+            "factoryStates": [],
+            "flags": [],
+            "flavors": [
+                "parent",
+                "playground"
+            ],
+            "json": []
+        }
+    },
     "type": "",
     "playground": true,
     "withLifecycle": true,
@@ -198,6 +255,6 @@
     "withPermissions": true,
     "withPlanning": true,
     "withPublishing": true,
-    "withRevisions": true,
+    "withRevisions": false,
     "withStatus": true
 }

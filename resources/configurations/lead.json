@@ -1,5 +1,5 @@
 {
-    "class": "",
+    "class": "Lead",
     "extends": "Playground",
     "extends_use": "",
     "slug": "lead",
@@ -8,8 +8,12 @@
     "name": "",
     "columns": [],
     "dates": [],
+    "factoryStates": [],
     "flags": [],
+    "flavors": [],
+    "json": [],
     "models": [],
+    "packageModels": [],
     "type": "",
     "playground": true,
     "withLifecycle": true,
@@ -17,5 +21,6 @@
     "withPermissions": true,
     "withPlanning": true,
     "withPublishing": true,
+    "withRevisions": false,
     "withStatus": true
 }
