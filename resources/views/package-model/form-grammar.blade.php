@@ -50,5 +50,4 @@
             ></x-playground::forms.column>
         </div>
     </div>
-
 </fieldset>

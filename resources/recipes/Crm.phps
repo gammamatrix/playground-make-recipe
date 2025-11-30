@@ -73,6 +73,59 @@ class Crm extends Playground
         ],
     ];
 
+    protected array $ids = [
+        'client_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'crm_clients',
+            ],
+            'nullable' => true,
+            'index' => true,
+            'type' => 'uuid',
+        ],
+        'contact_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'crm_contacts',
+            ],
+            'nullable' => true,
+            'index' => true,
+            'type' => 'uuid',
+        ],
+        'location_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'crm_locations',
+            ],
+            'nullable' => true,
+            'index' => true,
+            'type' => 'uuid',
+        ],
+        'organization_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'crm_organizations',
+            ],
+            'nullable' => true,
+            'index' => true,
+            'type' => 'uuid',
+        ],
+        'people_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'crm_people',
+            ],
+            'nullable' => true,
+            'index' => true,
+            'type' => 'uuid',
+        ],
+    ];
+
     protected array $factoryStates = [
         'locked' => [
             'type' => 'flag',

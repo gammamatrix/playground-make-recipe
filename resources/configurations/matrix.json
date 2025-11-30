@@ -195,6 +195,8 @@
     "models": [],
     "packageModels": {
         "Backlog": {
+            "migration_date": "2020_01_02",
+            "migration_order": "100001",
             "model": "Backlog",
             "model_fqdn": "",
             "model_column": "",
@@ -227,6 +229,8 @@
             "json": []
         },
         "Board": {
+            "migration_date": "2020_01_02",
+            "migration_order": "100001",
             "model": "Board",
             "model_fqdn": "",
             "model_column": "",
@@ -259,6 +263,8 @@
             "json": []
         },
         "Epic": {
+            "migration_date": "2020_01_02",
+            "migration_order": "100001",
             "model": "Epic",
             "model_fqdn": "",
             "model_column": "",
@@ -291,6 +297,8 @@
             "json": []
         },
         "Flow": {
+            "migration_date": "2020_01_02",
+            "migration_order": "100001",
             "model": "Flow",
             "model_fqdn": "",
             "model_column": "",
@@ -323,6 +331,8 @@
             "json": []
         },
         "Matrix": {
+            "migration_date": "2020_01_02",
+            "migration_order": "100001",
             "model": "Matrix",
             "model_fqdn": "",
             "model_column": "",
@@ -355,6 +365,8 @@
             "json": []
         },
         "Milestone": {
+            "migration_date": "2020_01_02",
+            "migration_order": "100001",
             "model": "Milestone",
             "model_fqdn": "",
             "model_column": "",
@@ -387,6 +399,8 @@
             "json": []
         },
         "Note": {
+            "migration_date": "2020_01_02",
+            "migration_order": "100001",
             "model": "Note",
             "model_fqdn": "",
             "model_column": "",
@@ -419,6 +433,8 @@
             "json": []
         },
         "Project": {
+            "migration_date": "2020_01_02",
+            "migration_order": "100001",
             "model": "Project",
             "model_fqdn": "",
             "model_column": "",
@@ -451,6 +467,8 @@
             "json": []
         },
         "Release": {
+            "migration_date": "2020_01_02",
+            "migration_order": "100001",
             "model": "Release",
             "model_fqdn": "",
             "model_column": "",
@@ -483,6 +501,8 @@
             "json": []
         },
         "Roadmap": {
+            "migration_date": "2020_01_02",
+            "migration_order": "100001",
             "model": "Roadmap",
             "model_fqdn": "",
             "model_column": "",
@@ -515,6 +535,8 @@
             "json": []
         },
         "Source": {
+            "migration_date": "2020_01_02",
+            "migration_order": "100001",
             "model": "Source",
             "model_fqdn": "",
             "model_column": "",
@@ -547,6 +569,8 @@
             "json": []
         },
         "Sprint": {
+            "migration_date": "2020_01_02",
+            "migration_order": "100001",
             "model": "Sprint",
             "model_fqdn": "",
             "model_column": "",
@@ -579,6 +603,8 @@
             "json": []
         },
         "Tag": {
+            "migration_date": "2020_01_02",
+            "migration_order": "100001",
             "model": "Tag",
             "model_fqdn": "",
             "model_column": "",
@@ -611,6 +637,8 @@
             "json": []
         },
         "Team": {
+            "migration_date": "2020_01_02",
+            "migration_order": "100001",
             "model": "Team",
             "model_fqdn": "",
             "model_column": "",
@@ -643,6 +671,8 @@
             "json": []
         },
         "Ticket": {
+            "migration_date": "2020_01_02",
+            "migration_order": "100001",
             "model": "Ticket",
             "model_fqdn": "",
             "model_column": "",
@@ -675,6 +705,8 @@
             "json": []
         },
         "Version": {
+            "migration_date": "2020_01_02",
+            "migration_order": "100001",
             "model": "Version",
             "model_fqdn": "",
             "model_column": "",

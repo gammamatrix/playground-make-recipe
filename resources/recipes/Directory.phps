@@ -73,6 +73,29 @@ class Directory extends Playground
         ],
     ];
 
+    protected array $ids = [
+        'location_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'directory_locations',
+            ],
+            'nullable' => true,
+            'index' => true,
+            'type' => 'uuid',
+        ],
+        'sublocation_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'directory_sublocations',
+            ],
+            'nullable' => true,
+            'index' => true,
+            'type' => 'uuid',
+        ],
+    ];
+
     protected array $factoryStates = [
         'locked' => [
             'type' => 'flag',
