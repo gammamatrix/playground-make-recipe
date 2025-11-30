@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-11-29 19:14:59</timestamp>
+  <timestamp>2025-11-30 04:06:44</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>203</methodCount>
+    <methodCount>205</methodCount>
     <crapMethodCount>28</crapMethodCount>
-    <crapLoad>418</crapLoad>
-    <totalCrap>9390</totalCrap>
-    <crapMethodPercent>13.79</crapMethodPercent>
+    <crapLoad>422</crapLoad>
+    <totalCrap>9622</totalCrap>
+    <crapMethodPercent>13.66</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -1128,10 +1128,10 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>702</crap>
-      <complexity>26</complexity>
+      <crap>930</crap>
+      <complexity>30</complexity>
       <coverage>0</coverage>
-      <crapLoad>27</crapLoad>
+      <crapLoad>31</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Configuration</package>
@@ -1172,6 +1172,28 @@
       <methodName>flavors</methodName>
       <methodSignature>flavors(): array</methodSignature>
       <fullMethod>flavors(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\PackageModel</className>
+      <methodName>migration_date</methodName>
+      <methodSignature>migration_date(): string</methodSignature>
+      <fullMethod>migration_date(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\PackageModel</className>
+      <methodName>migration_order</methodName>
+      <methodSignature>migration_order(): string</methodSignature>
+      <fullMethod>migration_order(): string</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
