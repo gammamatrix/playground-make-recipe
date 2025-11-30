@@ -197,6 +197,8 @@
     "models": [],
     "packageModels": {
         "Page": {
+            "migration_date": "2010_09_30",
+            "migration_order": "000000",
             "model": "Page",
             "model_fqdn": "",
             "model_column": "",
@@ -226,6 +228,8 @@
             "json": []
         },
         "PageRevision": {
+            "migration_date": "2010_09_30",
+            "migration_order": "000000",
             "model": "PageRevision",
             "model_fqdn": "",
             "model_column": "",
@@ -255,6 +259,8 @@
             "json": []
         },
         "Snippet": {
+            "migration_date": "2010_09_30",
+            "migration_order": "000000",
             "model": "Snippet",
             "model_fqdn": "",
             "model_column": "",
@@ -284,6 +290,8 @@
             "json": []
         },
         "SnippetRevision": {
+            "migration_date": "2010_09_30",
+            "migration_order": "000000",
             "model": "SnippetRevision",
             "model_fqdn": "",
             "model_column": "",

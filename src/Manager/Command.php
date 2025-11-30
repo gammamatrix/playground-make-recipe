@@ -37,7 +37,11 @@ abstract class Command
 
     public string $type = '';
 
-    public string $version = '';
+    public string $migration_date = '';
+
+    public string $migration_order = '';
+
+    public string $package_version = '';
 
     public bool $covers = false;
 
@@ -74,19 +78,21 @@ abstract class Command
     ];
 
     /**
-     * @var string[]
+     * @var array<string, string>
      */
     protected array $strings = [
-        'class',
-        'email',
-        'license',
-        'module',
-        'namespace',
-        'organization',
-        'package',
-        'packagist',
-        'type',
-        'package-version',
+        'class' => 'class',
+        'email' => 'email',
+        'license' => 'license',
+        'module' => 'module',
+        'namespace' => 'namespace',
+        'organization' => 'organization',
+        'package' => 'package',
+        'packagist' => 'packagist',
+        'type' => 'type',
+        'package_version' => 'package_version',
+        'migration_date' => 'migration-date',
+        'migration_order' => 'migration-order',
     ];
 
     /**
@@ -102,9 +108,9 @@ abstract class Command
             }
         }
 
-        foreach ($this->strings as $key) {
-            if (isset($options[$key])) {
-                $this->{$key} = is_string($options[$key]) ? trim($options[$key]) : '';
+        foreach ($this->strings as $attribute => $option) {
+            if (isset($options[$attribute])) {
+                $this->{$attribute} = is_string($options[$attribute]) ? trim($options[$attribute]) : '';
             }
         }
     }
@@ -118,12 +124,12 @@ abstract class Command
     {
         $command = sprintf('artisan %1$s %2$s', $this->command, $this->class);
 
-        foreach ($this->strings as $key) {
-            if ($key === 'class') {
+        foreach ($this->strings as $attribute => $option) {
+            if ($attribute === 'class') {
                 continue;
             }
-            if (! empty($this->{$key}) && is_string($this->{$key})) {
-                $command .= sprintf(' --%1$s "%2$s"', $key, $this->{$key});
+            if (! empty($this->{$attribute}) && is_string($this->{$attribute})) {
+                $command .= sprintf(' --%1$s "%2$s"', $option, $this->{$attribute});
             }
         }
 

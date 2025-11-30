@@ -18,6 +18,8 @@ class SaveRequest extends FormRequest
     public const array RULES = [
         'model' => ['required', 'string', 'regex:/^[A-Z][a-zA-Z0-9]+$/'],
         'model_fqdn' => ['nullable', 'string'],
+        'migration_date' => ['nullable', 'string', 'regex:/^[0-9]{4}_[0-9]{2}_[0-9]{2}$/'],
+        'migration_order' => ['nullable', 'string', 'regex:/^[a-zA-Z0-9]+$/'],
         'model_column' => ['nullable', 'string'],
         'model_label' => ['nullable', 'string'],
         'model_attribute' => ['nullable', 'string'],
@@ -46,6 +48,8 @@ class SaveRequest extends FormRequest
 
         $strings = [
             'model_fqdn',
+            'migration_date',
+            'migration_order',
             'model_column',
             'model_label',
             'model_attribute',

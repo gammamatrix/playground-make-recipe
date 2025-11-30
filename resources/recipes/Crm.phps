@@ -51,13 +51,13 @@ class Crm extends Playground
             'nullable' => true,
             'index' => false,
         ],
-        'resumed_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
         'resolved_at' => [
             'nullable' => true,
             'index' => true,
+        ],
+        'resumed_at' => [
+            'nullable' => true,
+            'index' => false,
         ],
         'suspended_at' => [
             'nullable' => true,

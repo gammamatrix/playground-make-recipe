@@ -108,8 +108,35 @@
             </div>
             <div class="col">
                 <x-playground::forms.column
-                    column="package-version"
+                    column="package_version"
                     label="Package version"
+                    :autocomplete="true"
+                    :rules="[
+                        'required' => false,
+                        'maxlength' => 255,
+                    ]"
+                ></x-playground::forms.column>
+            </div>
+        </div>
+    @endif
+
+    @if ($command === "model")
+        <div class="row">
+            <div class="col">
+                <x-playground::forms.column
+                    column="migration_date"
+                    label="Migration Date"
+                    :autocomplete="true"
+                    :rules="[
+                        'required' => false,
+                        'maxlength' => 255,
+                    ]"
+                ></x-playground::forms.column>
+            </div>
+            <div class="col">
+                <x-playground::forms.column
+                    column="migration_order"
+                    label="Migration Order"
                     :autocomplete="true"
                     :rules="[
                         'required' => false,

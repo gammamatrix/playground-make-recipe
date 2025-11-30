@@ -1,5 +1,5 @@
 <fieldset class="mb-3 fieldset-basic" id="fieldset-info">
-    <legend>{{ __("Information") }}</legend>
+    <legend>{{ __("Playground") }}</legend>
 
     <div class="row">
         <div class="col">

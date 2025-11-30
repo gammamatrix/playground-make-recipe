@@ -113,6 +113,9 @@ class RecipeController extends Controller
                 $model = $recipe->packageModels()[$flash['class']];
                 $flash['revision'] = $model->revision();
             }
+
+            $flash['migration_date'] = $model?->migration_date() ?? '';
+            $flash['migration_order'] = $model?->migration_order() ?? '';
         }
 
         $flash['module'] = $recipe->title() ?: $recipe->slug();
@@ -197,14 +200,14 @@ class RecipeController extends Controller
 
         $command = $manager->command($recipe, $validated);
 
-        //         dd([
-        //            '__METHOD__' => __METHOD__,
-        //            '$validated' => $validated,
-        //            '$command' => $command,
-        //             '$recipe' => $recipe,
-        //             '$_return_url' => $_return_url,
-        //            '$command->toString()' => $command->toString(),
-        //         ]);
+        // dd([
+        //    '__METHOD__' => __METHOD__,
+        //    '$validated' => $validated,
+        //    '$command' => $command,
+        //     '$recipe' => $recipe,
+        //     '$_return_url' => $_return_url,
+        //    '$command->toString()' => $command->toString(),
+        // ]);
         return response()->redirectTo($_return_url)->with(
             $command?->level() ?? 'error',
             $command?->toString() ?? 'Unable to build the command for the recipe: '.$recipe->slug(),

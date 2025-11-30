@@ -60,6 +60,8 @@ trait PackageModels
                 }
 
                 $strings = [
+                    'migration_date',
+                    'migration_order',
                     'model_fqdn',
                     'model_column',
                     'model_label',

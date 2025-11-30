@@ -29,6 +29,8 @@ class CommandRequest extends FormRequest
         'packagist' => ['nullable', 'string'],
         'type' => ['nullable', 'string'],
         'package-version' => ['nullable', 'string'],
+        'migration_date' => ['nullable', 'string', 'regex:/^[0-9]{4}_[0-9]{2}_[0-9]{2}$/'],
+        'migration_order' => ['nullable', 'string', 'regex:/^[a-zA-Z0-9]+$/'],
 
         'all' => ['boolean'],
         'covers' => ['boolean'],

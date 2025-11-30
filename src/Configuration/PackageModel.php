@@ -22,6 +22,10 @@ class PackageModel extends PrimaryConfiguration
      */
     protected array $flavors = [];
 
+    protected string $migration_date = '';
+
+    protected string $migration_order = '';
+
     protected string $model_attribute = '';
 
     protected string $model_column = '';
@@ -48,6 +52,8 @@ class PackageModel extends PrimaryConfiguration
      * @var array<string, mixed>
      */
     protected $properties = [
+        'migration_date' => '',
+        'migration_order' => '',
         'model' => '',
         'model_fqdn' => '',
         'model_column' => '',
@@ -83,6 +89,18 @@ class PackageModel extends PrimaryConfiguration
     public function setOptions(array $options = []): self
     {
         parent::setOptions($options);
+
+        if (! empty($options['migration_date'])
+            && is_string($options['migration_date'])
+        ) {
+            $this->migration_date = $options['migration_date'];
+        }
+
+        if (! empty($options['migration_order'])
+            && is_string($options['migration_order'])
+        ) {
+            $this->migration_order = $options['migration_order'];
+        }
 
         // TODO verify we want all these options
         if (! empty($options['model_column'])
@@ -199,6 +217,16 @@ class PackageModel extends PrimaryConfiguration
     public function flavors(): array
     {
         return $this->flavors;
+    }
+
+    public function migration_date(): string
+    {
+        return $this->migration_date;
+    }
+
+    public function migration_order(): string
+    {
+        return $this->migration_order;
     }
 
     public function model_column(): string
