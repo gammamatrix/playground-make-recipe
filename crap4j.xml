@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-01-18 19:24:22</timestamp>
+  <timestamp>2026-01-18 20:15:05</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>205</methodCount>
+    <methodCount>207</methodCount>
     <crapMethodCount>28</crapMethodCount>
     <crapLoad>422</crapLoad>
-    <totalCrap>9622</totalCrap>
-    <crapMethodPercent>13.66</crapMethodPercent>
+    <totalCrap>9650</totalCrap>
+    <crapMethodPercent>13.53</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -94,8 +94,8 @@
       <methodName>buildClass_init</methodName>
       <methodSignature>buildClass_init(Recipe $recipe): void</methodSignature>
       <fullMethod>buildClass_init(Recipe $recipe): void</fullMethod>
-      <crap>42</crap>
-      <complexity>6</complexity>
+      <crap>30</crap>
+      <complexity>5</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -186,6 +186,28 @@
       <complexity>13</complexity>
       <coverage>0</coverage>
       <crapLoad>13</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildRouting</className>
+      <methodName>buildClass_routing</methodName>
+      <methodSignature>buildClass_routing(Recipe $recipe): void</methodSignature>
+      <fullMethod>buildClass_routing(Recipe $recipe): void</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildRouting</className>
+      <methodName>buildClass_withRouting_method</methodName>
+      <methodSignature>buildClass_withRouting_method(array $models): string</methodSignature>
+      <fullMethod>buildClass_withRouting_method(array $models): string</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Building</package>
