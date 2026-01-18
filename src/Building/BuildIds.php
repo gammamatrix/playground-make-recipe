@@ -80,10 +80,10 @@ trait BuildIds
             $code .= '],';
 
             $code .= PHP_EOL.str_repeat(' ', 12);
-            $code .= sprintf('\'nullable\' => %1$s,', 'true');
+            $code .= sprintf('\'index\' => %1$s,', 'true');
 
             $code .= PHP_EOL.str_repeat(' ', 12);
-            $code .= sprintf('\'index\' => %1$s,', 'true');
+            $code .= sprintf('\'nullable\' => %1$s,', 'true');
 
             $code .= PHP_EOL.str_repeat(' ', 12);
             $code .= sprintf('\'type\' => \'%1$s\',', 'uuid');

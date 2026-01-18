@@ -22,6 +22,7 @@ class CookBook
     use BuildIds;
     use BuildInit;
     use BuildJsonColumns;
+    use BuildRouting;
 
     /**
      * @var array<string, string>
@@ -43,6 +44,7 @@ class CookBook
         'json' => '',
         'flags' => '',
         'init' => '',
+        'withRouting' => '',
     ];
 
     protected function getStub(): string
@@ -110,6 +112,7 @@ class CookBook
         $this->buildClass_ids($recipe);
         $this->buildClass_jsonColumns($recipe->json());
 
+        $this->buildClass_routing($recipe);
         $this->buildClass_init($recipe);
 
         $destination = sprintf('%1$s/%2$s', dirname(__DIR__, 2), $path);

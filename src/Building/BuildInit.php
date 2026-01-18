@@ -42,11 +42,10 @@ trait BuildInit
             $code .= '$this->addFlags();';
         }
 
-        if (empty($flags) && empty($columns)) {
-            return;
+        if (! empty($this->searches['withRouting'])) {
+            $code .= str_repeat(' ', 8);
+            $code .= '$this->withRouting();';
         }
-
-        $this->searches['init'] .= PHP_EOL;
 
         $this->searches['init'] .= $this->buildClass_init_method($code);
     }
