@@ -63,29 +63,20 @@ trait BuildHasOne
         $code = str_repeat(' ', 8);
         $code .= sprintf('\'%1$s\' => [', $packageModel->snake());
 
-        if ($packageModel->playground()) {
+        $code .= PHP_EOL.str_repeat(' ', 12);
+        $code .= sprintf('\'comment\' => \'%1$s\',', $comment);
 
-            //            'comment' => 'The page of the revision.',
-            //            'accessor' => 'page',
-            //            'related' => 'Page',
-            //            'foreignKey' => 'id',
-            //            'localKey' => 'page_id',
+        $code .= PHP_EOL.str_repeat(' ', 12);
+        $code .= sprintf('\'accessor\' => \'%1$s\',', $packageModel->camel());
 
-            $code .= PHP_EOL.str_repeat(' ', 12);
-            $code .= sprintf('\'comment\' => \'%1$s\',', $comment);
+        $code .= PHP_EOL.str_repeat(' ', 12);
+        $code .= sprintf('\'related\' => \'%1$s\',', $packageModel->model());
 
-            $code .= PHP_EOL.str_repeat(' ', 12);
-            $code .= sprintf('\'accessor\' => \'%1$s\',', $packageModel->camel());
+        $code .= PHP_EOL.str_repeat(' ', 12);
+        $code .= sprintf('\'foreignKey\' => \'%1$s\',', 'id');
 
-            $code .= PHP_EOL.str_repeat(' ', 12);
-            $code .= sprintf('\'related\' => \'%1$s\',', $packageModel->model());
-
-            $code .= PHP_EOL.str_repeat(' ', 12);
-            $code .= sprintf('\'foreignKey\' => \'%1$s\',', 'id');
-
-            $code .= PHP_EOL.str_repeat(' ', 12);
-            $code .= sprintf('\'localKey\' => \'%1$s_id\',', $packageModel->snake());
-        }
+        $code .= PHP_EOL.str_repeat(' ', 12);
+        $code .= sprintf('\'localKey\' => \'%1$s_id\',', $packageModel->snake());
 
         $code .= PHP_EOL.str_repeat(' ', 8);
         $code .= '],';

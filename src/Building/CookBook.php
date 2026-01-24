@@ -19,6 +19,7 @@ class CookBook
     use BuildDates;
     use BuildFactoryStates;
     use BuildHasOne;
+    use BuildHasMany;
     use BuildIds;
     use BuildInit;
     use BuildJsonColumns;
@@ -116,6 +117,7 @@ class CookBook
         $this->buildClass_revisions($recipe);
 
         $this->buildClass_hasOnes($recipe);
+        $this->buildClass_hasManies($recipe);
 
         $this->buildClass_routing($recipe);
 

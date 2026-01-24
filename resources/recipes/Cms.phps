@@ -73,6 +73,16 @@ class Cms extends Playground
         ],
     ];
 
+    protected array $hasMany = [
+        'revisions' => [
+            'comment' => 'The revisions of the model.',
+            'accessor' => 'revisions',
+            'related' => '',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+    ];
+
     protected array $hasOne = [
         'page' => [
             'comment' => 'The page of the revision.',
