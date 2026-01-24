@@ -73,6 +73,23 @@ class Cms extends Playground
         ],
     ];
 
+    protected array $hasOne = [
+        'page' => [
+            'comment' => 'The page of the revision.',
+            'accessor' => 'page',
+            'related' => 'Page',
+            'foreignKey' => 'id',
+            'localKey' => 'page_id',
+        ],
+        'snippet' => [
+            'comment' => 'The snippet of the revision.',
+            'accessor' => 'snippet',
+            'related' => 'Snippet',
+            'foreignKey' => 'id',
+            'localKey' => 'snippet_id',
+        ],
+    ];
+
     protected array $ids = [
         'parent_id' => [
             'description' => '',
@@ -80,9 +97,19 @@ class Cms extends Playground
                 'references' => 'id',
                 'on' => null,
             ],
-            'nullable' => true,
             'index' => true,
+            'nullable' => true,
             'trait' => 'WithParent',
+            'type' => 'uuid',
+        ],
+        'matrix_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'matrix_matrices',
+            ],
+            'index' => true,
+            'nullable' => true,
             'type' => 'uuid',
         ],
         'page_id' => [
@@ -91,8 +118,8 @@ class Cms extends Playground
                 'references' => 'id',
                 'on' => 'cms_pages',
             ],
-            'nullable' => true,
             'index' => true,
+            'nullable' => true,
             'type' => 'uuid',
         ],
         'snippet_id' => [
@@ -101,8 +128,8 @@ class Cms extends Playground
                 'references' => 'id',
                 'on' => 'cms_snippets',
             ],
-            'nullable' => true,
             'index' => true,
+            'nullable' => true,
             'type' => 'uuid',
         ],
     ];
@@ -147,4 +174,112 @@ class Cms extends Playground
         ],
     ];
 
+    public function init(): void
+    {
+        $this->withRevisions();
+        $this->withRouting();
+    }
+
+    public function withRevisions(): void
+    {
+        $this->status['revision'] = [
+            'type' => 'bigInteger',
+            'default' => false,
+            'unsigned' => true,
+            'readOnly' => true,
+            'icon' => '',
+        ];
+
+        if (! in_array($this->name(), [
+            'Page',
+            'Snippet',
+        ])) {
+            unset($this->hasMany['revisions']);
+        }
+
+        if (in_array($this->name(), [
+            'Page',
+        ])) {
+            $this->hasMany['revisions']['comment'] = 'The revisions of the page.';
+            $this->hasMany['revisions']['related'] = 'PageRevision';
+            $this->hasMany['revisions']['foreignKey'] = 'page_id';
+        }
+
+        if (! in_array($this->name(), [
+            'PageRevision',
+        ])) {
+            unset($this->ids['page_id']);
+            unset($this->hasOne['page']);
+        }
+
+        if (in_array($this->name(), [
+            'Snippet',
+        ])) {
+            $this->hasMany['revisions']['comment'] = 'The revisions of the snippet.';
+            $this->hasMany['revisions']['related'] = 'SnippetRevision';
+            $this->hasMany['revisions']['foreignKey'] = 'snippet_id';
+        }
+
+        if (! in_array($this->name(), [
+            'SnippetRevision',
+        ])) {
+            unset($this->ids['snippet_id']);
+            unset($this->hasOne['snippet']);
+        }
+    }
+
+    public function withRouting(): void
+    {
+        if (in_array($this->name(), [
+            'Page',
+            'PageRevision',
+        ])) {
+            $this->flags['is_external'] = [
+                'type' => 'boolean',
+                'default' => false,
+                'icon' => 'fa-solid fa-close',
+            ];
+            $this->flags['is_redirect'] = [
+                'type' => 'boolean',
+                'default' => false,
+                'icon' => 'fa-solid fa-close',
+            ];
+            $this->flags['sitemap'] = [
+                'type' => 'boolean',
+                'default' => false,
+                'icon' => 'fa-solid fa-sitemap text-success',
+            ];
+            /**
+             * Routing
+             *
+             * redirect_delay   in seconds
+             * status_code      200 - 500
+             * route            home, playground.cms.api.pages.create, ...
+             * params
+             */
+            $this->status['redirect_delay'] = [
+                'type' => 'integer',
+                'default' => false,
+                'unsigned' => true,
+                'icon' => '',
+            ];
+            $this->status['status_code'] = [
+                'type' => 'integer',
+                'default' => false,
+                'unsigned' => true,
+                'icon' => '',
+            ];
+            $this->status['route'] = [
+                'type' => 'string',
+                'nullable' => true,
+                'size' => 255,
+                'icon' => '',
+            ];
+            $this->json['params'] = [
+                'default' => '{}',
+                'nullable' => true,
+                'type' => 'JSON_OBJECT',
+            ];
+        }
+    }
 }

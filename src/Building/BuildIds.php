@@ -21,13 +21,11 @@ trait BuildIds
     {
         $this->searches['ids'] = '';
 
-        $parent_id = $this->buildClass_parent_id($recipe);
-
-        if (empty($parent_id) && empty($recipe->packageModels())) {
-            return;
+        $code = $this->buildClass_parent_id($recipe);
+        if (! empty($code) && $recipe->withMatrix()) {
+            $code = rtrim($code, PHP_EOL);
         }
-
-        $code = PHP_EOL.$parent_id;
+        $code .= $this->buildClass_matrix_id($recipe);
 
         foreach ($recipe->packageModels() as $basename => $packageModel) {
             if ($packageModel->revision()) {
@@ -103,13 +101,57 @@ trait BuildIds
         return $code;
     }
 
+    protected function buildClass_matrix_id(Recipe $recipe): string
+    {
+        if (! $recipe->withMatrix()) {
+            return '';
+        }
+
+        $code = PHP_EOL.str_repeat(' ', 8);
+        $code .= sprintf('\'%1$s_id\' => [', 'matrix');
+
+        $code .= PHP_EOL.str_repeat(' ', 12);
+        $code .= sprintf('\'description\' => \'%1$s\',', '');
+
+        $code .= PHP_EOL.str_repeat(' ', 12);
+        $code .= '\'foreign\' => [';
+
+        $code .= PHP_EOL.str_repeat(' ', 16);
+        $code .= sprintf('\'references\' => \'%1$s\',', 'id');
+
+        $code .= PHP_EOL.str_repeat(' ', 16);
+        $code .= sprintf('\'on\' => \'%1$s\',', 'matrix_matrices');
+
+        $code .= PHP_EOL.str_repeat(' ', 12);
+        $code .= '],';
+
+        $code .= PHP_EOL.str_repeat(' ', 12);
+        $code .= sprintf('\'index\' => %1$s,', 'true');
+
+        $code .= PHP_EOL.str_repeat(' ', 12);
+        $code .= sprintf('\'nullable\' => %1$s,', 'true');
+
+        // $code .= PHP_EOL.str_repeat(' ', 12);
+        // $code .= sprintf('\'trait\' => \'%1$s\',', 'WithMatrix');
+
+        $code .= PHP_EOL.str_repeat(' ', 12);
+        $code .= sprintf('\'type\' => \'%1$s\',', 'uuid');
+
+        $code .= PHP_EOL.str_repeat(' ', 8);
+        $code .= '],';
+
+        $code .= PHP_EOL;
+
+        return $code;
+    }
+
     protected function buildClass_parent_id(Recipe $recipe): string
     {
         if (! in_array('parent', $recipe->flavors(), true)) {
             return '';
         }
 
-        $code = str_repeat(' ', 8);
+        $code = PHP_EOL.str_repeat(' ', 8);
         $code .= sprintf('\'%1$s_id\' => [', 'parent');
 
         $code .= PHP_EOL.str_repeat(' ', 12);
@@ -128,10 +170,10 @@ trait BuildIds
         $code .= '],';
 
         $code .= PHP_EOL.str_repeat(' ', 12);
-        $code .= sprintf('\'nullable\' => %1$s,', 'true');
+        $code .= sprintf('\'index\' => %1$s,', 'true');
 
         $code .= PHP_EOL.str_repeat(' ', 12);
-        $code .= sprintf('\'index\' => %1$s,', 'true');
+        $code .= sprintf('\'nullable\' => %1$s,', 'true');
 
         $code .= PHP_EOL.str_repeat(' ', 12);
         $code .= sprintf('\'trait\' => \'%1$s\',', 'WithParent');

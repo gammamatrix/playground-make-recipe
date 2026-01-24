@@ -13,5 +13,5 @@ namespace {{ namespace }}Make\Models;
  */
 class {{ class }} extends {{ extends }}{{ implements }}
 {
-{{ use_class }}{{ dates }}{{ HasOne }}{{ HasMany }}{{ ids }}{{ factoryStates }}{{ json }}{{ flags }}{{ init }}{{ withRouting }}
+{{ use_class }}{{ dates }}{{ HasOne }}{{ HasMany }}{{ ids }}{{ factoryStates }}{{ json }}{{ flags }}{{ init }}{{ withRevisions }}{{ withRouting }}
 }

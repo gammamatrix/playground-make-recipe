@@ -39,15 +39,20 @@ trait BuildInit
                 $code .= PHP_EOL;
             }
             $code .= str_repeat(' ', 8);
-            $code .= '$this->addFlags();';
+            $code .= '$this->addFlags();'.PHP_EOL;
+        }
+
+        if (! empty($this->searches['withRevisions'])) {
+            $code .= str_repeat(' ', 8);
+            $code .= '$this->withRevisions();'.PHP_EOL;
         }
 
         if (! empty($this->searches['withRouting'])) {
             $code .= str_repeat(' ', 8);
-            $code .= '$this->withRouting();';
+            $code .= '$this->withRouting();'.PHP_EOL;
         }
 
-        $this->searches['init'] .= $this->buildClass_init_method($code);
+        $this->searches['init'] .= $this->buildClass_init_method(rtrim($code, PHP_EOL));
     }
 
     protected function buildClass_init_method(string $code): string

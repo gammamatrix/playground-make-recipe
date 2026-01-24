@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Playground\Make\Recipe\Configuration;
 
+use Illuminate\Support\Str;
 use Playground\Make\Configuration\PrimaryConfiguration;
 
 /**
@@ -282,5 +283,22 @@ class PackageModel extends PrimaryConfiguration
     public function revision(): bool
     {
         return $this->revision;
+    }
+
+    public function camel(): string
+    {
+        return Str::of($this->model_singular())->camel()->toString();
+    }
+
+    public function snake(): string
+    {
+        $attribute = $this->model_attribute();
+
+        return $attribute ?: Str::of($this->model_singular())->snake()->toString();
+    }
+
+    public function word(): string
+    {
+        return Str::of($this->snake())->replace('_', ' ')->toString();
     }
 }

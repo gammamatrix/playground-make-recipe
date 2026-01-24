@@ -22,6 +22,7 @@ class CookBook
     use BuildIds;
     use BuildInit;
     use BuildJsonColumns;
+    use BuildRevisions;
     use BuildRouting;
 
     /**
@@ -44,6 +45,7 @@ class CookBook
         'json' => '',
         'flags' => '',
         'init' => '',
+        'withRevisions' => '',
         'withRouting' => '',
     ];
 
@@ -108,11 +110,15 @@ class CookBook
 
         $this->buildClass_dates($recipe->dates());
         $this->buildClass_factoryStates($recipe->factoryStates());
-        // $this->buildClass_hasOnes($recipe);
         $this->buildClass_ids($recipe);
         $this->buildClass_jsonColumns($recipe->json());
 
+        $this->buildClass_revisions($recipe);
+
+        $this->buildClass_hasOnes($recipe);
+
         $this->buildClass_routing($recipe);
+
         $this->buildClass_init($recipe);
 
         $destination = sprintf('%1$s/%2$s', dirname(__DIR__, 2), $path);

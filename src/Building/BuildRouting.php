@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Playground\Make\Recipe\Building;
 
+use Playground\Make\Recipe\Configuration\PackageModel;
 use Playground\Make\Recipe\Configuration\Recipe;
 
 /**
@@ -25,28 +26,41 @@ trait BuildRouting
 
         foreach ($recipe->packageModels() as $name => $model) {
             if (in_array('routing', $model->flavors())) {
-                $models[] = $name;
+                $models[$name] = $model;
             }
         }
 
         $this->searches['withRouting'] .= PHP_EOL;
 
         $this->searches['withRouting'] .= $this->buildClass_withRouting_method($models);
-
-        $this->searches['withRouting'] .= PHP_EOL;
     }
 
     /**
-     * @param  string[]  $models
+     * @param  array<string, PackageModel>  $models
      */
     protected function buildClass_withRouting_method(array $models): string
     {
         $code = '';
-        foreach ($models as $model) {
+        foreach ($models as $model => $packageModel) {
             if (is_string($model) && ! empty($model)) {
-                $code .= sprintf('%1$s\'%2$s\',', str_repeat(' ', 8), $model);
+                $code .= sprintf(
+                    '%1$s\'%2$s\',%3$s',
+                    str_repeat(' ', 12),
+                    $model,
+                    PHP_EOL
+                );
+                if (in_array('revision', $packageModel->flavors())) {
+                    $code .= sprintf(
+                        '%1$s\'%2$sRevision\',%3$s',
+                        str_repeat(' ', 12),
+                        $model,
+                        PHP_EOL
+                    );
+                }
             }
         }
+
+        $code = rtrim($code, PHP_EOL);
 
         return <<<PHP_CODE
 
