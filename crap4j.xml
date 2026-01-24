@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-01-18 20:15:05</timestamp>
+  <timestamp>2026-01-24 23:47:31</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>207</methodCount>
+    <methodCount>214</methodCount>
     <crapMethodCount>28</crapMethodCount>
     <crapLoad>422</crapLoad>
-    <totalCrap>9650</totalCrap>
-    <crapMethodPercent>13.53</crapMethodPercent>
+    <totalCrap>9734</totalCrap>
+    <crapMethodPercent>13.08</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -39,8 +39,8 @@
       <methodName>buildClass_hasOnes</methodName>
       <methodSignature>buildClass_hasOnes(Recipe $recipe): void</methodSignature>
       <fullMethod>buildClass_hasOnes(Recipe $recipe): void</fullMethod>
-      <crap>20</crap>
-      <complexity>4</complexity>
+      <crap>30</crap>
+      <complexity>5</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -48,10 +48,10 @@
       <package>Playground\Make\Recipe\Building</package>
       <className>Playground\Make\Recipe\Building\BuildHasOne</className>
       <methodName>buildClass_hasOne</methodName>
-      <methodSignature>buildClass_hasOne(Recipe $recipe, PackageModel $packageModel): string</methodSignature>
-      <fullMethod>buildClass_hasOne(Recipe $recipe, PackageModel $packageModel): string</fullMethod>
-      <crap>12</crap>
-      <complexity>3</complexity>
+      <methodSignature>buildClass_hasOne(PackageModel $packageModel, string $comment): string</methodSignature>
+      <fullMethod>buildClass_hasOne(PackageModel $packageModel, string $comment): string</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -80,6 +80,17 @@
     <method>
       <package>Playground\Make\Recipe\Building</package>
       <className>Playground\Make\Recipe\Building\BuildIds</className>
+      <methodName>buildClass_matrix_id</methodName>
+      <methodSignature>buildClass_matrix_id(Recipe $recipe): string</methodSignature>
+      <fullMethod>buildClass_matrix_id(Recipe $recipe): string</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildIds</className>
       <methodName>buildClass_parent_id</methodName>
       <methodSignature>buildClass_parent_id(Recipe $recipe): string</methodSignature>
       <fullMethod>buildClass_parent_id(Recipe $recipe): string</fullMethod>
@@ -94,8 +105,8 @@
       <methodName>buildClass_init</methodName>
       <methodSignature>buildClass_init(Recipe $recipe): void</methodSignature>
       <fullMethod>buildClass_init(Recipe $recipe): void</fullMethod>
-      <crap>30</crap>
-      <complexity>5</complexity>
+      <crap>42</crap>
+      <complexity>6</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -189,6 +200,39 @@
     </method>
     <method>
       <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildRevisions</className>
+      <methodName>buildClass_revisions</methodName>
+      <methodSignature>buildClass_revisions(Recipe $recipe): void</methodSignature>
+      <fullMethod>buildClass_revisions(Recipe $recipe): void</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildRevisions</className>
+      <methodName>buildClass_withRevisions_method</methodName>
+      <methodSignature>buildClass_withRevisions_method(array $models): string</methodSignature>
+      <fullMethod>buildClass_withRevisions_method(array $models): string</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildRevisions</className>
+      <methodName>buildClass_withRevisions_method_model</methodName>
+      <methodSignature>buildClass_withRevisions_method_model(string $model): string</methodSignature>
+      <fullMethod>buildClass_withRevisions_method_model(string $model): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
       <className>Playground\Make\Recipe\Building\BuildRouting</className>
       <methodName>buildClass_routing</methodName>
       <methodSignature>buildClass_routing(Recipe $recipe): void</methodSignature>
@@ -204,8 +248,8 @@
       <methodName>buildClass_withRouting_method</methodName>
       <methodSignature>buildClass_withRouting_method(array $models): string</methodSignature>
       <fullMethod>buildClass_withRouting_method(array $models): string</fullMethod>
-      <crap>20</crap>
-      <complexity>4</complexity>
+      <crap>30</crap>
+      <complexity>5</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -1337,6 +1381,39 @@
       <methodName>revision</methodName>
       <methodSignature>revision(): bool</methodSignature>
       <fullMethod>revision(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\PackageModel</className>
+      <methodName>camel</methodName>
+      <methodSignature>camel(): string</methodSignature>
+      <fullMethod>camel(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\PackageModel</className>
+      <methodName>snake</methodName>
+      <methodSignature>snake(): string</methodSignature>
+      <fullMethod>snake(): string</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\PackageModel</className>
+      <methodName>word</methodName>
+      <methodSignature>word(): string</methodSignature>
+      <fullMethod>word(): string</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
