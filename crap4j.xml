@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-01-25 01:01:14</timestamp>
+  <timestamp>2026-01-25 01:24:34</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>216</methodCount>
     <crapMethodCount>28</crapMethodCount>
     <crapLoad>422</crapLoad>
-    <totalCrap>9744</totalCrap>
+    <totalCrap>9756</totalCrap>
     <crapMethodPercent>12.96</crapMethodPercent>
   </stats>
   <methods>
@@ -61,8 +61,8 @@
       <methodName>buildClass_hasOnes</methodName>
       <methodSignature>buildClass_hasOnes(Recipe $recipe): void</methodSignature>
       <fullMethod>buildClass_hasOnes(Recipe $recipe): void</fullMethod>
-      <crap>30</crap>
-      <complexity>5</complexity>
+      <crap>42</crap>
+      <complexity>6</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
