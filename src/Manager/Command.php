@@ -90,7 +90,7 @@ abstract class Command
         'package' => 'package',
         'packagist' => 'packagist',
         'type' => 'type',
-        'package_version' => 'package_version',
+        'package_version' => 'package-version',
         'migration_date' => 'migration-date',
         'migration_order' => 'migration-order',
     ];

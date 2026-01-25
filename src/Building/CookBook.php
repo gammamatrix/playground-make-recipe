@@ -18,8 +18,8 @@ class CookBook
 {
     use BuildDates;
     use BuildFactoryStates;
-    use BuildHasOne;
     use BuildHasMany;
+    use BuildHasOne;
     use BuildIds;
     use BuildInit;
     use BuildJsonColumns;

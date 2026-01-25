@@ -25,7 +25,6 @@ trait BuildHasMany
 
         $code = PHP_EOL;
 
-
         if (in_array('revision', $recipe->flavors(), true)) {
             $code .= $this->buildClass_hasMany(
                 'revisions',

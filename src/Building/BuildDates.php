@@ -26,7 +26,7 @@ trait BuildDates
 
         $code = PHP_EOL;
 
-        $this->searches['dates'] .= PHP_EOL;
+        $this->searches['dates'] = '';
 
         foreach ($dates as $column => $date) {
             //            dump([

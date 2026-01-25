@@ -66,7 +66,7 @@ class RecipeController extends Controller
          *              organization: string,
          *              namespace: string,
          *              license: string,
-         *              package-version: string,
+         *              package_version: string,
          *              covers: bool,
          *              factories: bool,
          *              force: bool,

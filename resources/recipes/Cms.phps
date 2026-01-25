@@ -6,14 +6,13 @@
 
 declare(strict_types=1);
 
-namespace Playground\Make\Models;
+namespace Playground\Make\Model\Recipe;
 
 /**
- * \Playground\Make\Models\Recipe\Cms
+ * \Playground\Make\Model\Recipe\Cms
  */
 class Cms extends Playground
 {
-
     protected array $dates = [
         'canceled_at' => [
             'nullable' => true,
