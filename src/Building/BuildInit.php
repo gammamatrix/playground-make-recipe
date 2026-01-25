@@ -37,6 +37,7 @@ trait BuildInit
             $this->searches['init'] .= $this->buildClass_addFlags_method($flags);
             if (! empty($code)) {
                 $code .= PHP_EOL;
+                $this->searches['init'] .= PHP_EOL;
             }
             $code .= str_repeat(' ', 8);
             $code .= '$this->addFlags();'.PHP_EOL;

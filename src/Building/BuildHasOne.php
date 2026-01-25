@@ -24,7 +24,7 @@ trait BuildHasOne
             return;
         }
 
-        $code = PHP_EOL;
+        $code = '';
 
         foreach ($recipe->packageModels() as $model => $packageModel) {
             // Do not add revision models
@@ -40,11 +40,16 @@ trait BuildHasOne
             }
         }
 
+        if ($code === '') {
+            return;
+        }
+
         $code .= str_repeat(' ', 4);
 
         $this->searches['HasOne'] .= PHP_EOL;
 
-        $this->searches['HasOne'] .= sprintf('    protected array $hasOne = [%1$s];',
+        $this->searches['HasOne'] .= sprintf('    protected array $hasOne = [%1$s%2$s];',
+            PHP_EOL,
             $code
         );
 

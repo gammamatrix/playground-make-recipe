@@ -6,14 +6,13 @@
 
 declare(strict_types=1);
 
-namespace Playground\Make\Models;
+namespace Playground\Make\Model\Recipe;
 
 /**
- * \Playground\Make\Models\Recipe\Crm
+ * \Playground\Make\Model\Recipe\Crm
  */
 class Crm extends Playground
 {
-
     protected array $dates = [
         'canceled_at' => [
             'nullable' => true,
@@ -74,14 +73,24 @@ class Crm extends Playground
     ];
 
     protected array $ids = [
+        'matrix_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'matrix_matrices',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
         'client_id' => [
             'description' => '',
             'foreign' => [
                 'references' => 'id',
                 'on' => 'crm_clients',
             ],
-            'nullable' => true,
             'index' => true,
+            'nullable' => true,
             'type' => 'uuid',
         ],
         'contact_id' => [
@@ -90,8 +99,8 @@ class Crm extends Playground
                 'references' => 'id',
                 'on' => 'crm_contacts',
             ],
-            'nullable' => true,
             'index' => true,
+            'nullable' => true,
             'type' => 'uuid',
         ],
         'location_id' => [
@@ -100,8 +109,8 @@ class Crm extends Playground
                 'references' => 'id',
                 'on' => 'crm_locations',
             ],
-            'nullable' => true,
             'index' => true,
+            'nullable' => true,
             'type' => 'uuid',
         ],
         'organization_id' => [
@@ -110,8 +119,8 @@ class Crm extends Playground
                 'references' => 'id',
                 'on' => 'crm_organizations',
             ],
-            'nullable' => true,
             'index' => true,
+            'nullable' => true,
             'type' => 'uuid',
         ],
         'people_id' => [
@@ -120,8 +129,8 @@ class Crm extends Playground
                 'references' => 'id',
                 'on' => 'crm_people',
             ],
-            'nullable' => true,
             'index' => true,
+            'nullable' => true,
             'type' => 'uuid',
         ],
     ];
@@ -162,6 +171,7 @@ class Crm extends Playground
             'comment' => 'Array of note objects',
             'default' => '[]',
             'nullable' => true,
+            'readOnly' => true,
             'type' => 'JSON_ARRAY',
         ],
         'options' => [

@@ -30,6 +30,8 @@ trait BuildHasMany
                 'revisions',
                 'The revisions of the model.'
             );
+        } else {
+            return;
         }
 
         $code .= str_repeat(' ', 4);
