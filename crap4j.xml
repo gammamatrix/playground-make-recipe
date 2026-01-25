@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-01-24 23:47:31</timestamp>
+  <timestamp>2026-01-25 00:00:35</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>214</methodCount>
+    <methodCount>216</methodCount>
     <crapMethodCount>28</crapMethodCount>
     <crapLoad>422</crapLoad>
-    <totalCrap>9734</totalCrap>
-    <crapMethodPercent>13.08</crapMethodPercent>
+    <totalCrap>9744</totalCrap>
+    <crapMethodPercent>12.96</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -35,6 +35,28 @@
     </method>
     <method>
       <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildHasMany</className>
+      <methodName>buildClass_hasManies</methodName>
+      <methodSignature>buildClass_hasManies(Recipe $recipe): void</methodSignature>
+      <fullMethod>buildClass_hasManies(Recipe $recipe): void</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildHasMany</className>
+      <methodName>buildClass_hasMany</methodName>
+      <methodSignature>buildClass_hasMany(string $accessor, string $comment, string $related, string $foreignKey, string $localKey): string</methodSignature>
+      <fullMethod>buildClass_hasMany(string $accessor, string $comment, string $related, string $foreignKey, string $localKey): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
       <className>Playground\Make\Recipe\Building\BuildHasOne</className>
       <methodName>buildClass_hasOnes</methodName>
       <methodSignature>buildClass_hasOnes(Recipe $recipe): void</methodSignature>
@@ -50,8 +72,8 @@
       <methodName>buildClass_hasOne</methodName>
       <methodSignature>buildClass_hasOne(PackageModel $packageModel, string $comment): string</methodSignature>
       <fullMethod>buildClass_hasOne(PackageModel $packageModel, string $comment): string</fullMethod>
-      <crap>6</crap>
-      <complexity>2</complexity>
+      <crap>2</crap>
+      <complexity>1</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
