@@ -73,6 +73,17 @@ class Crm extends Playground
     ];
 
     protected array $ids = [
+        'parent_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => null,
+            ],
+            'index' => true,
+            'nullable' => true,
+            'trait' => 'WithParent',
+            'type' => 'uuid',
+        ],
         'matrix_id' => [
             'description' => '',
             'foreign' => [
