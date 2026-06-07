@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Playground\Make\Recipe;
 
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Redis\Connections\Connection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Redis;
@@ -36,7 +37,7 @@ class Manager
     /**
      * The filesystem instance.
      *
-     * @var \Illuminate\Filesystem\Filesystem
+     * @var Filesystem
      */
     protected $files;
 

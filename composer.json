@@ -29,7 +29,7 @@
     },
     "require-dev": {
         "gammamatrix/playground-test": "*",
-        "tomasvotruba/bladestan": "^0.11.3"
+        "tomasvotruba/bladestan": "dev-main"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -53,7 +53,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-develop": "74.x-dev"
+            "dev-develop": "75.x-dev"
         },
         "laravel": {
             "providers": [
