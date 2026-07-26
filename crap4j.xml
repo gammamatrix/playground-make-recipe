@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-06-07 20:06:20</timestamp>
+  <timestamp>2026-07-26 18:20:03</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>216</methodCount>
     <crapMethodCount>28</crapMethodCount>
-    <crapLoad>422</crapLoad>
-    <totalCrap>9756</totalCrap>
+    <crapLoad>425</crapLoad>
+    <totalCrap>9954</totalCrap>
     <crapMethodPercent>12.96</crapMethodPercent>
   </stats>
   <methods>
@@ -545,10 +545,10 @@
       <methodName>addColumns</methodName>
       <methodSignature>addColumns(array $columns): self</methodSignature>
       <fullMethod>addColumns(array $columns): self</fullMethod>
-      <crap>992</crap>
-      <complexity>31</complexity>
+      <crap>1190</crap>
+      <complexity>34</complexity>
       <coverage>0</coverage>
-      <crapLoad>32</crapLoad>
+      <crapLoad>35</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Configuration\Concerns</package>
