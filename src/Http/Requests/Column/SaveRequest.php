@@ -17,6 +17,7 @@ class SaveRequest extends FormRequest
 {
     public const array RULES = [
         'column' => ['required', 'string'],
+        'type' => ['required', 'string'],
         'description' => ['nullable', 'string'],
         'label' => ['nullable', 'string'],
         'index' => ['boolean'],

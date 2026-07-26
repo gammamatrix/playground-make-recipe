@@ -143,6 +143,7 @@ class ColumnController extends Controller
         /**
          * @var array{
          *     column?: string,
+         *     type?: string,
          *     description?: string,
          *     label?: string,
          *     index?: bool,

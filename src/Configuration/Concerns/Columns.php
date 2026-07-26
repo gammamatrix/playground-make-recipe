@@ -53,6 +53,12 @@ trait Columns
                 } else {
                     $payload['column'] = $column_slug;
                 }
+                if (array_key_exists('type', $meta)
+                    && ! empty($meta['type'])
+                    && is_string($meta['type'])
+                ) {
+                    $payload['type'] = $meta['type'];
+                }
                 if (array_key_exists('description', $meta)
                     && ! empty($meta['description'])
                     && is_string($meta['description'])

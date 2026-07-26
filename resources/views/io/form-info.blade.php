@@ -6,6 +6,7 @@ $withLabel = ! empty($withLabel);
 $withSize = ! empty($withSize);
 $withSlug = ! empty($withSlug);
 $withTitle = ! empty($withTitle);
+$withType = ! empty($withType);
 ?>
 
 <fieldset class="mb-3 fieldset-basic" id="fieldset-info">
@@ -29,6 +30,18 @@ $withTitle = ! empty($withTitle);
         <x-playground::forms.column
             column="column"
             label="Column"
+            :autocomplete="false"
+            :rules="[
+                'required' => true,
+                'maxlength' => 255,
+            ]"
+        ></x-playground::forms.column>
+    @endif
+
+    @if ($withType)
+        <x-playground::forms.column
+            column="type"
+            label="Type"
             :autocomplete="false"
             :rules="[
                 'required' => true,
