@@ -1,15 +1,23 @@
 @extends("playground::layouts.site")
 
 <?php
-$recipe_slug =
+$recipe_slug = "";
+$recipe_title = "";
+if (
     ! empty($recipe) &&
     $recipe instanceof \Playground\Make\Recipe\Configuration\Recipe
-        ? $recipe->slug()
-        : "";
-if ($recipe_slug) {
+) {
+    $recipe_slug = $recipe->slug();
+    $recipe_title = $recipe->title();
+
+    if (! $recipe_title) {
+        $recipe_title = $recipe_slug;
+    }
+}
+if (! $recipe_title) {
     $title = "Recipe Form";
 } else {
-    $title = "Edit: " . $recipe_slug;
+    $title = "Edit: " . $recipe_title;
 }
 ?>
 

@@ -39,7 +39,7 @@ class SaveRequest extends FormRequest
         'revision' => ['boolean'],
         '_return_url' => ['nullable', 'string'],
         'flavors' => ['nullable', 'array'],
-        'flavors.*' => ['string', 'distinct', 'in:parent,playground,revision,routing'],
+        'flavors.*' => ['string', 'distinct', 'in:circlet,parent,playground,revision,routing'],
     ];
 
     protected function prepareForValidation()

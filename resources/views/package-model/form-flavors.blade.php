@@ -15,6 +15,12 @@
                         name="flavors[]"
                     >
                         <option
+                            value="circlet"
+                            @if (in_array('circlet', old("flavors"))) selected @endif
+                        >
+                            {{ __("Circlet") }}
+                        </option>
+                        <option
                             value="parent"
                             @if (in_array('parent', old("flavors"))) selected @endif
                         >

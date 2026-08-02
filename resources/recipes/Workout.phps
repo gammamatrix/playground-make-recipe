@@ -82,7 +82,8 @@ class Workout extends Playground
         $this->columns['repetitions'] = [
             'label' => 'Repetitions',
             'nullable' => true,
-            'type' => 'string',
+            'unsigned' => true,
+            'type' => 'integer',
         ];
     }
 

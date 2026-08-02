@@ -25,6 +25,16 @@ class Task extends Playground
             'nullable' => true,
             'type' => 'uuid',
         ],
+        'task_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'task_tasks',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
     ];
 
     public function init(): void
