@@ -13,5 +13,5 @@ namespace {{ namespace }}Make\Model\Recipe;
  */
 class {{ class }} extends {{ extends }}{{ implements }}
 {
-{{ use_class }}{{ dates }}{{ HasMany }}{{ HasOne }}{{ ids }}{{ factoryStates }}{{ json }}{{ flags }}{{ init }}{{ withRevisions }}{{ withRouting }}
+{{ use_class }}{{ dates }}{{ factoryStates }}{{ flags }}{{ HasMany }}{{ HasOne }}{{ ids }}{{ json }}{{ init }}{{ withRevisions }}{{ withRouting }}
 }

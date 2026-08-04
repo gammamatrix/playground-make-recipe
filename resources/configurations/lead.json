@@ -166,6 +166,12 @@
             "description": "",
             "type": "flag",
             "value": true
+        },
+        "special": {
+            "state": "special",
+            "description": "",
+            "type": "flag",
+            "value": true
         }
     },
     "flags": {
@@ -304,6 +310,7 @@
             "factoryStates": [],
             "flags": [],
             "flavors": [
+                "circlet",
                 "parent",
                 "playground"
             ],
@@ -338,6 +345,7 @@
             "factoryStates": [],
             "flags": [],
             "flavors": [
+                "circlet",
                 "parent",
                 "playground"
             ],
@@ -372,6 +380,7 @@
             "factoryStates": [],
             "flags": [],
             "flavors": [
+                "circlet",
                 "parent",
                 "playground"
             ],
@@ -406,6 +415,7 @@
             "factoryStates": [],
             "flags": [],
             "flavors": [
+                "circlet",
                 "parent",
                 "playground"
             ],
@@ -440,6 +450,7 @@
             "factoryStates": [],
             "flags": [],
             "flavors": [
+                "circlet",
                 "parent",
                 "playground"
             ],
@@ -474,6 +485,7 @@
             "factoryStates": [],
             "flags": [],
             "flavors": [
+                "circlet",
                 "parent",
                 "playground"
             ],
@@ -508,6 +520,7 @@
             "factoryStates": [],
             "flags": [],
             "flavors": [
+                "circlet",
                 "parent",
                 "playground"
             ],
@@ -542,6 +555,7 @@
             "factoryStates": [],
             "flags": [],
             "flavors": [
+                "circlet",
                 "parent",
                 "playground"
             ],
@@ -576,6 +590,7 @@
             "factoryStates": [],
             "flags": [],
             "flavors": [
+                "circlet",
                 "parent",
                 "playground"
             ],
@@ -610,6 +625,7 @@
             "factoryStates": [],
             "flags": [],
             "flavors": [
+                "circlet",
                 "parent",
                 "playground"
             ],
@@ -644,6 +660,7 @@
             "factoryStates": [],
             "flags": [],
             "flavors": [
+                "circlet",
                 "parent",
                 "playground"
             ],

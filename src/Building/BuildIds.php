@@ -39,7 +39,7 @@ trait BuildIds
 
         $this->searches['ids'] .= PHP_EOL;
 
-        $this->searches['ids'] .= sprintf('    protected array $ids = [%1$s];',
+        $this->searches['ids'] .= sprintf('    protected array $allIds = [%1$s];',
             $code
         );
         //        dd([

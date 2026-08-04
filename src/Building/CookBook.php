@@ -111,8 +111,8 @@ class CookBook
 
         $this->buildClass_dates($recipe->dates());
         $this->buildClass_factoryStates($recipe->factoryStates());
-        $this->buildClass_ids($recipe);
         $this->buildClass_jsonColumns($recipe->json());
+        $this->buildClass_ids($recipe);
 
         $this->buildClass_revisions($recipe);
 
