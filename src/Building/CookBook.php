@@ -109,7 +109,8 @@ class CookBook
     {
         $this->defaults($recipe);
 
-        $this->buildClass_dates($recipe->dates());
+        // Disabled - adds TODO add flavor for dates?
+        // $this->buildClass_dates($recipe->dates());
         $this->buildClass_factoryStates($recipe->factoryStates());
         $this->buildClass_jsonColumns($recipe->json());
         $this->buildClass_ids($recipe);

@@ -26,6 +26,9 @@ trait BuildFactoryStates
 
         $code = PHP_EOL;
 
+        $this->searches['factoryStates'] .= '    /**';
+        $this->searches['factoryStates'] .= PHP_EOL.'     * @var array<string, array<string, mixed>>';
+        $this->searches['factoryStates'] .= PHP_EOL.'     */';
         $this->searches['factoryStates'] .= PHP_EOL;
 
         foreach ($factoryStates as $state => $factoryState) {

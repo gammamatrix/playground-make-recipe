@@ -13,7 +13,9 @@ namespace Playground\Make\Model\Recipe;
  */
 class Lead extends Playground
 {
-
+    /**
+     * @var array<string, array<string, mixed>>
+     */
     protected array $factoryStates = [
         'locked' => [
             'type' => 'flag',
@@ -29,7 +31,21 @@ class Lead extends Playground
         ],
     ];
 
+    /**
+     * @var array<string, array<string, mixed>>
+     */
     protected array $allIds = [
+        'parent_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => null,
+            ],
+            'index' => true,
+            'nullable' => true,
+            'trait' => 'WithParent',
+            'type' => 'uuid',
+        ],
         'matrix_id' => [
             'description' => '',
             'foreign' => [
@@ -202,6 +218,114 @@ class Lead extends Playground
             'nullable' => true,
             'type' => 'string',
         ];
+
+        $this->columns['team_role'] = [
+            'nullable' => true,
+            'type' => 'string',
+        ];
+
+        $this->columns['currency'] = [
+            'nullable' => true,
+            'type' => 'string',
+        ];
+
+        $this->columns['amount'] = [
+            'precision' => 19,
+            'nullable' => true,
+            'type' => 'decimal',
+        ];
+
+        $this->columns['bonus'] = [
+            'precision' => 19,
+            'nullable' => true,
+            'type' => 'decimal',
+        ];
+
+        $this->columns['bonus_rate'] = [
+            'description' => sprintf(
+                'The bonus rate of the %1$s. Percent value is stored as decimal: 99%% => 0.99',
+                $this->name_lower
+            ),
+            'precision' => 8,
+            'nullable' => true,
+            'type' => 'decimal',
+        ];
+
+        $this->columns['commission'] = [
+            'precision' => 19,
+            'nullable' => true,
+            'type' => 'decimal',
+        ];
+
+        $this->columns['commission_rate'] = [
+            'description' => sprintf(
+                'The commission rate of the %1$s. Percent value is stored as decimal: 99%% => 0.99',
+                $this->name_lower
+            ),
+            'precision' => 8,
+            'nullable' => true,
+            'type' => 'decimal',
+        ];
+
+        $this->columns['estimate'] = [
+            'precision' => 19,
+            'nullable' => true,
+            'type' => 'decimal',
+        ];
+
+        $this->columns['fees'] = [
+            'precision' => 19,
+            'nullable' => true,
+            'type' => 'decimal',
+        ];
+
+        $this->columns['materials'] = [
+            'precision' => 19,
+            'nullable' => true,
+            'type' => 'decimal',
+        ];
+
+        $this->columns['services'] = [
+            'precision' => 19,
+            'nullable' => true,
+            'type' => 'decimal',
+        ];
+
+        $this->columns['shipping'] = [
+            'precision' => 19,
+            'nullable' => true,
+            'type' => 'decimal',
+        ];
+
+        $this->columns['subtotal'] = [
+            'precision' => 19,
+            'nullable' => true,
+            'type' => 'decimal',
+        ];
+
+        $this->columns['taxable'] = [
+            'precision' => 19,
+            'nullable' => true,
+            'type' => 'decimal',
+        ];
+
+        $this->columns['tax_rate'] = [
+            'precision' => 8,
+            'nullable' => true,
+            'type' => 'decimal',
+        ];
+
+        $this->columns['taxes'] = [
+            'precision' => 19,
+            'nullable' => true,
+            'type' => 'decimal',
+        ];
+
+        $this->columns['total'] = [
+            'precision' => 19,
+            'nullable' => true,
+            'type' => 'decimal',
+        ];
     }
 
     public function addDates(): void
@@ -242,7 +366,7 @@ class Lead extends Playground
     {
         $this->addColumns();
         $this->addDates();
-
         $this->addFlags();
+        $this->handleCircletHasOne();
     }
 }

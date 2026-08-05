@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Playground\Make\Recipe\Building;
 
 use Illuminate\Support\Arr;
+use Playground\Make\Model\Recipe\Playground;
 use Playground\Make\Recipe\Configuration\Column;
 use Playground\Make\Recipe\Configuration\Date;
 use Playground\Make\Recipe\Configuration\Flag;
@@ -30,17 +31,13 @@ trait BuildInit
         if (! empty($columns)) {
             $this->searches['init'] .= $this->buildClass_addColumns_method($columns);
             $code .= str_repeat(' ', 8);
-            $code .= '$this->addColumns();';
+            $code .= '$this->addColumns();'.PHP_EOL;
         }
 
         $dates = $this->buildClass_init_addDates($recipe);
 
         if (! empty($dates)) {
             $this->searches['init'] .= $this->buildClass_addDates_method($dates);
-            if (! empty($code)) {
-                $code .= PHP_EOL;
-                $this->searches['init'] .= PHP_EOL;
-            }
             $code .= str_repeat(' ', 8);
             $code .= '$this->addDates();'.PHP_EOL;
         }
@@ -49,12 +46,13 @@ trait BuildInit
 
         if (! empty($flags)) {
             $this->searches['init'] .= $this->buildClass_addFlags_method($flags);
-            if (! empty($code)) {
-                $code .= PHP_EOL;
-                $this->searches['init'] .= PHP_EOL;
-            }
             $code .= str_repeat(' ', 8);
             $code .= '$this->addFlags();'.PHP_EOL;
+        }
+
+        if (in_array('circlet', $recipe->flavors())) {
+            $code .= str_repeat(' ', 8);
+            $code .= '$this->handleCircletHasOne();'.PHP_EOL;
         }
 
         if (! empty($this->searches['HasOne'])) {
@@ -108,6 +106,7 @@ $code
 
         ksort(\$this->dates);
     }
+
 PHP_CODE;
     }
 
@@ -121,6 +120,7 @@ $code
 
         ksort(\$this->flags);
     }
+
 PHP_CODE;
     }
 
@@ -132,6 +132,7 @@ PHP_CODE;
     {
 $code
     }
+
 PHP_CODE;
     }
 
@@ -164,7 +165,14 @@ PHP_CODE;
 
         if ($column->description()) {
             $code .= PHP_EOL.str_repeat(' ', 12);
-            $code .= sprintf('\'description\' => \'%1$s\',', $column->description());
+            if (str_contains($column->description(), '%1$s')) {
+                $code .= '\'description\' => sprintf('.PHP_EOL;
+                $code .= sprintf('%1$s\'%2$s\',', str_repeat(' ', 16), $column->description()).PHP_EOL;
+                $code .= str_repeat(' ', 16).'$this->name_lower'.PHP_EOL;
+                $code .= str_repeat(' ', 12).'),';
+            } else {
+                $code .= sprintf('\'description\' => \'%1$s\',', $column->description());
+            }
         }
 
         if ($column->icon()) {
@@ -240,11 +248,15 @@ PHP_CODE;
     {
         $code = '';
 
-        $ignore = array_keys((new \Playground\Make\Model\Recipe\Playground('model', 'playground'))->dates());
+        $ignore = array_keys((new Playground('model', 'playground'))->dates());
 
-        $total = count(Arr::except($recipe->dates(), $ignore));
+        /**
+         * @var array<string, Date> $dates
+         */
+        $dates = Arr::except($recipe->dates(), $ignore);
+        $total = count($dates);
         $i = 0;
-        foreach (Arr::except($recipe->dates(), $ignore) as $column => $date) {
+        foreach ($dates as $column => $date) {
             $code .= $this->buildClass_init_addDate($date);
             $i++;
             if ($i < $total) {
@@ -252,13 +264,13 @@ PHP_CODE;
             }
         }
 
-        //dd([
+        // dd([
         //    '__METHOD__' => __METHOD__,
         //    '$code' => $code,
         //    '$total' => $total,
         //    '$ignore' => $ignore,
         //    'Arr::except($recipe->dates(), $ignore)' => Arr::except($recipe->dates(), $ignore),
-        //]);
+        // ]);
         return $code;
     }
 
