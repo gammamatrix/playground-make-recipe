@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-08-03 00:01:26</timestamp>
+  <timestamp>2026-08-05 16:01:52</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>216</methodCount>
-    <crapMethodCount>28</crapMethodCount>
-    <crapLoad>425</crapLoad>
-    <totalCrap>9954</totalCrap>
-    <crapMethodPercent>12.96</crapMethodPercent>
+    <methodCount>220</methodCount>
+    <crapMethodCount>29</crapMethodCount>
+    <crapLoad>435</crapLoad>
+    <totalCrap>10076</totalCrap>
+    <crapMethodPercent>13.18</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -127,10 +127,10 @@
       <methodName>buildClass_init</methodName>
       <methodSignature>buildClass_init(Recipe $recipe): void</methodSignature>
       <fullMethod>buildClass_init(Recipe $recipe): void</fullMethod>
-      <crap>42</crap>
-      <complexity>6</complexity>
+      <crap>72</crap>
+      <complexity>8</complexity>
       <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
+      <crapLoad>8</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Building</package>
@@ -138,6 +138,28 @@
       <methodName>buildClass_init_method</methodName>
       <methodSignature>buildClass_init_method(string $code): string</methodSignature>
       <fullMethod>buildClass_init_method(string $code): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildInit</className>
+      <methodName>buildClass_addColumns_method</methodName>
+      <methodSignature>buildClass_addColumns_method(string $code): string</methodSignature>
+      <fullMethod>buildClass_addColumns_method(string $code): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildInit</className>
+      <methodName>buildClass_addDates_method</methodName>
+      <methodSignature>buildClass_addDates_method(string $code): string</methodSignature>
+      <fullMethod>buildClass_addDates_method(string $code): string</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
@@ -157,9 +179,9 @@
     <method>
       <package>Playground\Make\Recipe\Building</package>
       <className>Playground\Make\Recipe\Building\BuildInit</className>
-      <methodName>buildClass_addColumns_method</methodName>
-      <methodSignature>buildClass_addColumns_method(string $code): string</methodSignature>
-      <fullMethod>buildClass_addColumns_method(string $code): string</fullMethod>
+      <methodName>buildClass_addJson_method</methodName>
+      <methodSignature>buildClass_addJson_method(string $code): string</methodSignature>
+      <fullMethod>buildClass_addJson_method(string $code): string</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
@@ -182,10 +204,32 @@
       <methodName>buildClass_init_addColumn</methodName>
       <methodSignature>buildClass_init_addColumn(Column $column): string</methodSignature>
       <fullMethod>buildClass_init_addColumn(Column $column): string</fullMethod>
-      <crap>272</crap>
-      <complexity>16</complexity>
+      <crap>306</crap>
+      <complexity>17</complexity>
       <coverage>0</coverage>
-      <crapLoad>16</crapLoad>
+      <crapLoad>17</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildInit</className>
+      <methodName>buildClass_init_addDates</methodName>
+      <methodSignature>buildClass_init_addDates(Recipe $recipe): string</methodSignature>
+      <fullMethod>buildClass_init_addDates(Recipe $recipe): string</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildInit</className>
+      <methodName>buildClass_init_addDate</methodName>
+      <methodSignature>buildClass_init_addDate(Date $date): string</methodSignature>
+      <fullMethod>buildClass_init_addDate(Date $date): string</fullMethod>
+      <crap>42</crap>
+      <complexity>6</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Building</package>
