@@ -168,6 +168,89 @@ class Lead extends Playground
         ],
     ];
 
+    /**
+     * @var array<string, array<string, mixed>>
+     */
+    protected array $circletHasOne = [
+        'campaign' => [
+            'comment' => 'The campaign of the %1$s.',
+            'accessor' => 'campaign',
+            'related' => 'Campaign',
+            'foreignKey' => 'id',
+            'localKey' => 'campaign_id',
+        ],
+        'goal' => [
+            'comment' => 'The goal of the %1$s.',
+            'accessor' => 'goal',
+            'related' => 'Goal',
+            'foreignKey' => 'id',
+            'localKey' => 'goal_id',
+        ],
+        'lead' => [
+            'comment' => 'The lead of the %1$s.',
+            'accessor' => 'lead',
+            'related' => 'Lead',
+            'foreignKey' => 'id',
+            'localKey' => 'lead_id',
+        ],
+        'opportunity' => [
+            'comment' => 'The opportunity of the %1$s.',
+            'accessor' => 'opportunity',
+            'related' => 'Opportunity',
+            'foreignKey' => 'id',
+            'localKey' => 'opportunity_id',
+        ],
+        'plan' => [
+            'comment' => 'The plan of the %1$s.',
+            'accessor' => 'plan',
+            'related' => 'Plan',
+            'foreignKey' => 'id',
+            'localKey' => 'plan_id',
+        ],
+        'region' => [
+            'comment' => 'The region of the %1$s.',
+            'accessor' => 'region',
+            'related' => 'Region',
+            'foreignKey' => 'id',
+            'localKey' => 'region_id',
+        ],
+        'report' => [
+            'comment' => 'The report of the %1$s.',
+            'accessor' => 'report',
+            'related' => 'Report',
+            'foreignKey' => 'id',
+            'localKey' => 'report_id',
+        ],
+        'source' => [
+            'comment' => 'The source of the %1$s.',
+            'accessor' => 'source',
+            'related' => 'Source',
+            'foreignKey' => 'id',
+            'localKey' => 'source_id',
+        ],
+        'task' => [
+            'comment' => 'The task of the %1$s.',
+            'accessor' => 'task',
+            'related' => 'Task',
+            'foreignKey' => 'id',
+            'localKey' => 'task_id',
+        ],
+        'team' => [
+            'comment' => 'The team of the %1$s.',
+            'accessor' => 'team',
+            'related' => 'Team',
+            'foreignKey' => 'id',
+            'localKey' => 'team_id',
+        ],
+        'teammate' => [
+            'comment' => 'The teammate of the %1$s.',
+            'accessor' => 'teammate',
+            'related' => 'Teammate',
+            'foreignKey' => 'id',
+            'localKey' => 'teammate_id',
+        ],
+    ];
+
     protected array $json = [
         'address' => [
             'default' => '{}',
