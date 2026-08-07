@@ -31,7 +31,9 @@
         }
     },
     "flavors": [
-        "circlet"
+        "circlet",
+        "parent",
+        "playground"
     ],
     "json": {
         "recur": {
