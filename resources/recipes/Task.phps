@@ -6,15 +6,14 @@
 
 declare(strict_types=1);
 
-namespace App\Recipes;
-
-use Playground\Make\Model\Recipe\Playground;
+namespace Playground\Make\Model\Recipe;
 
 /**
  * \Playground\Make\Model\Recipe\Task
  */
 class Task extends Playground
 {
+
     /**
      * @var array<string, array<string, mixed>>
      */
@@ -102,10 +101,8 @@ class Task extends Playground
     public function addColumns(): void
     {
         $this->columns['duration'] = [
-            // TODO label is ignored in columns
-            // 'label' => 'Duration',
-            'description' => 'The duration of the task in seconds.',
             'nullable' => true,
+            'unsigned' => true,
             'type' => 'integer',
         ];
     }
@@ -135,11 +132,11 @@ class Task extends Playground
     public function addJson(): void
     {
         $this->json['recur'] = [
-            'default' => '{}',
-            'readOnly' => true,
+            'description' => 'Provides a JSON object for CRON style recurring rules.',
+            'label' => 'Recur',
+            'default' => null,
             'nullable' => true,
             'type' => 'JSON_OBJECT',
-            'comment' => 'Provides a JSON object for CRON style recurring rules.',
         ];
     }
 

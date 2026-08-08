@@ -6,7 +6,25 @@
     "description": "A task management system.",
     "title": "Task",
     "name": "",
-    "columns": [],
+    "columns": {
+        "duration": {
+            "column": "duration",
+            "default": null,
+            "description": "",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": false,
+            "label": "",
+            "nullable": true,
+            "precision": null,
+            "readOnly": false,
+            "scale": null,
+            "size": null,
+            "type": "integer",
+            "unsigned": false
+        }
+    },
     "dates": {
         "due_at": {
             "column": "due_at",
@@ -23,7 +41,7 @@
             "column": "skip",
             "default": false,
             "description": "",
-            "icon": "",
+            "icon": "fa-solid fa-forward-step text-warning",
             "index": false,
             "label": "Skip",
             "nullable": false,
@@ -50,7 +68,7 @@
     "models": [],
     "packageModels": {
         "Task": {
-            "migration_date": "",
+            "migration_date": "2002_02_05",
             "migration_order": "",
             "model": "Task",
             "model_fqdn": "",
@@ -85,7 +103,7 @@
             "json": []
         },
         "TaskList": {
-            "migration_date": "",
+            "migration_date": "2002_02_05",
             "migration_order": "",
             "model": "TaskList",
             "model_fqdn": "",
@@ -120,7 +138,7 @@
             "json": []
         },
         "TaskLog": {
-            "migration_date": "",
+            "migration_date": "2002_02_05",
             "migration_order": "",
             "model": "TaskLog",
             "model_fqdn": "",

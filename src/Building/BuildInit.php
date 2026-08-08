@@ -13,6 +13,7 @@ use Playground\Make\Model\Recipe\Playground;
 use Playground\Make\Recipe\Configuration\Column;
 use Playground\Make\Recipe\Configuration\Date;
 use Playground\Make\Recipe\Configuration\Flag;
+use Playground\Make\Recipe\Configuration\Json;
 use Playground\Make\Recipe\Configuration\Recipe;
 
 /**
@@ -48,6 +49,14 @@ trait BuildInit
             $this->searches['init'] .= $this->buildClass_addFlags_method($flags);
             $code .= str_repeat(' ', 8);
             $code .= '$this->addFlags();'.PHP_EOL;
+        }
+
+        $json = $this->buildClass_init_addJsons($recipe);
+
+        if (! empty($json)) {
+            $this->searches['init'] .= $this->buildClass_addJson_method($json);
+            $code .= str_repeat(' ', 8);
+            $code .= '$this->addJson();'.PHP_EOL;
         }
 
         if (in_array('circlet', $recipe->flavors())) {
@@ -365,6 +374,93 @@ PHP_CODE;
 
         $code .= PHP_EOL.str_repeat(' ', 12);
         $code .= sprintf('\'type\' => \'%1$s\',', 'boolean');
+
+        $code .= PHP_EOL.str_repeat(' ', 8);
+        $code .= '];';
+
+        return $code;
+    }
+
+    protected function buildClass_init_addJsons(Recipe $recipe): string
+    {
+        $code = '';
+
+        $ignore = array_keys((new Playground('model', 'playground'))->json());
+
+        /**
+         * @var array<string, Json> $jsons
+         */
+        $jsons = Arr::except($recipe->json(), $ignore);
+        $total = count($jsons);
+        $i = 0;
+        foreach ($jsons as $column => $json) {
+            $code .= $this->buildClass_init_addJson($json);
+            $i++;
+            if ($i < $total) {
+                $code .= PHP_EOL.PHP_EOL;
+            }
+        }
+
+        // dd([
+        //    '__METHOD__' => __METHOD__,
+        //    '$code' => $code,
+        //    '$total' => $total,
+        //    '$ignore' => $ignore,
+        //    'Arr::except($recipe->json(), $ignore)' => Arr::except($recipe->json(), $ignore),
+        // ]);
+        return $code;
+    }
+
+    protected function buildClass_init_addJson(Json $json): string
+    {
+        $code = str_repeat(' ', 8);
+        $code .= sprintf('$this->json[\'%1$s\'] = [', $json->column());
+
+        if ($json->comment()) {
+            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= sprintf('\'comment\' => \'%1$s\',', $json->comment());
+        }
+
+        if ($json->description()) {
+            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= sprintf('\'description\' => \'%1$s\',', $json->description());
+        }
+
+        if ($json->label()) {
+            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= sprintf('\'label\' => \'%1$s\',', $json->label());
+        }
+
+        $default = $json->default();
+
+        $defaultString = 'null';
+
+        switch (gettype($default)) {
+            case 'boolean':
+                $defaultString = $default ? 'true' : 'false';
+                break;
+            case 'string':
+                $defaultString = sprintf('\'%1$s\'', $default);
+                break;
+            case 'integer':
+                break;
+        }
+
+        $code .= PHP_EOL.str_repeat(' ', 12);
+        $code .= sprintf('\'default\' => %1$s,', $defaultString);
+
+        $code .= PHP_EOL.str_repeat(' ', 12);
+        $code .= sprintf('\'nullable\' => %1$s,', $json->nullable() ? 'true' : 'false');
+
+        if ($json->readOnly()) {
+            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= sprintf('\'readOnly\' => %1$s,', 'true');
+        }
+
+        if ($json->type()) {
+            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= sprintf('\'type\' => \'%1$s\',', $json->type());
+        }
 
         $code .= PHP_EOL.str_repeat(' ', 8);
         $code .= '];';
