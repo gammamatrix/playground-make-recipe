@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-08-08 02:21:03</timestamp>
+  <timestamp>2026-08-08 02:41:10</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>221</methodCount>
-    <crapMethodCount>30</crapMethodCount>
-    <crapLoad>442</crapLoad>
-    <totalCrap>10132</totalCrap>
-    <crapMethodPercent>13.57</crapMethodPercent>
+    <methodCount>223</methodCount>
+    <crapMethodCount>31</crapMethodCount>
+    <crapLoad>454</crapLoad>
+    <totalCrap>10294</totalCrap>
+    <crapMethodPercent>13.9</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -138,10 +138,10 @@
       <methodName>buildClass_init</methodName>
       <methodSignature>buildClass_init(Recipe $recipe): void</methodSignature>
       <fullMethod>buildClass_init(Recipe $recipe): void</fullMethod>
-      <crap>72</crap>
-      <complexity>8</complexity>
+      <crap>90</crap>
+      <complexity>9</complexity>
       <coverage>0</coverage>
-      <crapLoad>8</crapLoad>
+      <crapLoad>9</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Building</package>
@@ -263,6 +263,28 @@
       <complexity>7</complexity>
       <coverage>0</coverage>
       <crapLoad>7</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildInit</className>
+      <methodName>buildClass_init_addJsons</methodName>
+      <methodSignature>buildClass_init_addJsons(Recipe $recipe): string</methodSignature>
+      <fullMethod>buildClass_init_addJsons(Recipe $recipe): string</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildInit</className>
+      <methodName>buildClass_init_addJson</methodName>
+      <methodSignature>buildClass_init_addJson(Json $json): string</methodSignature>
+      <fullMethod>buildClass_init_addJson(Json $json): string</fullMethod>
+      <crap>132</crap>
+      <complexity>11</complexity>
+      <coverage>0</coverage>
+      <crapLoad>11</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Building</package>
