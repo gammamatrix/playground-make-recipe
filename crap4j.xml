@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-08-07 16:12:38</timestamp>
+  <timestamp>2026-08-08 02:21:03</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>220</methodCount>
-    <crapMethodCount>29</crapMethodCount>
-    <crapLoad>435</crapLoad>
-    <totalCrap>10076</totalCrap>
-    <crapMethodPercent>13.18</crapMethodPercent>
+    <methodCount>221</methodCount>
+    <crapMethodCount>30</crapMethodCount>
+    <crapLoad>442</crapLoad>
+    <totalCrap>10132</totalCrap>
+    <crapMethodPercent>13.57</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -54,6 +54,17 @@
       <complexity>1</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildHasOne</className>
+      <methodName>buildClass_circletHasOnes</methodName>
+      <methodSignature>buildClass_circletHasOnes(Recipe $recipe): void</methodSignature>
+      <fullMethod>buildClass_circletHasOnes(Recipe $recipe): void</fullMethod>
+      <crap>56</crap>
+      <complexity>7</complexity>
+      <coverage>0</coverage>
+      <crapLoad>7</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Building</package>
