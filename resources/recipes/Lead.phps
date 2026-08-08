@@ -253,22 +253,22 @@ class Lead extends Playground
 
     protected array $json = [
         'address' => [
-            'default' => '{}',
+            'default' => null,
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],
         'assets' => [
-            'default' => '{}',
+            'default' => null,
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],
         'contact' => [
-            'default' => '{}',
+            'default' => null,
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],
         'meta' => [
-            'default' => '{}',
+            'default' => null,
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],
@@ -279,12 +279,12 @@ class Lead extends Playground
             'type' => 'JSON_ARRAY',
         ],
         'options' => [
-            'default' => '{}',
+            'default' => null,
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],
         'sources' => [
-            'default' => '{}',
+            'default' => null,
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],

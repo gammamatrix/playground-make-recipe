@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Playground\Make\Recipe\Building;
 
 use Illuminate\Support\Facades\Log;
+use Playground\Make\Model\Recipe\Playground;
 use Playground\Make\Recipe\Configuration\Recipe;
 
 /**
@@ -31,7 +32,7 @@ class CookBook
      */
     protected array $searches = [
         'class' => '',
-        'namespace' => 'Playground\\',
+        'namespace' => 'Playground\\Make\\Model\\Recipe\\',
         'extends' => 'Model',
         'implements' => '',
         'organization' => '',
@@ -101,8 +102,18 @@ class CookBook
             $this->searches['class'] = $recipe->class();
         }
 
+        if ($recipe->namespace()) {
+            $this->searches['namespace'] = trim(
+                str_replace('/', '\\', $recipe->namespace()),
+                '\\/'
+            );
+        }
+
         if ($recipe->extends()) {
             $this->searches['extends'] = $recipe->extends();
+            if ($recipe->extends() === 'Playground') {
+                $this->searches['use'] = sprintf('%2$suse %1$s;%2$s', Playground::class, PHP_EOL);
+            }
         }
     }
 

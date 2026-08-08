@@ -1,5 +1,6 @@
 {
     "class": "Task",
+    "namespace": "App/Recipes",
     "extends": "Playground",
     "extends_use": "",
     "slug": "task",
@@ -10,7 +11,7 @@
         "duration": {
             "column": "duration",
             "default": null,
-            "description": "",
+            "description": "The duration of the task in seconds.",
             "hasDefault": false,
             "html": false,
             "icon": "",

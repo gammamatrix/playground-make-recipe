@@ -6,10 +6,10 @@
 
 declare(strict_types=1);
 
-namespace {{ namespace }}Make\Model\Recipe;
+namespace {{ namespace }};
 {{ use }}
 /**
- * \{{ namespace }}Make\Model\Recipe\{{ class }}{{ docblock }}
+ * \{{ namespace }}\{{ class }}{{ docblock }}
  */
 class {{ class }} extends {{ extends }}{{ implements }}
 {

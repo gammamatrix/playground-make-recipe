@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Playground\Make\Recipe\Building;
 
 use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 use Playground\Make\Model\Recipe\Playground;
 use Playground\Make\Recipe\Configuration\Column;
 use Playground\Make\Recipe\Configuration\Date;
@@ -203,10 +204,8 @@ PHP_CODE;
             }
         }
 
-        if ($column->label()) {
-            $code .= PHP_EOL.str_repeat(' ', 12);
-            $code .= sprintf('\'label\' => \'%1$s\',', $column->label());
-        }
+        $code .= PHP_EOL.str_repeat(' ', 12);
+        $code .= sprintf('\'label\' => \'%1$s\',', $column->label() ?: Str::of($column->column())->headline()->toString());
 
         if (is_int($column->precision())) {
             $code .= PHP_EOL.str_repeat(' ', 12);

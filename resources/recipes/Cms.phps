@@ -156,12 +156,12 @@ class Cms extends Playground
 
     protected array $json = [
         'assets' => [
-            'default' => '{}',
+            'default' => null,
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],
         'meta' => [
-            'default' => '{}',
+            'default' => null,
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],
@@ -172,12 +172,12 @@ class Cms extends Playground
             'type' => 'JSON_ARRAY',
         ],
         'options' => [
-            'default' => '{}',
+            'default' => null,
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],
         'sources' => [
-            'default' => '{}',
+            'default' => null,
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],
@@ -285,7 +285,7 @@ class Cms extends Playground
                 'icon' => '',
             ];
             $this->json['params'] = [
-                'default' => '{}',
+                'default' => null,
                 'nullable' => true,
                 'type' => 'JSON_OBJECT',
             ];

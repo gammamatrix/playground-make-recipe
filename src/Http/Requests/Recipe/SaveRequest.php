@@ -17,6 +17,7 @@ class SaveRequest extends FormRequest
 {
     public const array RULES = [
         'class' => ['nullable', 'string'],
+        'namespace' => ['nullable', 'string'],
         'description' => ['nullable', 'string'],
         'extends' => ['nullable', 'string'],
         'title' => ['nullable', 'string'],

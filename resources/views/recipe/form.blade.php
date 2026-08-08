@@ -60,6 +60,15 @@ if (! $recipe_title) {
             'maxlength' => 255,
         ]"
     ></x-playground::forms.column>
+    <x-playground::forms.column
+        column="namespace"
+        label="Namespace"
+        :autocomplete="false"
+        :rules="[
+            'required' => false,
+            'maxlength' => 255,
+        ]"
+    ></x-playground::forms.column>
 @endsection
 
 @section("content")

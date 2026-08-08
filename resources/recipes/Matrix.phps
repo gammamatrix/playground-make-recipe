@@ -260,12 +260,12 @@ class Matrix extends Playground
 
     protected array $json = [
         'assets' => [
-            'default' => '{}',
+            'default' => null,
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],
         'meta' => [
-            'default' => '{}',
+            'default' => null,
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],
@@ -276,12 +276,12 @@ class Matrix extends Playground
             'type' => 'JSON_ARRAY',
         ],
         'options' => [
-            'default' => '{}',
+            'default' => null,
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],
         'sources' => [
-            'default' => '{}',
+            'default' => null,
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],

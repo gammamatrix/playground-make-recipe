@@ -109,7 +109,7 @@ trait BuildHasOne
         // ]);
 
         $code = str_repeat(' ', 8);
-        $code .= sprintf('\'%1$s\' => [', $packageModel->snake());
+        $code .= sprintf('\'%1$s\' => [', $packageModel->camel());
 
         $code .= PHP_EOL.str_repeat(' ', 12);
         $code .= sprintf('\'comment\' => \'%1$s\',', $comment);

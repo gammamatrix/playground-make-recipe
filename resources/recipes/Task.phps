@@ -6,14 +6,15 @@
 
 declare(strict_types=1);
 
-namespace Playground\Make\Model\Recipe;
+namespace App\Recipes;
+
+use Playground\Make\Model\Recipe\Playground;
 
 /**
- * \Playground\Make\Model\Recipe\Task
+ * \App\Recipes\Task
  */
 class Task extends Playground
 {
-
     /**
      * @var array<string, array<string, mixed>>
      */
@@ -101,6 +102,8 @@ class Task extends Playground
     public function addColumns(): void
     {
         $this->columns['duration'] = [
+            'description' => 'The duration of the task in seconds.',
+            'label' => 'Duration',
             'nullable' => true,
             'unsigned' => true,
             'type' => 'integer',

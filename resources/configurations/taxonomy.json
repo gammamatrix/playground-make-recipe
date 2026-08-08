@@ -145,7 +145,7 @@
         "assets": {
             "column": "assets",
             "comment": "",
-            "default": "{}",
+            "default": null,
             "description": "",
             "label": "",
             "type": "JSON_OBJECT",
@@ -155,7 +155,7 @@
         "meta": {
             "column": "meta",
             "comment": "",
-            "default": "{}",
+            "default": null,
             "description": "",
             "label": "",
             "type": "JSON_OBJECT",
@@ -175,7 +175,7 @@
         "options": {
             "column": "options",
             "comment": "",
-            "default": "{}",
+            "default": null,
             "description": "",
             "label": "",
             "type": "JSON_OBJECT",
@@ -185,7 +185,7 @@
         "sources": {
             "column": "sources",
             "comment": "",
-            "default": "{}",
+            "default": null,
             "description": "",
             "label": "",
             "type": "JSON_OBJECT",

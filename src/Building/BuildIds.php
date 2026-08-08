@@ -37,7 +37,7 @@ trait BuildIds
 
         $code .= str_repeat(' ', 4);
 
-        $this->searches['ids'] .= PHP_EOL.'    /**';
+        $this->searches['ids'] .= '    /**';
         $this->searches['ids'] .= PHP_EOL.'     * @var array<string, array<string, mixed>>';
         $this->searches['ids'] .= PHP_EOL.'     */';
         $this->searches['ids'] .= PHP_EOL;
