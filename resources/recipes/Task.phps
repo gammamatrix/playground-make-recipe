@@ -72,6 +72,33 @@ class Task extends Playground
         ],
     ];
 
+    /**
+     * @var array<string, array<string, mixed>>
+     */
+    protected array $circletHasOne = [
+        'task' => [
+            'comment' => 'The task of the %1$s.',
+            'accessor' => 'task',
+            'related' => 'Task',
+            'foreignKey' => 'id',
+            'localKey' => 'task_id',
+        ],
+        'task_list' => [
+            'comment' => 'The task list of the %1$s.',
+            'accessor' => 'taskList',
+            'related' => 'TaskList',
+            'foreignKey' => 'id',
+            'localKey' => 'task_list_id',
+        ],
+        'task_log' => [
+            'comment' => 'The task log of the %1$s.',
+            'accessor' => 'taskLog',
+            'related' => 'TaskLog',
+            'foreignKey' => 'id',
+            'localKey' => 'task_log_id',
+        ],
+    ];
+
     public function addColumns(): void
     {
         $this->columns['duration'] = [

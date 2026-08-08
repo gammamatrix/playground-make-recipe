@@ -16,6 +16,49 @@ use Playground\Make\Recipe\Configuration\Recipe;
  */
 trait BuildHasOne
 {
+    protected function buildClass_circletHasOnes(Recipe $recipe): void
+    {
+        $this->searches['circletIds'] = '';
+
+        if (! in_array('circlet', $recipe->flavors(), true) || empty($recipe->packageModels())) {
+            return;
+        }
+
+        $code = '';
+
+        foreach ($recipe->packageModels() as $model => $packageModel) {
+            // Do not add revision models
+            if ($packageModel->revision()) {
+                continue;
+            }
+            if (in_array('circlet', $packageModel->flavors(), true)) {
+                // dd($packageModel);
+                $code .= $this->buildClass_hasOne(
+                    $packageModel,
+                    sprintf('The %1$s of the %%1$s.', $packageModel->word())
+                );
+            }
+        }
+
+        if ($code === '') {
+            return;
+        }
+
+        $code .= str_repeat(' ', 4);
+
+        $this->searches['circletIds'] .= PHP_EOL.'    /**';
+        $this->searches['circletIds'] .= PHP_EOL.'     * @var array<string, array<string, mixed>>';
+        $this->searches['circletIds'] .= PHP_EOL.'     */';
+        $this->searches['circletIds'] .= PHP_EOL;
+
+        $this->searches['circletIds'] .= sprintf('    protected array $circletHasOne = [%1$s%2$s];',
+            PHP_EOL,
+            $code
+        );
+
+        $this->searches['circletIds'] .= PHP_EOL;
+    }
+
     protected function buildClass_hasOnes(Recipe $recipe): void
     {
         $this->searches['HasOne'] = '';
