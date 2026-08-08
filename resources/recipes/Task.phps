@@ -82,14 +82,14 @@ class Task extends Playground
             'foreignKey' => 'id',
             'localKey' => 'task_id',
         ],
-        'task_list' => [
+        'taskList' => [
             'comment' => 'The task list of the %1$s.',
             'accessor' => 'taskList',
             'related' => 'TaskList',
             'foreignKey' => 'id',
             'localKey' => 'task_list_id',
         ],
-        'task_log' => [
+        'taskLog' => [
             'comment' => 'The task log of the %1$s.',
             'accessor' => 'taskLog',
             'related' => 'TaskLog',
@@ -132,7 +132,7 @@ class Task extends Playground
     public function addJson(): void
     {
         $this->json['recur'] = [
-            'description' => 'Provides a JSON object for CRON style recurring rules.',
+            'comment' => 'Provides a JSON object for CRON style recurring rules.',
             'label' => 'Recur',
             'default' => null,
             'nullable' => true,

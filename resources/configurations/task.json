@@ -56,9 +56,9 @@
     "json": {
         "recur": {
             "column": "recur",
-            "comment": "",
+            "comment": "Provides a JSON object for CRON style recurring rules.",
             "default": null,
-            "description": "Provides a JSON object for CRON style recurring rules.",
+            "description": "",
             "label": "Recur",
             "type": "JSON_OBJECT",
             "nullable": true,
