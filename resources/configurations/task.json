@@ -30,7 +30,7 @@
         "due_at": {
             "column": "due_at",
             "description": "",
-            "label": "Due At",
+            "label": "Due at",
             "index": false,
             "nullable": true,
             "readOnly": false

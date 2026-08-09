@@ -91,7 +91,7 @@ PHP_CODE;
     protected function buildClass_withRevisions_method_model(string $model): string
     {
         $snake = Str::of($model)->snake()->toString();
-        $label = Str::of($snake)->replace('_', ' ')->toString();
+        $label = Str::of($snake)->headline()->lower()->toString();
 
         return <<<PHP_CODE
 

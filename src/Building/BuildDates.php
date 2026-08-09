@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Playground\Make\Recipe\Building;
 
+use Illuminate\Support\Str;
 use Playground\Make\Recipe\Configuration\Date;
 
 /**
@@ -42,10 +43,8 @@ trait BuildDates
                 $code .= sprintf('\'description\' => \'%1$s\',', $date->description());
             }
 
-            if ($date->label()) {
-                $code .= PHP_EOL.str_repeat(' ', 12);
-                $code .= sprintf('\'label\' => \'%1$s\',', $date->label());
-            }
+            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= sprintf('\'label\' => \'%1$s\',', $date->label() ?: Str::of($date->column())->headline()->lower()->ucfirst()->toString());
 
             $code .= PHP_EOL.str_repeat(' ', 12);
             $code .= sprintf('\'nullable\' => %1$s,', $date->nullable() ? 'true' : 'false');

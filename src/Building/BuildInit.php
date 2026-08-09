@@ -205,7 +205,7 @@ PHP_CODE;
         }
 
         $code .= PHP_EOL.str_repeat(' ', 12);
-        $code .= sprintf('\'label\' => \'%1$s\',', $column->label() ?: Str::of($column->column())->headline()->toString());
+        $code .= sprintf('\'label\' => \'%1$s\',', $column->label() ?: Str::of($column->column())->headline()->lower()->ucfirst()->toString());
 
         if (is_int($column->precision())) {
             $code .= PHP_EOL.str_repeat(' ', 12);
@@ -292,10 +292,8 @@ PHP_CODE;
             $code .= sprintf('\'description\' => \'%1$s\',', $date->description());
         }
 
-        if ($date->label()) {
-            $code .= PHP_EOL.str_repeat(' ', 12);
-            $code .= sprintf('\'label\' => \'%1$s\',', $date->label());
-        }
+        $code .= PHP_EOL.str_repeat(' ', 12);
+        $code .= sprintf('\'label\' => \'%1$s\',', $date->label() ?: Str::of($date->column())->headline()->lower()->ucfirst()->toString());
 
         if ($date->index()) {
             $code .= PHP_EOL.str_repeat(' ', 12);
@@ -351,10 +349,8 @@ PHP_CODE;
         $code .= PHP_EOL.str_repeat(' ', 12);
         $code .= sprintf('\'default\' => %1$s,', $flag->default() ? 'true' : 'false');
 
-        if ($flag->label()) {
-            $code .= PHP_EOL.str_repeat(' ', 12);
-            $code .= sprintf('\'label\' => \'%1$s\',', $flag->label());
-        }
+        $code .= PHP_EOL.str_repeat(' ', 12);
+        $code .= sprintf('\'label\' => \'%1$s\',', $flag->label() ?: Str::of($flag->column())->headline()->lower()->ucfirst()->toString());
 
         if ($flag->index()) {
             $code .= PHP_EOL.str_repeat(' ', 12);
@@ -425,10 +421,8 @@ PHP_CODE;
             $code .= sprintf('\'description\' => \'%1$s\',', $json->description());
         }
 
-        if ($json->label()) {
-            $code .= PHP_EOL.str_repeat(' ', 12);
-            $code .= sprintf('\'label\' => \'%1$s\',', $json->label());
-        }
+        $code .= PHP_EOL.str_repeat(' ', 12);
+        $code .= sprintf('\'label\' => \'%1$s\',', $json->label() ?: Str::of($json->column())->headline()->lower()->ucfirst()->toString());
 
         $default = $json->default();
 

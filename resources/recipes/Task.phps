@@ -113,7 +113,7 @@ class Task extends Playground
     public function addDates(): void
     {
         $this->dates['due_at'] = [
-            'label' => 'Due At',
+            'label' => 'Due at',
             'nullable' => true,
         ];
 

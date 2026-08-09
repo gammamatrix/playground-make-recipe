@@ -125,6 +125,7 @@ class Recipe extends PrimaryConfiguration
      */
     protected $properties = [
         'class' => '',
+        'namespace' => '',
         'extends' => 'Playground',
         'extends_use' => '',
         'slug' => '',
