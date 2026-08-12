@@ -13,66 +13,24 @@ namespace Playground\Make\Model\Recipe;
  */
 class Crm extends Playground
 {
-    protected array $dates = [
-        'canceled_at' => [
-            'nullable' => true,
-            'index' => false,
+    /**
+     * @var array<string, array<string, mixed>>
+     */
+    protected array $factoryStates = [
+        'locked' => [
+            'type' => 'flag',
+            'value' => true,
         ],
-        'closed_at' => [
-            'nullable' => true,
-            'index' => true,
-        ],
-        'embargo_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'fixed_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'planned_end_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'planned_start_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'postponed_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'published_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'released_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'resolved_at' => [
-            'nullable' => true,
-            'index' => true,
-        ],
-        'resumed_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'suspended_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'timer_end_at' => [
-            'nullable' => true,
-            'index' => true,
-        ],
-        'timer_start_at' => [
-            'nullable' => true,
-            'index' => true,
+        'featured' => [
+            'type' => 'flag',
+            'value' => true,
         ],
     ];
 
-    protected array $ids = [
+    /**
+     * @var array<string, array<string, mixed>>
+     */
+    protected array $allIds = [
         'parent_id' => [
             'description' => '',
             'foreign' => [
@@ -146,68 +104,70 @@ class Crm extends Playground
         ],
     ];
 
-    protected array $factoryStates = [
-        'locked' => [
-            'type' => 'flag',
-            'value' => true,
-        ],
-        'featured' => [
-            'type' => 'flag',
-            'value' => true,
-        ],
-    ];
-
-    protected array $json = [
-        'address' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-        'assets' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
+    /**
+     * @var array<string, array<string, mixed>>
+     */
+    protected array $circletHasOne = [
+        'client' => [
+            'comment' => 'The client of the %1$s.',
+            'accessor' => 'client',
+            'related' => 'Client',
+            'foreignKey' => 'id',
+            'localKey' => 'client_id',
         ],
         'contact' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
+            'comment' => 'The contact of the %1$s.',
+            'accessor' => 'contact',
+            'related' => 'Contact',
+            'foreignKey' => 'id',
+            'localKey' => 'contact_id',
         ],
-        'meta' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
+        'location' => [
+            'comment' => 'The location of the %1$s.',
+            'accessor' => 'location',
+            'related' => 'Location',
+            'foreignKey' => 'id',
+            'localKey' => 'location_id',
         ],
-        'notes' => [
-            'comment' => 'Array of note objects',
-            'default' => '[]',
-            'nullable' => true,
-            'readOnly' => true,
-            'type' => 'JSON_ARRAY',
+        'organization' => [
+            'comment' => 'The organization of the %1$s.',
+            'accessor' => 'organization',
+            'related' => 'Organization',
+            'foreignKey' => 'id',
+            'localKey' => 'organization_id',
         ],
-        'options' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-        'sources' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
+        'people' => [
+            'comment' => 'The people of the %1$s.',
+            'accessor' => 'people',
+            'related' => 'People',
+            'foreignKey' => 'id',
+            'localKey' => 'people_id',
         ],
     ];
 
     public function addColumns(): void
     {
         $this->columns['email'] = [
+            'label' => 'Email',
             'nullable' => true,
             'type' => 'string',
         ];
 
         $this->columns['phone'] = [
+            'label' => 'Phone',
             'nullable' => true,
             'type' => 'string',
         ];
+    }
+
+    public function addDates(): void
+    {
+        $this->dates['fixed_at'] = [
+            'label' => 'Fixed at',
+            'nullable' => true,
+        ];
+
+        ksort($this->dates);
     }
 
     public function addFlags(): void
@@ -215,19 +175,44 @@ class Crm extends Playground
         $this->flags['featured'] = [
             'icon' => 'fa-solid fa-star text-primary',
             'default' => false,
+            'label' => 'Featured',
+            'index' => true,
             'type' => 'boolean',
         ];
 
         $this->flags['sms'] = [
             'icon' => 'fa-solid fa-comment-sms',
             'default' => false,
+            'label' => 'SMS',
             'type' => 'boolean',
+        ];
+
+        ksort($this->flags);
+    }
+
+    public function addJson(): void
+    {
+        $this->json['address'] = [
+            'label' => 'Address',
+            'default' => '{}',
+            'nullable' => true,
+            'type' => 'JSON_OBJECT',
+        ];
+
+        $this->json['contact'] = [
+            'label' => 'Contact',
+            'default' => '{}',
+            'nullable' => true,
+            'type' => 'JSON_OBJECT',
         ];
     }
 
     public function init(): void
     {
         $this->addColumns();
+        $this->addDates();
         $this->addFlags();
+        $this->addJson();
+        $this->handleCircletHasOne();
     }
 }

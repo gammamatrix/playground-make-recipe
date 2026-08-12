@@ -1,5 +1,6 @@
 {
     "class": "Crm",
+    "namespace": "",
     "extends": "Playground",
     "extends_use": "",
     "slug": "crm",
@@ -185,12 +186,16 @@
             "description": "",
             "icon": "fa-solid fa-comment-sms",
             "index": false,
-            "label": "",
+            "label": "SMS",
             "nullable": false,
             "readOnly": false
         }
     },
-    "flavors": [],
+    "flavors": [
+        "playground",
+        "parent",
+        "circlet"
+    ],
     "json": {
         "address": {
             "column": "address",
@@ -294,6 +299,7 @@
             "factoryStates": [],
             "flags": [],
             "flavors": [
+                "circlet",
                 "parent",
                 "playground"
             ],
@@ -328,6 +334,7 @@
             "factoryStates": [],
             "flags": [],
             "flavors": [
+                "circlet",
                 "parent",
                 "playground"
             ],
@@ -362,6 +369,7 @@
             "factoryStates": [],
             "flags": [],
             "flavors": [
+                "circlet",
                 "parent",
                 "playground"
             ],
@@ -396,6 +404,7 @@
             "factoryStates": [],
             "flags": [],
             "flavors": [
+                "circlet",
                 "parent",
                 "playground"
             ],
@@ -430,6 +439,7 @@
             "factoryStates": [],
             "flags": [],
             "flavors": [
+                "circlet",
                 "parent",
                 "playground"
             ],

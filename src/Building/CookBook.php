@@ -32,7 +32,7 @@ class CookBook
      */
     protected array $searches = [
         'class' => '',
-        'namespace' => 'Playground\\Make\\Model\\Recipe\\',
+        'namespace' => 'Playground\\Make\\Model\\Recipe',
         'extends' => 'Model',
         'implements' => '',
         'organization' => '',
@@ -105,7 +105,7 @@ class CookBook
         if ($recipe->namespace()) {
             $this->searches['namespace'] = trim(
                 str_replace('/', '\\', $recipe->namespace()),
-                '\\/'
+                '\\\/'
             );
         }
 
