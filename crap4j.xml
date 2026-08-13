@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-08-09 18:13:11</timestamp>
+  <timestamp>2026-08-13 02:41:58</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>223</methodCount>
-    <crapMethodCount>31</crapMethodCount>
-    <crapLoad>454</crapLoad>
-    <totalCrap>10312</totalCrap>
-    <crapMethodPercent>13.9</crapMethodPercent>
+    <methodCount>227</methodCount>
+    <crapMethodCount>32</crapMethodCount>
+    <crapLoad>461</crapLoad>
+    <totalCrap>10378</totalCrap>
+    <crapMethodPercent>14.1</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -32,6 +32,17 @@
       <complexity>9</complexity>
       <coverage>0</coverage>
       <crapLoad>9</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildHasMany</className>
+      <methodName>buildClass_circletHasManies</methodName>
+      <methodSignature>buildClass_circletHasManies(Recipe $recipe): void</methodSignature>
+      <fullMethod>buildClass_circletHasManies(Recipe $recipe): void</fullMethod>
+      <crap>56</crap>
+      <complexity>7</complexity>
+      <coverage>0</coverage>
+      <crapLoad>7</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Building</package>
@@ -1499,6 +1510,17 @@
     <method>
       <package>Playground\Make\Recipe\Configuration</package>
       <className>Playground\Make\Recipe\Configuration\PackageModel</className>
+      <methodName>camels</methodName>
+      <methodSignature>camels(): string</methodSignature>
+      <fullMethod>camels(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\PackageModel</className>
       <methodName>snake</methodName>
       <methodSignature>snake(): string</methodSignature>
       <fullMethod>snake(): string</fullMethod>
@@ -1510,9 +1532,31 @@
     <method>
       <package>Playground\Make\Recipe\Configuration</package>
       <className>Playground\Make\Recipe\Configuration\PackageModel</className>
+      <methodName>snakes</methodName>
+      <methodSignature>snakes(): string</methodSignature>
+      <fullMethod>snakes(): string</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\PackageModel</className>
       <methodName>word</methodName>
       <methodSignature>word(): string</methodSignature>
       <fullMethod>word(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\PackageModel</className>
+      <methodName>words</methodName>
+      <methodSignature>words(): string</methodSignature>
+      <fullMethod>words(): string</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
