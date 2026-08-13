@@ -15,6 +15,50 @@ use Playground\Make\Recipe\Configuration\Recipe;
  */
 trait BuildHasMany
 {
+    protected function buildClass_circletHasManies(Recipe $recipe): void
+    {
+        $this->searches['circletHasMany'] = '';
+
+        if (! in_array('circlet', $recipe->flavors(), true) || empty($recipe->packageModels())) {
+            return;
+        }
+
+        $code = '';
+
+        foreach ($recipe->packageModels() as $model => $packageModel) {
+            // Do not add revision models
+            if ($packageModel->revision()) {
+                continue;
+            }
+            if (in_array('circlet', $packageModel->flavors(), true)) {
+                // dd($packageModel);
+                $code .= $this->buildClass_hasMany(
+                    accessor: $packageModel->camels(),
+                    comment: sprintf('The %1$s of the %%1$s.', $packageModel->words()),
+                    related: $packageModel->model(),
+                );
+            }
+        }
+
+        if ($code === '') {
+            return;
+        }
+
+        $code .= str_repeat(' ', 4);
+
+        $this->searches['circletHasMany'] .= PHP_EOL.'    /**';
+        $this->searches['circletHasMany'] .= PHP_EOL.'     * @var array<string, array<string, mixed>>';
+        $this->searches['circletHasMany'] .= PHP_EOL.'     */';
+        $this->searches['circletHasMany'] .= PHP_EOL;
+
+        $this->searches['circletHasMany'] .= sprintf('    protected array $circletHasMany = [%1$s%2$s];',
+            PHP_EOL,
+            $code
+        );
+
+        $this->searches['circletHasMany'] .= PHP_EOL;
+    }
+
     protected function buildClass_hasManies(Recipe $recipe): void
     {
         $this->searches['HasMany'] = '';

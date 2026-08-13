@@ -290,6 +290,11 @@ class PackageModel extends PrimaryConfiguration
         return Str::of($this->model_singular())->camel()->toString();
     }
 
+    public function camels(): string
+    {
+        return Str::of($this->model_plural())->camel()->toString();
+    }
+
     public function snake(): string
     {
         $attribute = $this->model_attribute();
@@ -297,8 +302,20 @@ class PackageModel extends PrimaryConfiguration
         return $attribute ?: Str::of($this->model_singular())->snake()->toString();
     }
 
+    public function snakes(): string
+    {
+        $attribute = $this->model_attribute();
+
+        return $attribute ?: Str::of($this->model_plural())->snake()->toString();
+    }
+
     public function word(): string
     {
         return Str::of($this->snake())->replace('_', ' ')->toString();
+    }
+
+    public function words(): string
+    {
+        return Str::of($this->snakes())->replace('_', ' ')->toString();
     }
 }

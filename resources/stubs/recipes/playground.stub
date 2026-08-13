@@ -13,5 +13,5 @@ namespace {{ namespace }};
  */
 class {{ class }} extends {{ extends }}{{ implements }}
 {
-{{ use_class }}{{ dates }}{{ factoryStates }}{{ flags }}{{ HasMany }}{{ HasOne }}{{ ids }}{{ circletIds }}{{ json }}{{ init }}{{ withRevisions }}{{ withRouting }}
+{{ use_class }}{{ dates }}{{ factoryStates }}{{ flags }}{{ HasMany }}{{ HasOne }}{{ ids }}{{ circletIds }}{{ circletHasMany }}{{ json }}{{ init }}{{ withRevisions }}{{ withRouting }}
 }

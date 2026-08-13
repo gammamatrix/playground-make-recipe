@@ -99,6 +99,33 @@ class Task extends Playground
         ],
     ];
 
+    /**
+     * @var array<string, array<string, mixed>>
+     */
+    protected array $circletHasMany = [
+        'tasks' => [
+            'comment' => 'The tasks of the %1$s.',
+            'accessor' => 'tasks',
+            'related' => 'Task',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'taskLists' => [
+            'comment' => 'The task lists of the %1$s.',
+            'accessor' => 'taskLists',
+            'related' => 'TaskList',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'taskLogs' => [
+            'comment' => 'The task logs of the %1$s.',
+            'accessor' => 'taskLogs',
+            'related' => 'TaskLog',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+    ];
+
     public function addColumns(): void
     {
         $this->columns['duration'] = [
@@ -150,5 +177,6 @@ class Task extends Playground
         $this->addFlags();
         $this->addJson();
         $this->handleCircletHasOne();
+        $this->handleCircletHasMany();
     }
 }

@@ -44,6 +44,7 @@ class CookBook
         'dates' => '',
         'ids' => '',
         'circletIds' => '',
+        'circletHasMany' => '',
         'factoryStates' => '',
         'json' => '',
         'flags' => '',
@@ -130,6 +131,7 @@ class CookBook
         $this->buildClass_revisions($recipe);
 
         $this->buildClass_circletHasOnes($recipe);
+        $this->buildClass_circletHasManies($recipe);
         $this->buildClass_hasOnes($recipe);
         $this->buildClass_hasManies($recipe);
 

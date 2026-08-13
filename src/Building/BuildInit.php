@@ -63,6 +63,8 @@ trait BuildInit
         if (in_array('circlet', $recipe->flavors())) {
             $code .= str_repeat(' ', 8);
             $code .= '$this->handleCircletHasOne();'.PHP_EOL;
+            $code .= str_repeat(' ', 8);
+            $code .= '$this->handleCircletHasMany();'.PHP_EOL;
         }
 
         if (! empty($this->searches['HasOne'])) {
