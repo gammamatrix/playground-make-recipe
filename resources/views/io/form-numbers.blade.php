@@ -9,7 +9,7 @@
                 :autocomplete="false"
                 :rules="[
                     'required' => false,
-                    'min' => 0,
+                    'min' => 1,
                     'max' => 65,
                 ]"
             ></x-playground::forms.column>
