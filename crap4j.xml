@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-08-13 02:41:58</timestamp>
+  <timestamp>2026-08-22 17:48:07</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>227</methodCount>
     <crapMethodCount>32</crapMethodCount>
-    <crapLoad>461</crapLoad>
-    <totalCrap>10378</totalCrap>
+    <crapLoad>462</crapLoad>
+    <totalCrap>10414</totalCrap>
     <crapMethodPercent>14.1</crapMethodPercent>
   </stats>
   <methods>
@@ -226,10 +226,10 @@
       <methodName>buildClass_init_addColumn</methodName>
       <methodSignature>buildClass_init_addColumn(Column $column): string</methodSignature>
       <fullMethod>buildClass_init_addColumn(Column $column): string</fullMethod>
-      <crap>306</crap>
-      <complexity>17</complexity>
+      <crap>342</crap>
+      <complexity>18</complexity>
       <coverage>0</coverage>
-      <crapLoad>17</crapLoad>
+      <crapLoad>18</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Building</package>
