@@ -1,5 +1,6 @@
 {
     "class": "Workout",
+    "namespace": "App\/Recipes",
     "extends": "Playground",
     "extends_use": "",
     "slug": "workout",
@@ -22,18 +23,86 @@
             "scale": null,
             "size": null,
             "type": "string"
+        },
+        "weight": {
+            "column": "weight",
+            "default": null,
+            "description": "",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": false,
+            "label": "Weight",
+            "nullable": true,
+            "precision": 19,
+            "readOnly": false,
+            "scale": 4,
+            "size": null,
+            "type": "decimal"
+        },
+        "duration": {
+            "column": "duration",
+            "default": null,
+            "description": "",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": false,
+            "label": "Duration",
+            "nullable": true,
+            "precision": null,
+            "readOnly": false,
+            "scale": null,
+            "size": null,
+            "type": "integer",
+            "unsigned": false
         }
     },
     "dates": [],
     "factoryStates": [],
-    "flags": [],
-    "flavors": [],
+    "flags": {
+        "skip": {
+            "column": "skip",
+            "default": false,
+            "description": "",
+            "icon": "",
+            "index": false,
+            "label": "Skip",
+            "nullable": false,
+            "readOnly": false
+        },
+        "partial": {
+            "column": "partial",
+            "default": false,
+            "description": "",
+            "icon": "",
+            "index": false,
+            "label": "Partial",
+            "nullable": false,
+            "readOnly": false
+        },
+        "resume": {
+            "column": "resumed",
+            "default": false,
+            "description": "",
+            "icon": "",
+            "index": false,
+            "label": "Resumed",
+            "nullable": false,
+            "readOnly": false
+        }
+    },
+    "flavors": [
+        "playground",
+        "parent",
+        "circlet"
+    ],
     "json": [],
     "models": [],
     "packageModels": {
         "Exercise": {
-            "migration_date": "",
-            "migration_order": "",
+            "migration_date": "2002_02_05",
+            "migration_order": "000000",
             "model": "Exercise",
             "model_fqdn": "",
             "model_column": "",
@@ -60,14 +129,15 @@
             "factoryStates": [],
             "flags": [],
             "flavors": [
+                "circlet",
                 "parent",
                 "playground"
             ],
             "json": []
         },
         "Routine": {
-            "migration_date": "",
-            "migration_order": "",
+            "migration_date": "2002_02_05",
+            "migration_order": "000000",
             "model": "Routine",
             "model_fqdn": "",
             "model_column": "",
@@ -94,14 +164,15 @@
             "factoryStates": [],
             "flags": [],
             "flavors": [
+                "circlet",
                 "parent",
                 "playground"
             ],
             "json": []
         },
         "Workout": {
-            "migration_date": "",
-            "migration_order": "",
+            "migration_date": "2002_02_05",
+            "migration_order": "000000",
             "model": "Workout",
             "model_fqdn": "",
             "model_column": "",
@@ -128,14 +199,15 @@
             "factoryStates": [],
             "flags": [],
             "flavors": [
+                "circlet",
                 "parent",
                 "playground"
             ],
             "json": []
         },
         "Schedule": {
-            "migration_date": "",
-            "migration_order": "",
+            "migration_date": "2002_02_05",
+            "migration_order": "000000",
             "model": "Schedule",
             "model_fqdn": "",
             "model_column": "",
@@ -162,14 +234,15 @@
             "factoryStates": [],
             "flags": [],
             "flavors": [
+                "circlet",
                 "parent",
                 "playground"
             ],
             "json": []
         },
         "Team": {
-            "migration_date": "",
-            "migration_order": "",
+            "migration_date": "2002_02_05",
+            "migration_order": "000000",
             "model": "Team",
             "model_fqdn": "",
             "model_column": "",
@@ -196,6 +269,77 @@
             "factoryStates": [],
             "flags": [],
             "flavors": [
+                "circlet",
+                "parent",
+                "playground"
+            ],
+            "json": []
+        },
+        "Teammate": {
+            "migration_date": "2002_02_05",
+            "migration_order": "000000",
+            "model": "Teammate",
+            "model_fqdn": "",
+            "model_column": "",
+            "model_label": "",
+            "model_attribute": "",
+            "model_plural": "teammates",
+            "model_revision": "",
+            "model_singular": "teammate",
+            "model_slug": "teammate",
+            "model_slug_plural": "teammates",
+            "name": "",
+            "namespace": "",
+            "organization": "",
+            "description": "",
+            "recipe": "",
+            "table": "",
+            "type": "",
+            "playground": true,
+            "revision": false,
+            "HasOne": [],
+            "HasMany": [],
+            "columns": [],
+            "dates": [],
+            "factoryStates": [],
+            "flags": [],
+            "flavors": [
+                "circlet",
+                "parent",
+                "playground"
+            ],
+            "json": []
+        },
+        "Equipment": {
+            "migration_date": "2002_02_05",
+            "migration_order": "000000",
+            "model": "Equipment",
+            "model_fqdn": "",
+            "model_column": "",
+            "model_label": "",
+            "model_attribute": "",
+            "model_plural": "equipments",
+            "model_revision": "",
+            "model_singular": "equipment",
+            "model_slug": "equipment",
+            "model_slug_plural": "equipments",
+            "name": "",
+            "namespace": "",
+            "organization": "",
+            "description": "",
+            "recipe": "",
+            "table": "",
+            "type": "",
+            "playground": true,
+            "revision": false,
+            "HasOne": [],
+            "HasMany": [],
+            "columns": [],
+            "dates": [],
+            "factoryStates": [],
+            "flags": [],
+            "flavors": [
+                "circlet",
                 "parent",
                 "playground"
             ],

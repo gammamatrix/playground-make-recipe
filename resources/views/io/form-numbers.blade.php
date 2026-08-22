@@ -23,6 +23,7 @@
                 :rules="[
                     'required' => false,
                     'min' => 0,
+                    'max' => 30,
                 ]"
             ></x-playground::forms.column>
         </div>

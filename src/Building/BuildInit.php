@@ -214,6 +214,11 @@ PHP_CODE;
             $code .= sprintf('\'precision\' => %1$d,', $column->precision());
         }
 
+        if (is_int($column->scale())) {
+            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= sprintf('\'scale\' => %1$d,', $column->scale());
+        }
+
         if ($column->html()) {
             $code .= PHP_EOL.str_repeat(' ', 12);
             $code .= sprintf('\'html\' => %1$s,', 'true');

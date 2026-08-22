@@ -21,7 +21,14 @@ class SaveRequest extends FormRequest
         'description' => ['nullable', 'string'],
         'label' => ['nullable', 'string'],
         'index' => ['boolean'],
+        'unique' => ['boolean'],
         'nullable' => ['boolean'],
+        'html' => ['boolean'],
+        'hasDefault' => ['boolean'],
+        'default' => ['nullable', 'string'],
+        'precision' => ['nullable', 'integer', 'min:1', 'max:65'],
+        'scale' => ['nullable', 'integer', 'min:0', 'max:30'],
+        'size' => ['nullable', 'integer', 'min:0'],
         '_return_url' => ['nullable', 'string'],
     ];
 
