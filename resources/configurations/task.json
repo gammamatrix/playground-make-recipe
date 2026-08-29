@@ -24,6 +24,57 @@
             "size": null,
             "type": "integer",
             "unsigned": false
+        },
+        "day_of_week": {
+            "column": "day_of_week",
+            "default": null,
+            "description": "Bitwise day of the week: 1 => Sunday, 2 => Monday - 3 => Sunday and Monday",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": false,
+            "label": "Day of Week",
+            "nullable": true,
+            "precision": null,
+            "readOnly": false,
+            "scale": null,
+            "size": null,
+            "type": "integer",
+            "unsigned": false
+        },
+        "day_of_month": {
+            "column": "day_of_month",
+            "default": null,
+            "description": "Bitwise day of the month: 1 => 1st, 2 => 2nd - 3 => 1st and 2nd",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": false,
+            "label": "Day of Month",
+            "nullable": true,
+            "precision": null,
+            "readOnly": false,
+            "scale": null,
+            "size": null,
+            "type": "integer",
+            "unsigned": false
+        },
+        "day_of_year": {
+            "column": "day_of_year",
+            "default": null,
+            "description": "Contains a single day of the year: 1 - 366",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": false,
+            "label": "Day of Year",
+            "nullable": true,
+            "precision": null,
+            "readOnly": false,
+            "scale": null,
+            "size": null,
+            "type": "integer",
+            "unsigned": false
         }
     },
     "dates": {
@@ -36,7 +87,26 @@
             "readOnly": false
         }
     },
-    "factoryStates": [],
+    "factoryStates": {
+        "active": {
+            "state": "active",
+            "description": "",
+            "type": "flag",
+            "value": true
+        },
+        "locked": {
+            "state": "locked",
+            "description": "",
+            "type": "flag",
+            "value": true
+        },
+        "skipped": {
+            "state": "skip",
+            "description": "",
+            "type": "flag",
+            "value": true
+        }
+    },
     "flags": {
         "skip": {
             "column": "skip",
@@ -52,7 +122,8 @@
     "flavors": [
         "circlet",
         "parent",
-        "playground"
+        "playground",
+        "tags"
     ],
     "json": {
         "recur": {
@@ -87,7 +158,7 @@
             "description": "",
             "recipe": "",
             "table": "",
-            "type": "",
+            "type": "playground-model",
             "playground": true,
             "revision": false,
             "HasOne": [],
@@ -99,7 +170,8 @@
             "flavors": [
                 "circlet",
                 "parent",
-                "playground"
+                "playground",
+                "tags"
             ],
             "json": []
         },
@@ -122,7 +194,7 @@
             "description": "",
             "recipe": "",
             "table": "",
-            "type": "",
+            "type": "playground-model",
             "playground": true,
             "revision": false,
             "HasOne": [],
@@ -134,7 +206,8 @@
             "flavors": [
                 "circlet",
                 "parent",
-                "playground"
+                "playground",
+                "tags"
             ],
             "json": []
         },
@@ -157,7 +230,43 @@
             "description": "",
             "recipe": "",
             "table": "",
-            "type": "",
+            "type": "playground-model",
+            "playground": true,
+            "revision": false,
+            "HasOne": [],
+            "HasMany": [],
+            "columns": [],
+            "dates": [],
+            "factoryStates": [],
+            "flags": [],
+            "flavors": [
+                "circlet",
+                "parent",
+                "playground",
+                "tags"
+            ],
+            "json": []
+        },
+        "Tag": {
+            "migration_date": "2002_02_05",
+            "migration_order": "000000",
+            "model": "Tag",
+            "model_fqdn": "",
+            "model_column": "",
+            "model_label": "",
+            "model_attribute": "",
+            "model_plural": "tags",
+            "model_revision": "",
+            "model_singular": "tag",
+            "model_slug": "tag",
+            "model_slug_plural": "tags",
+            "name": "",
+            "namespace": "",
+            "organization": "",
+            "description": "",
+            "recipe": "",
+            "table": "",
+            "type": "playground-model",
             "playground": true,
             "revision": false,
             "HasOne": [],
@@ -170,6 +279,39 @@
                 "circlet",
                 "parent",
                 "playground"
+            ],
+            "json": []
+        },
+        "Tagged": {
+            "migration_date": "2002_02_05",
+            "migration_order": "000000",
+            "model": "Tagged",
+            "model_fqdn": "",
+            "model_column": "",
+            "model_label": "",
+            "model_attribute": "",
+            "model_plural": "Tagged",
+            "model_revision": "",
+            "model_singular": "Tagged",
+            "model_slug": "Tagged",
+            "model_slug_plural": "Tagged",
+            "name": "",
+            "namespace": "",
+            "organization": "",
+            "description": "",
+            "recipe": "",
+            "table": "",
+            "type": "playground-model-tagged",
+            "playground": false,
+            "revision": false,
+            "HasOne": [],
+            "HasMany": [],
+            "columns": [],
+            "dates": [],
+            "factoryStates": [],
+            "flags": [],
+            "flavors": [
+                "tags"
             ],
             "json": []
         }

@@ -24,39 +24,53 @@
                 ]"
             ></x-playground::forms.column>
         </div>
-        {{-- <div class="col"> --}}
-        {{-- <div class=""> --}}
-        {{-- <div class="input-group my-3"> --}}
-        {{-- <label class="input-group-text" for="form-input-type"> --}}
-        {{-- Type --}}
-        {{-- </label> --}}
-        {{-- <select --}}
-        {{-- id="form-input-type" --}}
-        {{-- class="form-select @error("type") is-invalid @enderror" --}}
-        {{-- value="{{ old("type") }}" --}}
-        {{-- name="type" --}}
-        {{-- > --}}
-        {{-- <option --}}
-        {{-- value="flag" --}}
-        {{-- @if ('flag' === old("type")) selected @endif --}}
-        {{-- > --}}
-        {{-- {{ __("Flag") }} --}}
-        {{-- </option> --}}
-        {{-- </select> --}}
-        {{-- </div> --}}
-        {{-- </div> --}}
-        {{-- </div> --}}
-        {{-- <div class="col"> --}}
-        {{-- <x-playground::forms.column --}}
-        {{-- column="value" --}}
-        {{-- label="Value" --}}
-        {{-- :autocomplete="false" --}}
-        {{-- :rules="[ --}}
-        {{-- 'required' => false, --}}
-        {{-- 'maxlength' => 255, --}}
-        {{-- ]" --}}
-        {{-- ></x-playground::forms.column> --}}
-        {{-- </div> --}}
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="input-group my-3">
+                <label class="input-group-text" for="form-input-type">
+                    Type
+                </label>
+                <select
+                    id="form-input-type"
+                    class="form-select @error("type") is-invalid @enderror"
+                    value="{{ old("type") }}"
+                    name="type"
+                >
+                    <option
+                        value="playground-model"
+                        @if ('playground-model' === old("type")) selected @endif
+                    >
+                        {{ __("Playground Model") }}
+                    </option>
+                    <option
+                        value="playground-model-linked"
+                        @if ('playground-model-linked' === old("type")) selected @endif
+                    >
+                        {{ __("Playground Model: Linked") }}
+                    </option>
+                    <option
+                        value="playground-model-tagged"
+                        @if ('playground-model-tagged' === old("type")) selected @endif
+                    >
+                        {{ __("Playground Model: Tagged") }}
+                    </option>
+                    <option
+                        value="model"
+                        @if ('model' === old("type")) selected @endif
+                    >
+                        {{ __("Model") }}
+                    </option>
+                    <option
+                        value="laravel"
+                        @if ('laravel' === old("type")) selected @endif
+                    >
+                        {{ __("Laravel") }}
+                    </option>
+                </select>
+            </div>
+        </div>
     </div>
 
     <div class="row">

@@ -19,6 +19,24 @@ class Task extends Playground
     /**
      * @var array<string, array<string, mixed>>
      */
+    protected array $factoryStates = [
+        'active' => [
+            'type' => 'flag',
+            'value' => true,
+        ],
+        'locked' => [
+            'type' => 'flag',
+            'value' => true,
+        ],
+        'skipped' => [
+            'type' => 'flag',
+            'value' => true,
+        ],
+    ];
+
+    /**
+     * @var array<string, array<string, mixed>>
+     */
     protected array $allIds = [
         'parent_id' => [
             'description' => '',
@@ -104,13 +122,6 @@ class Task extends Playground
      * @var array<string, array<string, mixed>>
      */
     protected array $circletHasMany = [
-        'tags' => [
-            'comment' => 'The tags of the %1$s.',
-            'accessor' => 'tags',
-            'related' => 'Tag',
-            'foreignKey' => '',
-            'localKey' => 'id',
-        ],
         'tasks' => [
             'comment' => 'The tasks of the %1$s.',
             'accessor' => 'tasks',
@@ -132,6 +143,13 @@ class Task extends Playground
             'foreignKey' => '',
             'localKey' => 'id',
         ],
+        'tags' => [
+            'comment' => 'The tags of the %1$s.',
+            'accessor' => 'tags',
+            'related' => 'Tag',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
     ];
 
     public function addColumns(): void
@@ -139,6 +157,30 @@ class Task extends Playground
         $this->columns['duration'] = [
             'description' => 'The duration of the task in seconds.',
             'label' => 'Duration',
+            'nullable' => true,
+            'unsigned' => true,
+            'type' => 'integer',
+        ];
+
+        $this->columns['day_of_week'] = [
+            'description' => 'Bitwise day of the week: 1 => Sunday, 2 => Monday - 3 => Sunday and Monday',
+            'label' => 'Day of Week',
+            'nullable' => true,
+            'unsigned' => true,
+            'type' => 'integer',
+        ];
+
+        $this->columns['day_of_month'] = [
+            'description' => 'Bitwise day of the month: 1 => 1st, 2 => 2nd - 3 => 1st and 2nd',
+            'label' => 'Day of Month',
+            'nullable' => true,
+            'unsigned' => true,
+            'type' => 'integer',
+        ];
+
+        $this->columns['day_of_year'] = [
+            'description' => 'Contains a single day of the year: 1 - 366',
+            'label' => 'Day of Year',
             'nullable' => true,
             'unsigned' => true,
             'type' => 'integer',

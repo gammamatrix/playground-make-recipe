@@ -33,13 +33,16 @@
                     </td>
                     <td>
                         {{ $column->type() }}
-                        @if (in_array($column->type(), ['float', 'decimal']))
-                            <br>
-                            scale: <code>{{ $column->scale() }}</code>
+                        @if (in_array($column->type(), ["float", "decimal"]))
+                            <br />
+                            scale:
+                            <code>{{ $column->scale() }}</code>
                         @endif
-                        @if (in_array($column->type(), ['decimal']))
-                            <br>
-                            precision: <code>{{ $column->precision() }}</code>
+
+                        @if (in_array($column->type(), ["decimal"]))
+                            <br />
+                            precision:
+                            <code>{{ $column->precision() }}</code>
                         @endif
                     </td>
                     <td>
