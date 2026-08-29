@@ -127,18 +127,18 @@
     <div class="row">
         <div class="col">
             <div class="form-check form-check-inline">
-                <input type="hidden" name="migrations" value="0" />
+                <input type="hidden" name="migration" value="0" />
                 <input
                     class="form-check-input"
                     type="checkbox"
                     id="form-input-migrations"
-                    name="migrations"
+                    name="migration"
                     value="1"
-                    {{ old("migrations") ? "checked" : "" }}
+                    {{ old("migration") ? "checked" : "" }}
                 />
-                <label class="form-check-label" for="form-input-migrations">
+                <label class="form-check-label" for="form-input-migration">
                     <i class="fa-solid fa-play text-success"></i>
-                    {{ __("Migrations") }}
+                    {{ __("Migration") }}
                 </label>
             </div>
         </div>

@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace App\Recipes;
 
+use Illuminate\Support\Arr;
 use Playground\Make\Model\Recipe\Playground;
 
 /**
@@ -103,6 +104,13 @@ class Task extends Playground
      * @var array<string, array<string, mixed>>
      */
     protected array $circletHasMany = [
+        'tags' => [
+            'comment' => 'The tags of the %1$s.',
+            'accessor' => 'tags',
+            'related' => 'Tag',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
         'tasks' => [
             'comment' => 'The tasks of the %1$s.',
             'accessor' => 'tasks',
@@ -172,6 +180,26 @@ class Task extends Playground
 
     public function init(): void
     {
+        if ($this->name === 'Tagged') {
+            $this->columns = Arr::only($this->columns, ['created_at']);
+            $this->userIds = Arr::only($this->userIds, ['owned_by_id']);
+            $this->ids = [];
+            $this->json = [];
+            $this->dates = [];
+            $this->circletHasMany = [];
+            $this->circletHasOne = [];
+            $this->allIds = Arr::except($this->allIds, ['parent_id', 'matrix_id']);
+            $this->matrix = [];
+            $this->flags = [];
+            $this->permissions = [];
+            $this->status = [];
+            $this->ui = [];
+            $this->unique = [];
+            $this->timestamp_deleted = '';
+            $this->timestamp_updated = '';
+
+            return;
+        }
         $this->addColumns();
         $this->addDates();
         $this->addFlags();

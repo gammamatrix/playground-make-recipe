@@ -36,7 +36,7 @@ class CommandRequest extends FormRequest
         'covers' => ['boolean'],
         'factories' => ['boolean'],
         'force' => ['boolean'],
-        'migrations' => ['boolean'],
+        'migration' => ['boolean'],
         'models' => ['boolean'],
         'playground' => ['boolean'],
         'revision' => ['boolean'],
