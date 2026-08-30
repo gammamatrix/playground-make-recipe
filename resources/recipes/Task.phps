@@ -28,7 +28,7 @@ class Task extends Playground
             'type' => 'flag',
             'value' => true,
         ],
-        'skipped' => [
+        'skip' => [
             'type' => 'flag',
             'value' => true,
         ],
@@ -121,6 +121,22 @@ class Task extends Playground
     /**
      * @var array<string, array<string, mixed>>
      */
+    protected array $hasManyThrough = [
+        'tags' => [
+            'comment' => 'The tags of the %1$s.',
+            'accessor' => 'tags',
+            'related' => 'Tag',
+            'through' => 'Tagged',
+            'firstKey' => 'task_id',
+            'secondKey' => 'id',
+            'localKey' => 'id',
+            'secondLocalKey' => 'tag_id',
+        ],
+    ];
+
+    /**
+     * @var array<string, array<string, mixed>>
+     */
     protected array $circletHasMany = [
         'tasks' => [
             'comment' => 'The tasks of the %1$s.',
@@ -140,13 +156,6 @@ class Task extends Playground
             'comment' => 'The task logs of the %1$s.',
             'accessor' => 'taskLogs',
             'related' => 'TaskLog',
-            'foreignKey' => '',
-            'localKey' => 'id',
-        ],
-        'tags' => [
-            'comment' => 'The tags of the %1$s.',
-            'accessor' => 'tags',
-            'related' => 'Tag',
             'foreignKey' => '',
             'localKey' => 'id',
         ],
@@ -178,9 +187,41 @@ class Task extends Playground
             'type' => 'integer',
         ];
 
+        $this->columns['day_of_quarter'] = [
+            'description' => 'Contains a single day of the quarter: 1 - 92',
+            'label' => 'Day of Quarter',
+            'nullable' => true,
+            'unsigned' => true,
+            'type' => 'integer',
+        ];
+
         $this->columns['day_of_year'] = [
             'description' => 'Contains a single day of the year: 1 - 366',
             'label' => 'Day of Year',
+            'nullable' => true,
+            'unsigned' => true,
+            'type' => 'integer',
+        ];
+
+        $this->columns['week_of_month'] = [
+            'description' => 'Contains a single week of the month: 1 - 6',
+            'label' => 'Week of Month',
+            'nullable' => true,
+            'unsigned' => true,
+            'type' => 'integer',
+        ];
+
+        $this->columns['week_of_quarter'] = [
+            'description' => 'Contains a single week of the quarter: 1 - 13',
+            'label' => 'Week of Year',
+            'nullable' => true,
+            'unsigned' => true,
+            'type' => 'integer',
+        ];
+
+        $this->columns['week_of_year'] = [
+            'description' => 'Contains a single week of the year: 1 - 52',
+            'label' => 'Week of Year',
             'nullable' => true,
             'unsigned' => true,
             'type' => 'integer',
@@ -222,14 +263,58 @@ class Task extends Playground
 
     public function init(): void
     {
-        if ($this->name === 'Tagged') {
+        if ($this->type === 'playground-model-tagged') {
             $this->columns = Arr::only($this->columns, ['created_at']);
-            $this->userIds = Arr::only($this->userIds, ['owned_by_id']);
-            $this->ids = [];
+            $this->dates = Arr::only($this->dates, ['created_at']);
+            $this->userIds = Arr::only($this->userIds, ['created_by_id']);
+            $this->allIds = [
+                'tag_id' => [
+                    'description' => '',
+                    'foreign' => [
+                        'references' => 'id',
+                        'on' => 'task_tags',
+                    ],
+                    'index' => true,
+                    'nullable' => true,
+                    'type' => 'uuid',
+                ],
+                ...$this->allIds,
+            ];
+            $this->ids = [
+                'tag_id' => [
+                    'description' => '',
+                    'foreign' => [
+                        'references' => 'id',
+                        'on' => 'task_tags',
+                    ],
+                    'index' => true,
+                    'nullable' => true,
+                    'type' => 'uuid',
+                ],
+            ];
             $this->json = [];
-            $this->dates = [];
+            $this->circletHasOne = [
+                'creator' => [
+                    'comment' => 'The creator.',
+                    'accessor' => 'creator',
+                    'related' => 'User',
+                    'foreignKey' => 'id',
+                    'localKey' => 'created_by_id',
+                ],
+                'tag' => [
+                    'comment' => 'The tag.',
+                    'accessor' => 'tag',
+                    'related' => 'Tag',
+                    'foreignKey' => 'id',
+                    'localKey' => 'tag_id',
+                ],
+                ...$this->circletHasOne,
+            ];
+            $this->circletHasOne['task']['comment'] = 'The tagged task.';
+            $this->circletHasOne['taskList']['comment'] = 'The tagged task list.';
+            $this->circletHasOne['taskLog']['comment'] = 'The tagged task log.';
             $this->circletHasMany = [];
-            $this->circletHasOne = [];
+            $this->hasManyThrough = [];
             $this->allIds = Arr::except($this->allIds, ['parent_id', 'matrix_id']);
             $this->matrix = [];
             $this->flags = [];
@@ -239,7 +324,7 @@ class Task extends Playground
             $this->unique = [];
             $this->timestamp_deleted = '';
             $this->timestamp_updated = '';
-
+            $this->handleCircletHasOne();
             return;
         }
         $this->addColumns();
@@ -248,5 +333,11 @@ class Task extends Playground
         $this->addJson();
         $this->handleCircletHasOne();
         $this->handleCircletHasMany();
+        $this->handleHasManyThrough();
+        //dd($this);
+        //dump([
+        //    '__METHOD__' => __METHOD__,
+        //    '$this->hasManyThrough' => $this->hasManyThrough,
+        //]);
     }
 }

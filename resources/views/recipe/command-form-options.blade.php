@@ -131,7 +131,7 @@
                 <input
                     class="form-check-input"
                     type="checkbox"
-                    id="form-input-migrations"
+                    id="form-input-migration"
                     name="migration"
                     value="1"
                     {{ old("migration") ? "checked" : "" }}

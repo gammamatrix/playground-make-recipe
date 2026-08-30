@@ -1,6 +1,6 @@
 {
     "class": "Task",
-    "namespace": "App/Recipes",
+    "namespace": "App\/Recipes",
     "extends": "Playground",
     "extends_use": "",
     "slug": "task",
@@ -100,7 +100,7 @@
             "type": "flag",
             "value": true
         },
-        "skipped": {
+        "skip": {
             "state": "skip",
             "description": "",
             "type": "flag",

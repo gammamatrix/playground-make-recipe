@@ -20,6 +20,7 @@ class CookBook
     use BuildDates;
     use BuildFactoryStates;
     use BuildHasMany;
+    use BuildHasManyThrough;
     use BuildHasOne;
     use BuildIds;
     use BuildInit;
@@ -132,6 +133,7 @@ class CookBook
 
         $this->buildClass_circletHasOnes($recipe);
         $this->buildClass_circletHasManies($recipe);
+        $this->buildClass_hasManyThroughs($recipe);
         $this->buildClass_hasOnes($recipe);
         $this->buildClass_hasManies($recipe);
 

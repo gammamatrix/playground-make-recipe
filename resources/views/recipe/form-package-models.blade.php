@@ -67,7 +67,7 @@
                         </a>
                         <a
                             class="btn btn-info"
-                            href="{{ route("playground.make.recipe.command", ["recipe_slug" => $recipe_slug, "model" => $className, "command" => "model", "type" => "playground-model"]) }}"
+                            href="{{ route("playground.make.recipe.command", ["recipe_slug" => $recipe_slug, "model" => $className, "command" => "model", "type" => $packageModel->type() ?: 'playground-model']) }}"
                         >
                             <i class="fas fa-edit"></i>
                             Command: Model
