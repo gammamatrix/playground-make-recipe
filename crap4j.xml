@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-08-29 17:08:32</timestamp>
+  <timestamp>2026-08-30 18:41:09</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>227</methodCount>
+    <methodCount>229</methodCount>
     <crapMethodCount>32</crapMethodCount>
     <crapLoad>462</crapLoad>
-    <totalCrap>10414</totalCrap>
-    <crapMethodPercent>14.1</crapMethodPercent>
+    <totalCrap>10428</totalCrap>
+    <crapMethodPercent>13.97</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -61,6 +61,28 @@
       <methodName>buildClass_hasMany</methodName>
       <methodSignature>buildClass_hasMany(string $accessor, string $comment, string $related, string $foreignKey, string $localKey): string</methodSignature>
       <fullMethod>buildClass_hasMany(string $accessor, string $comment, string $related, string $foreignKey, string $localKey): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildHasManyThrough</className>
+      <methodName>buildClass_hasManyThroughs</methodName>
+      <methodSignature>buildClass_hasManyThroughs(Recipe $recipe): void</methodSignature>
+      <fullMethod>buildClass_hasManyThroughs(Recipe $recipe): void</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildHasManyThrough</className>
+      <methodName>buildClass_hasManyThrough</methodName>
+      <methodSignature>buildClass_hasManyThrough(string $accessor, string $comment, string $related, string $firstKey, string $secondKey, string $localKey, string $secondLocalKey, string $through): string</methodSignature>
+      <fullMethod>buildClass_hasManyThrough(string $accessor, string $comment, string $related, string $firstKey, string $secondKey, string $localKey, string $secondLocalKey, string $through): string</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
