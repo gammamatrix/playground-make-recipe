@@ -327,10 +327,19 @@ class Task extends Playground
             $this->handleCircletHasOne();
             return;
         }
-        $this->addColumns();
-        $this->addDates();
-        $this->addFlags();
-        $this->addJson();
+
+        if ($this->name === 'Tag') {
+            $this->allIds = Arr::only($this->allIds, ['parent_id', 'matrix_id']);
+            $this->circletHasOne = [];
+            $this->circletHasMany = [];
+            $this->hasManyThrough = [];
+        } else {
+            $this->addColumns();
+            $this->addDates();
+            $this->addFlags();
+            $this->addJson();
+        }
+
         $this->handleCircletHasOne();
         $this->handleCircletHasMany();
         $this->handleHasManyThrough();
