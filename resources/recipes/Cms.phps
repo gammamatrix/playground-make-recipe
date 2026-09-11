@@ -13,62 +13,17 @@ namespace Playground\Make\Model\Recipe;
  */
 class Cms extends Playground
 {
-    protected array $dates = [
-        'canceled_at' => [
-            'nullable' => true,
-            'index' => false,
+    /**
+     * @var array<string, array<string, mixed>>
+     */
+    protected array $factoryStates = [
+        'locked' => [
+            'type' => 'flag',
+            'value' => true,
         ],
-        'closed_at' => [
-            'nullable' => true,
-            'index' => true,
-        ],
-        'embargo_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'fixed_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'planned_end_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'planned_start_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'postponed_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'published_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'released_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'resumed_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'resolved_at' => [
-            'nullable' => true,
-            'index' => true,
-        ],
-        'suspended_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'timer_end_at' => [
-            'nullable' => true,
-            'index' => true,
-        ],
-        'timer_start_at' => [
-            'nullable' => true,
-            'index' => true,
+        'published' => [
+            'type' => 'flag',
+            'value' => true,
         ],
     ];
 
@@ -99,7 +54,10 @@ class Cms extends Playground
         ],
     ];
 
-    protected array $ids = [
+    /**
+     * @var array<string, array<string, mixed>>
+     */
+    protected array $allIds = [
         'parent_id' => [
             'description' => '',
             'foreign' => [
@@ -143,48 +101,20 @@ class Cms extends Playground
         ],
     ];
 
-    protected array $factoryStates = [
-        'locked' => [
-            'type' => 'flag',
-            'value' => true,
-        ],
-        'published' => [
-            'type' => 'flag',
-            'value' => true,
-        ],
-    ];
+    public function addDates(): void
+    {
+        $this->dates['fixed_at'] = [
+            'label' => 'Fixed at',
+            'nullable' => true,
+        ];
 
-    protected array $json = [
-        'assets' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-        'meta' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-        'notes' => [
-            'comment' => 'Array of note objects',
-            'default' => '[]',
-            'nullable' => true,
-            'type' => 'JSON_ARRAY',
-        ],
-        'options' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-        'sources' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-    ];
+        ksort($this->dates);
+    }
 
     public function init(): void
     {
+        $this->addDates();
+        $this->handleHasOne();
         $this->withRevisions();
         $this->withRouting();
     }

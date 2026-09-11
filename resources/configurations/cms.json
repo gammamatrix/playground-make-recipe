@@ -1,5 +1,6 @@
 {
     "class": "Cms",
+    "namespace": "",
     "extends": "Playground",
     "extends_use": "",
     "slug": "cms",
@@ -215,7 +216,7 @@
             "description": "",
             "recipe": "",
             "table": "",
-            "type": "",
+            "type": "playground-model",
             "playground": true,
             "revision": false,
             "HasOne": [],
@@ -224,7 +225,12 @@
             "dates": [],
             "factoryStates": [],
             "flags": [],
-            "flavors": [],
+            "flavors": [
+                "parent",
+                "playground",
+                "revision",
+                "routing"
+            ],
             "json": []
         },
         "PageRevision": {
@@ -246,7 +252,7 @@
             "description": "",
             "recipe": "",
             "table": "",
-            "type": "",
+            "type": "playground-model",
             "playground": true,
             "revision": true,
             "HasOne": [],
@@ -255,7 +261,12 @@
             "dates": [],
             "factoryStates": [],
             "flags": [],
-            "flavors": [],
+            "flavors": [
+                "parent",
+                "playground",
+                "revision",
+                "routing"
+            ],
             "json": []
         },
         "Snippet": {
@@ -277,7 +288,7 @@
             "description": "",
             "recipe": "",
             "table": "",
-            "type": "",
+            "type": "playground-model",
             "playground": true,
             "revision": false,
             "HasOne": [],
@@ -286,7 +297,12 @@
             "dates": [],
             "factoryStates": [],
             "flags": [],
-            "flavors": [],
+            "flavors": [
+                "parent",
+                "playground",
+                "revision",
+                "routing"
+            ],
             "json": []
         },
         "SnippetRevision": {
@@ -308,7 +324,7 @@
             "description": "",
             "recipe": "",
             "table": "",
-            "type": "",
+            "type": "playground-model",
             "playground": true,
             "revision": true,
             "HasOne": [],
@@ -317,7 +333,12 @@
             "dates": [],
             "factoryStates": [],
             "flags": [],
-            "flavors": [],
+            "flavors": [
+                "parent",
+                "playground",
+                "revision",
+                "routing"
+            ],
             "json": []
         }
     },
