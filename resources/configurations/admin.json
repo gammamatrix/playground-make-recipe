@@ -216,6 +216,8 @@
     "models": [],
     "packageModels": {
         "Setting": {
+            "migration_date": "",
+            "migration_order": "",
             "model": "Setting",
             "model_fqdn": "",
             "model_column": "",

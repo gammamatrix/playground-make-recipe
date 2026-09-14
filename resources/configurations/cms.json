@@ -264,7 +264,6 @@
             "flavors": [
                 "parent",
                 "playground",
-                "revision",
                 "routing"
             ],
             "json": []
@@ -336,7 +335,6 @@
             "flavors": [
                 "parent",
                 "playground",
-                "revision",
                 "routing"
             ],
             "json": []

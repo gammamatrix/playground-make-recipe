@@ -302,7 +302,7 @@
             "recipe": "",
             "table": "",
             "type": "playground-model-tagged",
-            "playground": false,
+            "playground": true,
             "revision": false,
             "HasOne": [],
             "HasMany": [],
