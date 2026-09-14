@@ -1,5 +1,6 @@
 {
     "class": "Matrix",
+    "namespace": "",
     "extends": "Playground",
     "extends_use": "",
     "slug": "matrix",

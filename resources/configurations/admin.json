@@ -1,5 +1,6 @@
 {
     "class": "Admin",
+    "namespace": "",
     "extends": "Playground",
     "extends_use": "",
     "slug": "admin",

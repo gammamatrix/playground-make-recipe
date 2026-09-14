@@ -1,5 +1,6 @@
 {
     "class": "Taxonomy",
+    "namespace": "",
     "extends": "Playground",
     "extends_use": "",
     "slug": "taxonomy",

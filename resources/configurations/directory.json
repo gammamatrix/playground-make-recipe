@@ -1,5 +1,6 @@
 {
     "class": "Directory",
+    "namespace": "",
     "extends": "Playground",
     "extends_use": "",
     "slug": "directory",
