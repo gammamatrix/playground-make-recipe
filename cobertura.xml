@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.029937444146559" branch-rate="0" lines-covered="67" lines-valid="2238" branches-covered="0" branches-valid="0" complexity="863" version="0.4" timestamp="1789230364">
+<coverage line-rate="0.03000447828034" branch-rate="0" lines-covered="67" lines-valid="2233" branches-covered="0" branches-valid="0" complexity="863" version="0.4" timestamp="1789410152">
   <sources>
     <source>/app/src</source>
   </sources>
@@ -1471,25 +1471,25 @@
         </class>
       </classes>
     </package>
-    <package name="Building/BuildRouting.php" line-rate="0" branch-rate="0" complexity="9">
+    <package name="Building/BuildRouting.php" line-rate="0" branch-rate="0" complexity="8">
       <classes>
-        <class name="Playground\Make\Recipe\Building\BuildRouting" filename="Building/BuildRouting.php" line-rate="0" branch-rate="0" complexity="9">
+        <class name="Playground\Make\Recipe\Building\BuildRouting" filename="Building/BuildRouting.php" line-rate="0" branch-rate="0" complexity="8">
           <methods>
             <method name="buildClass_routing" signature="Recipe $recipe" line-rate="0" branch-rate="0" complexity="4">
               <lines>
                 <line number="21" hits="0"/>
                 <line number="22" hits="0"/>
-                <line number="25" hits="0"/>
-                <line number="27" hits="0"/>
+                <line number="24" hits="0"/>
+                <line number="26" hits="0"/>
                 <line number="28" hits="0"/>
                 <line number="29" hits="0"/>
-                <line number="33" hits="0"/>
-                <line number="35" hits="0"/>
+                <line number="30" hits="0"/>
+                <line number="34" hits="0"/>
+                <line number="36" hits="0"/>
               </lines>
             </method>
-            <method name="buildClass_withRouting_method" signature="array $models" line-rate="0" branch-rate="0" complexity="5">
+            <method name="buildClass_withRouting_method" signature="array $models" line-rate="0" branch-rate="0" complexity="4">
               <lines>
-                <line number="43" hits="0"/>
                 <line number="44" hits="0"/>
                 <line number="45" hits="0"/>
                 <line number="46" hits="0"/>
@@ -1499,29 +1499,23 @@
                 <line number="50" hits="0"/>
                 <line number="51" hits="0"/>
                 <line number="52" hits="0"/>
-                <line number="53" hits="0"/>
-                <line number="54" hits="0"/>
-                <line number="55" hits="0"/>
                 <line number="56" hits="0"/>
-                <line number="57" hits="0"/>
                 <line number="58" hits="0"/>
                 <line number="63" hits="0"/>
-                <line number="65" hits="0"/>
-                <line number="70" hits="0"/>
-                <line number="120" hits="0"/>
+                <line number="113" hits="0"/>
               </lines>
             </method>
           </methods>
           <lines>
             <line number="21" hits="0"/>
             <line number="22" hits="0"/>
-            <line number="25" hits="0"/>
-            <line number="27" hits="0"/>
+            <line number="24" hits="0"/>
+            <line number="26" hits="0"/>
             <line number="28" hits="0"/>
             <line number="29" hits="0"/>
-            <line number="33" hits="0"/>
-            <line number="35" hits="0"/>
-            <line number="43" hits="0"/>
+            <line number="30" hits="0"/>
+            <line number="34" hits="0"/>
+            <line number="36" hits="0"/>
             <line number="44" hits="0"/>
             <line number="45" hits="0"/>
             <line number="46" hits="0"/>
@@ -1531,23 +1525,17 @@
             <line number="50" hits="0"/>
             <line number="51" hits="0"/>
             <line number="52" hits="0"/>
-            <line number="53" hits="0"/>
-            <line number="54" hits="0"/>
-            <line number="55" hits="0"/>
             <line number="56" hits="0"/>
-            <line number="57" hits="0"/>
             <line number="58" hits="0"/>
             <line number="63" hits="0"/>
-            <line number="65" hits="0"/>
-            <line number="70" hits="0"/>
-            <line number="120" hits="0"/>
+            <line number="113" hits="0"/>
           </lines>
         </class>
       </classes>
     </package>
-    <package name="Building/CookBook.php" line-rate="0" branch-rate="0" complexity="15">
+    <package name="Building/CookBook.php" line-rate="0" branch-rate="0" complexity="16">
       <classes>
-        <class name="Playground\Make\Recipe\Building\CookBook" filename="Building/CookBook.php" line-rate="0" branch-rate="0" complexity="15">
+        <class name="Playground\Make\Recipe\Building\CookBook" filename="Building/CookBook.php" line-rate="0" branch-rate="0" complexity="16">
           <methods>
             <method name="getStub" signature="" line-rate="0" branch-rate="0" complexity="1">
               <lines>
@@ -1583,7 +1571,7 @@
                 <line number="97" hits="0"/>
               </lines>
             </method>
-            <method name="mix" signature="Recipe $recipe" line-rate="0" branch-rate="0" complexity="5">
+            <method name="mix" signature="Recipe $recipe" line-rate="0" branch-rate="0" complexity="6">
               <lines>
                 <line number="103" hits="0"/>
                 <line number="104" hits="0"/>
@@ -1596,24 +1584,25 @@
                 <line number="115" hits="0"/>
                 <line number="116" hits="0"/>
                 <line number="117" hits="0"/>
+                <line number="119" hits="0"/>
               </lines>
             </method>
             <method name="bake" signature="Recipe $recipe, string $path" line-rate="0" branch-rate="0" complexity="1">
               <lines>
-                <line number="124" hits="0"/>
-                <line number="128" hits="0"/>
+                <line number="126" hits="0"/>
                 <line number="130" hits="0"/>
                 <line number="132" hits="0"/>
                 <line number="134" hits="0"/>
-                <line number="135" hits="0"/>
                 <line number="136" hits="0"/>
                 <line number="137" hits="0"/>
                 <line number="138" hits="0"/>
+                <line number="139" hits="0"/>
                 <line number="140" hits="0"/>
                 <line number="142" hits="0"/>
                 <line number="144" hits="0"/>
                 <line number="146" hits="0"/>
                 <line number="148" hits="0"/>
+                <line number="150" hits="0"/>
               </lines>
             </method>
           </methods>
@@ -1647,20 +1636,21 @@
             <line number="115" hits="0"/>
             <line number="116" hits="0"/>
             <line number="117" hits="0"/>
-            <line number="124" hits="0"/>
-            <line number="128" hits="0"/>
+            <line number="119" hits="0"/>
+            <line number="126" hits="0"/>
             <line number="130" hits="0"/>
             <line number="132" hits="0"/>
             <line number="134" hits="0"/>
-            <line number="135" hits="0"/>
             <line number="136" hits="0"/>
             <line number="137" hits="0"/>
             <line number="138" hits="0"/>
+            <line number="139" hits="0"/>
             <line number="140" hits="0"/>
             <line number="142" hits="0"/>
             <line number="144" hits="0"/>
             <line number="146" hits="0"/>
             <line number="148" hits="0"/>
+            <line number="150" hits="0"/>
           </lines>
         </class>
       </classes>

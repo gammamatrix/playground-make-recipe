@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-09-12 16:26:04</timestamp>
+  <timestamp>2026-09-14 18:22:32</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>229</methodCount>
     <crapMethodCount>32</crapMethodCount>
     <crapLoad>462</crapLoad>
-    <totalCrap>10428</totalCrap>
+    <totalCrap>10430</totalCrap>
     <crapMethodPercent>13.97</crapMethodPercent>
   </stats>
   <methods>
@@ -380,8 +380,8 @@
       <methodName>buildClass_withRouting_method</methodName>
       <methodSignature>buildClass_withRouting_method(array $models): string</methodSignature>
       <fullMethod>buildClass_withRouting_method(array $models): string</fullMethod>
-      <crap>30</crap>
-      <complexity>5</complexity>
+      <crap>20</crap>
+      <complexity>4</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -435,8 +435,8 @@
       <methodName>mix</methodName>
       <methodSignature>mix(Recipe $recipe): void</methodSignature>
       <fullMethod>mix(Recipe $recipe): void</fullMethod>
-      <crap>30</crap>
-      <complexity>5</complexity>
+      <crap>42</crap>
+      <complexity>6</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
