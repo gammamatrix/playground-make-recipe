@@ -299,8 +299,7 @@
             "flavors": [
                 "parent",
                 "playground",
-                "revision",
-                "routing"
+                "revision"
             ],
             "json": []
         },
@@ -334,8 +333,7 @@
             "flags": [],
             "flavors": [
                 "parent",
-                "playground",
-                "routing"
+                "playground"
             ],
             "json": []
         }

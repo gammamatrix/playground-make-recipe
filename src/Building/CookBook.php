@@ -113,7 +113,9 @@ class CookBook
 
         if ($recipe->extends()) {
             $this->searches['extends'] = $recipe->extends();
-            if ($recipe->extends() === 'Playground') {
+            if ($recipe->extends() === 'Playground'
+                && ! in_array($recipe->namespace(), ['', 'Playground\Make\Model\Recipe'])
+            ) {
                 $this->searches['use'] = sprintf('%2$suse %1$s;%2$s', Playground::class, PHP_EOL);
             }
         }
@@ -146,13 +148,13 @@ class CookBook
         $this->mix($recipe);
 
         $this->replace($destination);
-        //        dd([
-        //            '__METHOD__' => __METHOD__,
-        //            '$recipe' => $recipe,
-        //            '$path' => $path,
-        //            '$destination' => $destination,
-        //            '$this->searches' => $this->searches,
-        //            '$this->getStub()' => $this->getStub(),
-        //        ]);
+        // dd([
+        //    '__METHOD__' => __METHOD__,
+        //    '$recipe' => $recipe,
+        //    '$path' => $path,
+        //    '$destination' => $destination,
+        //    '$this->searches' => $this->searches,
+        //    '$this->getStub()' => $this->getStub(),
+        // ]);
     }
 }

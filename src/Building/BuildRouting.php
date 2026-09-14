@@ -21,6 +21,7 @@ trait BuildRouting
         if (! in_array('routing', $recipe->flavors())) {
             return;
         }
+        $this->searches['withRouting'] = '';
 
         $models = [];
 
@@ -49,14 +50,6 @@ trait BuildRouting
                     $model,
                     PHP_EOL
                 );
-                if (in_array('revision', $packageModel->flavors())) {
-                    $code .= sprintf(
-                        '%1$s\'%2$sRevision\',%3$s',
-                        str_repeat(' ', 12),
-                        $model,
-                        PHP_EOL
-                    );
-                }
             }
         }
 

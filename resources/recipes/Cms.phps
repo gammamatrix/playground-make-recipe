@@ -16,47 +16,6 @@ class Cms extends Playground
     /**
      * @var array<string, array<string, mixed>>
      */
-    protected array $factoryStates = [
-        'locked' => [
-            'type' => 'flag',
-            'value' => true,
-        ],
-        'published' => [
-            'type' => 'flag',
-            'value' => true,
-        ],
-    ];
-
-    protected array $hasMany = [
-        'revisions' => [
-            'comment' => 'The revisions of the model.',
-            'accessor' => 'revisions',
-            'related' => '',
-            'foreignKey' => '',
-            'localKey' => 'id',
-        ],
-    ];
-
-    protected array $hasOne = [
-        'page' => [
-            'comment' => 'The page of the revision.',
-            'accessor' => 'page',
-            'related' => 'Page',
-            'foreignKey' => 'id',
-            'localKey' => 'page_id',
-        ],
-        'snippet' => [
-            'comment' => 'The snippet of the revision.',
-            'accessor' => 'snippet',
-            'related' => 'Snippet',
-            'foreignKey' => 'id',
-            'localKey' => 'snippet_id',
-        ],
-    ];
-
-    /**
-     * @var array<string, array<string, mixed>>
-     */
     protected array $allIds = [
         'parent_id' => [
             'description' => '',
@@ -98,6 +57,47 @@ class Cms extends Playground
             'index' => true,
             'nullable' => true,
             'type' => 'uuid',
+        ],
+    ];
+
+    /**
+     * @var array<string, array<string, mixed>>
+     */
+    protected array $factoryStates = [
+        'locked' => [
+            'type' => 'flag',
+            'value' => true,
+        ],
+        'published' => [
+            'type' => 'flag',
+            'value' => true,
+        ],
+    ];
+
+    protected array $hasMany = [
+        'revisions' => [
+            'comment' => 'The revisions of the model.',
+            'accessor' => 'revisions',
+            'related' => '',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+    ];
+
+    protected array $hasOne = [
+        'page' => [
+            'comment' => 'The page of the revision.',
+            'accessor' => 'page',
+            'related' => 'Page',
+            'foreignKey' => 'id',
+            'localKey' => 'page_id',
+        ],
+        'snippet' => [
+            'comment' => 'The snippet of the revision.',
+            'accessor' => 'snippet',
+            'related' => 'Snippet',
+            'foreignKey' => 'id',
+            'localKey' => 'snippet_id',
         ],
     ];
 
