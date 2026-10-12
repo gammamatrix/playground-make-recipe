@@ -16,24 +16,6 @@ class Lead extends Playground
     /**
      * @var array<string, array<string, mixed>>
      */
-    protected array $factoryStates = [
-        'locked' => [
-            'type' => 'flag',
-            'value' => true,
-        ],
-        'featured' => [
-            'type' => 'flag',
-            'value' => true,
-        ],
-        'special' => [
-            'type' => 'flag',
-            'value' => true,
-        ],
-    ];
-
-    /**
-     * @var array<string, array<string, mixed>>
-     */
     protected array $allIds = [
         'parent_id' => [
             'description' => '',
@@ -166,6 +148,44 @@ class Lead extends Playground
             'nullable' => true,
             'type' => 'uuid',
         ],
+        'tagged_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'lead_tagged',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+        'tag_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'lead_tags',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+    ];
+
+    /**
+     * @var array<string, array<string, mixed>>
+     */
+    protected array $factoryStates = [
+        'locked' => [
+            'type' => 'flag',
+            'value' => true,
+        ],
+        'featured' => [
+            'type' => 'flag',
+            'value' => true,
+        ],
+        'special' => [
+            'type' => 'flag',
+            'value' => true,
+        ],
     ];
 
     /**
@@ -251,6 +271,89 @@ class Lead extends Playground
         ],
     ];
 
+    /**
+     * @var array<string, array<string, mixed>>
+     */
+    protected array $circletHasMany = [
+        'campaigns' => [
+            'comment' => 'The campaigns of the %1$s.',
+            'accessor' => 'campaigns',
+            'related' => 'Campaign',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'goals' => [
+            'comment' => 'The goals of the %1$s.',
+            'accessor' => 'goals',
+            'related' => 'Goal',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'leads' => [
+            'comment' => 'The leads of the %1$s.',
+            'accessor' => 'leads',
+            'related' => 'Lead',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'opportunities' => [
+            'comment' => 'The opportunities of the %1$s.',
+            'accessor' => 'opportunities',
+            'related' => 'Opportunity',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'plans' => [
+            'comment' => 'The plans of the %1$s.',
+            'accessor' => 'plans',
+            'related' => 'Plan',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'regions' => [
+            'comment' => 'The regions of the %1$s.',
+            'accessor' => 'regions',
+            'related' => 'Region',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'reports' => [
+            'comment' => 'The reports of the %1$s.',
+            'accessor' => 'reports',
+            'related' => 'Report',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'sources' => [
+            'comment' => 'The sources of the %1$s.',
+            'accessor' => 'sources',
+            'related' => 'Source',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'tasks' => [
+            'comment' => 'The tasks of the %1$s.',
+            'accessor' => 'tasks',
+            'related' => 'Task',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'teams' => [
+            'comment' => 'The teams of the %1$s.',
+            'accessor' => 'teams',
+            'related' => 'Team',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'teammates' => [
+            'comment' => 'The teammates of the %1$s.',
+            'accessor' => 'teammates',
+            'related' => 'Teammate',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+    ];
+
     public function addColumns(): void
     {
         $this->columns['email'] = [
@@ -280,6 +383,7 @@ class Lead extends Playground
         $this->columns['amount'] = [
             'label' => 'Amount',
             'precision' => 19,
+            'scale' => 4,
             'nullable' => true,
             'type' => 'decimal',
         ];
@@ -287,6 +391,7 @@ class Lead extends Playground
         $this->columns['bonus'] = [
             'label' => 'Bonus',
             'precision' => 19,
+            'scale' => 4,
             'nullable' => true,
             'type' => 'decimal',
         ];
@@ -298,6 +403,7 @@ class Lead extends Playground
             ),
             'label' => 'Bonus rate',
             'precision' => 8,
+            'scale' => 4,
             'nullable' => true,
             'type' => 'decimal',
         ];
@@ -305,6 +411,7 @@ class Lead extends Playground
         $this->columns['commission'] = [
             'label' => 'Commission',
             'precision' => 19,
+            'scale' => 4,
             'nullable' => true,
             'type' => 'decimal',
         ];
@@ -316,6 +423,7 @@ class Lead extends Playground
             ),
             'label' => 'Commission rate',
             'precision' => 8,
+            'scale' => 4,
             'nullable' => true,
             'type' => 'decimal',
         ];
@@ -323,6 +431,7 @@ class Lead extends Playground
         $this->columns['estimate'] = [
             'label' => 'Estimate',
             'precision' => 19,
+            'scale' => 4,
             'nullable' => true,
             'type' => 'decimal',
         ];
@@ -330,6 +439,7 @@ class Lead extends Playground
         $this->columns['fees'] = [
             'label' => 'Fees',
             'precision' => 19,
+            'scale' => 4,
             'nullable' => true,
             'type' => 'decimal',
         ];
@@ -337,6 +447,7 @@ class Lead extends Playground
         $this->columns['materials'] = [
             'label' => 'Materials',
             'precision' => 19,
+            'scale' => 4,
             'nullable' => true,
             'type' => 'decimal',
         ];
@@ -344,6 +455,7 @@ class Lead extends Playground
         $this->columns['services'] = [
             'label' => 'Services',
             'precision' => 19,
+            'scale' => 4,
             'nullable' => true,
             'type' => 'decimal',
         ];
@@ -351,6 +463,7 @@ class Lead extends Playground
         $this->columns['shipping'] = [
             'label' => 'Shipping',
             'precision' => 19,
+            'scale' => 4,
             'nullable' => true,
             'type' => 'decimal',
         ];
@@ -358,6 +471,7 @@ class Lead extends Playground
         $this->columns['subtotal'] = [
             'label' => 'Subtotal',
             'precision' => 19,
+            'scale' => 4,
             'nullable' => true,
             'type' => 'decimal',
         ];
@@ -365,6 +479,7 @@ class Lead extends Playground
         $this->columns['taxable'] = [
             'label' => 'Taxable',
             'precision' => 19,
+            'scale' => 4,
             'nullable' => true,
             'type' => 'decimal',
         ];
@@ -372,6 +487,7 @@ class Lead extends Playground
         $this->columns['tax_rate'] = [
             'label' => 'Tax rate',
             'precision' => 8,
+            'scale' => 4,
             'nullable' => true,
             'type' => 'decimal',
         ];
@@ -379,6 +495,7 @@ class Lead extends Playground
         $this->columns['taxes'] = [
             'label' => 'Taxes',
             'precision' => 19,
+            'scale' => 4,
             'nullable' => true,
             'type' => 'decimal',
         ];
@@ -386,6 +503,7 @@ class Lead extends Playground
         $this->columns['total'] = [
             'label' => 'Total',
             'precision' => 19,
+            'scale' => 4,
             'nullable' => true,
             'type' => 'decimal',
         ];
@@ -407,6 +525,7 @@ class Lead extends Playground
             'icon' => 'fa-solid fa-star text-primary',
             'default' => false,
             'label' => 'Featured',
+            'index' => true,
             'type' => 'boolean',
         ];
 
@@ -433,14 +552,14 @@ class Lead extends Playground
     {
         $this->json['address'] = [
             'label' => 'Address',
-            'default' => '{}',
+            'default' => null,
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ];
 
         $this->json['contact'] = [
             'label' => 'Contact',
-            'default' => '{}',
+            'default' => null,
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ];
@@ -453,5 +572,6 @@ class Lead extends Playground
         $this->addFlags();
         $this->addJson();
         $this->handleCircletHasOne();
+        $this->handleCircletHasMany();
     }
 }

@@ -110,6 +110,26 @@ class Workout extends Playground
             'nullable' => true,
             'type' => 'uuid',
         ],
+        'tag_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'workout_tags',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+        'tagged_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'workout_tagged',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
     ];
 
     /**
@@ -187,6 +207,13 @@ class Workout extends Playground
             'foreignKey' => 'id',
             'localKey' => 'equipment_id',
         ],
+        'tag' => [
+            'comment' => 'The tag of the %1$s.',
+            'accessor' => 'tag',
+            'related' => 'Tag',
+            'foreignKey' => 'id',
+            'localKey' => 'tag_id',
+        ],
     ];
 
     /**
@@ -239,6 +266,13 @@ class Workout extends Playground
             'comment' => 'The equipments of the %1$s.',
             'accessor' => 'equipments',
             'related' => 'Equipment',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+        'tags' => [
+            'comment' => 'The tags of the %1$s.',
+            'accessor' => 'tags',
+            'related' => 'Tag',
             'foreignKey' => '',
             'localKey' => 'id',
         ],

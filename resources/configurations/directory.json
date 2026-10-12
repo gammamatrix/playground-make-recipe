@@ -184,7 +184,8 @@
     "flavors": [
         "parent",
         "playground",
-        "revision"
+        "revision",
+        "tags"
     ],
     "json": {
         "address": {
@@ -271,7 +272,8 @@
             "flavors": [
                 "parent",
                 "playground",
-                "revision"
+                "revision",
+                "tags"
             ],
             "json": []
         },
@@ -340,7 +342,8 @@
             "flavors": [
                 "parent",
                 "playground",
-                "revision"
+                "revision",
+                "tags"
             ],
             "json": []
         },
@@ -375,6 +378,74 @@
             "flavors": [
                 "parent",
                 "playground"
+            ],
+            "json": []
+        },
+        "Tag": {
+            "migration_date": "2024_07_31",
+            "migration_order": "000000",
+            "model": "Tag",
+            "model_fqdn": "",
+            "model_column": "",
+            "model_label": "",
+            "model_attribute": "",
+            "model_plural": "tags",
+            "model_revision": "",
+            "model_singular": "tag",
+            "model_slug": "tag",
+            "model_slug_plural": "tags",
+            "name": "",
+            "namespace": "",
+            "organization": "",
+            "description": "",
+            "recipe": "",
+            "table": "",
+            "type": "playground-model",
+            "playground": true,
+            "revision": false,
+            "HasOne": [],
+            "HasMany": [],
+            "columns": [],
+            "dates": [],
+            "factoryStates": [],
+            "flags": [],
+            "flavors": [
+                "parent",
+                "playground"
+            ],
+            "json": []
+        },
+        "Tagged": {
+            "migration_date": "2024_07_31",
+            "migration_order": "000000",
+            "model": "Tagged",
+            "model_fqdn": "",
+            "model_column": "",
+            "model_label": "",
+            "model_attribute": "",
+            "model_plural": "tagged",
+            "model_revision": "",
+            "model_singular": "tagged",
+            "model_slug": "tagged",
+            "model_slug_plural": "tagged",
+            "name": "",
+            "namespace": "",
+            "organization": "",
+            "description": "",
+            "recipe": "",
+            "table": "",
+            "type": "playground-model",
+            "playground": true,
+            "revision": false,
+            "HasOne": [],
+            "HasMany": [],
+            "columns": [],
+            "dates": [],
+            "factoryStates": [],
+            "flags": [],
+            "flavors": [
+                "playground",
+                "tags"
             ],
             "json": []
         }
