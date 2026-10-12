@@ -7,7 +7,40 @@
     "description": "The recipe for the directory management system packages.",
     "title": "Directory",
     "name": "",
-    "columns": [],
+    "columns": {
+        "email": {
+            "column": "email",
+            "default": null,
+            "description": "",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": false,
+            "label": "Email",
+            "nullable": true,
+            "precision": null,
+            "readOnly": false,
+            "scale": null,
+            "size": null,
+            "type": "string"
+        },
+        "phone": {
+            "column": "phone",
+            "default": null,
+            "description": "",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": false,
+            "label": "Phone",
+            "nullable": true,
+            "precision": null,
+            "readOnly": false,
+            "scale": null,
+            "size": null,
+            "type": "string"
+        }
+    },
     "dates": {
         "canceled_at": {
             "column": "canceled_at",
@@ -127,17 +160,32 @@
             "state": "locked",
             "description": "",
             "type": "flag",
-            "value": false
+            "value": true
         },
         "published": {
             "state": "published",
             "description": "",
             "type": "flag",
-            "value": false
+            "value": true
         }
     },
-    "flags": [],
-    "flavors": [],
+    "flags": {
+        "sitemap": {
+            "column": "sitemap",
+            "default": false,
+            "description": "",
+            "icon": "fa-solid fa-sitemap text-success",
+            "index": false,
+            "label": "Sitemap",
+            "nullable": false,
+            "readOnly": false
+        }
+    },
+    "flavors": [
+        "parent",
+        "playground",
+        "revision"
+    ],
     "json": {
         "address": {
             "column": "address",
@@ -211,7 +259,7 @@
             "description": "",
             "recipe": "",
             "table": "",
-            "type": "",
+            "type": "playground-model",
             "playground": true,
             "revision": false,
             "HasOne": [],
@@ -246,7 +294,7 @@
             "description": "",
             "recipe": "",
             "table": "",
-            "type": "",
+            "type": "playground-model",
             "playground": true,
             "revision": true,
             "HasOne": [],
@@ -257,31 +305,30 @@
             "flags": [],
             "flavors": [
                 "parent",
-                "playground",
-                "revision"
+                "playground"
             ],
             "json": []
         },
-        "Sublocation": {
+        "Contact": {
             "migration_date": "2024_07_31",
-            "migration_order": "000000",
-            "model": "Sublocation",
+            "migration_order": "100001",
+            "model": "Contact",
             "model_fqdn": "",
             "model_column": "",
             "model_label": "",
             "model_attribute": "",
-            "model_plural": "sublocations",
-            "model_revision": "SublocationRevision",
-            "model_singular": "sublocation",
-            "model_slug": "sublocation",
-            "model_slug_plural": "sublocations",
+            "model_plural": "contact",
+            "model_revision": "ContactRevision",
+            "model_singular": "contact",
+            "model_slug": "contacts",
+            "model_slug_plural": "contacts",
             "name": "",
             "namespace": "",
             "organization": "",
             "description": "",
             "recipe": "",
             "table": "",
-            "type": "",
+            "type": "playground-model",
             "playground": true,
             "revision": false,
             "HasOne": [],
@@ -297,26 +344,26 @@
             ],
             "json": []
         },
-        "SublocationRevision": {
+        "ContactRevision": {
             "migration_date": "2024_07_31",
-            "migration_order": "000000",
-            "model": "SublocationRevision",
+            "migration_order": "100001",
+            "model": "ContactRevision",
             "model_fqdn": "",
             "model_column": "",
             "model_label": "",
             "model_attribute": "",
-            "model_plural": "sublocation revisions",
+            "model_plural": "contact revision",
             "model_revision": "",
-            "model_singular": "sublocation revision",
-            "model_slug": "sublocation-revision",
-            "model_slug_plural": "sublocation-revisions",
+            "model_singular": "contact revision",
+            "model_slug": "contact-revision",
+            "model_slug_plural": "contact-revisions",
             "name": "",
             "namespace": "",
             "organization": "",
             "description": "",
             "recipe": "",
             "table": "",
-            "type": "",
+            "type": "playground-model",
             "playground": true,
             "revision": true,
             "HasOne": [],
@@ -327,8 +374,7 @@
             "flags": [],
             "flavors": [
                 "parent",
-                "playground",
-                "revision"
+                "playground"
             ],
             "json": []
         }

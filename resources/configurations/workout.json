@@ -58,16 +58,50 @@
             "unsigned": false
         }
     },
-    "dates": [],
-    "factoryStates": [],
+    "dates": {
+        "skipped_at": {
+            "column": "skipped_at",
+            "description": "",
+            "label": "Skipped at",
+            "index": false,
+            "nullable": false,
+            "readOnly": false
+        }
+    },
+    "factoryStates": {
+        "skipped": {
+            "state": "skipped",
+            "description": "",
+            "type": "flag",
+            "value": true
+        },
+        "resumed": {
+            "state": "resumed",
+            "description": "",
+            "type": "flag",
+            "value": true
+        },
+        "partial": {
+            "state": "partial",
+            "description": "",
+            "type": "flag",
+            "value": true
+        },
+        "locked": {
+            "state": "locked",
+            "description": "",
+            "type": "flag",
+            "value": true
+        }
+    },
     "flags": {
         "skip": {
-            "column": "skip",
+            "column": "skipped",
             "default": false,
             "description": "",
             "icon": "",
             "index": false,
-            "label": "Skip",
+            "label": "Skipped",
             "nullable": false,
             "readOnly": false
         },

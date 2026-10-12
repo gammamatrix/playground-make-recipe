@@ -6,134 +6,210 @@
 
 declare(strict_types=1);
 
-namespace Playground\Make\Models;
+namespace Playground\Make\Model\Recipe;
 
 /**
- * \Playground\Make\Models\Recipe\Directory
+ * \Playground\Make\Model\Recipe\Directory
  */
 class Directory extends Playground
 {
-
-    protected array $dates = [
-        'canceled_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'closed_at' => [
-            'nullable' => true,
+    /**
+     * @var array<string, array<string, mixed>>
+     */
+    protected array $allIds = [
+        'parent_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => null,
+            ],
             'index' => true,
-        ],
-        'embargo_at' => [
             'nullable' => true,
-            'index' => false,
+            'trait' => 'WithParent',
+            'type' => 'uuid',
         ],
-        'fixed_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'planned_end_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'planned_start_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'postponed_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'published_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'released_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'resolved_at' => [
-            'nullable' => true,
+        'matrix_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'matrix_matrices',
+            ],
             'index' => true,
-        ],
-        'resumed_at' => [
             'nullable' => true,
-            'index' => false,
+            'type' => 'uuid',
         ],
-        'suspended_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'timer_end_at' => [
-            'nullable' => true,
-            'index' => true,
-        ],
-        'timer_start_at' => [
-            'nullable' => true,
-            'index' => true,
-        ],
-    ];
-
-    protected array $ids = [
         'location_id' => [
             'description' => '',
             'foreign' => [
                 'references' => 'id',
                 'on' => 'directory_locations',
             ],
-            'nullable' => true,
             'index' => true,
+            'nullable' => true,
             'type' => 'uuid',
         ],
-        'sublocation_id' => [
+        'contact_id' => [
             'description' => '',
             'foreign' => [
                 'references' => 'id',
-                'on' => 'directory_sublocations',
+                'on' => 'directory_contact',
             ],
-            'nullable' => true,
             'index' => true,
+            'nullable' => true,
             'type' => 'uuid',
         ],
     ];
 
+    /**
+     * @var array<string, array<string, mixed>>
+     */
     protected array $factoryStates = [
         'locked' => [
             'type' => 'flag',
-            'value' => false,
+            'value' => true,
         ],
         'published' => [
             'type' => 'flag',
-            'value' => false,
+            'value' => true,
         ],
     ];
 
-    protected array $json = [
-        'address' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
+    protected array $hasMany = [
+        'revisions' => [
+            'comment' => 'The revisions of the model.',
+            'accessor' => 'revisions',
+            'related' => '',
+            'foreignKey' => '',
+            'localKey' => 'id',
         ],
-        'assets' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
+    ];
+
+    protected array $hasOne = [
+        'location' => [
+            'comment' => 'The location of the revision.',
+            'accessor' => 'location',
+            'related' => 'Location',
+            'foreignKey' => 'id',
+            'localKey' => 'location_id',
         ],
         'contact' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-        'meta' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-        'notes' => [
-            'comment' => 'Array of note objects',
-            'default' => '[]',
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
+            'comment' => 'The contact of the revision.',
+            'accessor' => 'contact',
+            'related' => 'Contact',
+            'foreignKey' => 'id',
+            'localKey' => 'contact_id',
         ],
     ];
 
+    public function addColumns(): void
+    {
+        $this->columns['email'] = [
+            'label' => 'Email',
+            'nullable' => true,
+            'type' => 'string',
+        ];
+
+        $this->columns['phone'] = [
+            'label' => 'Phone',
+            'nullable' => true,
+            'type' => 'string',
+        ];
+    }
+
+    public function addDates(): void
+    {
+        $this->dates['fixed_at'] = [
+            'label' => 'Fixed at',
+            'nullable' => true,
+        ];
+
+        ksort($this->dates);
+    }
+
+    public function addFlags(): void
+    {
+        $this->flags['sitemap'] = [
+            'icon' => 'fa-solid fa-sitemap text-success',
+            'default' => false,
+            'label' => 'Sitemap',
+            'type' => 'boolean',
+        ];
+
+        ksort($this->flags);
+    }
+
+    public function addJson(): void
+    {
+        $this->json['address'] = [
+            'label' => 'Address',
+            'default' => null,
+            'nullable' => true,
+            'type' => 'JSON_OBJECT',
+        ];
+
+        $this->json['contact'] = [
+            'label' => 'Contact',
+            'default' => null,
+            'nullable' => true,
+            'type' => 'JSON_OBJECT',
+        ];
+    }
+
+    public function init(): void
+    {
+        $this->addColumns();
+        $this->addDates();
+        $this->addFlags();
+        $this->addJson();
+        $this->handleHasOne();
+        $this->withRevisions();
+    }
+
+    public function withRevisions(): void
+    {
+        $this->status['revision'] = [
+            'type' => 'bigInteger',
+            'default' => false,
+            'unsigned' => true,
+            'readOnly' => true,
+            'icon' => '',
+        ];
+
+        if (! in_array($this->name(), [
+            'Location',
+            'Contact',
+        ])) {
+            unset($this->hasMany['revisions']);
+        }
+
+        if (in_array($this->name(), [
+            'Location',
+        ])) {
+            $this->hasMany['revisions']['comment'] = 'The revisions of the location.';
+            $this->hasMany['revisions']['related'] = 'LocationRevision';
+            $this->hasMany['revisions']['foreignKey'] = 'location_id';
+        }
+
+        if (! in_array($this->name(), [
+            'LocationRevision',
+        ])) {
+            unset($this->ids['location_id']);
+            unset($this->hasOne['location']);
+        }
+
+        if (in_array($this->name(), [
+            'Contact',
+        ])) {
+            $this->hasMany['revisions']['comment'] = 'The revisions of the contact.';
+            $this->hasMany['revisions']['related'] = 'ContactRevision';
+            $this->hasMany['revisions']['foreignKey'] = 'contact_id';
+        }
+
+        if (! in_array($this->name(), [
+            'ContactRevision',
+        ])) {
+            unset($this->ids['contact_id']);
+            unset($this->hasOne['contact']);
+        }
+    }
 }

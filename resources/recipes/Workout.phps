@@ -115,6 +115,28 @@ class Workout extends Playground
     /**
      * @var array<string, array<string, mixed>>
      */
+    protected array $factoryStates = [
+        'skipped' => [
+            'type' => 'flag',
+            'value' => true,
+        ],
+        'resumed' => [
+            'type' => 'flag',
+            'value' => true,
+        ],
+        'partial' => [
+            'type' => 'flag',
+            'value' => true,
+        ],
+        'locked' => [
+            'type' => 'flag',
+            'value' => true,
+        ],
+    ];
+
+    /**
+     * @var array<string, array<string, mixed>>
+     */
     protected array $circletHasOne = [
         'exercise' => [
             'comment' => 'The exercise of the %1$s.',
@@ -246,12 +268,21 @@ class Workout extends Playground
         ];
     }
 
+    public function addDates(): void
+    {
+        $this->dates['skipped_at'] = [
+            'label' => 'Skipped at',
+        ];
+
+        ksort($this->dates);
+    }
+
     public function addFlags(): void
     {
-        $this->flags['skip'] = [
+        $this->flags['skipped'] = [
             'icon' => '',
             'default' => false,
-            'label' => 'Skip',
+            'label' => 'Skipped',
             'type' => 'boolean',
         ];
 
@@ -275,6 +306,7 @@ class Workout extends Playground
     public function init(): void
     {
         $this->addColumns();
+        $this->addDates();
         $this->addFlags();
         $this->handleCircletHasOne();
         $this->handleCircletHasMany();
