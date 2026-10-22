@@ -19,24 +19,6 @@ class Task extends Playground
     /**
      * @var array<string, array<string, mixed>>
      */
-    protected array $factoryStates = [
-        'active' => [
-            'type' => 'flag',
-            'value' => true,
-        ],
-        'locked' => [
-            'type' => 'flag',
-            'value' => true,
-        ],
-        'skip' => [
-            'type' => 'flag',
-            'value' => true,
-        ],
-    ];
-
-    /**
-     * @var array<string, array<string, mixed>>
-     */
     protected array $allIds = [
         'parent_id' => [
             'description' => '',
@@ -89,6 +71,44 @@ class Task extends Playground
             'nullable' => true,
             'type' => 'uuid',
         ],
+        'tag_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'task_tags',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+        'tagged_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'task_tagged',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
+    ];
+
+    /**
+     * @var array<string, array<string, mixed>>
+     */
+    protected array $factoryStates = [
+        'active' => [
+            'type' => 'flag',
+            'value' => true,
+        ],
+        'locked' => [
+            'type' => 'flag',
+            'value' => true,
+        ],
+        'skip' => [
+            'type' => 'flag',
+            'value' => true,
+        ],
     ];
 
     /**
@@ -116,21 +136,12 @@ class Task extends Playground
             'foreignKey' => 'id',
             'localKey' => 'task_log_id',
         ],
-    ];
-
-    /**
-     * @var array<string, array<string, mixed>>
-     */
-    protected array $hasManyThrough = [
-        'tags' => [
-            'comment' => 'The tags of the %1$s.',
-            'accessor' => 'tags',
+        'tag' => [
+            'comment' => 'The tag.',
+            'accessor' => 'tag',
             'related' => 'Tag',
-            'through' => 'Tagged',
-            'firstKey' => 'task_id',
-            'secondKey' => 'id',
-            'localKey' => 'id',
-            'secondLocalKey' => 'tag_id',
+            'foreignKey' => 'id',
+            'localKey' => 'tag_id',
         ],
     ];
 
@@ -158,6 +169,29 @@ class Task extends Playground
             'related' => 'TaskLog',
             'foreignKey' => '',
             'localKey' => 'id',
+        ],
+        'tags' => [
+            'comment' => 'The tags of the %1$s.',
+            'accessor' => 'tags',
+            'related' => 'Tag',
+            'foreignKey' => '',
+            'localKey' => 'id',
+        ],
+    ];
+
+    /**
+     * @var array<string, array<string, mixed>>
+     */
+    protected array $hasManyThrough = [
+        'tags' => [
+            'comment' => 'The tags of the %1$s.',
+            'accessor' => 'tags',
+            'related' => 'Tag',
+            'through' => 'Tagged',
+            'firstKey' => 'task_id',
+            'secondKey' => 'id',
+            'localKey' => 'id',
+            'secondLocalKey' => 'tag_id',
         ],
     ];
 
@@ -263,67 +297,17 @@ class Task extends Playground
 
     public function init(): void
     {
+        /**
+         * @var array<string, array<string, mixed>> $allIds
+         */
+        $allIds = Arr::except($this->allIds, ['parent_id', 'matrix_id']);
+
         if ($this->type === 'playground-model-tagged') {
-            $this->columns = Arr::only($this->columns, ['created_at']);
-            $this->dates = Arr::only($this->dates, ['created_at']);
-            $this->userIds = Arr::only($this->userIds, ['created_by_id']);
-            $this->allIds = [
-                'tag_id' => [
-                    'description' => '',
-                    'foreign' => [
-                        'references' => 'id',
-                        'on' => 'task_tags',
-                    ],
-                    'index' => true,
-                    'nullable' => true,
-                    'type' => 'uuid',
-                ],
-                ...$this->allIds,
-            ];
-            $this->ids = [
-                'tag_id' => [
-                    'description' => '',
-                    'foreign' => [
-                        'references' => 'id',
-                        'on' => 'task_tags',
-                    ],
-                    'index' => true,
-                    'nullable' => true,
-                    'type' => 'uuid',
-                ],
-            ];
-            $this->json = [];
-            $this->circletHasOne = [
-                'creator' => [
-                    'comment' => 'The creator.',
-                    'accessor' => 'creator',
-                    'related' => 'User',
-                    'foreignKey' => 'id',
-                    'localKey' => 'created_by_id',
-                ],
-                'tag' => [
-                    'comment' => 'The tag.',
-                    'accessor' => 'tag',
-                    'related' => 'Tag',
-                    'foreignKey' => 'id',
-                    'localKey' => 'tag_id',
-                ],
-                ...$this->circletHasOne,
-            ];
             $this->circletHasOne['task']['comment'] = 'The tagged task.';
             $this->circletHasOne['taskList']['comment'] = 'The tagged task list.';
             $this->circletHasOne['taskLog']['comment'] = 'The tagged task log.';
-            $this->circletHasMany = [];
-            $this->hasManyThrough = [];
-            $this->allIds = Arr::except($this->allIds, ['parent_id', 'matrix_id']);
-            $this->matrix = [];
-            $this->flags = [];
-            $this->permissions = [];
-            $this->status = [];
-            $this->ui = [];
-            $this->unique = [];
-            $this->timestamp_deleted = '';
-            $this->timestamp_updated = '';
+            $this->allIds = $allIds;
+            $this->handleTagged();
             $this->handleCircletHasOne();
             return;
         }
@@ -334,6 +318,10 @@ class Task extends Playground
             $this->circletHasMany = [];
             $this->hasManyThrough = [];
         } else {
+            unset($this->allIds['tag_id']);
+            unset($this->allIds['tagged_id']);
+            unset($this->circletHasOne['tag']);
+            unset($this->circletHasMany['tags']);
             $this->addColumns();
             $this->addDates();
             $this->addFlags();
@@ -343,10 +331,10 @@ class Task extends Playground
         $this->handleCircletHasOne();
         $this->handleCircletHasMany();
         $this->handleHasManyThrough();
-        //dd($this);
-        //dump([
+        // dd($this);
+        // dump([
         //    '__METHOD__' => __METHOD__,
         //    '$this->hasManyThrough' => $this->hasManyThrough,
-        //]);
+        // ]);
     }
 }

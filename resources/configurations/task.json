@@ -85,6 +85,14 @@
             "index": false,
             "nullable": true,
             "readOnly": false
+        },
+        "skipped_at": {
+            "column": "skipped_at",
+            "description": "",
+            "label": "Skipped at",
+            "index": false,
+            "nullable": false,
+            "readOnly": false
         }
     },
     "factoryStates": {
@@ -101,7 +109,7 @@
             "value": true
         },
         "skip": {
-            "state": "skip",
+            "state": "skipped",
             "description": "",
             "type": "flag",
             "value": true
@@ -109,12 +117,12 @@
     },
     "flags": {
         "skip": {
-            "column": "skip",
+            "column": "skipped",
             "default": false,
             "description": "",
             "icon": "fa-solid fa-forward-step text-warning",
             "index": false,
-            "label": "Skip",
+            "label": "Skipped",
             "nullable": false,
             "readOnly": false
         }
@@ -290,11 +298,11 @@
             "model_column": "",
             "model_label": "",
             "model_attribute": "",
-            "model_plural": "Tagged",
+            "model_plural": "tagged",
             "model_revision": "",
-            "model_singular": "Tagged",
-            "model_slug": "Tagged",
-            "model_slug_plural": "Tagged",
+            "model_singular": "tagged",
+            "model_slug": "tagged",
+            "model_slug_plural": "tagged",
             "name": "",
             "namespace": "",
             "organization": "",
