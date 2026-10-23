@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-10-22 21:11:12</timestamp>
+  <timestamp>2026-10-23 04:15:34</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>229</methodCount>
+    <methodCount>231</methodCount>
     <crapMethodCount>32</crapMethodCount>
-    <crapLoad>462</crapLoad>
-    <totalCrap>10430</totalCrap>
-    <crapMethodPercent>13.97</crapMethodPercent>
+    <crapLoad>466</crapLoad>
+    <totalCrap>10658</totalCrap>
+    <crapMethodPercent>13.85</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -94,10 +94,10 @@
       <methodName>buildClass_circletHasOnes</methodName>
       <methodSignature>buildClass_circletHasOnes(Recipe $recipe): void</methodSignature>
       <fullMethod>buildClass_circletHasOnes(Recipe $recipe): void</fullMethod>
-      <crap>56</crap>
-      <complexity>7</complexity>
+      <crap>72</crap>
+      <complexity>8</complexity>
       <coverage>0</coverage>
-      <crapLoad>7</crapLoad>
+      <crapLoad>8</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Building</package>
@@ -171,10 +171,10 @@
       <methodName>buildClass_init</methodName>
       <methodSignature>buildClass_init(Recipe $recipe): void</methodSignature>
       <fullMethod>buildClass_init(Recipe $recipe): void</fullMethod>
-      <crap>90</crap>
-      <complexity>9</complexity>
+      <crap>110</crap>
+      <complexity>10</complexity>
       <coverage>0</coverage>
-      <crapLoad>9</crapLoad>
+      <crapLoad>10</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Building</package>
@@ -248,10 +248,10 @@
       <methodName>buildClass_init_addColumn</methodName>
       <methodSignature>buildClass_init_addColumn(Column $column): string</methodSignature>
       <fullMethod>buildClass_init_addColumn(Column $column): string</fullMethod>
-      <crap>342</crap>
-      <complexity>18</complexity>
+      <crap>380</crap>
+      <complexity>19</complexity>
       <coverage>0</coverage>
-      <crapLoad>18</crapLoad>
+      <crapLoad>19</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Building</package>
@@ -318,6 +318,28 @@
       <complexity>11</complexity>
       <coverage>0</coverage>
       <crapLoad>11</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildInit</className>
+      <methodName>buildClass_init_tag</methodName>
+      <methodSignature>buildClass_init_tag(Recipe $recipe): string</methodSignature>
+      <fullMethod>buildClass_init_tag(Recipe $recipe): string</fullMethod>
+      <crap>42</crap>
+      <complexity>6</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildInit</className>
+      <methodName>buildClass_init_tagged</methodName>
+      <methodSignature>buildClass_init_tagged(Recipe $recipe): string</methodSignature>
+      <fullMethod>buildClass_init_tagged(Recipe $recipe): string</fullMethod>
+      <crap>42</crap>
+      <complexity>6</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Building</package>
@@ -655,10 +677,10 @@
       <methodName>addColumns</methodName>
       <methodSignature>addColumns(array $columns): self</methodSignature>
       <fullMethod>addColumns(array $columns): self</fullMethod>
-      <crap>1190</crap>
-      <complexity>34</complexity>
+      <crap>1260</crap>
+      <complexity>35</complexity>
       <coverage>0</coverage>
-      <crapLoad>35</crapLoad>
+      <crapLoad>36</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Configuration\Concerns</package>
