@@ -18,12 +18,12 @@
             "index": false,
             "label": "",
             "nullable": true,
+            "unsigned": true,
             "precision": null,
             "readOnly": false,
             "scale": null,
             "size": null,
-            "type": "integer",
-            "unsigned": false
+            "type": "integer"
         },
         "day_of_week": {
             "column": "day_of_week",
@@ -35,12 +35,12 @@
             "index": false,
             "label": "Day of Week",
             "nullable": true,
+            "unsigned": true,
             "precision": null,
             "readOnly": false,
             "scale": null,
             "size": null,
-            "type": "integer",
-            "unsigned": false
+            "type": "integer"
         },
         "day_of_month": {
             "column": "day_of_month",
@@ -52,12 +52,29 @@
             "index": false,
             "label": "Day of Month",
             "nullable": true,
+            "unsigned": true,
             "precision": null,
             "readOnly": false,
             "scale": null,
             "size": null,
-            "type": "integer",
-            "unsigned": false
+            "type": "integer"
+        },
+        "day_of_quarter": {
+            "column": "day_of_quarter",
+            "default": null,
+            "description": "Contains a single day of the quarter: 1 - 92",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": false,
+            "label": "Day of Quarter",
+            "nullable": true,
+            "unsigned": true,
+            "precision": null,
+            "readOnly": false,
+            "scale": null,
+            "size": null,
+            "type": "integer"
         },
         "day_of_year": {
             "column": "day_of_year",
@@ -69,12 +86,63 @@
             "index": false,
             "label": "Day of Year",
             "nullable": true,
+            "unsigned": true,
             "precision": null,
             "readOnly": false,
             "scale": null,
             "size": null,
-            "type": "integer",
-            "unsigned": false
+            "type": "integer"
+        },
+        "week_of_month": {
+            "column": "week_of_month",
+            "default": null,
+            "description": "Contains a single week of the month: 1 - 6",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": false,
+            "label": "Week of Month",
+            "nullable": true,
+            "unsigned": true,
+            "precision": null,
+            "readOnly": false,
+            "scale": null,
+            "size": null,
+            "type": "integer"
+        },
+        "week_of_quarter": {
+            "column": "week_of_quarter",
+            "default": null,
+            "description": "Contains a single week of the quarter: 1 - 13",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": false,
+            "label": "Week of Quarter",
+            "nullable": true,
+            "unsigned": true,
+            "precision": null,
+            "readOnly": false,
+            "scale": null,
+            "size": null,
+            "type": "integer"
+        },
+        "week_of_year": {
+            "column": "week_of_year",
+            "default": null,
+            "description": "Contains a single week of the year: 1 - 52",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": false,
+            "label": "Week of Year",
+            "nullable": true,
+            "unsigned": true,
+            "precision": null,
+            "readOnly": false,
+            "scale": null,
+            "size": null,
+            "type": "integer"
         }
     },
     "dates": {
@@ -91,7 +159,7 @@
             "description": "",
             "label": "Skipped at",
             "index": false,
-            "nullable": false,
+            "nullable": true,
             "readOnly": false
         }
     },
@@ -108,7 +176,7 @@
             "type": "flag",
             "value": true
         },
-        "skip": {
+        "skipped": {
             "state": "skipped",
             "description": "",
             "type": "flag",
@@ -116,7 +184,7 @@
         }
     },
     "flags": {
-        "skip": {
+        "skipped": {
             "column": "skipped",
             "default": false,
             "description": "",
@@ -149,7 +217,7 @@
     "packageModels": {
         "Task": {
             "migration_date": "2002_02_05",
-            "migration_order": "",
+            "migration_order": "000000",
             "model": "Task",
             "model_fqdn": "",
             "model_column": "",
@@ -185,7 +253,7 @@
         },
         "TaskList": {
             "migration_date": "2002_02_05",
-            "migration_order": "",
+            "migration_order": "000000",
             "model": "TaskList",
             "model_fqdn": "",
             "model_column": "",
@@ -221,7 +289,7 @@
         },
         "TaskLog": {
             "migration_date": "2002_02_05",
-            "migration_order": "",
+            "migration_order": "000000",
             "model": "TaskLog",
             "model_fqdn": "",
             "model_column": "",

@@ -62,6 +62,7 @@ class RecipeMakeCommand extends GeneratorCommand
         'package' => '',
         'config' => '',
         // 'docs_prefix' => '',
+        'HasManyThrough' => '',
     ];
 
     protected string $path_destination_folder = '';

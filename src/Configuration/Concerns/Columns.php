@@ -108,6 +108,9 @@ trait Columns
                 if (array_key_exists('nullable', $meta)) {
                     $payload['nullable'] = ! empty($meta['nullable']);
                 }
+                if (array_key_exists('unsigned', $meta)) {
+                    $payload['unsigned'] = ! empty($meta['unsigned']);
+                }
                 $this->addColumn($column_slug, new Column($payload));
             }
         }

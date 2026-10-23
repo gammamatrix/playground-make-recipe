@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace App\Recipes;
 
-use Illuminate\Support\Arr;
 use Playground\Make\Model\Recipe\Playground;
 
 /**
@@ -105,7 +104,7 @@ class Task extends Playground
             'type' => 'flag',
             'value' => true,
         ],
-        'skip' => [
+        'skipped' => [
             'type' => 'flag',
             'value' => true,
         ],
@@ -179,19 +178,16 @@ class Task extends Playground
         ],
     ];
 
-    /**
-     * @var array<string, array<string, mixed>>
-     */
     protected array $hasManyThrough = [
         'tags' => [
             'comment' => 'The tags of the %1$s.',
             'accessor' => 'tags',
             'related' => 'Tag',
-            'through' => 'Tagged',
             'firstKey' => 'task_id',
             'secondKey' => 'id',
             'localKey' => 'id',
             'secondLocalKey' => 'tag_id',
+            'through' => 'Tagged',
         ],
     ];
 
@@ -247,7 +243,7 @@ class Task extends Playground
 
         $this->columns['week_of_quarter'] = [
             'description' => 'Contains a single week of the quarter: 1 - 13',
-            'label' => 'Week of Year',
+            'label' => 'Week of Quarter',
             'nullable' => true,
             'unsigned' => true,
             'type' => 'integer',
@@ -269,15 +265,20 @@ class Task extends Playground
             'nullable' => true,
         ];
 
+        $this->dates['skipped_at'] = [
+            'label' => 'Skipped at',
+            'nullable' => true,
+        ];
+
         ksort($this->dates);
     }
 
     public function addFlags(): void
     {
-        $this->flags['skip'] = [
+        $this->flags['skipped'] = [
             'icon' => 'fa-solid fa-forward-step text-warning',
             'default' => false,
-            'label' => 'Skip',
+            'label' => 'Skipped',
             'type' => 'boolean',
         ];
 
@@ -300,41 +301,43 @@ class Task extends Playground
         /**
          * @var array<string, array<string, mixed>> $allIds
          */
-        $allIds = Arr::except($this->allIds, ['parent_id', 'matrix_id']);
+        $allIds = \Illuminate\Support\Arr::except($this->allIds, ['parent_id', 'matrix_id']);
 
-        if ($this->type === 'playground-model-tagged') {
+        if ($this->type === 'playground-model-tagged') { 
             $this->circletHasOne['task']['comment'] = 'The tagged task.';
             $this->circletHasOne['taskList']['comment'] = 'The tagged task list.';
             $this->circletHasOne['taskLog']['comment'] = 'The tagged task log.';
+            $this->circletHasOne['tag']['comment'] = 'The tagged tag.';
             $this->allIds = $allIds;
             $this->handleTagged();
             $this->handleCircletHasOne();
             return;
         }
 
+        /**
+         * @var array<string, array<string, mixed>> $allIds
+         */
+        $onlyIds = \Illuminate\Support\Arr::only($this->allIds, ['parent_id', 'matrix_id']);
+
         if ($this->name === 'Tag') {
-            $this->allIds = Arr::only($this->allIds, ['parent_id', 'matrix_id']);
+            $this->allIds = $onlyIds;
             $this->circletHasOne = [];
             $this->circletHasMany = [];
             $this->hasManyThrough = [];
-        } else {
-            unset($this->allIds['tag_id']);
-            unset($this->allIds['tagged_id']);
-            unset($this->circletHasOne['tag']);
-            unset($this->circletHasMany['tags']);
-            $this->addColumns();
-            $this->addDates();
-            $this->addFlags();
-            $this->addJson();
+            $this->handleCircletHasOne();
+            return;
         }
 
+        unset($this->allIds['tag_id']);
+        unset($this->allIds['tagged_id']);
+        unset($this->circletHasOne['tag']);
+        unset($this->circletHasMany['tags']);
+
+        $this->addColumns();
+        $this->addDates();
+        $this->addFlags();
+        $this->addJson();
         $this->handleCircletHasOne();
         $this->handleCircletHasMany();
-        $this->handleHasManyThrough();
-        // dd($this);
-        // dump([
-        //    '__METHOD__' => __METHOD__,
-        //    '$this->hasManyThrough' => $this->hasManyThrough,
-        // ]);
     }
 }

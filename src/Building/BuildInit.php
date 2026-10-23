@@ -28,6 +28,11 @@ trait BuildInit
 
         $code = '';
 
+        if (in_array('tags', $recipe->flavors())) {
+            $code .= $this->buildClass_init_tagged($recipe);
+            $code .= $this->buildClass_init_tag($recipe);
+        }
+
         $columns = $this->buildClass_init_addColumns($recipe);
 
         if (! empty($columns)) {
@@ -246,8 +251,10 @@ PHP_CODE;
             'smallInteger',
             'tinyInteger',
         ])) {
-            $code .= PHP_EOL.str_repeat(' ', 12);
-            $code .= sprintf('\'unsigned\' => %1$s,', 'true');
+            if ($column->unsigned()) {
+                $code .= PHP_EOL.str_repeat(' ', 12);
+                $code .= sprintf('\'unsigned\' => %1$s,', 'true');
+            }
         }
 
         $code .= PHP_EOL.str_repeat(' ', 12);
@@ -466,5 +473,99 @@ PHP_CODE;
         $code .= '];';
 
         return $code;
+    }
+
+    protected function buildClass_init_tag(Recipe $recipe): string
+    {
+        $onlyIds = [
+            'parent_id',
+            'matrix_id',
+        ];
+
+        $only = sprintf('\'%1$s\'', implode('\', \'', $onlyIds));
+
+        $circletHasOneComments = '';
+        foreach ($recipe->packageModels() as $model => $packageModel) {
+            // Do not add revision models
+            if ($packageModel->revision()) {
+                continue;
+            }
+            if (in_array('circlet', $packageModel->flavors(), true)) {
+                $circletHasOneComments .= PHP_EOL.str_repeat(' ', 12);
+                $circletHasOneComments .= sprintf(
+                    '$this->circletHasOne[\'%1$s\'][\'comment\'] = \'The tagged %2$s.\';',
+                    $packageModel->model_variable() ?: Str::of($model)->camel()->toString(),
+                    $packageModel->model_lower() ?: Str::of($model)->headline()->lower()->toString()
+                );
+            }
+        }
+
+        return <<<PHP_CODE
+        /**
+         * @var array<string, array<string, mixed>> \$onlyIds
+         */
+        \$onlyIds = \Illuminate\Support\Arr::only(\$this->allIds, [$only]);
+
+        if (\$this->name === 'Tag') {
+            \$this->allIds = \$onlyIds;
+            \$this->circletHasOne = [];
+            \$this->circletHasMany = [];
+            \$this->hasManyThrough = [];
+            \$this->handleCircletHasOne();
+            return;
+        }
+
+        \$this->hasManyThrough['tags']['firstKey'] = \$this->table_id;
+        \$this->hasManyThrough['tags']['comment'] = sprintf('The tags of the %1\$s.', \$this->name_lower());
+
+        unset(\$this->allIds['tag_id']);
+        unset(\$this->allIds['tagged_id']);
+        unset(\$this->circletHasOne['tag']);
+        unset(\$this->circletHasMany['tags']);
+
+
+PHP_CODE;
+    }
+
+    protected function buildClass_init_tagged(Recipe $recipe): string
+    {
+        $exceptIds = [
+            'parent_id',
+            'matrix_id',
+        ];
+
+        $except = sprintf('\'%1$s\'', implode('\', \'', $exceptIds));
+
+        $circletHasOneComments = '';
+        foreach ($recipe->packageModels() as $model => $packageModel) {
+            // Do not add revision models
+            if ($packageModel->revision()) {
+                continue;
+            }
+            if (in_array('circlet', $packageModel->flavors(), true)) {
+                $circletHasOneComments .= PHP_EOL.str_repeat(' ', 12);
+                $circletHasOneComments .= sprintf(
+                    '$this->circletHasOne[\'%1$s\'][\'comment\'] = \'The tagged %2$s.\';',
+                    $packageModel->model_variable() ?: Str::of($model)->camel()->toString(),
+                    $packageModel->model_lower() ?: Str::of($model)->headline()->lower()->toString()
+                );
+            }
+        }
+
+        return <<<PHP_CODE
+        /**
+         * @var array<string, array<string, mixed>> \$allIds
+         */
+        \$allIds = \Illuminate\Support\Arr::except(\$this->allIds, [$except]);
+
+        if (\$this->type === 'playground-model-tagged') { $circletHasOneComments
+            \$this->allIds = \$allIds;
+            \$this->handleTagged();
+            \$this->handleCircletHasOne();
+            return;
+        }
+
+
+PHP_CODE;
     }
 }

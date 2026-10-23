@@ -32,10 +32,18 @@ trait BuildHasOne
                 continue;
             }
             if (in_array('circlet', $packageModel->flavors(), true)) {
-                // dd($packageModel);
+
+                if (in_array($packageModel->model(), [
+                    'Tag',
+                ])) {
+                    $phrase = 'The %1$s.';
+                } else {
+                    $phrase = 'The %1$s of the %%1$s.';
+                }
+
                 $code .= $this->buildClass_hasOne(
                     $packageModel,
-                    sprintf('The %1$s of the %%1$s.', $packageModel->word())
+                    sprintf($phrase, $packageModel->word())
                 );
             }
         }

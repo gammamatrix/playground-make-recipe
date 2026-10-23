@@ -25,6 +25,7 @@ class SaveRequest extends FormRequest
         'icon' => ['nullable', 'string'],
         'index' => ['boolean'],
         'label' => ['nullable', 'string'],
+        'unsigned' => ['boolean'],
         'nullable' => ['boolean'],
         'precision' => ['nullable', 'integer', 'min:0', 'max:65'],
         'scale' => ['nullable', 'integer', 'min:0'],

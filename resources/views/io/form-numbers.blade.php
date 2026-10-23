@@ -2,6 +2,23 @@
     <legend>{{ __("Numbers") }}</legend>
     <div class="row">
         <div class="col">
+            <div class="form-check form-check-inline">
+                <input type="hidden" name="unsigned" value="0" />
+                <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="form-input-unsigned"
+                    name="unsigned"
+                    value="1"
+                    {{ old("unsigned") ? "checked" : "" }}
+                />
+                <label class="form-check-label" for="form-input-unsigned">
+                    <i class="fa-solid fa-minus text-warning"></i>
+                    {{ __("unsigned") }}
+                </label>
+            </div>
+        </div>
+        <div class="col">
             <x-playground::forms.column
                 column="precision"
                 label="Precision"

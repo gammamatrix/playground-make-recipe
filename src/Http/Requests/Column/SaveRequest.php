@@ -23,6 +23,7 @@ class SaveRequest extends FormRequest
         'index' => ['boolean'],
         'unique' => ['boolean'],
         'nullable' => ['boolean'],
+        'unsigned' => ['boolean'],
         'html' => ['boolean'],
         'hasDefault' => ['boolean'],
         'default' => ['nullable', 'string'],

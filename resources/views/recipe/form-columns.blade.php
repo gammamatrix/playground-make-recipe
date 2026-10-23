@@ -33,6 +33,19 @@
                     </td>
                     <td>
                         {{ $column->type() }}
+                        @if (
+
+                            in_array($column->type(), [
+                                "integer",
+                                "tinyInteger",
+                                "smallInteger",
+                                "mediumInteger",
+                                "bigInteger"
+                            ]) && $column->unsigned()                        )
+                            <br />
+                            <code>unsigned</code>
+                        @endif
+
                         @if (in_array($column->type(), ["float", "decimal"]))
                             <br />
                             scale:

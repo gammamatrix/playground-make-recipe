@@ -25,10 +25,16 @@ trait BuildHasManyThrough
 
         $code = PHP_EOL;
 
-        if (in_array('revision', $recipe->flavors(), true)) {
+        if (in_array('tags', $recipe->flavors(), true)) {
             $code .= $this->buildClass_hasManyThrough(
-                'revisions',
-                'The revisions of the model.'
+                'tags',
+                'The tags of the %1$s.',
+                'Tag',
+                'task_id',
+                'id',
+                'id',
+                'tag_id',
+                'Tagged',
             );
         } else {
             return;
