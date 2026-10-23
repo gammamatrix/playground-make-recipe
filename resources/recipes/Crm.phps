@@ -182,6 +182,22 @@ class Crm extends Playground
         ],
     ];
 
+    /**
+     * @var array<string, array<string, mixed>>
+     */
+    protected array $hasManyThrough = [
+        'tags' => [
+            'comment' => 'The tags of the %1$s.',
+            'accessor' => 'tags',
+            'related' => 'Tag',
+            'firstKey' => '',
+            'secondKey' => 'id',
+            'localKey' => 'id',
+            'secondLocalKey' => 'tag_id',
+            'through' => 'Tagged',
+        ],
+    ];
+
     public function addColumns(): void
     {
         $this->columns['email'] = [
@@ -246,6 +262,44 @@ class Crm extends Playground
 
     public function init(): void
     {
+        /**
+         * @var array<string, array<string, mixed>> $allIds
+         */
+        $allIds = \Illuminate\Support\Arr::except($this->allIds, ['parent_id', 'matrix_id']);
+
+        if ($this->type === 'playground-model-tagged') { 
+            $this->circletHasOne['client']['comment'] = 'The tagged client.';
+            $this->circletHasOne['contact']['comment'] = 'The tagged contact.';
+            $this->circletHasOne['location']['comment'] = 'The tagged location.';
+            $this->circletHasOne['organization']['comment'] = 'The tagged organization.';
+            $this->allIds = $allIds;
+            $this->handleTagged();
+            $this->handleCircletHasOne();
+            return;
+        }
+
+        /**
+         * @var array<string, array<string, mixed>> $onlyIds
+         */
+        $onlyIds = \Illuminate\Support\Arr::only($this->allIds, ['parent_id', 'matrix_id']);
+
+        if ($this->name === 'Tag') {
+            $this->allIds = $onlyIds;
+            $this->circletHasOne = [];
+            $this->circletHasMany = [];
+            $this->hasManyThrough = [];
+            $this->handleCircletHasOne();
+            return;
+        }
+
+        $this->hasManyThrough['tags']['firstKey'] = $this->table_id;
+        $this->hasManyThrough['tags']['comment'] = sprintf('The tags of the %1$s.', $this->name_lower());
+
+        unset($this->allIds['tag_id']);
+        unset($this->allIds['tagged_id']);
+        unset($this->circletHasOne['tag']);
+        unset($this->circletHasMany['tags']);
+
         $this->addColumns();
         $this->addDates();
         $this->addFlags();

@@ -178,12 +178,15 @@ class Task extends Playground
         ],
     ];
 
+    /**
+     * @var array<string, array<string, mixed>>
+     */
     protected array $hasManyThrough = [
         'tags' => [
             'comment' => 'The tags of the %1$s.',
             'accessor' => 'tags',
             'related' => 'Tag',
-            'firstKey' => 'task_id',
+            'firstKey' => '',
             'secondKey' => 'id',
             'localKey' => 'id',
             'secondLocalKey' => 'tag_id',

@@ -208,7 +208,7 @@ class Workout extends Playground
             'localKey' => 'equipment_id',
         ],
         'tag' => [
-            'comment' => 'The tag of the %1$s.',
+            'comment' => 'The tag.',
             'accessor' => 'tag',
             'related' => 'Tag',
             'foreignKey' => 'id',
@@ -278,12 +278,29 @@ class Workout extends Playground
         ],
     ];
 
+    /**
+     * @var array<string, array<string, mixed>>
+     */
+    protected array $hasManyThrough = [
+        'tags' => [
+            'comment' => 'The tags of the %1$s.',
+            'accessor' => 'tags',
+            'related' => 'Tag',
+            'firstKey' => '',
+            'secondKey' => 'id',
+            'localKey' => 'id',
+            'secondLocalKey' => 'tag_id',
+            'through' => 'Tagged',
+        ],
+    ];
+
     public function addColumns(): void
     {
         $this->columns['repetitions'] = [
             'label' => 'Repetitions',
             'nullable' => true,
-            'type' => 'string',
+            'unsigned' => true,
+            'type' => 'integer',
         ];
 
         $this->columns['weight'] = [
@@ -339,6 +356,48 @@ class Workout extends Playground
 
     public function init(): void
     {
+        /**
+         * @var array<string, array<string, mixed>> $allIds
+         */
+        $allIds = \Illuminate\Support\Arr::except($this->allIds, ['parent_id', 'matrix_id']);
+
+        if ($this->type === 'playground-model-tagged') { 
+            $this->circletHasOne['exercise']['comment'] = 'The tagged exercise.';
+            $this->circletHasOne['routine']['comment'] = 'The tagged routine.';
+            $this->circletHasOne['workout']['comment'] = 'The tagged workout.';
+            $this->circletHasOne['schedule']['comment'] = 'The tagged schedule.';
+            $this->circletHasOne['team']['comment'] = 'The tagged team.';
+            $this->circletHasOne['teammate']['comment'] = 'The tagged teammate.';
+            $this->circletHasOne['equipment']['comment'] = 'The tagged equipment.';
+            $this->circletHasOne['tag']['comment'] = 'The tagged tag.';
+            $this->allIds = $allIds;
+            $this->handleTagged();
+            $this->handleCircletHasOne();
+            return;
+        }
+
+        /**
+         * @var array<string, array<string, mixed>> $onlyIds
+         */
+        $onlyIds = \Illuminate\Support\Arr::only($this->allIds, ['parent_id', 'matrix_id']);
+
+        if ($this->name === 'Tag') {
+            $this->allIds = $onlyIds;
+            $this->circletHasOne = [];
+            $this->circletHasMany = [];
+            $this->hasManyThrough = [];
+            $this->handleCircletHasOne();
+            return;
+        }
+
+        $this->hasManyThrough['tags']['firstKey'] = $this->table_id;
+        $this->hasManyThrough['tags']['comment'] = sprintf('The tags of the %1$s.', $this->name_lower());
+
+        unset($this->allIds['tag_id']);
+        unset($this->allIds['tagged_id']);
+        unset($this->circletHasOne['tag']);
+        unset($this->circletHasMany['tags']);
+
         $this->addColumns();
         $this->addDates();
         $this->addFlags();

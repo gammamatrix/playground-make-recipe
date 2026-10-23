@@ -18,11 +18,12 @@
             "index": false,
             "label": "Repetitions",
             "nullable": true,
+            "unsigned": true,
             "precision": null,
             "readOnly": false,
             "scale": null,
             "size": null,
-            "type": "string"
+            "type": "integer"
         },
         "weight": {
             "column": "weight",
@@ -34,6 +35,7 @@
             "index": false,
             "label": "Weight",
             "nullable": true,
+            "unsigned": false,
             "precision": 19,
             "readOnly": false,
             "scale": 4,
@@ -50,12 +52,12 @@
             "index": false,
             "label": "Duration",
             "nullable": true,
+            "unsigned": true,
             "precision": null,
             "readOnly": false,
             "scale": null,
             "size": null,
-            "type": "integer",
-            "unsigned": false
+            "type": "integer"
         }
     },
     "dates": {

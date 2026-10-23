@@ -23,14 +23,14 @@ trait BuildHasManyThrough
             return;
         }
 
-        $code = PHP_EOL;
+        $code = '';
 
         if (in_array('tags', $recipe->flavors(), true)) {
             $code .= $this->buildClass_hasManyThrough(
                 'tags',
                 'The tags of the %1$s.',
                 'Tag',
-                'task_id',
+                '',
                 'id',
                 'id',
                 'tag_id',
@@ -40,15 +40,26 @@ trait BuildHasManyThrough
             return;
         }
 
-        $code .= str_repeat(' ', 4);
+        $this->searches['HasManyThrough'] = <<<PHP_CODE
 
-        $this->searches['HasManyThrough'] .= PHP_EOL;
+    /**
+     * @var array<string, array<string, mixed>>
+     */
+    protected array \$hasManyThrough = [
+$code
+    ];
 
-        $this->searches['HasManyThrough'] .= sprintf('    protected array $hasManyThrough = [%1$s];',
-            $code
-        );
+PHP_CODE;
 
-        $this->searches['HasManyThrough'] .= PHP_EOL;
+        //        $code .= str_repeat(' ', 4);
+        //
+        //        $this->searches['HasManyThrough'] .= PHP_EOL;
+        //
+        //        $this->searches['HasManyThrough'] .= sprintf('    protected array $hasManyThrough = [%1$s];',
+        //            $code
+        //        );
+        //
+        //        $this->searches['HasManyThrough'] .= PHP_EOL;
     }
 
     protected function buildClass_hasManyThrough(
@@ -91,8 +102,6 @@ trait BuildHasManyThrough
 
         $code .= PHP_EOL.str_repeat(' ', 8);
         $code .= '],';
-
-        $code .= PHP_EOL;
 
         return $code;
     }
