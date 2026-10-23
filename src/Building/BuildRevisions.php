@@ -40,14 +40,23 @@ trait BuildRevisions
 
         $this->searches['withRevisions'] .= PHP_EOL;
 
-        $this->searches['withRevisions'] .= $this->buildClass_withRevisions_method($models);
+        $this->searches['withRevisions'] .= $this->buildClass_withRevisions_method(
+            $models,
+            in_array('tags', $recipe->flavors())
+        );
     }
 
     /**
      * @param  array<string, PackageModel>  $models
      */
-    protected function buildClass_withRevisions_method(array $models): string
+    protected function buildClass_withRevisions_method(array $models, bool $withTags = false): string
     {
+        $unsetTags = '';
+
+        if ($withTags) {
+            $unsetTags = PHP_EOL.str_repeat(' ', 12).'unset($this->hasManyThrough[\'tags\']);';
+        }
+
         $codeForModel = '';
         $codeNoHasManyRevisions = '';
         foreach ($models as $model => $packageModel) {
@@ -81,7 +90,7 @@ trait BuildRevisions
         if (! in_array(\$this->name(), [
 $codeNoHasManyRevisions
         ])) {
-            unset(\$this->hasMany['revisions']);
+            unset(\$this->hasMany['revisions']);$unsetTags
         }
 $codeForModel
     }

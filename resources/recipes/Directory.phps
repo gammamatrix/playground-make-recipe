@@ -193,32 +193,28 @@ class Directory extends Playground
         /**
          * @var array<string, array<string, mixed>> $allIds
          */
-        $allIds = Arr::except($this->allIds, ['parent_id', 'matrix_id']);
+        $allIds = \Illuminate\Support\Arr::except($this->allIds, ['parent_id', 'matrix_id']);
 
-        if ($this->type === 'playground-model-tagged') {
-            $this->circletHasOne['contact']['comment'] = 'The tagged contact.';
-            $this->circletHasOne['location']['comment'] = 'The tagged location.';
+        if ($this->type === 'playground-model-tagged') { 
             $this->allIds = $allIds;
             unset($this->hasMany['revisions']);
             $this->handleTagged();
             $this->handleCircletHasOne();
-
             return;
         }
 
         /**
          * @var array<string, array<string, mixed>> $onlyIds
          */
-        $onlyIds = Arr::only($this->allIds, ['parent_id', 'matrix_id']);
+        $onlyIds = \Illuminate\Support\Arr::only($this->allIds, ['parent_id', 'matrix_id']);
 
         if ($this->name === 'Tag') {
             $this->allIds = $onlyIds;
+            unset($this->hasMany['revisions']);
             $this->circletHasOne = [];
             $this->circletHasMany = [];
             $this->hasManyThrough = [];
-            unset($this->hasMany['revisions']);
             $this->handleCircletHasOne();
-
             return;
         }
 

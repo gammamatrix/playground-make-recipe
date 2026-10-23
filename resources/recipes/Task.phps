@@ -315,7 +315,7 @@ class Task extends Playground
         }
 
         /**
-         * @var array<string, array<string, mixed>> $allIds
+         * @var array<string, array<string, mixed>> $onlyIds
          */
         $onlyIds = \Illuminate\Support\Arr::only($this->allIds, ['parent_id', 'matrix_id']);
 
@@ -327,6 +327,9 @@ class Task extends Playground
             $this->handleCircletHasOne();
             return;
         }
+
+        $this->hasManyThrough['tags']['firstKey'] = $this->table_id;
+        $this->hasManyThrough['tags']['comment'] = sprintf('The tags of the %1$s.', $this->name_lower());
 
         unset($this->allIds['tag_id']);
         unset($this->allIds['tagged_id']);

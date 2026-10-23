@@ -477,28 +477,18 @@ PHP_CODE;
 
     protected function buildClass_init_tag(Recipe $recipe): string
     {
+        $unset = '';
+
+        if (in_array('revision', $recipe->flavors(), true)) {
+            $unset = PHP_EOL.str_repeat(' ', 12).'unset($this->hasMany[\'revisions\']);';
+        }
+
         $onlyIds = [
             'parent_id',
             'matrix_id',
         ];
 
         $only = sprintf('\'%1$s\'', implode('\', \'', $onlyIds));
-
-        $circletHasOneComments = '';
-        foreach ($recipe->packageModels() as $model => $packageModel) {
-            // Do not add revision models
-            if ($packageModel->revision()) {
-                continue;
-            }
-            if (in_array('circlet', $packageModel->flavors(), true)) {
-                $circletHasOneComments .= PHP_EOL.str_repeat(' ', 12);
-                $circletHasOneComments .= sprintf(
-                    '$this->circletHasOne[\'%1$s\'][\'comment\'] = \'The tagged %2$s.\';',
-                    $packageModel->model_variable() ?: Str::of($model)->camel()->toString(),
-                    $packageModel->model_lower() ?: Str::of($model)->headline()->lower()->toString()
-                );
-            }
-        }
 
         return <<<PHP_CODE
         /**
@@ -507,7 +497,7 @@ PHP_CODE;
         \$onlyIds = \Illuminate\Support\Arr::only(\$this->allIds, [$only]);
 
         if (\$this->name === 'Tag') {
-            \$this->allIds = \$onlyIds;
+            \$this->allIds = \$onlyIds;$unset
             \$this->circletHasOne = [];
             \$this->circletHasMany = [];
             \$this->hasManyThrough = [];
@@ -529,6 +519,12 @@ PHP_CODE;
 
     protected function buildClass_init_tagged(Recipe $recipe): string
     {
+        $unset = '';
+
+        if (in_array('revision', $recipe->flavors(), true)) {
+            $unset = PHP_EOL.str_repeat(' ', 12).'unset($this->hasMany[\'revisions\']);';
+        }
+
         $exceptIds = [
             'parent_id',
             'matrix_id',
@@ -559,7 +555,7 @@ PHP_CODE;
         \$allIds = \Illuminate\Support\Arr::except(\$this->allIds, [$except]);
 
         if (\$this->type === 'playground-model-tagged') { $circletHasOneComments
-            \$this->allIds = \$allIds;
+            \$this->allIds = \$allIds;$unset
             \$this->handleTagged();
             \$this->handleCircletHasOne();
             return;
