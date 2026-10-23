@@ -436,7 +436,7 @@
             "description": "",
             "recipe": "",
             "table": "",
-            "type": "playground-model",
+            "type": "playground-model-tagged",
             "playground": true,
             "revision": false,
             "HasOne": [],

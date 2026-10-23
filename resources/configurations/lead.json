@@ -494,7 +494,7 @@
             "icon": "fa-solid fa-star text-success",
             "index": true,
             "label": "",
-            "nullable": true,
+            "nullable": false,
             "readOnly": false
         }
     },
@@ -982,7 +982,7 @@
             "description": "",
             "recipe": "",
             "table": "",
-            "type": "playground-model",
+            "type": "playground-model-tagged",
             "playground": true,
             "revision": false,
             "HasOne": [],

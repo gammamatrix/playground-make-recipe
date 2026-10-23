@@ -6,83 +6,36 @@
 
 declare(strict_types=1);
 
-namespace Playground\Make\Models;
+namespace Playground\Make\Model\Recipe;
 
 /**
- * \Playground\Make\Models\Recipe\Admin
+ * \Playground\Make\Model\Recipe\Admin
  */
 class Admin extends Playground
 {
-
-    protected array $dates = [
-        'canceled_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'closed_at' => [
-            'nullable' => true,
-            'index' => true,
-        ],
-        'embargo_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'fixed_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'planned_end_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'planned_start_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'postponed_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'published_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'released_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'resolved_at' => [
-            'nullable' => true,
-            'index' => true,
-        ],
-        'resumed_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'suspended_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'timer_end_at' => [
-            'nullable' => true,
-            'index' => true,
-        ],
-        'timer_start_at' => [
-            'nullable' => true,
-            'index' => true,
-        ],
-    ];
-
-    protected array $ids = [
+    /**
+     * @var array<string, array<string, mixed>>
+     */
+    protected array $allIds = [
         'parent_id' => [
             'description' => '',
             'foreign' => [
                 'references' => 'id',
                 'on' => null,
             ],
-            'nullable' => true,
             'index' => true,
+            'nullable' => true,
             'trait' => 'WithParent',
+            'type' => 'uuid',
+        ],
+        'matrix_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'matrix_matrices',
+            ],
+            'index' => true,
+            'nullable' => true,
             'type' => 'uuid',
         ],
         'setting_id' => [
@@ -91,12 +44,15 @@ class Admin extends Playground
                 'references' => 'id',
                 'on' => 'admin_settings',
             ],
-            'nullable' => true,
             'index' => true,
+            'nullable' => true,
             'type' => 'uuid',
         ],
     ];
 
+    /**
+     * @var array<string, array<string, mixed>>
+     */
     protected array $factoryStates = [
         'locked' => [
             'type' => 'flag',
@@ -108,52 +64,38 @@ class Admin extends Playground
         ],
     ];
 
-    protected array $json = [
-        'assets' => [
-            'default' => null,
+    public function addDates(): void
+    {
+        $this->dates['fixed_at'] = [
+            'label' => 'Fixed at',
             'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-        'meta' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-        'notes' => [
-            'comment' => 'Array of note objects',
-            'default' => '[]',
-            'nullable' => true,
-            'type' => 'JSON_ARRAY',
-        ],
-        'options' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-        'sources' => [
-            'default' => null,
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-    ];
+        ];
+
+        ksort($this->dates);
+    }
 
     public function addFlags(): void
     {
         $this->flags['encrypted'] = [
             'icon' => 'fa-solid fa-language',
             'default' => false,
+            'label' => 'Encrypted',
             'type' => 'boolean',
         ];
 
         $this->flags['secure'] = [
             'icon' => 'fa-solid fa-shield',
             'default' => false,
+            'label' => 'Secure',
             'type' => 'boolean',
         ];
+
+        ksort($this->flags);
     }
 
     public function init(): void
     {
+        $this->addDates();
         $this->addFlags();
     }
 }
