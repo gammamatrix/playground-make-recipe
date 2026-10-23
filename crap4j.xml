@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-10-23 04:15:34</timestamp>
+  <timestamp>2026-10-23 04:57:01</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>231</methodCount>
-    <crapMethodCount>32</crapMethodCount>
-    <crapLoad>466</crapLoad>
-    <totalCrap>10658</totalCrap>
-    <crapMethodPercent>13.85</crapMethodPercent>
+    <crapMethodCount>33</crapMethodCount>
+    <crapLoad>473</crapLoad>
+    <totalCrap>10646</totalCrap>
+    <crapMethodPercent>14.29</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -325,8 +325,8 @@
       <methodName>buildClass_init_tag</methodName>
       <methodSignature>buildClass_init_tag(Recipe $recipe): string</methodSignature>
       <fullMethod>buildClass_init_tag(Recipe $recipe): string</fullMethod>
-      <crap>42</crap>
-      <complexity>6</complexity>
+      <crap>6</crap>
+      <complexity>2</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -336,10 +336,10 @@
       <methodName>buildClass_init_tagged</methodName>
       <methodSignature>buildClass_init_tagged(Recipe $recipe): string</methodSignature>
       <fullMethod>buildClass_init_tagged(Recipe $recipe): string</fullMethod>
-      <crap>42</crap>
-      <complexity>6</complexity>
+      <crap>56</crap>
+      <complexity>7</complexity>
       <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
+      <crapLoad>7</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Building</package>
@@ -367,10 +367,10 @@
       <package>Playground\Make\Recipe\Building</package>
       <className>Playground\Make\Recipe\Building\BuildRevisions</className>
       <methodName>buildClass_withRevisions_method</methodName>
-      <methodSignature>buildClass_withRevisions_method(array $models): string</methodSignature>
-      <fullMethod>buildClass_withRevisions_method(array $models): string</fullMethod>
-      <crap>20</crap>
-      <complexity>4</complexity>
+      <methodSignature>buildClass_withRevisions_method(array $models, bool $withTags): string</methodSignature>
+      <fullMethod>buildClass_withRevisions_method(array $models, bool $withTags): string</fullMethod>
+      <crap>30</crap>
+      <complexity>5</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
