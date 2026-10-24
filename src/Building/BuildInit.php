@@ -502,6 +502,7 @@ PHP_CODE;
             \$this->circletHasMany = [];
             \$this->hasManyThrough = [];
             \$this->handleCircletHasOne();
+
             return;
         }
 
@@ -558,6 +559,7 @@ PHP_CODE;
             \$this->allIds = \$allIds;$unset
             \$this->handleTagged();
             \$this->handleCircletHasOne();
+
             return;
         }
 

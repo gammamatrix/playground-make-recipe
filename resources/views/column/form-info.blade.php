@@ -17,6 +17,15 @@
     @include("playground-make-recipe::io.form-content")
     @include("playground-make-recipe::io.form-numbers")
 
+    <div class="row">
+        <div class="col-md-6">
+            @include("playground-make-recipe::io.form-exclude")
+        </div>
+        <div class="col-md-6">
+            @include("playground-make-recipe::io.form-only")
+        </div>
+    </div>
+
     <fieldset class="mb-3">
         <div class="button-group float-end">
             <button type="submit" class="btn btn-primary">

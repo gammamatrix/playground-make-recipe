@@ -111,6 +111,29 @@ trait Columns
                 if (array_key_exists('unsigned', $meta)) {
                     $payload['unsigned'] = ! empty($meta['unsigned']);
                 }
+
+                if (! empty($meta['exclude'])
+                    && is_array($meta['exclude'])
+                ) {
+                    $payload['exclude'] = [];
+                    foreach ($meta['exclude'] as $modelClassName) {
+                        if (! empty($modelClassName) && is_string($modelClassName) && ! in_array($modelClassName, $payload['exclude'])) {
+                            $payload['exclude'][] = $modelClassName;
+                        }
+                    }
+                }
+
+                if (! empty($meta['only'])
+                    && is_array($meta['only'])
+                ) {
+                    $payload['only'] = [];
+                    foreach ($meta['only'] as $modelClassName) {
+                        if (! empty($modelClassName) && is_string($modelClassName) && ! in_array($modelClassName, $payload['only'])) {
+                            $payload['only'][] = $modelClassName;
+                        }
+                    }
+                }
+
                 $this->addColumn($column_slug, new Column($payload));
             }
         }

@@ -20,6 +20,7 @@
                 <th>Description</th>
                 <th>Nullable</th>
                 <th>Default</th>
+                <th>Exclusive</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -50,6 +51,17 @@
                     </td>
                     <td>
                         <code>{{ $json->default() }}</code>
+                    </td>
+                    <td>
+                        @if (! empty($json->exclude()))
+                            <strong>Exclude:</strong>
+                            {{ implode(", ", $json->exclude()) }}
+                        @endif
+
+                        @if (! empty($json->only()))
+                            <strong>Only:</strong>
+                            {{ implode(", ", $json->only()) }}
+                        @endif
                     </td>
                     <td>
                         <a

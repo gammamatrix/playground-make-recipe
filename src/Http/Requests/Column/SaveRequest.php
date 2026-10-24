@@ -30,6 +30,10 @@ class SaveRequest extends FormRequest
         'precision' => ['nullable', 'integer', 'min:1', 'max:65'],
         'scale' => ['nullable', 'integer', 'min:0', 'max:30'],
         'size' => ['nullable', 'integer', 'min:0'],
+        'exclude' => ['array'],
+        'exclude.*' => ['string', 'min:1', 'max:65', 'distinct'],
+        'only' => ['array'],
+        'only.*' => ['string', 'min:1', 'max:65', 'distinct'],
         '_return_url' => ['nullable', 'string'],
     ];
 
@@ -43,6 +47,14 @@ class SaveRequest extends FormRequest
 
         if ($this->has('label') && empty($this->input('label'))) {
             $merge['label'] = '';
+        }
+
+        if (! $this->has('exclude')) {
+            $merge['exclude'] = [];
+        }
+
+        if (! $this->has('only')) {
+            $merge['only'] = [];
         }
 
         if (! empty($merge)) {

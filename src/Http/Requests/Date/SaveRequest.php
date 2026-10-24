@@ -11,7 +11,7 @@ namespace Playground\Make\Recipe\Http\Requests\Date;
 use Playground\Make\Recipe\Http\Requests\FormRequest;
 
 /**
- * \Playground\Make\Recipe\Http\Requests\Date\FormRecipeRequest
+ * \Playground\Make\Recipe\Http\Requests\Date\SaveRequest
  */
 class SaveRequest extends FormRequest
 {
@@ -21,6 +21,10 @@ class SaveRequest extends FormRequest
         'label' => ['nullable', 'string'],
         'index' => ['boolean'],
         'nullable' => ['boolean'],
+        'exclude' => ['array'],
+        'exclude.*' => ['string', 'min:1', 'max:65', 'distinct'],
+        'only' => ['array'],
+        'only.*' => ['string', 'min:1', 'max:65', 'distinct'],
         '_return_url' => ['nullable', 'string'],
     ];
 
@@ -34,6 +38,14 @@ class SaveRequest extends FormRequest
 
         if ($this->has('label') && empty($this->input('label'))) {
             $merge['label'] = '';
+        }
+
+        if (! $this->has('exclude')) {
+            $merge['exclude'] = [];
+        }
+
+        if (! $this->has('only')) {
+            $merge['only'] = [];
         }
 
         if (! empty($merge)) {

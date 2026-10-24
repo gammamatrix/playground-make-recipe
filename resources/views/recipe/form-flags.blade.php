@@ -21,6 +21,7 @@
                 <th>Nullable</th>
                 <th>Read Only</th>
                 <th>Default</th>
+                <th>Exclusive</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -66,6 +67,17 @@
                     </td>
                     <td>
                         {{ json_encode($flag->default()) }}
+                    </td>
+                    <td>
+                        @if (! empty($flag->exclude()))
+                            <strong>Exclude:</strong>
+                            {{ implode(", ", $flag->exclude()) }}
+                        @endif
+
+                        @if (! empty($flag->only()))
+                            <strong>Only:</strong>
+                            {{ implode(", ", $flag->only()) }}
+                        @endif
                     </td>
                     <td>
                         <a

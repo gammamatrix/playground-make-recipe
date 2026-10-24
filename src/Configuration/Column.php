@@ -52,6 +52,16 @@ class Column extends PrimaryConfiguration
     protected bool $unsigned = false;
 
     /**
+     * @var string[]
+     */
+    protected array $exclude = [];
+
+    /**
+     * @var string[]
+     */
+    protected array $only = [];
+
+    /**
      * @var array{
      *     column: string,
      *     default: mixed,
@@ -68,6 +78,8 @@ class Column extends PrimaryConfiguration
      *     scale: int|null,
      *     size: int|null,
      *     type: string,
+     *     exclude: string[],
+     *     only: string[],
      * }
      */
     protected $properties = [
@@ -86,6 +98,8 @@ class Column extends PrimaryConfiguration
         'scale' => null,
         'size' => null,
         'type' => 'string',
+        'exclude' => [],
+        'only' => [],
     ];
 
     /**
@@ -249,6 +263,30 @@ class Column extends PrimaryConfiguration
             $this->description = $options['description'];
         }
 
+        if (array_key_exists('exclude', $options)) {
+            if (empty($options['exclude'])) {
+                $this->exclude = [];
+            } elseif (is_array($options['exclude'])) {
+                foreach ($options['exclude'] as $modelClassName) {
+                    if (! empty($modelClassName) && is_string($modelClassName) && ! in_array($modelClassName, $this->exclude)) {
+                        $this->exclude[] = $modelClassName;
+                    }
+                }
+            }
+        }
+
+        if (array_key_exists('only', $options)) {
+            if (empty($options['only'])) {
+                $this->only = [];
+            } elseif (is_array($options['only'])) {
+                foreach ($options['only'] as $modelClassName) {
+                    if (! empty($modelClassName) && is_string($modelClassName) && ! in_array($modelClassName, $this->only)) {
+                        $this->only[] = $modelClassName;
+                    }
+                }
+            }
+        }
+
         return $this;
     }
 
@@ -277,6 +315,14 @@ class Column extends PrimaryConfiguration
         return $this->default;
     }
 
+    /**
+     * @return string[]
+     */
+    public function exclude(): array
+    {
+        return $this->exclude;
+    }
+
     public function hasDefault(): bool
     {
         return $this->hasDefault;
@@ -300,6 +346,14 @@ class Column extends PrimaryConfiguration
     public function nullable(): bool
     {
         return $this->nullable;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function only(): array
+    {
+        return $this->only;
     }
 
     public function readOnly(): bool

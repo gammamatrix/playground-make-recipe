@@ -28,6 +28,16 @@ class Date extends PrimaryConfiguration
     protected bool $readOnly = false;
 
     /**
+     * @var string[]
+     */
+    protected array $exclude = [];
+
+    /**
+     * @var string[]
+     */
+    protected array $only = [];
+
+    /**
      * @var array{
      *     column: string,
      *     description: string,
@@ -35,6 +45,8 @@ class Date extends PrimaryConfiguration
      *     index: bool,
      *     nullable: bool,
      *     readOnly: bool,
+     *     exclude: string[],
+     *     only: string[],
      * }
      */
     protected $properties = [
@@ -44,6 +56,8 @@ class Date extends PrimaryConfiguration
         'index' => false,
         'nullable' => true,
         'readOnly' => false,
+        'exclude' => [],
+        'only' => [],
     ];
 
     /**
@@ -84,6 +98,30 @@ class Date extends PrimaryConfiguration
             $this->readOnly = ! empty($options['readOnly']);
         }
 
+        if (array_key_exists('exclude', $options)) {
+            if (empty($options['exclude'])) {
+                $this->exclude = [];
+            } elseif (is_array($options['exclude'])) {
+                foreach ($options['exclude'] as $modelClassName) {
+                    if (! empty($modelClassName) && is_string($modelClassName) && ! in_array($modelClassName, $this->exclude)) {
+                        $this->exclude[] = $modelClassName;
+                    }
+                }
+            }
+        }
+
+        if (array_key_exists('only', $options)) {
+            if (empty($options['only'])) {
+                $this->only = [];
+            } elseif (is_array($options['only'])) {
+                foreach ($options['only'] as $modelClassName) {
+                    if (! empty($modelClassName) && is_string($modelClassName) && ! in_array($modelClassName, $this->only)) {
+                        $this->only[] = $modelClassName;
+                    }
+                }
+            }
+        }
+
         return $this;
     }
 
@@ -95,6 +133,14 @@ class Date extends PrimaryConfiguration
     public function description(): string
     {
         return $this->description;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function exclude(): array
+    {
+        return $this->exclude;
     }
 
     public function label(): string
@@ -110,6 +156,14 @@ class Date extends PrimaryConfiguration
     public function nullable(): bool
     {
         return $this->nullable;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function only(): array
+    {
+        return $this->only;
     }
 
     public function readOnly(): bool

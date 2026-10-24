@@ -18,6 +18,7 @@
                 <th>Description</th>
                 <th>Index</th>
                 <th>Nullable</th>
+                <th>Exclusive</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -43,6 +44,17 @@
                             <i
                                 class="fa-solid fa-ban fa-rotate-90 text-warning"
                             ></i>
+                        @endif
+                    </td>
+                    <td>
+                        @if (! empty($date->exclude()))
+                            <strong>Exclude:</strong>
+                            {{ implode(", ", $date->exclude()) }}
+                        @endif
+
+                        @if (! empty($date->only()))
+                            <strong>Only:</strong>
+                            {{ implode(", ", $date->only()) }}
                         @endif
                     </td>
                     <td>

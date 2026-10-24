@@ -109,11 +109,11 @@ class DateController extends Controller
         $flash = $date->toArray();
 
         $flash['_return_url'] = $_return_url;
-        //         dd([
-        //            '__METHOD__' => __METHOD__,
-        //            '$flash' => $flash,
-        //            '$recipe' => $recipe,
-        //         ]);
+        //                 dd([
+        //                    '__METHOD__' => __METHOD__,
+        //                    '$flash' => $flash,
+        //                    '$recipe' => $recipe,
+        //                 ]);
         session()->flashInput($flash);
 
         $data = [
@@ -144,10 +144,12 @@ class DateController extends Controller
     ): RedirectResponse {
 
         $recipe = $manager->get($recipe_slug);
-        //        dd([
-        //            '__METHOD__' => __METHOD__,
-        //            '$recipe' => $recipe,
-        //        ]);
+        //                dump([
+        //                    '__METHOD__' => __METHOD__,
+        //                    '$request->input()' => $request->input(),
+        //                    '$request->validated()' => $request->validated(),
+        //                    '$recipe' => $recipe,
+        //                ]);
 
         if (empty($recipe)) {
             return response()->redirectToRoute('playground.make.recipe')->with(
@@ -187,11 +189,11 @@ class DateController extends Controller
         //    '$date' => $date,
         // ]);
         $date->apply();
-        // dd([
-        //    '__METHOD__' => __METHOD__,
-        //    '$validated' => $validated,
-        //    '$date' => $date,
-        // ]);
+        //         dd([
+        //            '__METHOD__' => __METHOD__,
+        //            '$validated' => $validated,
+        //            '$date' => $date,
+        //         ]);
 
         $recipe->addDate($column, $date);
 

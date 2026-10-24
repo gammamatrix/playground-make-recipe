@@ -24,6 +24,10 @@ class SaveRequest extends FormRequest
         'label' => ['nullable', 'string'],
         'nullable' => ['boolean'],
         'readOnly' => ['boolean'],
+        'exclude' => ['array'],
+        'exclude.*' => ['string', 'min:1', 'max:65', 'distinct'],
+        'only' => ['array'],
+        'only.*' => ['string', 'min:1', 'max:65', 'distinct'],
         '_return_url' => ['nullable', 'string'],
     ];
 
@@ -41,6 +45,14 @@ class SaveRequest extends FormRequest
 
         if ($this->has('label') && empty($this->input('label'))) {
             $merge['label'] = '';
+        }
+
+        if (! $this->has('exclude')) {
+            $merge['exclude'] = [];
+        }
+
+        if (! $this->has('only')) {
+            $merge['only'] = [];
         }
 
         if (! empty($merge)) {
