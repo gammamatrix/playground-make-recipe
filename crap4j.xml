@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-10-23 20:38:08</timestamp>
+  <timestamp>2026-10-24 16:49:29</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>231</methodCount>
-    <crapMethodCount>33</crapMethodCount>
-    <crapLoad>473</crapLoad>
-    <totalCrap>10646</totalCrap>
-    <crapMethodPercent>14.29</crapMethodPercent>
+    <methodCount>239</methodCount>
+    <crapMethodCount>36</crapMethodCount>
+    <crapLoad>606</crapLoad>
+    <totalCrap>16514</totalCrap>
+    <crapMethodPercent>15.06</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -490,10 +490,10 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>1190</crap>
-      <complexity>34</complexity>
+      <crap>2352</crap>
+      <complexity>48</complexity>
       <coverage>0</coverage>
-      <crapLoad>35</crapLoad>
+      <crapLoad>49</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Configuration</package>
@@ -553,6 +553,17 @@
     <method>
       <package>Playground\Make\Recipe\Configuration</package>
       <className>Playground\Make\Recipe\Configuration\Column</className>
+      <methodName>exclude</methodName>
+      <methodSignature>exclude(): array</methodSignature>
+      <fullMethod>exclude(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Column</className>
       <methodName>hasDefault</methodName>
       <methodSignature>hasDefault(): bool</methodSignature>
       <fullMethod>hasDefault(): bool</fullMethod>
@@ -600,6 +611,17 @@
       <methodName>nullable</methodName>
       <methodSignature>nullable(): bool</methodSignature>
       <fullMethod>nullable(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Column</className>
+      <methodName>only</methodName>
+      <methodSignature>only(): array</methodSignature>
+      <fullMethod>only(): array</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
@@ -677,10 +699,10 @@
       <methodName>addColumns</methodName>
       <methodSignature>addColumns(array $columns): self</methodSignature>
       <fullMethod>addColumns(array $columns): self</fullMethod>
-      <crap>1260</crap>
-      <complexity>35</complexity>
+      <crap>2256</crap>
+      <complexity>47</complexity>
       <coverage>0</coverage>
-      <crapLoad>36</crapLoad>
+      <crapLoad>48</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Configuration\Concerns</package>
@@ -732,10 +754,10 @@
       <methodName>addDates</methodName>
       <methodSignature>addDates(array $dates): self</methodSignature>
       <fullMethod>addDates(array $dates): self</fullMethod>
-      <crap>306</crap>
-      <complexity>17</complexity>
+      <crap>870</crap>
+      <complexity>29</complexity>
       <coverage>0</coverage>
-      <crapLoad>17</crapLoad>
+      <crapLoad>30</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Configuration\Concerns</package>
@@ -842,10 +864,10 @@
       <methodName>addFlags</methodName>
       <methodSignature>addFlags(array $flags): self</methodSignature>
       <fullMethod>addFlags(array $flags): self</fullMethod>
-      <crap>306</crap>
-      <complexity>17</complexity>
+      <crap>870</crap>
+      <complexity>29</complexity>
       <coverage>0</coverage>
-      <crapLoad>17</crapLoad>
+      <crapLoad>30</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Configuration\Concerns</package>
@@ -941,10 +963,10 @@
       <methodName>addJsonColumns</methodName>
       <methodSignature>addJsonColumns(array $json): self</methodSignature>
       <fullMethod>addJsonColumns(array $json): self</fullMethod>
-      <crap>462</crap>
-      <complexity>21</complexity>
+      <crap>1122</crap>
+      <complexity>33</complexity>
       <coverage>0</coverage>
-      <crapLoad>21</crapLoad>
+      <crapLoad>34</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Configuration\Concerns</package>
@@ -1029,10 +1051,10 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>132</crap>
-      <complexity>11</complexity>
+      <crap>650</crap>
+      <complexity>25</complexity>
       <coverage>0</coverage>
-      <crapLoad>11</crapLoad>
+      <crapLoad>26</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Configuration</package>
@@ -1051,6 +1073,17 @@
       <methodName>description</methodName>
       <methodSignature>description(): string</methodSignature>
       <fullMethod>description(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Date</className>
+      <methodName>exclude</methodName>
+      <methodSignature>exclude(): array</methodSignature>
+      <fullMethod>exclude(): array</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
@@ -1084,6 +1117,17 @@
       <methodName>nullable</methodName>
       <methodSignature>nullable(): bool</methodSignature>
       <fullMethod>nullable(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Date</className>
+      <methodName>only</methodName>
+      <methodSignature>only(): array</methodSignature>
+      <fullMethod>only(): array</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
@@ -1161,10 +1205,10 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>210</crap>
-      <complexity>14</complexity>
+      <crap>812</crap>
+      <complexity>28</complexity>
       <coverage>0</coverage>
-      <crapLoad>14</crapLoad>
+      <crapLoad>29</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Configuration</package>
@@ -1194,6 +1238,17 @@
       <methodName>default</methodName>
       <methodSignature>default(): mixed</methodSignature>
       <fullMethod>default(): mixed</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Flag</className>
+      <methodName>exclude</methodName>
+      <methodSignature>exclude(): array</methodSignature>
+      <fullMethod>exclude(): array</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
@@ -1246,6 +1301,17 @@
     <method>
       <package>Playground\Make\Recipe\Configuration</package>
       <className>Playground\Make\Recipe\Configuration\Flag</className>
+      <methodName>only</methodName>
+      <methodSignature>only(): array</methodSignature>
+      <fullMethod>only(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Flag</className>
       <methodName>readOnly</methodName>
       <methodSignature>readOnly(): bool</methodSignature>
       <fullMethod>readOnly(): bool</fullMethod>
@@ -1260,10 +1326,10 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>272</crap>
-      <complexity>16</complexity>
+      <crap>930</crap>
+      <complexity>30</complexity>
       <coverage>0</coverage>
-      <crapLoad>16</crapLoad>
+      <crapLoad>31</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Configuration</package>
@@ -1301,6 +1367,17 @@
     <method>
       <package>Playground\Make\Recipe\Configuration</package>
       <className>Playground\Make\Recipe\Configuration\Json</className>
+      <methodName>exclude</methodName>
+      <methodSignature>exclude(): array</methodSignature>
+      <fullMethod>exclude(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Json</className>
       <methodName>default</methodName>
       <methodSignature>default(): mixed</methodSignature>
       <fullMethod>default(): mixed</fullMethod>
@@ -1326,6 +1403,17 @@
       <methodName>nullable</methodName>
       <methodSignature>nullable(): bool</methodSignature>
       <fullMethod>nullable(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Json</className>
+      <methodName>only</methodName>
+      <methodSignature>only(): array</methodSignature>
+      <fullMethod>only(): array</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
@@ -2228,10 +2316,10 @@
       <methodName>prepareForValidation</methodName>
       <methodSignature>prepareForValidation()</methodSignature>
       <fullMethod>prepareForValidation()</fullMethod>
-      <crap>42</crap>
-      <complexity>6</complexity>
+      <crap>72</crap>
+      <complexity>8</complexity>
       <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
+      <crapLoad>8</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Http\Requests\Date</package>
@@ -2239,10 +2327,10 @@
       <methodName>prepareForValidation</methodName>
       <methodSignature>prepareForValidation()</methodSignature>
       <fullMethod>prepareForValidation()</fullMethod>
-      <crap>42</crap>
-      <complexity>6</complexity>
+      <crap>72</crap>
+      <complexity>8</complexity>
       <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
+      <crapLoad>8</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Http\Requests\FactoryState</package>
@@ -2261,10 +2349,10 @@
       <methodName>prepareForValidation</methodName>
       <methodSignature>prepareForValidation()</methodSignature>
       <fullMethod>prepareForValidation()</fullMethod>
-      <crap>42</crap>
-      <complexity>6</complexity>
+      <crap>72</crap>
+      <complexity>8</complexity>
       <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
+      <crapLoad>8</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Http\Requests</package>
@@ -2294,10 +2382,10 @@
       <methodName>prepareForValidation</methodName>
       <methodSignature>prepareForValidation()</methodSignature>
       <fullMethod>prepareForValidation()</fullMethod>
-      <crap>72</crap>
-      <complexity>8</complexity>
+      <crap>110</crap>
+      <complexity>10</complexity>
       <coverage>0</coverage>
-      <crapLoad>8</crapLoad>
+      <crapLoad>10</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Http\Requests\PackageModel</package>
