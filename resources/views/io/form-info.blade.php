@@ -39,15 +39,39 @@ $withType = ! empty($withType);
     @endif
 
     @if ($withType)
-        <x-playground::forms.column
-            column="type"
-            label="Type"
-            :autocomplete="false"
-            :rules="[
-                'required' => true,
-                'maxlength' => 255,
-            ]"
-        ></x-playground::forms.column>
+        <div class="mb-3">
+            <label for="form-input-type" class="form-label">
+                Choose or type an option
+            </label>
+            <input
+                class="form-control"
+                list="options-column-types"
+                id="form-input-type"
+                name="type"
+                placeholder="Type or select..."
+                required
+                maxlength="255"
+            />
+            <datalist id="options-column-types">
+                <option value="string"></option>
+                <option value="char"></option>
+                <option value="smallText"></option>
+                <option value="mediumText"></option>
+                <option value="text"></option>
+                <option value="longText"></option>
+                <option value="boolean"></option>
+                <option value="dateTime"></option>
+                <option value="integer"></option>
+                <option value="bigInteger"></option>
+                <option value="mediumInteger"></option>
+                <option value="smallInteger"></option>
+                <option value="tinyInteger"></option>
+                <option value="decimal"></option>
+                <option value="float"></option>
+                <option value="uuid"></option>
+                <option value="ulid"></option>
+            </datalist>
+        </div>
     @endif
 
     @if ($withSlug)

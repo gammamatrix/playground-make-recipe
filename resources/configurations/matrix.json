@@ -7,7 +7,365 @@
     "description": "The recipe for the project management and task system packages.",
     "title": "Matrix",
     "name": "",
-    "columns": [],
+    "columns": {
+        "handler": {
+            "column": "handler",
+            "default": null,
+            "description": "",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": false,
+            "label": "",
+            "nullable": true,
+            "unsigned": false,
+            "precision": null,
+            "readOnly": false,
+            "scale": null,
+            "size": null,
+            "type": "string",
+            "exclude": [],
+            "only": [
+                "Ticket"
+            ]
+        },
+        "key": {
+            "column": "key",
+            "default": null,
+            "description": "",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": true,
+            "label": "",
+            "nullable": true,
+            "unsigned": false,
+            "precision": null,
+            "readOnly": false,
+            "scale": null,
+            "size": 32,
+            "type": "string",
+            "exclude": [],
+            "only": [
+                "Ticket"
+            ]
+        },
+        "code": {
+            "column": "code",
+            "default": null,
+            "description": "",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": true,
+            "label": "",
+            "nullable": true,
+            "unsigned": true,
+            "precision": null,
+            "readOnly": false,
+            "scale": null,
+            "size": null,
+            "type": "bigInteger",
+            "exclude": [],
+            "only": [
+                "Ticket"
+            ]
+        },
+        "key_code_hash": {
+            "column": "key_code_hash",
+            "default": null,
+            "description": "",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": false,
+            "label": "",
+            "nullable": true,
+            "unsigned": false,
+            "precision": null,
+            "readOnly": false,
+            "scale": null,
+            "size": null,
+            "type": "string",
+            "exclude": [],
+            "only": [
+                "Ticket"
+            ]
+        },
+        "priority": {
+            "column": "priority",
+            "default": null,
+            "description": "",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": false,
+            "label": "",
+            "nullable": true,
+            "unsigned": false,
+            "precision": null,
+            "readOnly": false,
+            "scale": null,
+            "size": null,
+            "type": "string",
+            "exclude": [],
+            "only": [
+                "Ticket"
+            ]
+        },
+        "severity": {
+            "column": "severity",
+            "default": null,
+            "description": "",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": false,
+            "label": "",
+            "nullable": true,
+            "unsigned": false,
+            "precision": null,
+            "readOnly": false,
+            "scale": null,
+            "size": null,
+            "type": "string",
+            "exclude": [],
+            "only": [
+                "Ticket"
+            ]
+        },
+        "resolution": {
+            "column": "resolution",
+            "default": null,
+            "description": "",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": false,
+            "label": "",
+            "nullable": true,
+            "unsigned": false,
+            "precision": null,
+            "readOnly": false,
+            "scale": null,
+            "size": null,
+            "type": "string",
+            "exclude": [],
+            "only": [
+                "Ticket"
+            ]
+        },
+        "step": {
+            "column": "step",
+            "default": null,
+            "description": "",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": false,
+            "label": "",
+            "nullable": true,
+            "unsigned": false,
+            "precision": null,
+            "readOnly": false,
+            "scale": null,
+            "size": null,
+            "type": "string",
+            "exclude": [],
+            "only": [
+                "Ticket"
+            ]
+        },
+        "state": {
+            "column": "state",
+            "default": null,
+            "description": "",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": false,
+            "label": "",
+            "nullable": true,
+            "unsigned": false,
+            "precision": null,
+            "readOnly": false,
+            "scale": null,
+            "size": null,
+            "type": "string",
+            "exclude": [],
+            "only": [
+                "Ticket"
+            ]
+        },
+        "workflow_type": {
+            "column": "workflow_type",
+            "default": null,
+            "description": "",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": false,
+            "label": "",
+            "nullable": true,
+            "unsigned": false,
+            "precision": null,
+            "readOnly": false,
+            "scale": null,
+            "size": null,
+            "type": "string",
+            "exclude": [],
+            "only": [
+                "Ticket"
+            ]
+        },
+        "points": {
+            "column": "points",
+            "default": null,
+            "description": "",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": false,
+            "label": "",
+            "nullable": false,
+            "unsigned": true,
+            "precision": null,
+            "readOnly": false,
+            "scale": null,
+            "size": null,
+            "type": "bigInteger",
+            "exclude": [],
+            "only": [
+                "Ticket"
+            ]
+        },
+        "actual": {
+            "column": "actual",
+            "default": null,
+            "description": "",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": false,
+            "label": "",
+            "nullable": true,
+            "unsigned": false,
+            "precision": null,
+            "readOnly": false,
+            "scale": null,
+            "size": null,
+            "type": "mediumText",
+            "exclude": [],
+            "only": [
+                "Ticket"
+            ]
+        },
+        "expected": {
+            "column": "expected",
+            "default": null,
+            "description": "",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": false,
+            "label": "",
+            "nullable": true,
+            "unsigned": false,
+            "precision": null,
+            "readOnly": false,
+            "scale": null,
+            "size": null,
+            "type": "mediumText",
+            "exclude": [],
+            "only": [
+                "Ticket"
+            ]
+        },
+        "story": {
+            "column": "story",
+            "default": null,
+            "description": "",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": false,
+            "label": "",
+            "nullable": true,
+            "unsigned": false,
+            "precision": null,
+            "readOnly": false,
+            "scale": null,
+            "size": null,
+            "type": "mediumText",
+            "exclude": [],
+            "only": [
+                "Ticket"
+            ]
+        },
+        "steps": {
+            "column": "steps",
+            "default": null,
+            "description": "",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": false,
+            "label": "",
+            "nullable": true,
+            "unsigned": false,
+            "precision": null,
+            "readOnly": false,
+            "scale": null,
+            "size": null,
+            "type": "mediumText",
+            "exclude": [],
+            "only": [
+                "Ticket"
+            ]
+        },
+        "criteria": {
+            "column": "criteria",
+            "default": null,
+            "description": "",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": false,
+            "label": "",
+            "nullable": true,
+            "unsigned": false,
+            "precision": null,
+            "readOnly": false,
+            "scale": null,
+            "size": null,
+            "type": "mediumText",
+            "exclude": [],
+            "only": [
+                "Ticket"
+            ]
+        },
+        "reproducibility": {
+            "column": "reproducibility",
+            "default": null,
+            "description": "",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": false,
+            "label": "",
+            "nullable": true,
+            "unsigned": false,
+            "precision": null,
+            "readOnly": false,
+            "scale": null,
+            "size": null,
+            "type": "mediumText",
+            "exclude": [],
+            "only": [
+                "Ticket"
+            ]
+        }
+    },
     "dates": {
         "canceled_at": {
             "column": "canceled_at",
@@ -15,7 +373,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "closed_at": {
             "column": "closed_at",
@@ -23,7 +383,9 @@
             "label": "",
             "index": true,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "embargo_at": {
             "column": "embargo_at",
@@ -31,7 +393,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "fixed_at": {
             "column": "fixed_at",
@@ -39,7 +403,11 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": [
+                "Ticket"
+            ]
         },
         "planned_end_at": {
             "column": "planned_end_at",
@@ -47,7 +415,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "planned_start_at": {
             "column": "planned_start_at",
@@ -55,7 +425,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "postponed_at": {
             "column": "postponed_at",
@@ -63,7 +435,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "published_at": {
             "column": "published_at",
@@ -71,7 +445,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "released_at": {
             "column": "released_at",
@@ -79,7 +455,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "resolved_at": {
             "column": "resolved_at",
@@ -87,7 +465,9 @@
             "label": "",
             "index": true,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "resumed_at": {
             "column": "resumed_at",
@@ -95,7 +475,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "suspended_at": {
             "column": "suspended_at",
@@ -103,7 +485,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "timer_end_at": {
             "column": "timer_end_at",
@@ -111,7 +495,9 @@
             "label": "",
             "index": true,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "timer_start_at": {
             "column": "timer_start_at",
@@ -119,7 +505,9 @@
             "label": "",
             "index": true,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         }
     },
     "factoryStates": {
@@ -152,7 +540,9 @@
             "label": "",
             "type": "JSON_OBJECT",
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "meta": {
             "column": "meta",
@@ -162,7 +552,9 @@
             "label": "",
             "type": "JSON_OBJECT",
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "notes": {
             "column": "notes",
@@ -172,7 +564,9 @@
             "label": "",
             "type": "JSON_ARRAY",
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "options": {
             "column": "options",
@@ -182,7 +576,9 @@
             "label": "",
             "type": "JSON_OBJECT",
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "sources": {
             "column": "sources",
@@ -192,7 +588,116 @@
             "label": "",
             "type": "JSON_OBJECT",
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
+        },
+        "backlog": {
+            "column": "backlog",
+            "comment": "",
+            "default": null,
+            "description": "",
+            "label": "",
+            "type": "JSON_OBJECT",
+            "nullable": true,
+            "readOnly": false,
+            "exclude": [
+                "Flow",
+                "Matrix",
+                "Note",
+                "Source",
+                "Tag",
+                "Version",
+                "Tagged"
+            ],
+            "only": []
+        },
+        "board": {
+            "column": "board",
+            "comment": "",
+            "default": null,
+            "description": "",
+            "label": "",
+            "type": "JSON_OBJECT",
+            "nullable": true,
+            "readOnly": false,
+            "exclude": [
+                "Flow",
+                "Matrix",
+                "Note",
+                "Tag",
+                "Version",
+                "Tagged"
+            ],
+            "only": []
+        },
+        "flow": {
+            "column": "flow",
+            "comment": "",
+            "default": null,
+            "description": "",
+            "label": "",
+            "type": "JSON_OBJECT",
+            "nullable": true,
+            "readOnly": false,
+            "exclude": [
+                "Board",
+                "Epic",
+                "Milestone",
+                "Release",
+                "Roadmap",
+                "Sprint",
+                "Tag",
+                "Team",
+                "Tagged"
+            ],
+            "only": []
+        },
+        "history": {
+            "column": "history",
+            "comment": "",
+            "default": null,
+            "description": "",
+            "label": "",
+            "type": "JSON_OBJECT",
+            "nullable": true,
+            "readOnly": false,
+            "exclude": [
+                "Flow",
+                "Matrix",
+                "Milestone",
+                "Source",
+                "Tag",
+                "Version",
+                "Tagged"
+            ],
+            "only": []
+        },
+        "roadmap": {
+            "column": "roadmap",
+            "comment": "",
+            "default": null,
+            "description": "",
+            "label": "",
+            "type": "JSON_OBJECT",
+            "nullable": true,
+            "readOnly": false,
+            "exclude": [
+                "Board",
+                "Epic",
+                "Flow",
+                "Matrix",
+                "Milestone",
+                "Note",
+                "Roadmap",
+                "Source",
+                "Sprint",
+                "Tag",
+                "Team",
+                "Version",
+                "Tagged"
+            ],
+            "only": []
         }
     },
     "models": [],

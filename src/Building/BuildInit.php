@@ -160,7 +160,22 @@ PHP_CODE;
         $i = 0;
         $total = count($recipe->columns());
         foreach ($recipe->columns() as $key => $column) {
-            $code .= $this->buildClass_init_addColumn($column);
+            if (! empty($column->only())) {
+                $code .= str_repeat(' ', 8).'if (in_array($this->name, [';
+                $code .= PHP_EOL.str_repeat(' ', 12).sprintf('\'%1$s\',', implode('\', \'', $column->only()));
+                $code .= PHP_EOL.str_repeat(' ', 8).'])) {'.PHP_EOL;
+                $code .= $this->buildClass_init_addColumn($column, 12);
+                $code .= PHP_EOL.str_repeat(' ', 8).'}';
+            } elseif (! empty($column->exclude())) {
+                $code .= str_repeat(' ', 8).'if (! in_array($this->name, [';
+                $code .= PHP_EOL.str_repeat(' ', 12).sprintf('\'%1$s\',', implode('\', \'', $column->exclude()));
+                $code .= PHP_EOL.str_repeat(' ', 8).'])) {'.PHP_EOL;
+                $code .= $this->buildClass_init_addColumn($column, 12);
+                $code .= PHP_EOL.str_repeat(' ', 8).'}';
+            } else {
+                $code .= $this->buildClass_init_addColumn($column);
+            }
+
             $i++;
             if ($i < $total) {
                 $code .= PHP_EOL.PHP_EOL;
@@ -170,35 +185,37 @@ PHP_CODE;
         return $code;
     }
 
-    protected function buildClass_init_addColumn(Column $column): string
-    {
-        $code = str_repeat(' ', 8);
+    protected function buildClass_init_addColumn(
+        Column $column,
+        int $indent = 8,
+    ): string {
+        $code = str_repeat(' ', $indent);
         $code .= sprintf('$this->columns[\'%1$s\'] = [', $column->column());
 
         if ($column->comment()) {
-            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
             $code .= sprintf('\'comment\' => \'%1$s\',', $column->comment());
         }
 
         if ($column->description()) {
-            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
             if (str_contains($column->description(), '%1$s')) {
                 $code .= '\'description\' => sprintf('.PHP_EOL;
                 $code .= sprintf('%1$s\'%2$s\',', str_repeat(' ', 16), $column->description()).PHP_EOL;
-                $code .= str_repeat(' ', 16).'$this->name_lower'.PHP_EOL;
-                $code .= str_repeat(' ', 12).'),';
+                $code .= str_repeat(' ', $indent + 8).'$this->name_lower'.PHP_EOL;
+                $code .= str_repeat(' ', $indent + 4).'),';
             } else {
                 $code .= sprintf('\'description\' => \'%1$s\',', $column->description());
             }
         }
 
         if ($column->icon()) {
-            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
             $code .= sprintf('\'icon\' => \'%1$s\',', $column->icon());
         }
 
         if ($column->hasDefault()) {
-            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
             if (is_bool($column->default())) {
                 $code .= sprintf('\'default\' => %1$s,', $column->default() ? 'true' : 'false');
             } elseif (is_string($column->default())) {
@@ -211,36 +228,36 @@ PHP_CODE;
             }
         }
 
-        $code .= PHP_EOL.str_repeat(' ', 12);
+        $code .= PHP_EOL.str_repeat(' ', $indent + 4);
         $code .= sprintf('\'label\' => \'%1$s\',', $column->label() ?: Str::of($column->column())->headline()->lower()->ucfirst()->toString());
 
         if (is_int($column->precision())) {
-            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
             $code .= sprintf('\'precision\' => %1$d,', $column->precision());
         }
 
         if (is_int($column->scale())) {
-            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
             $code .= sprintf('\'scale\' => %1$d,', $column->scale());
         }
 
         if ($column->html()) {
-            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
             $code .= sprintf('\'html\' => %1$s,', 'true');
         }
 
         if ($column->index()) {
-            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
             $code .= sprintf('\'index\' => %1$s,', 'true');
         }
 
         if ($column->nullable()) {
-            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
             $code .= sprintf('\'nullable\' => %1$s,', 'true');
         }
 
         if ($column->readOnly()) {
-            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
             $code .= sprintf('\'readOnly\' => %1$s,', 'true');
         }
 
@@ -252,15 +269,15 @@ PHP_CODE;
             'tinyInteger',
         ])) {
             if ($column->unsigned()) {
-                $code .= PHP_EOL.str_repeat(' ', 12);
+                $code .= PHP_EOL.str_repeat(' ', $indent + 4);
                 $code .= sprintf('\'unsigned\' => %1$s,', 'true');
             }
         }
 
-        $code .= PHP_EOL.str_repeat(' ', 12);
+        $code .= PHP_EOL.str_repeat(' ', $indent + 4);
         $code .= sprintf('\'type\' => \'%1$s\',', $column->type());
 
-        $code .= PHP_EOL.str_repeat(' ', 8);
+        $code .= PHP_EOL.str_repeat(' ', $indent);
         $code .= '];';
 
         return $code;
@@ -279,7 +296,22 @@ PHP_CODE;
         $total = count($dates);
         $i = 0;
         foreach ($dates as $column => $date) {
-            $code .= $this->buildClass_init_addDate($date);
+            if (! empty($date->only())) {
+                $code .= str_repeat(' ', 8).'if (in_array($this->name, [';
+                $code .= PHP_EOL.str_repeat(' ', 12).sprintf('\'%1$s\',', implode('\', \'', $date->only()));
+                $code .= PHP_EOL.str_repeat(' ', 8).'])) {'.PHP_EOL;
+                $code .= $this->buildClass_init_addDate($date, 12);
+                $code .= PHP_EOL.str_repeat(' ', 8).'}';
+            } elseif (! empty($date->exclude())) {
+                $code .= str_repeat(' ', 8).'if (! in_array($this->name, [';
+                $code .= PHP_EOL.str_repeat(' ', 12).sprintf('\'%1$s\',', implode('\', \'', $date->exclude()));
+                $code .= PHP_EOL.str_repeat(' ', 8).'])) {'.PHP_EOL;
+                $code .= $this->buildClass_init_addDate($date, 12);
+                $code .= PHP_EOL.str_repeat(' ', 8).'}';
+            } else {
+                $code .= $this->buildClass_init_addDate($date);
+            }
+
             $i++;
             if ($i < $total) {
                 $code .= PHP_EOL.PHP_EOL;
@@ -296,35 +328,37 @@ PHP_CODE;
         return $code;
     }
 
-    protected function buildClass_init_addDate(Date $date): string
-    {
-        $code = str_repeat(' ', 8);
+    protected function buildClass_init_addDate(
+        Date $date,
+        int $indent = 8
+    ): string {
+        $code = str_repeat(' ', $indent);
         $code .= sprintf('$this->dates[\'%1$s\'] = [', $date->column());
 
         if ($date->description()) {
-            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
             $code .= sprintf('\'description\' => \'%1$s\',', $date->description());
         }
 
-        $code .= PHP_EOL.str_repeat(' ', 12);
+        $code .= PHP_EOL.str_repeat(' ', $indent + 4);
         $code .= sprintf('\'label\' => \'%1$s\',', $date->label() ?: Str::of($date->column())->headline()->lower()->ucfirst()->toString());
 
         if ($date->index()) {
-            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
             $code .= sprintf('\'index\' => %1$s,', 'true');
         }
 
         if ($date->nullable()) {
-            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
             $code .= sprintf('\'nullable\' => %1$s,', 'true');
         }
 
         if ($date->readOnly()) {
-            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
             $code .= sprintf('\'readOnly\' => %1$s,', 'true');
         }
 
-        $code .= PHP_EOL.str_repeat(' ', 8);
+        $code .= PHP_EOL.str_repeat(' ', $indent);
         $code .= '];';
 
         return $code;
@@ -334,57 +368,94 @@ PHP_CODE;
     {
         $code = '';
 
+        $ignore = array_keys((new Playground('model', 'playground'))->flags());
+
         $i = 0;
         $total = count($recipe->flags());
         foreach ($recipe->flags() as $column => $flag) {
-            $code .= $this->buildClass_init_addFlag($flag);
+            //            dump([
+            //                '__METHOD__' => __METHOD__,
+            //                '$column' => $column,
+            //                '$flag' => $flag,
+            //            ]);
+            if (! empty($flag->only())) {
+                $code .= str_repeat(' ', 8).'if (in_array($this->name, [';
+                $code .= PHP_EOL.str_repeat(' ', 12).sprintf('\'%1$s\',', implode('\', \'', $flag->only()));
+                $code .= PHP_EOL.str_repeat(' ', 8).'])) {'.PHP_EOL;
+                $code .= $this->buildClass_init_addFlag($flag, 12);
+                $code .= PHP_EOL.str_repeat(' ', 8).'}';
+            } elseif (! empty($flag->exclude())) {
+
+                if (in_array($column, $ignore)) {
+                    $code .= str_repeat(' ', 8).'if (in_array($this->name, [';
+                    $code .= PHP_EOL.str_repeat(' ', 12).sprintf('\'%1$s\',', implode('\', \'', $flag->exclude()));
+                    $code .= PHP_EOL.str_repeat(' ', 8).'])) {';
+                    $code .= PHP_EOL.str_repeat(' ', 12).sprintf('unset($this->flags[\'%1$s\']);', $column);
+                    $code .= PHP_EOL.str_repeat(' ', 8).'}';
+                } else {
+                    $code .= str_repeat(' ', 8).'if (! in_array($this->name, [';
+                    $code .= PHP_EOL.str_repeat(' ', 12).sprintf('\'%1$s\',', implode('\', \'', $flag->exclude()));
+                    $code .= PHP_EOL.str_repeat(' ', 8).'])) {'.PHP_EOL;
+                    $code .= $this->buildClass_init_addFlag($flag, 12);
+                    $code .= PHP_EOL.str_repeat(' ', 8).'}';
+                }
+
+            } else {
+                $code .= $this->buildClass_init_addFlag($flag);
+            }
             $i++;
             if ($i < $total) {
                 $code .= PHP_EOL.PHP_EOL;
             }
         }
 
+        // dd([
+        //    '__METHOD__' => __METHOD__,
+        //    '$code' => $code,
+        // ]);
         return $code;
     }
 
-    protected function buildClass_init_addFlag(Flag $flag): string
-    {
-        $code = str_repeat(' ', 8);
+    protected function buildClass_init_addFlag(
+        Flag $flag,
+        int $indent = 8
+    ): string {
+        $code = str_repeat(' ', $indent);
         $code .= sprintf('$this->flags[\'%1$s\'] = [', $flag->column());
 
         if ($flag->description()) {
-            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
             $code .= sprintf('\'description\' => \'%1$s\',', $flag->description());
         }
 
-        $code .= PHP_EOL.str_repeat(' ', 12);
+        $code .= PHP_EOL.str_repeat(' ', $indent + 4);
         $code .= sprintf('\'icon\' => \'%1$s\',', $flag->icon());
 
-        $code .= PHP_EOL.str_repeat(' ', 12);
+        $code .= PHP_EOL.str_repeat(' ', $indent + 4);
         $code .= sprintf('\'default\' => %1$s,', $flag->default() ? 'true' : 'false');
 
-        $code .= PHP_EOL.str_repeat(' ', 12);
+        $code .= PHP_EOL.str_repeat(' ', $indent + 4);
         $code .= sprintf('\'label\' => \'%1$s\',', $flag->label() ?: Str::of($flag->column())->headline()->lower()->ucfirst()->toString());
 
         if ($flag->index()) {
-            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
             $code .= sprintf('\'index\' => %1$s,', 'true');
         }
 
         if ($flag->nullable()) {
-            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
             $code .= sprintf('\'nullable\' => %1$s,', 'true');
         }
 
         if ($flag->readOnly()) {
-            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
             $code .= sprintf('\'readOnly\' => %1$s,', 'true');
         }
 
-        $code .= PHP_EOL.str_repeat(' ', 12);
+        $code .= PHP_EOL.str_repeat(' ', $indent + 4);
         $code .= sprintf('\'type\' => \'%1$s\',', 'boolean');
 
-        $code .= PHP_EOL.str_repeat(' ', 8);
+        $code .= PHP_EOL.str_repeat(' ', $indent);
         $code .= '];';
 
         return $code;
@@ -403,7 +474,21 @@ PHP_CODE;
         $total = count($jsons);
         $i = 0;
         foreach ($jsons as $column => $json) {
-            $code .= $this->buildClass_init_addJson($json);
+            if (! empty($json->only())) {
+                $code .= str_repeat(' ', 8).'if (in_array($this->name, [';
+                $code .= PHP_EOL.str_repeat(' ', 12).sprintf('\'%1$s\',', implode('\', \'', $json->only()));
+                $code .= PHP_EOL.str_repeat(' ', 8).'])) {'.PHP_EOL;
+                $code .= $this->buildClass_init_addJson($json, 12);
+                $code .= PHP_EOL.str_repeat(' ', 8).'}';
+            } elseif (! empty($json->exclude())) {
+                $code .= str_repeat(' ', 8).'if (! in_array($this->name, [';
+                $code .= PHP_EOL.str_repeat(' ', 12).sprintf('\'%1$s\',', implode('\', \'', $json->exclude()));
+                $code .= PHP_EOL.str_repeat(' ', 8).'])) {'.PHP_EOL;
+                $code .= $this->buildClass_init_addJson($json, 12);
+                $code .= PHP_EOL.str_repeat(' ', 8).'}';
+            } else {
+                $code .= $this->buildClass_init_addJson($json);
+            }
             $i++;
             if ($i < $total) {
                 $code .= PHP_EOL.PHP_EOL;
@@ -420,22 +505,24 @@ PHP_CODE;
         return $code;
     }
 
-    protected function buildClass_init_addJson(Json $json): string
-    {
-        $code = str_repeat(' ', 8);
+    protected function buildClass_init_addJson(
+        Json $json,
+        int $indent = 8
+    ): string {
+        $code = str_repeat(' ', $indent);
         $code .= sprintf('$this->json[\'%1$s\'] = [', $json->column());
 
         if ($json->comment()) {
-            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
             $code .= sprintf('\'comment\' => \'%1$s\',', $json->comment());
         }
 
         if ($json->description()) {
-            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
             $code .= sprintf('\'description\' => \'%1$s\',', $json->description());
         }
 
-        $code .= PHP_EOL.str_repeat(' ', 12);
+        $code .= PHP_EOL.str_repeat(' ', $indent + 4);
         $code .= sprintf('\'label\' => \'%1$s\',', $json->label() ?: Str::of($json->column())->headline()->lower()->ucfirst()->toString());
 
         $default = $json->default();
@@ -453,23 +540,23 @@ PHP_CODE;
                 break;
         }
 
-        $code .= PHP_EOL.str_repeat(' ', 12);
+        $code .= PHP_EOL.str_repeat(' ', $indent + 4);
         $code .= sprintf('\'default\' => %1$s,', $defaultString);
 
-        $code .= PHP_EOL.str_repeat(' ', 12);
+        $code .= PHP_EOL.str_repeat(' ', $indent + 4);
         $code .= sprintf('\'nullable\' => %1$s,', $json->nullable() ? 'true' : 'false');
 
         if ($json->readOnly()) {
-            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
             $code .= sprintf('\'readOnly\' => %1$s,', 'true');
         }
 
         if ($json->type()) {
-            $code .= PHP_EOL.str_repeat(' ', 12);
+            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
             $code .= sprintf('\'type\' => \'%1$s\',', $json->type());
         }
 
-        $code .= PHP_EOL.str_repeat(' ', 8);
+        $code .= PHP_EOL.str_repeat(' ', $indent);
         $code .= '];';
 
         return $code;
