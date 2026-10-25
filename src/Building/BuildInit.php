@@ -33,6 +33,14 @@ trait BuildInit
             $code .= $this->buildClass_init_tag($recipe);
         }
 
+        $unsetIds = $this->buildClass_init_unsetIds($recipe);
+
+        if (! empty($unsetIds)) {
+            $this->searches['init'] .= $this->buildClass_unsetIds_method($unsetIds);
+            $code .= str_repeat(' ', 8);
+            $code .= '$this->unsetIds();'.PHP_EOL;
+        }
+
         $columns = $this->buildClass_init_addColumns($recipe);
 
         if (! empty($columns)) {
@@ -153,6 +161,18 @@ $code
 PHP_CODE;
     }
 
+    protected function buildClass_unsetIds_method(string $code): string
+    {
+        return <<<PHP_CODE
+
+    public function unsetIds(): void
+    {
+$code
+    }
+
+PHP_CODE;
+    }
+
     protected function buildClass_init_addColumns(Recipe $recipe): string
     {
         $code = '';
@@ -261,6 +281,11 @@ PHP_CODE;
             $code .= sprintf('\'readOnly\' => %1$s,', 'true');
         }
 
+        if ($column->size()) {
+            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
+            $code .= sprintf('\'size\' => %1$s,', is_numeric($column->size()) ? $column->size() : 'null');
+        }
+
         if (in_array($column->type(), [
             'integer',
             'bigInteger',
@@ -295,37 +320,49 @@ PHP_CODE;
         $dates = Arr::except($recipe->dates(), $ignore);
         $total = count($dates);
         $i = 0;
-        foreach ($dates as $column => $date) {
+        foreach ($recipe->dates() as $column => $date) {
             if (! empty($date->only())) {
                 $code .= str_repeat(' ', 8).'if (in_array($this->name, [';
                 $code .= PHP_EOL.str_repeat(' ', 12).sprintf('\'%1$s\',', implode('\', \'', $date->only()));
                 $code .= PHP_EOL.str_repeat(' ', 8).'])) {'.PHP_EOL;
                 $code .= $this->buildClass_init_addDate($date, 12);
-                $code .= PHP_EOL.str_repeat(' ', 8).'}';
+                $code .= PHP_EOL.str_repeat(' ', 8).'}'.PHP_EOL.PHP_EOL;
             } elseif (! empty($date->exclude())) {
-                $code .= str_repeat(' ', 8).'if (! in_array($this->name, [';
-                $code .= PHP_EOL.str_repeat(' ', 12).sprintf('\'%1$s\',', implode('\', \'', $date->exclude()));
-                $code .= PHP_EOL.str_repeat(' ', 8).'])) {'.PHP_EOL;
-                $code .= $this->buildClass_init_addDate($date, 12);
-                $code .= PHP_EOL.str_repeat(' ', 8).'}';
+
+                if (in_array($column, $ignore)) {
+                    $code .= str_repeat(' ', 8).'if (in_array($this->name, [';
+                    $code .= PHP_EOL.str_repeat(' ', 12).sprintf('\'%1$s\',', implode('\', \'', $date->exclude()));
+                    $code .= PHP_EOL.str_repeat(' ', 8).'])) {';
+                    $code .= PHP_EOL.str_repeat(' ', 12).sprintf('unset($this->dates[\'%1$s\']);', $column);
+                    $code .= PHP_EOL.str_repeat(' ', 8).'}'.PHP_EOL.PHP_EOL;
+                } else {
+                    $code .= str_repeat(' ', 8).'if (! in_array($this->name, [';
+                    $code .= PHP_EOL.str_repeat(' ', 12).sprintf('\'%1$s\',', implode('\', \'', $date->exclude()));
+                    $code .= PHP_EOL.str_repeat(' ', 8).'])) {'.PHP_EOL;
+                    $code .= $this->buildClass_init_addDate($date, 12);
+                    $code .= PHP_EOL.str_repeat(' ', 8).'}'.PHP_EOL.PHP_EOL;
+                }
+
             } else {
-                $code .= $this->buildClass_init_addDate($date);
+                if (! in_array($column, $ignore)) {
+                    $code .= $this->buildClass_init_addDate($date);
+                }
             }
 
-            $i++;
-            if ($i < $total) {
-                $code .= PHP_EOL.PHP_EOL;
-            }
+            //            $i++;
+            //            if ($i < $total) {
+            //                $code .= PHP_EOL.PHP_EOL;
+            //            }
         }
 
-        // dd([
-        //    '__METHOD__' => __METHOD__,
-        //    '$code' => $code,
-        //    '$total' => $total,
-        //    '$ignore' => $ignore,
-        //    'Arr::except($recipe->dates(), $ignore)' => Arr::except($recipe->dates(), $ignore),
-        // ]);
-        return $code;
+        //         dd([
+        //            '__METHOD__' => __METHOD__,
+        //            '$code' => $code,
+        //            '$total' => $total,
+        //            '$ignore' => $ignore,
+        //            'Arr::except($recipe->dates(), $ignore)' => Arr::except($recipe->dates(), $ignore),
+        //         ]);
+        return rtrim($code, PHP_EOL);
     }
 
     protected function buildClass_init_addDate(
@@ -560,6 +597,33 @@ PHP_CODE;
         $code .= '];';
 
         return $code;
+    }
+
+    protected function buildClass_init_unsetIds(Recipe $recipe): string
+    {
+        $code = '';
+
+        $i = 0;
+        $total = count($recipe->packageModels());
+        foreach ($recipe->packageModels() as $modelClassName => $model) {
+            if (! empty($model->exclude())) {
+                $code .= str_repeat(' ', 8).'if (in_array($this->name, [';
+                $code .= PHP_EOL.str_repeat(' ', 12).sprintf('\'%1$s\',', implode('\', \'', $model->exclude()));
+                $code .= PHP_EOL.str_repeat(' ', 8).'])) {';
+                $code .= PHP_EOL.str_repeat(' ', 12).sprintf('unset($this->allIds[\'%1$s_id\']);', $model->snake());
+                $code .= PHP_EOL.str_repeat(' ', 12).sprintf('unset($this->circletHasOne[\'%1$s\']);', $model->snake());
+                // TODO not sure about this one:
+                // $code .= PHP_EOL.str_repeat(' ', 12).sprintf('unset($this->circletHasMany[\'%1$s\']);', $model->snakes());
+                $code .= PHP_EOL.str_repeat(' ', 8).'}';
+            }
+
+            $i++;
+            if ($i < $total) {
+                $code .= PHP_EOL.PHP_EOL;
+            }
+        }
+
+        return rtrim($code, PHP_EOL);
     }
 
     protected function buildClass_init_tag(Recipe $recipe): string

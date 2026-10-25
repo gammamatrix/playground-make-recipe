@@ -40,6 +40,10 @@ class SaveRequest extends FormRequest
         '_return_url' => ['nullable', 'string'],
         'flavors' => ['nullable', 'array'],
         'flavors.*' => ['string', 'distinct', 'in:circlet,parent,playground,revision,routing,tags'],
+        'exclude' => ['array'],
+        'exclude.*' => ['string', 'min:1', 'max:65', 'distinct'],
+        'only' => ['array'],
+        'only.*' => ['string', 'min:1', 'max:65', 'distinct'],
     ];
 
     protected function prepareForValidation()
@@ -71,6 +75,14 @@ class SaveRequest extends FormRequest
             if ($this->has($column) && empty($this->input($column))) {
                 $merge[$column] = '';
             }
+        }
+
+        if (! $this->has('exclude')) {
+            $merge['exclude'] = [];
+        }
+
+        if (! $this->has('only')) {
+            $merge['only'] = [];
         }
 
         if (! empty($merge)) {

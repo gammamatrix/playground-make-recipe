@@ -105,6 +105,28 @@ trait PackageModels
                     $payload['revision'] = ! empty($meta['revision']);
                 }
 
+                if (! empty($meta['exclude'])
+                    && is_array($meta['exclude'])
+                ) {
+                    $payload['exclude'] = [];
+                    foreach ($meta['exclude'] as $modelClassName) {
+                        if (! empty($modelClassName) && is_string($modelClassName) && ! in_array($modelClassName, $payload['exclude'])) {
+                            $payload['exclude'][] = $modelClassName;
+                        }
+                    }
+                }
+
+                if (! empty($meta['only'])
+                    && is_array($meta['only'])
+                ) {
+                    $payload['only'] = [];
+                    foreach ($meta['only'] as $modelClassName) {
+                        if (! empty($modelClassName) && is_string($modelClassName) && ! in_array($modelClassName, $payload['only'])) {
+                            $payload['only'][] = $modelClassName;
+                        }
+                    }
+                }
+
                 $this->addPackageModel($className, new PackageModel($payload));
             }
         }

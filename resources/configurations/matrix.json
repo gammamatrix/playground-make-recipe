@@ -47,6 +47,7 @@
             "type": "string",
             "exclude": [],
             "only": [
+                "Project",
                 "Ticket"
             ]
         },
@@ -220,15 +221,15 @@
         },
         "points": {
             "column": "points",
-            "default": null,
+            "default": "0",
             "description": "",
-            "hasDefault": false,
+            "hasDefault": true,
             "html": false,
             "icon": "",
             "index": false,
             "label": "",
             "nullable": false,
-            "unsigned": true,
+            "unsigned": false,
             "precision": null,
             "readOnly": false,
             "scale": null,
@@ -355,14 +356,35 @@
             "label": "",
             "nullable": true,
             "unsigned": false,
-            "precision": null,
+            "precision": 8,
             "readOnly": false,
-            "scale": null,
+            "scale": 2,
             "size": null,
-            "type": "mediumText",
+            "type": "decimal",
             "exclude": [],
             "only": [
                 "Ticket"
+            ]
+        },
+        "code_name": {
+            "column": "code_name",
+            "default": null,
+            "description": "",
+            "hasDefault": false,
+            "html": false,
+            "icon": "",
+            "index": true,
+            "label": "",
+            "nullable": true,
+            "unsigned": false,
+            "precision": null,
+            "readOnly": false,
+            "scale": null,
+            "size": 128,
+            "type": "string",
+            "exclude": [],
+            "only": [
+                "Project"
             ]
         }
     },
@@ -374,7 +396,9 @@
             "index": false,
             "nullable": true,
             "readOnly": false,
-            "exclude": [],
+            "exclude": [
+                "Note"
+            ],
             "only": []
         },
         "closed_at": {
@@ -384,7 +408,9 @@
             "index": true,
             "nullable": true,
             "readOnly": false,
-            "exclude": [],
+            "exclude": [
+                "Note"
+            ],
             "only": []
         },
         "embargo_at": {
@@ -394,7 +420,9 @@
             "index": false,
             "nullable": true,
             "readOnly": false,
-            "exclude": [],
+            "exclude": [
+                "Note"
+            ],
             "only": []
         },
         "fixed_at": {
@@ -416,7 +444,9 @@
             "index": false,
             "nullable": true,
             "readOnly": false,
-            "exclude": [],
+            "exclude": [
+                "Note"
+            ],
             "only": []
         },
         "planned_start_at": {
@@ -426,7 +456,9 @@
             "index": false,
             "nullable": true,
             "readOnly": false,
-            "exclude": [],
+            "exclude": [
+                "Note"
+            ],
             "only": []
         },
         "postponed_at": {
@@ -436,7 +468,9 @@
             "index": false,
             "nullable": true,
             "readOnly": false,
-            "exclude": [],
+            "exclude": [
+                "Note"
+            ],
             "only": []
         },
         "published_at": {
@@ -446,7 +480,9 @@
             "index": false,
             "nullable": true,
             "readOnly": false,
-            "exclude": [],
+            "exclude": [
+                "Note"
+            ],
             "only": []
         },
         "released_at": {
@@ -456,7 +492,24 @@
             "index": false,
             "nullable": true,
             "readOnly": false,
-            "exclude": [],
+            "exclude": [
+                "Backlog",
+                "Board",
+                "Epic",
+                "Flow",
+                "Matrix",
+                "Milestone",
+                "Note",
+                "Project",
+                "Release",
+                "Roadmap",
+                "Source",
+                "Sprint",
+                "Tag",
+                "Team",
+                "Version",
+                "Tagged"
+            ],
             "only": []
         },
         "resolved_at": {
@@ -466,7 +519,9 @@
             "index": true,
             "nullable": true,
             "readOnly": false,
-            "exclude": [],
+            "exclude": [
+                "Note"
+            ],
             "only": []
         },
         "resumed_at": {
@@ -476,7 +531,9 @@
             "index": false,
             "nullable": true,
             "readOnly": false,
-            "exclude": [],
+            "exclude": [
+                "Note"
+            ],
             "only": []
         },
         "suspended_at": {
@@ -486,7 +543,9 @@
             "index": false,
             "nullable": true,
             "readOnly": false,
-            "exclude": [],
+            "exclude": [
+                "Note"
+            ],
             "only": []
         },
         "timer_end_at": {
@@ -496,7 +555,9 @@
             "index": true,
             "nullable": true,
             "readOnly": false,
-            "exclude": [],
+            "exclude": [
+                "Note"
+            ],
             "only": []
         },
         "timer_start_at": {
@@ -506,7 +567,9 @@
             "index": true,
             "nullable": true,
             "readOnly": false,
-            "exclude": [],
+            "exclude": [
+                "Note"
+            ],
             "only": []
         }
     },
@@ -524,7 +587,114 @@
             "value": true
         }
     },
-    "flags": [],
+    "flags": {
+        "duplicate": {
+            "column": "duplicate",
+            "default": false,
+            "description": "",
+            "icon": "fa-solid fa-clone",
+            "index": false,
+            "label": "",
+            "nullable": false,
+            "readOnly": false,
+            "exclude": [
+                "Backlog",
+                "Board",
+                "Epic",
+                "Flow",
+                "Matrix",
+                "Milestone",
+                "Note",
+                "Release",
+                "Roadmap",
+                "Source",
+                "Sprint",
+                "Tag",
+                "Team",
+                "Version",
+                "Tagged"
+            ],
+            "only": []
+        },
+        "fixed": {
+            "column": "fixed",
+            "default": false,
+            "description": "",
+            "icon": "",
+            "index": false,
+            "label": "",
+            "nullable": false,
+            "readOnly": false,
+            "exclude": [
+                "Backlog",
+                "Board",
+                "Epic",
+                "Flow",
+                "Matrix",
+                "Milestone",
+                "Note",
+                "Release",
+                "Roadmap",
+                "Source",
+                "Sprint",
+                "Tag",
+                "Team",
+                "Tagged"
+            ],
+            "only": []
+        },
+        "resolved": {
+            "column": "resolved",
+            "default": false,
+            "description": "",
+            "icon": "",
+            "index": false,
+            "label": "",
+            "nullable": false,
+            "readOnly": false,
+            "exclude": [
+                "Backlog",
+                "Board",
+                "Epic",
+                "Flow",
+                "Matrix",
+                "Milestone",
+                "Note",
+                "Release",
+                "Roadmap",
+                "Source",
+                "Sprint",
+                "Tag",
+                "Team",
+                "Tagged"
+            ],
+            "only": []
+        },
+        "featured": {
+            "column": "featured",
+            "default": false,
+            "description": "",
+            "icon": "fa-solid fa-star text-primary",
+            "index": false,
+            "label": "",
+            "nullable": false,
+            "readOnly": false,
+            "exclude": [],
+            "only": []
+        },
+        "special": {
+            "column": "special",
+            "default": false,
+            "description": "",
+            "icon": "fa-solid fa-star text-success",
+            "index": false,
+            "label": "",
+            "nullable": false,
+            "readOnly": false,
+            "exclude": [],
+            "only": []
+        }
+    },
     "flavors": [
         "parent",
         "playground",
@@ -625,6 +795,7 @@
                 "Flow",
                 "Matrix",
                 "Note",
+                "Source",
                 "Tag",
                 "Version",
                 "Tagged"
@@ -641,14 +812,12 @@
             "nullable": true,
             "readOnly": false,
             "exclude": [
-                "Board",
-                "Epic",
-                "Milestone",
-                "Release",
-                "Roadmap",
-                "Sprint",
+                "Flow",
+                "Matrix",
+                "Note",
+                "Source",
                 "Tag",
-                "Team",
+                "Version",
                 "Tagged"
             ],
             "only": []
@@ -665,7 +834,7 @@
             "exclude": [
                 "Flow",
                 "Matrix",
-                "Milestone",
+                "Note",
                 "Source",
                 "Tag",
                 "Version",
@@ -683,17 +852,12 @@
             "nullable": true,
             "readOnly": false,
             "exclude": [
-                "Board",
-                "Epic",
                 "Flow",
                 "Matrix",
-                "Milestone",
                 "Note",
                 "Roadmap",
                 "Source",
-                "Sprint",
                 "Tag",
-                "Team",
                 "Version",
                 "Tagged"
             ],
@@ -736,7 +900,17 @@
                 "playground",
                 "tags"
             ],
-            "json": []
+            "json": [],
+            "exclude": [
+                "Flow",
+                "Matrix",
+                "Note",
+                "Source",
+                "Tag",
+                "Version",
+                "Tagged"
+            ],
+            "only": []
         },
         "Board": {
             "migration_date": "2020_01_02",
@@ -772,7 +946,17 @@
                 "playground",
                 "tags"
             ],
-            "json": []
+            "json": [],
+            "exclude": [
+                "Flow",
+                "Matrix",
+                "Note",
+                "Source",
+                "Tag",
+                "Version",
+                "Tagged"
+            ],
+            "only": []
         },
         "Epic": {
             "migration_date": "2020_01_02",
@@ -782,7 +966,7 @@
             "model_column": "",
             "model_label": "",
             "model_attribute": "",
-            "model_plural": "epic",
+            "model_plural": "epics",
             "model_revision": "",
             "model_singular": "epic",
             "model_slug": "epics",
@@ -808,7 +992,16 @@
                 "playground",
                 "tags"
             ],
-            "json": []
+            "json": [],
+            "exclude": [
+                "Epic",
+                "Flow",
+                "Matrix",
+                "Note",
+                "Source",
+                "Version"
+            ],
+            "only": []
         },
         "Flow": {
             "migration_date": "2020_01_02",
@@ -844,7 +1037,14 @@
                 "playground",
                 "tags"
             ],
-            "json": []
+            "json": [],
+            "exclude": [
+                "Matrix",
+                "Note",
+                "Source",
+                "Version"
+            ],
+            "only": []
         },
         "Matrix": {
             "migration_date": "2020_01_02",
@@ -880,7 +1080,9 @@
                 "playground",
                 "tags"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         },
         "Milestone": {
             "migration_date": "2020_01_02",
@@ -916,7 +1118,16 @@
                 "playground",
                 "tags"
             ],
-            "json": []
+            "json": [],
+            "exclude": [
+                "Flow",
+                "Matrix",
+                "Milestone",
+                "Note",
+                "Source",
+                "Version"
+            ],
+            "only": []
         },
         "Note": {
             "migration_date": "2020_01_02",
@@ -952,7 +1163,12 @@
                 "playground",
                 "tags"
             ],
-            "json": []
+            "json": [],
+            "exclude": [
+                "Matrix",
+                "Version"
+            ],
+            "only": []
         },
         "Project": {
             "migration_date": "2020_01_02",
@@ -988,7 +1204,14 @@
                 "playground",
                 "tags"
             ],
-            "json": []
+            "json": [],
+            "exclude": [
+                "Flow",
+                "Matrix",
+                "Note",
+                "Source"
+            ],
+            "only": []
         },
         "Release": {
             "migration_date": "2020_01_02",
@@ -1024,7 +1247,16 @@
                 "playground",
                 "tags"
             ],
-            "json": []
+            "json": [],
+            "exclude": [
+                "Flow",
+                "Matrix",
+                "Note",
+                "Release",
+                "Source",
+                "Version"
+            ],
+            "only": []
         },
         "Roadmap": {
             "migration_date": "2020_01_02",
@@ -1060,7 +1292,15 @@
                 "playground",
                 "tags"
             ],
-            "json": []
+            "json": [],
+            "exclude": [
+                "Flow",
+                "Matrix",
+                "Note",
+                "Source",
+                "Version"
+            ],
+            "only": []
         },
         "Source": {
             "migration_date": "2020_01_02",
@@ -1096,7 +1336,14 @@
                 "playground",
                 "tags"
             ],
-            "json": []
+            "json": [],
+            "exclude": [
+                "Flow",
+                "Matrix",
+                "Note",
+                "Version"
+            ],
+            "only": []
         },
         "Sprint": {
             "migration_date": "2020_01_02",
@@ -1132,7 +1379,15 @@
                 "playground",
                 "tags"
             ],
-            "json": []
+            "json": [],
+            "exclude": [
+                "Flow",
+                "Matrix",
+                "Note",
+                "Source",
+                "Version"
+            ],
+            "only": []
         },
         "Tag": {
             "migration_date": "2020_01_02",
@@ -1168,7 +1423,9 @@
                 "playground",
                 "tags"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         },
         "Team": {
             "migration_date": "2020_01_02",
@@ -1204,7 +1461,12 @@
                 "playground",
                 "tags"
             ],
-            "json": []
+            "json": [],
+            "exclude": [
+                "Matrix",
+                "Note"
+            ],
+            "only": []
         },
         "Ticket": {
             "migration_date": "2020_01_02",
@@ -1240,7 +1502,14 @@
                 "playground",
                 "tags"
             ],
-            "json": []
+            "json": [],
+            "exclude": [
+                "Flow",
+                "Matrix",
+                "Note",
+                "Source"
+            ],
+            "only": []
         },
         "Version": {
             "migration_date": "2020_01_02",
@@ -1276,7 +1545,14 @@
                 "playground",
                 "tags"
             ],
-            "json": []
+            "json": [],
+            "exclude": [
+                "Flow",
+                "Matrix",
+                "Note",
+                "Source"
+            ],
+            "only": []
         },
         "Tagged": {
             "migration_date": "2020_01_02",
@@ -1310,7 +1586,9 @@
                 "playground",
                 "tags"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         }
     },
     "type": "",

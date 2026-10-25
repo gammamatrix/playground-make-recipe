@@ -102,11 +102,13 @@ class Date extends PrimaryConfiguration
             if (empty($options['exclude'])) {
                 $this->exclude = [];
             } elseif (is_array($options['exclude'])) {
+                $exclude = [];
                 foreach ($options['exclude'] as $modelClassName) {
-                    if (! empty($modelClassName) && is_string($modelClassName) && ! in_array($modelClassName, $this->exclude)) {
-                        $this->exclude[] = $modelClassName;
+                    if (! empty($modelClassName) && is_string($modelClassName) && ! in_array($modelClassName, $exclude)) {
+                        $exclude[] = $modelClassName;
                     }
                 }
+                $this->exclude = $exclude;
             }
         }
 
@@ -114,11 +116,13 @@ class Date extends PrimaryConfiguration
             if (empty($options['only'])) {
                 $this->only = [];
             } elseif (is_array($options['only'])) {
+                $only = [];
                 foreach ($options['only'] as $modelClassName) {
-                    if (! empty($modelClassName) && is_string($modelClassName) && ! in_array($modelClassName, $this->only)) {
-                        $this->only[] = $modelClassName;
+                    if (! empty($modelClassName) && is_string($modelClassName) && ! in_array($modelClassName, $only)) {
+                        $only[] = $modelClassName;
                     }
                 }
+                $this->only = $only;
             }
         }
 

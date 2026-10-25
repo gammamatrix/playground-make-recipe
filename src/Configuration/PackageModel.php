@@ -50,6 +50,16 @@ class PackageModel extends PrimaryConfiguration
     protected bool $revision = false;
 
     /**
+     * @var string[]
+     */
+    protected array $exclude = [];
+
+    /**
+     * @var string[]
+     */
+    protected array $only = [];
+
+    /**
      * @var array<string, mixed>
      */
     protected $properties = [
@@ -82,6 +92,8 @@ class PackageModel extends PrimaryConfiguration
         'flags' => [],
         'flavors' => [],
         'json' => [],
+        'exclude' => [],
+        'only' => [],
     ];
 
     /**
@@ -180,6 +192,34 @@ class PackageModel extends PrimaryConfiguration
             $this->setFlavors($options['flavors']);
         }
 
+        if (array_key_exists('exclude', $options)) {
+            if (empty($options['exclude'])) {
+                $this->exclude = [];
+            } elseif (is_array($options['exclude'])) {
+                $exclude = [];
+                foreach ($options['exclude'] as $modelClassName) {
+                    if (! empty($modelClassName) && is_string($modelClassName) && ! in_array($modelClassName, $exclude)) {
+                        $exclude[] = $modelClassName;
+                    }
+                }
+                $this->exclude = $exclude;
+            }
+        }
+
+        if (array_key_exists('only', $options)) {
+            if (empty($options['only'])) {
+                $this->only = [];
+            } elseif (is_array($options['only'])) {
+                $only = [];
+                foreach ($options['only'] as $modelClassName) {
+                    if (! empty($modelClassName) && is_string($modelClassName) && ! in_array($modelClassName, $only)) {
+                        $only[] = $modelClassName;
+                    }
+                }
+                $this->only = $only;
+            }
+        }
+
         return $this;
     }
 
@@ -210,6 +250,14 @@ class PackageModel extends PrimaryConfiguration
     public function description(): string
     {
         return $this->description;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function exclude(): array
+    {
+        return $this->exclude;
     }
 
     /**
@@ -268,6 +316,14 @@ class PackageModel extends PrimaryConfiguration
     public function model_slug_plural(): string
     {
         return $this->model_slug_plural;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function only(): array
+    {
+        return $this->only;
     }
 
     public function recipe(): string
