@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-10-24 16:49:29</timestamp>
+  <timestamp>2026-10-25 18:31:54</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>239</methodCount>
     <crapMethodCount>36</crapMethodCount>
     <crapLoad>606</crapLoad>
-    <totalCrap>16514</totalCrap>
+    <totalCrap>16598</totalCrap>
     <crapMethodPercent>15.06</crapMethodPercent>
   </stats>
   <methods>
@@ -237,8 +237,8 @@
       <methodName>buildClass_init_addColumns</methodName>
       <methodSignature>buildClass_init_addColumns(Recipe $recipe): string</methodSignature>
       <fullMethod>buildClass_init_addColumns(Recipe $recipe): string</fullMethod>
-      <crap>12</crap>
-      <complexity>3</complexity>
+      <crap>30</crap>
+      <complexity>5</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -246,8 +246,8 @@
       <package>Playground\Make\Recipe\Building</package>
       <className>Playground\Make\Recipe\Building\BuildInit</className>
       <methodName>buildClass_init_addColumn</methodName>
-      <methodSignature>buildClass_init_addColumn(Column $column): string</methodSignature>
-      <fullMethod>buildClass_init_addColumn(Column $column): string</fullMethod>
+      <methodSignature>buildClass_init_addColumn(Column $column, int $indent): string</methodSignature>
+      <fullMethod>buildClass_init_addColumn(Column $column, int $indent): string</fullMethod>
       <crap>380</crap>
       <complexity>19</complexity>
       <coverage>0</coverage>
@@ -259,8 +259,8 @@
       <methodName>buildClass_init_addDates</methodName>
       <methodSignature>buildClass_init_addDates(Recipe $recipe): string</methodSignature>
       <fullMethod>buildClass_init_addDates(Recipe $recipe): string</fullMethod>
-      <crap>12</crap>
-      <complexity>3</complexity>
+      <crap>30</crap>
+      <complexity>5</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -268,8 +268,8 @@
       <package>Playground\Make\Recipe\Building</package>
       <className>Playground\Make\Recipe\Building\BuildInit</className>
       <methodName>buildClass_init_addDate</methodName>
-      <methodSignature>buildClass_init_addDate(Date $date): string</methodSignature>
-      <fullMethod>buildClass_init_addDate(Date $date): string</fullMethod>
+      <methodSignature>buildClass_init_addDate(Date $date, int $indent): string</methodSignature>
+      <fullMethod>buildClass_init_addDate(Date $date, int $indent): string</fullMethod>
       <crap>42</crap>
       <complexity>6</complexity>
       <coverage>0</coverage>
@@ -281,8 +281,8 @@
       <methodName>buildClass_init_addFlags</methodName>
       <methodSignature>buildClass_init_addFlags(Recipe $recipe): string</methodSignature>
       <fullMethod>buildClass_init_addFlags(Recipe $recipe): string</fullMethod>
-      <crap>12</crap>
-      <complexity>3</complexity>
+      <crap>42</crap>
+      <complexity>6</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -290,8 +290,8 @@
       <package>Playground\Make\Recipe\Building</package>
       <className>Playground\Make\Recipe\Building\BuildInit</className>
       <methodName>buildClass_init_addFlag</methodName>
-      <methodSignature>buildClass_init_addFlag(Flag $flag): string</methodSignature>
-      <fullMethod>buildClass_init_addFlag(Flag $flag): string</fullMethod>
+      <methodSignature>buildClass_init_addFlag(Flag $flag, int $indent): string</methodSignature>
+      <fullMethod>buildClass_init_addFlag(Flag $flag, int $indent): string</fullMethod>
       <crap>56</crap>
       <complexity>7</complexity>
       <coverage>0</coverage>
@@ -303,8 +303,8 @@
       <methodName>buildClass_init_addJsons</methodName>
       <methodSignature>buildClass_init_addJsons(Recipe $recipe): string</methodSignature>
       <fullMethod>buildClass_init_addJsons(Recipe $recipe): string</fullMethod>
-      <crap>12</crap>
-      <complexity>3</complexity>
+      <crap>30</crap>
+      <complexity>5</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -312,8 +312,8 @@
       <package>Playground\Make\Recipe\Building</package>
       <className>Playground\Make\Recipe\Building\BuildInit</className>
       <methodName>buildClass_init_addJson</methodName>
-      <methodSignature>buildClass_init_addJson(Json $json): string</methodSignature>
-      <fullMethod>buildClass_init_addJson(Json $json): string</fullMethod>
+      <methodSignature>buildClass_init_addJson(Json $json, int $indent): string</methodSignature>
+      <fullMethod>buildClass_init_addJson(Json $json, int $indent): string</fullMethod>
       <crap>132</crap>
       <complexity>11</complexity>
       <coverage>0</coverage>
