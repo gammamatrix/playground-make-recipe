@@ -21,6 +21,7 @@ class Recipe extends PrimaryConfiguration
     use Concerns\FactoryStates;
     use Concerns\Flags;
     use Concerns\Flavors;
+    use Concerns\Ids;
     use Concerns\JsonColumns;
     use Concerns\PackageModels;
 
@@ -132,6 +133,7 @@ class Recipe extends PrimaryConfiguration
         'description' => '',
         'title' => '',
         'name' => '',
+        'ids' => [],
         'columns' => [],
         'dates' => [],
         'factoryStates' => [],
@@ -177,6 +179,10 @@ class Recipe extends PrimaryConfiguration
             && is_string($options['title'])
         ) {
             $this->title = $options['title'];
+        }
+
+        if (! empty($options['ids']) && is_array($options['ids'])) {
+            $this->addIds($options['ids']);
         }
 
         if (! empty($options['columns']) && is_array($options['columns'])) {

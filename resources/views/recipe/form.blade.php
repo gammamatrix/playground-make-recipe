@@ -86,6 +86,11 @@ if (! $recipe_title) {
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-12">
+                    @include("playground-make-recipe::recipe/form-ids")
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-12">
                     @include("playground-make-recipe::recipe/form-columns")
                 </div>
             </div>

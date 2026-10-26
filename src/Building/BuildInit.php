@@ -15,6 +15,7 @@ use Playground\Make\Recipe\Configuration\Column;
 use Playground\Make\Recipe\Configuration\Date;
 use Playground\Make\Recipe\Configuration\Flag;
 use Playground\Make\Recipe\Configuration\Json;
+use Playground\Make\Recipe\Configuration\PackageModel;
 use Playground\Make\Recipe\Configuration\Recipe;
 
 /**
@@ -31,6 +32,14 @@ trait BuildInit
         if (in_array('tags', $recipe->flavors())) {
             $code .= $this->buildClass_init_tagged($recipe);
             $code .= $this->buildClass_init_tag($recipe);
+        }
+
+        $addIds = $this->buildClass_init_addIds($recipe);
+
+        if (! empty($addIds)) {
+            $this->searches['init'] .= $this->buildClass_addIds_method($addIds);
+            $code .= str_repeat(' ', 8);
+            $code .= '$this->addIds();'.PHP_EOL;
         }
 
         $unsetIds = $this->buildClass_init_unsetIds($recipe);
@@ -144,6 +153,18 @@ PHP_CODE;
 $code
 
         ksort(\$this->flags);
+    }
+
+PHP_CODE;
+    }
+
+    protected function buildClass_addIds_method(string $code): string
+    {
+        return <<<PHP_CODE
+
+    public function addIds(): void
+    {
+$code
     }
 
 PHP_CODE;
@@ -542,6 +563,92 @@ PHP_CODE;
         return $code;
     }
 
+    protected function buildClass_init_addIds(Recipe $recipe): string
+    {
+        $code = '';
+
+        $i = 0;
+        $total = count($recipe->packageModels());
+        foreach ($recipe->packageModels() as $modelClassName => $model) {
+            if (! empty($model->exclude())) {
+                $code .= str_repeat(' ', 8).'if (in_array($this->name, [';
+                $code .= PHP_EOL.str_repeat(' ', 12).sprintf('\'%1$s\',', implode('\', \'', $model->exclude()));
+                $code .= PHP_EOL.str_repeat(' ', 8).'])) {';
+                $code .= $this->buildClass_init_addId($model, 12);
+                $code .= PHP_EOL.str_repeat(' ', 8).'}';
+            }
+
+            $i++;
+            if ($i < $total) {
+                $code .= PHP_EOL.PHP_EOL;
+            }
+        }
+
+        return rtrim($code, PHP_EOL);
+    }
+
+    protected function buildClass_init_addId(
+        PackageModel $model,
+        int $indent = 8
+    ): string {
+
+        //        dd([
+        //            '__METHOD__' => __METHOD__,
+        //            '$model' => $model,
+        //        ]);
+        $code = str_repeat(' ', $indent);
+        //        $code .= sprintf('$this->json[\'%1$s\'] = [', $json->column());
+        //
+        //        if ($json->comment()) {
+        //            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
+        //            $code .= sprintf('\'comment\' => \'%1$s\',', $json->comment());
+        //        }
+        //
+        //        if ($json->description()) {
+        //            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
+        //            $code .= sprintf('\'description\' => \'%1$s\',', $json->description());
+        //        }
+        //
+        //        $code .= PHP_EOL.str_repeat(' ', $indent + 4);
+        //        $code .= sprintf('\'label\' => \'%1$s\',', $json->label() ?: Str::of($json->column())->headline()->lower()->ucfirst()->toString());
+        //
+        //        $default = $json->default();
+        //
+        //        $defaultString = 'null';
+        //
+        //        switch (gettype($default)) {
+        //            case 'boolean':
+        //                $defaultString = $default ? 'true' : 'false';
+        //                break;
+        //            case 'string':
+        //                $defaultString = sprintf('\'%1$s\'', $default);
+        //                break;
+        //            case 'integer':
+        //                break;
+        //        }
+        //
+        //        $code .= PHP_EOL.str_repeat(' ', $indent + 4);
+        //        $code .= sprintf('\'default\' => %1$s,', $defaultString);
+        //
+        //        $code .= PHP_EOL.str_repeat(' ', $indent + 4);
+        //        $code .= sprintf('\'nullable\' => %1$s,', $json->nullable() ? 'true' : 'false');
+        //
+        //        if ($json->readOnly()) {
+        //            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
+        //            $code .= sprintf('\'readOnly\' => %1$s,', 'true');
+        //        }
+        //
+        //        if ($json->type()) {
+        //            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
+        //            $code .= sprintf('\'type\' => \'%1$s\',', $json->type());
+        //        }
+        //
+        //        $code .= PHP_EOL.str_repeat(' ', $indent);
+        //        $code .= '];';
+
+        return $code;
+    }
+
     protected function buildClass_init_addJson(
         Json $json,
         int $indent = 8
@@ -612,8 +719,7 @@ PHP_CODE;
                 $code .= PHP_EOL.str_repeat(' ', 8).'])) {';
                 $code .= PHP_EOL.str_repeat(' ', 12).sprintf('unset($this->allIds[\'%1$s_id\']);', $model->snake());
                 $code .= PHP_EOL.str_repeat(' ', 12).sprintf('unset($this->circletHasOne[\'%1$s\']);', $model->snake());
-                // TODO not sure about this one:
-                // $code .= PHP_EOL.str_repeat(' ', 12).sprintf('unset($this->circletHasMany[\'%1$s\']);', $model->snakes());
+                $code .= PHP_EOL.str_repeat(' ', 12).sprintf('unset($this->circletHasMany[\'%1$s\']);', $model->snakes());
                 $code .= PHP_EOL.str_repeat(' ', 8).'}';
             }
 

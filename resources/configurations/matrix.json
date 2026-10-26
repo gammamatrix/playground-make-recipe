@@ -7,6 +7,128 @@
     "description": "The recipe for the project management and task system packages.",
     "title": "Matrix",
     "name": "",
+    "ids": {
+        "completed_by_id": {
+            "accessor": "completedBy",
+            "column": "completed_by_id",
+            "local_key": "completed_by_id",
+            "foreign_key": "id",
+            "on": "users",
+            "references": "id",
+            "related": "\\Playground\\Models\\User",
+            "default": null,
+            "description": "",
+            "hasDefault": false,
+            "icon": "",
+            "index": true,
+            "label": "Completed by",
+            "nullable": true,
+            "unsigned": false,
+            "size": null,
+            "type": "uuid",
+            "exclude": [],
+            "only": [
+                "Ticket"
+            ],
+            "comment": "The completed by user of the %1$s."
+        },
+        "duplicate_id": {
+            "accessor": "duplicateBy",
+            "column": "duplicate_id",
+            "local_key": "duplicate_id",
+            "foreign_key": "id",
+            "on": "matrix_tickets",
+            "references": "id",
+            "related": "Ticket",
+            "default": null,
+            "description": "",
+            "hasDefault": false,
+            "icon": "",
+            "index": true,
+            "label": "Duplicate by",
+            "nullable": true,
+            "unsigned": false,
+            "size": null,
+            "type": "uuid",
+            "exclude": [],
+            "only": [
+                "Ticket"
+            ],
+            "comment": "The duplicate of the %1$s."
+        },
+        "fixed_by_id": {
+            "accessor": "fixedBy",
+            "column": "fixed_by_id",
+            "local_key": "fixed_by_id",
+            "foreign_key": "id",
+            "on": "users",
+            "references": "id",
+            "related": "\\Playground\\Models\\User",
+            "default": null,
+            "description": "",
+            "hasDefault": false,
+            "icon": "",
+            "index": true,
+            "label": "",
+            "nullable": true,
+            "unsigned": false,
+            "size": null,
+            "type": "uuid",
+            "exclude": [],
+            "only": [
+                "Ticket"
+            ],
+            "comment": "The fixed by user of the %1$s."
+        },
+        "reported_by_id": {
+            "accessor": "reportedBy",
+            "column": "reported_by_id",
+            "local_key": "reported_by_id",
+            "foreign_key": "id",
+            "on": "users",
+            "references": "id",
+            "related": "\\Playground\\Models\\User",
+            "default": null,
+            "description": "",
+            "hasDefault": false,
+            "icon": "",
+            "index": true,
+            "label": "Reported by",
+            "nullable": true,
+            "unsigned": false,
+            "size": null,
+            "type": "uuid",
+            "exclude": [],
+            "only": [
+                "Ticket"
+            ],
+            "comment": "The reported by user of the %1$s."
+        },
+        "version_fixed_id": {
+            "accessor": "versionFixed",
+            "column": "version_fixed_id",
+            "local_key": "version_fixed_id",
+            "foreign_key": "id",
+            "on": "users",
+            "references": "id",
+            "related": "Version",
+            "default": null,
+            "description": "",
+            "hasDefault": false,
+            "icon": "",
+            "index": true,
+            "label": "Version fixed",
+            "nullable": true,
+            "unsigned": false,
+            "size": null,
+            "type": "uuid",
+            "exclude": [],
+            "only": [
+                "Ticket"
+            ],
+            "comment": "The fixed by user of the %1$s"
+        }
+    },
     "columns": {
         "handler": {
             "column": "handler",

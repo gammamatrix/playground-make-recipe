@@ -51,6 +51,7 @@ $withType = ! empty($withType);
                 placeholder="Type or select..."
                 required
                 maxlength="255"
+                value="{{ old('type') }}"
             />
             <datalist id="options-column-types">
                 <option value="string"></option>
