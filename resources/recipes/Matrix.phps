@@ -78,16 +78,6 @@ class Matrix extends Playground
             'nullable' => true,
             'type' => 'uuid',
         ],
-        'matrix_id' => [
-            'description' => '',
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_matrices',
-            ],
-            'index' => true,
-            'nullable' => true,
-            'type' => 'uuid',
-        ],
         'milestone_id' => [
             'description' => '',
             'foreign' => [
@@ -476,6 +466,105 @@ class Matrix extends Playground
         ],
     ];
 
+    public function addIds(): void
+    {
+        if (in_array($this->name, [
+            'Ticket',
+        ])) {
+
+            $this->allIds['completed_by_id'] = [
+                'description' => '',
+                'foreign' => [
+                    'references' => 'id',
+                    'on' => 'users',
+                ],
+                'index' => true,
+                'nullable' => true,
+                'type' => 'uuid',
+            ];
+            $this->circletHasOne['completedBy'] = [
+                'comment' => 'The completed by user of the %1$s.',
+                'accessor' => 'completedBy',
+                'related' => '\Playground\Models\User',
+                'foreignKey' => 'id',
+                'localKey' => 'completed_by_id',
+            ];
+
+            $this->allIds['duplicate_id'] = [
+                'description' => '',
+                'foreign' => [
+                    'references' => 'id',
+                    'on' => 'matrix_tickets',
+                ],
+                'index' => true,
+                'nullable' => true,
+                'type' => 'uuid',
+            ];
+            $this->circletHasOne['duplicateBy'] = [
+                'comment' => 'The duplicate of the %1$s.',
+                'accessor' => 'duplicateBy',
+                'related' => 'Ticket',
+                'foreignKey' => 'id',
+                'localKey' => 'duplicate_id',
+            ];
+
+            $this->allIds['fixed_by_id'] = [
+                'description' => '',
+                'foreign' => [
+                    'references' => 'id',
+                    'on' => 'users',
+                ],
+                'index' => true,
+                'nullable' => true,
+                'type' => 'uuid',
+            ];
+            $this->circletHasOne['fixedBy'] = [
+                'comment' => 'The fixed by user of the %1$s.',
+                'accessor' => 'fixedBy',
+                'related' => '\Playground\Models\User',
+                'foreignKey' => 'id',
+                'localKey' => 'fixed_by_id',
+            ];
+
+            $this->allIds['reported_by_id'] = [
+                'description' => '',
+                'foreign' => [
+                    'references' => 'id',
+                    'on' => 'users',
+                ],
+                'index' => true,
+                'nullable' => true,
+                'type' => 'uuid',
+            ];
+            $this->circletHasOne['reportedBy'] = [
+                'comment' => 'The reported by user of the %1$s.',
+                'accessor' => 'reportedBy',
+                'related' => '\Playground\Models\User',
+                'foreignKey' => 'id',
+                'localKey' => 'reported_by_id',
+            ];
+
+            $this->allIds['version_fixed_id'] = [
+                'description' => '',
+                'foreign' => [
+                    'references' => 'id',
+                    'on' => 'matrix_versions',
+                ],
+                'index' => true,
+                'nullable' => true,
+                'type' => 'uuid',
+            ];
+            $this->circletHasOne['versionFixed'] = [
+                'comment' => 'The duplicate of the %1$s.',
+                'accessor' => 'versionFixed',
+                'related' => 'Version',
+                'foreignKey' => 'id',
+                'localKey' => 'version_fixed_id',
+            ];
+
+        }
+    }
+
     public function unsetIds(): void
     {
         if (in_array($this->name, [
@@ -506,7 +595,12 @@ class Matrix extends Playground
             unset($this->circletHasOne['flow']);
         }
 
-
+        if (in_array($this->name, [
+            'Backlog', 'Board', 'Epic', 'Flow', 'Matrix', 'Milestone', 'Note', 'Project', 'Release', 'Roadmap', 'Source', 'Sprint', 'Tag', 'Team', 'Ticket', 'Version', 'Tagged',
+        ])) {
+            unset($this->allIds['matrix_id']);
+            unset($this->circletHasOne['matrix']);
+        }
 
         if (in_array($this->name, [
             'Flow', 'Matrix', 'Milestone', 'Note', 'Source', 'Version',
@@ -966,7 +1060,7 @@ class Matrix extends Playground
          */
         $allIds = \Illuminate\Support\Arr::except($this->allIds, ['parent_id', 'matrix_id']);
 
-        if ($this->type === 'playground-model-tagged') { 
+        if ($this->type === 'playground-model-tagged') {
             $this->circletHasOne['backlog']['comment'] = 'The tagged backlog.';
             $this->circletHasOne['board']['comment'] = 'The tagged board.';
             $this->circletHasOne['epic']['comment'] = 'The tagged epic.';
@@ -1013,6 +1107,7 @@ class Matrix extends Playground
         unset($this->circletHasOne['tag']);
         unset($this->circletHasMany['tags']);
 
+        $this->addIds();
         $this->unsetIds();
         $this->addColumns();
         $this->addDates();
