@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-10-26 00:40:21</timestamp>
+  <timestamp>2026-10-26 19:29:00</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>244</methodCount>
-    <crapMethodCount>37</crapMethodCount>
-    <crapLoad>643</crapLoad>
-    <totalCrap>18478</totalCrap>
-    <crapMethodPercent>15.16</crapMethodPercent>
+    <methodCount>277</methodCount>
+    <crapMethodCount>41</crapMethodCount>
+    <crapLoad>777</crapLoad>
+    <totalCrap>25188</totalCrap>
+    <crapMethodPercent>14.8</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -171,10 +171,10 @@
       <methodName>buildClass_init</methodName>
       <methodSignature>buildClass_init(Recipe $recipe): void</methodSignature>
       <fullMethod>buildClass_init(Recipe $recipe): void</fullMethod>
-      <crap>132</crap>
-      <complexity>11</complexity>
+      <crap>156</crap>
+      <complexity>12</complexity>
       <coverage>0</coverage>
-      <crapLoad>11</crapLoad>
+      <crapLoad>12</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Building</package>
@@ -215,6 +215,17 @@
       <methodName>buildClass_addFlags_method</methodName>
       <methodSignature>buildClass_addFlags_method(string $code): string</methodSignature>
       <fullMethod>buildClass_addFlags_method(string $code): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildInit</className>
+      <methodName>buildClass_addIds_method</methodName>
+      <methodSignature>buildClass_addIds_method(string $code): string</methodSignature>
+      <fullMethod>buildClass_addIds_method(string $code): string</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
@@ -316,6 +327,28 @@
       <fullMethod>buildClass_init_addJsons(Recipe $recipe): string</fullMethod>
       <crap>30</crap>
       <complexity>5</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildInit</className>
+      <methodName>buildClass_init_addIds</methodName>
+      <methodSignature>buildClass_init_addIds(Recipe $recipe): string</methodSignature>
+      <fullMethod>buildClass_init_addIds(Recipe $recipe): string</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildInit</className>
+      <methodName>buildClass_init_addId</methodName>
+      <methodSignature>buildClass_init_addId(PackageModel $model, int $indent): string</methodSignature>
+      <fullMethod>buildClass_init_addId(PackageModel $model, int $indent): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -970,6 +1003,61 @@
     </method>
     <method>
       <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\Ids</className>
+      <methodName>addId</methodName>
+      <methodSignature>addId(string $column_slug, Id $id): self</methodSignature>
+      <fullMethod>addId(string $column_slug, Id $id): self</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\Ids</className>
+      <methodName>removeId</methodName>
+      <methodSignature>removeId(string $column): self</methodSignature>
+      <fullMethod>removeId(string $column): self</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\Ids</className>
+      <methodName>addIds</methodName>
+      <methodSignature>addIds(array $ids): self</methodSignature>
+      <fullMethod>addIds(array $ids): self</fullMethod>
+      <crap>3782</crap>
+      <complexity>61</complexity>
+      <coverage>0</coverage>
+      <crapLoad>62</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\Ids</className>
+      <methodName>id</methodName>
+      <methodSignature>id(string $column): ?Id</methodSignature>
+      <fullMethod>id(string $column): ?Id</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
+      <className>Playground\Make\Recipe\Configuration\Concerns\Ids</className>
+      <methodName>ids</methodName>
+      <methodSignature>ids(): array</methodSignature>
+      <fullMethod>ids(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration\Concerns</package>
       <className>Playground\Make\Recipe\Configuration\Concerns\JsonColumns</className>
       <methodName>addJsonColumn</methodName>
       <methodSignature>addJsonColumn(string $column, Json $json): self</methodSignature>
@@ -1348,6 +1436,237 @@
       <methodName>readOnly</methodName>
       <methodSignature>readOnly(): bool</methodSignature>
       <fullMethod>readOnly(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Id</className>
+      <methodName>allowedTypes</methodName>
+      <methodSignature>allowedTypes(): array</methodSignature>
+      <fullMethod>allowedTypes(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Id</className>
+      <methodName>setOptions</methodName>
+      <methodSignature>setOptions(array $options): self</methodSignature>
+      <fullMethod>setOptions(array $options): self</fullMethod>
+      <crap>2450</crap>
+      <complexity>49</complexity>
+      <coverage>0</coverage>
+      <crapLoad>50</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Id</className>
+      <methodName>accessor</methodName>
+      <methodSignature>accessor(): string</methodSignature>
+      <fullMethod>accessor(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Id</className>
+      <methodName>column</methodName>
+      <methodSignature>column(): string</methodSignature>
+      <fullMethod>column(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Id</className>
+      <methodName>local_key</methodName>
+      <methodSignature>local_key(): string</methodSignature>
+      <fullMethod>local_key(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Id</className>
+      <methodName>related</methodName>
+      <methodSignature>related(): string</methodSignature>
+      <fullMethod>related(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Id</className>
+      <methodName>foreign_key</methodName>
+      <methodSignature>foreign_key(): string</methodSignature>
+      <fullMethod>foreign_key(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Id</className>
+      <methodName>references</methodName>
+      <methodSignature>references(): string</methodSignature>
+      <fullMethod>references(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Id</className>
+      <methodName>on</methodName>
+      <methodSignature>on(): string</methodSignature>
+      <fullMethod>on(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Id</className>
+      <methodName>comment</methodName>
+      <methodSignature>comment(): string</methodSignature>
+      <fullMethod>comment(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Id</className>
+      <methodName>description</methodName>
+      <methodSignature>description(): string</methodSignature>
+      <fullMethod>description(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Id</className>
+      <methodName>label</methodName>
+      <methodSignature>label(): string</methodSignature>
+      <fullMethod>label(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Id</className>
+      <methodName>default</methodName>
+      <methodSignature>default(): mixed</methodSignature>
+      <fullMethod>default(): mixed</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Id</className>
+      <methodName>exclude</methodName>
+      <methodSignature>exclude(): array</methodSignature>
+      <fullMethod>exclude(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Id</className>
+      <methodName>hasDefault</methodName>
+      <methodSignature>hasDefault(): bool</methodSignature>
+      <fullMethod>hasDefault(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Id</className>
+      <methodName>icon</methodName>
+      <methodSignature>icon(): string</methodSignature>
+      <fullMethod>icon(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Id</className>
+      <methodName>index</methodName>
+      <methodSignature>index(): bool</methodSignature>
+      <fullMethod>index(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Id</className>
+      <methodName>nullable</methodName>
+      <methodSignature>nullable(): bool</methodSignature>
+      <fullMethod>nullable(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Id</className>
+      <methodName>only</methodName>
+      <methodSignature>only(): array</methodSignature>
+      <fullMethod>only(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Id</className>
+      <methodName>size</methodName>
+      <methodSignature>size(): ?int</methodSignature>
+      <fullMethod>size(): ?int</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Configuration</package>
+      <className>Playground\Make\Recipe\Configuration\Id</className>
+      <methodName>unsigned</methodName>
+      <methodSignature>unsigned(): bool</methodSignature>
+      <fullMethod>unsigned(): bool</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
@@ -1755,10 +2074,10 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>870</crap>
-      <complexity>29</complexity>
+      <crap>992</crap>
+      <complexity>31</complexity>
       <coverage>0</coverage>
-      <crapLoad>30</crapLoad>
+      <crapLoad>32</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Configuration</package>
@@ -2114,6 +2433,39 @@
     </method>
     <method>
       <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\IdController</className>
+      <methodName>delete</methodName>
+      <methodSignature>delete(Manager $manager, string $recipe_slug, string $column): RedirectResponse</methodSignature>
+      <fullMethod>delete(Manager $manager, string $recipe_slug, string $column): RedirectResponse</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\IdController</className>
+      <methodName>form</methodName>
+      <methodSignature>form(string $recipe_slug, FormRequest $request, Manager $manager, ?string $column): View|RedirectResponse</methodSignature>
+      <fullMethod>form(string $recipe_slug, FormRequest $request, Manager $manager, ?string $column): View|RedirectResponse</fullMethod>
+      <crap>56</crap>
+      <complexity>7</complexity>
+      <coverage>0</coverage>
+      <crapLoad>7</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
+      <className>Playground\Make\Recipe\Http\Controllers\IdController</className>
+      <methodName>save</methodName>
+      <methodSignature>save(string $recipe_slug, SaveRequest $request, Manager $manager, ?string $column): RedirectResponse</methodSignature>
+      <fullMethod>save(string $recipe_slug, SaveRequest $request, Manager $manager, ?string $column): RedirectResponse</fullMethod>
+      <crap>42</crap>
+      <complexity>6</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Controllers</package>
       <className>Playground\Make\Recipe\Http\Controllers\JsonController</className>
       <methodName>delete</methodName>
       <methodSignature>delete(Manager $manager, string $recipe_slug, string $column): RedirectResponse</methodSignature>
@@ -2430,6 +2782,17 @@
       <complexity>1</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Http\Requests\Id</package>
+      <className>Playground\Make\Recipe\Http\Requests\Id\SaveRequest</className>
+      <methodName>prepareForValidation</methodName>
+      <methodSignature>prepareForValidation()</methodSignature>
+      <fullMethod>prepareForValidation()</fullMethod>
+      <crap>156</crap>
+      <complexity>12</complexity>
+      <coverage>0</coverage>
+      <crapLoad>12</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Http\Requests\Json</package>
