@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-10-26 19:29:00</timestamp>
+  <timestamp>2026-10-28 19:25:52</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>277</methodCount>
-    <crapMethodCount>41</crapMethodCount>
-    <crapLoad>777</crapLoad>
-    <totalCrap>25188</totalCrap>
-    <crapMethodPercent>14.8</crapMethodPercent>
+    <methodCount>280</methodCount>
+    <crapMethodCount>42</crapMethodCount>
+    <crapLoad>786</crapLoad>
+    <totalCrap>25334</totalCrap>
+    <crapMethodPercent>15</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -171,10 +171,10 @@
       <methodName>buildClass_init</methodName>
       <methodSignature>buildClass_init(Recipe $recipe): void</methodSignature>
       <fullMethod>buildClass_init(Recipe $recipe): void</fullMethod>
-      <crap>156</crap>
-      <complexity>12</complexity>
+      <crap>182</crap>
+      <complexity>13</complexity>
       <coverage>0</coverage>
-      <crapLoad>12</crapLoad>
+      <crapLoad>13</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Recipe\Building</package>
@@ -245,9 +245,20 @@
     <method>
       <package>Playground\Make\Recipe\Building</package>
       <className>Playground\Make\Recipe\Building\BuildInit</className>
-      <methodName>buildClass_unsetIds_method</methodName>
-      <methodSignature>buildClass_unsetIds_method(string $code): string</methodSignature>
-      <fullMethod>buildClass_unsetIds_method(string $code): string</fullMethod>
+      <methodName>buildClass_unsetCircletHasOneIds_method</methodName>
+      <methodSignature>buildClass_unsetCircletHasOneIds_method(string $code): string</methodSignature>
+      <fullMethod>buildClass_unsetCircletHasOneIds_method(string $code): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildInit</className>
+      <methodName>buildClass_unsetCircletHasManyIds_method</methodName>
+      <methodSignature>buildClass_unsetCircletHasManyIds_method(string $code): string</methodSignature>
+      <fullMethod>buildClass_unsetCircletHasManyIds_method(string $code): string</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
@@ -345,10 +356,21 @@
       <package>Playground\Make\Recipe\Building</package>
       <className>Playground\Make\Recipe\Building\BuildInit</className>
       <methodName>buildClass_init_addId</methodName>
-      <methodSignature>buildClass_init_addId(PackageModel $model, int $indent): string</methodSignature>
-      <fullMethod>buildClass_init_addId(PackageModel $model, int $indent): string</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
+      <methodSignature>buildClass_init_addId(Id $id, int $indent): string</methodSignature>
+      <fullMethod>buildClass_init_addId(Id $id, int $indent): string</fullMethod>
+      <crap>72</crap>
+      <complexity>8</complexity>
+      <coverage>0</coverage>
+      <crapLoad>8</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildInit</className>
+      <methodName>buildClass_init_circletHasOne</methodName>
+      <methodSignature>buildClass_init_circletHasOne(Id $id, int $indent): string</methodSignature>
+      <fullMethod>buildClass_init_circletHasOne(Id $id, int $indent): string</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -366,11 +388,22 @@
     <method>
       <package>Playground\Make\Recipe\Building</package>
       <className>Playground\Make\Recipe\Building\BuildInit</className>
-      <methodName>buildClass_init_unsetIds</methodName>
-      <methodSignature>buildClass_init_unsetIds(Recipe $recipe): string</methodSignature>
-      <fullMethod>buildClass_init_unsetIds(Recipe $recipe): string</fullMethod>
+      <methodName>buildClass_init_unsetCircletHasOneIds</methodName>
+      <methodSignature>buildClass_init_unsetCircletHasOneIds(Recipe $recipe): string</methodSignature>
+      <fullMethod>buildClass_init_unsetCircletHasOneIds(Recipe $recipe): string</fullMethod>
       <crap>20</crap>
       <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Recipe\Building</package>
+      <className>Playground\Make\Recipe\Building\BuildInit</className>
+      <methodName>buildClass_init_unsetCircletHasManyIds</methodName>
+      <methodSignature>buildClass_init_unsetCircletHasManyIds(Recipe $recipe): string</methodSignature>
+      <fullMethod>buildClass_init_unsetCircletHasManyIds(Recipe $recipe): string</fullMethod>
+      <crap>42</crap>
+      <complexity>6</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
