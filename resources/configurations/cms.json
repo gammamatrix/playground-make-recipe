@@ -7,6 +7,7 @@
     "description": "The recipe for the content management system packages.",
     "title": "CMS",
     "name": "",
+    "ids": [],
     "columns": [],
     "dates": {
         "canceled_at": {
@@ -15,7 +16,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "closed_at": {
             "column": "closed_at",
@@ -23,7 +26,9 @@
             "label": "",
             "index": true,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "embargo_at": {
             "column": "embargo_at",
@@ -31,7 +36,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "fixed_at": {
             "column": "fixed_at",
@@ -39,7 +46,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "planned_end_at": {
             "column": "planned_end_at",
@@ -47,7 +56,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "planned_start_at": {
             "column": "planned_start_at",
@@ -55,7 +66,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "postponed_at": {
             "column": "postponed_at",
@@ -63,7 +76,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "published_at": {
             "column": "published_at",
@@ -71,7 +86,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "released_at": {
             "column": "released_at",
@@ -79,7 +96,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "resumed_at": {
             "column": "resumed_at",
@@ -87,7 +106,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "resolved_at": {
             "column": "resolved_at",
@@ -95,7 +116,9 @@
             "label": "",
             "index": true,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "suspended_at": {
             "column": "suspended_at",
@@ -103,7 +126,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "timer_end_at": {
             "column": "timer_end_at",
@@ -111,7 +136,9 @@
             "label": "",
             "index": true,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "timer_start_at": {
             "column": "timer_start_at",
@@ -119,7 +146,9 @@
             "label": "",
             "index": true,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         }
     },
     "factoryStates": {
@@ -153,7 +182,9 @@
             "label": "",
             "type": "JSON_OBJECT",
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "meta": {
             "column": "meta",
@@ -163,7 +194,9 @@
             "label": "",
             "type": "JSON_OBJECT",
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "notes": {
             "column": "notes",
@@ -173,7 +206,9 @@
             "label": "",
             "type": "JSON_ARRAY",
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "options": {
             "column": "options",
@@ -183,7 +218,9 @@
             "label": "",
             "type": "JSON_OBJECT",
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "sources": {
             "column": "sources",
@@ -193,7 +230,9 @@
             "label": "",
             "type": "JSON_OBJECT",
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         }
     },
     "models": [],
@@ -233,7 +272,9 @@
                 "routing",
                 "tags"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         },
         "PageRevision": {
             "migration_date": "2010_09_30",
@@ -268,7 +309,9 @@
                 "playground",
                 "routing"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         },
         "Snippet": {
             "migration_date": "2010_09_30",
@@ -304,7 +347,9 @@
                 "revision",
                 "tags"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         },
         "SnippetRevision": {
             "migration_date": "2010_09_30",
@@ -338,7 +383,9 @@
                 "parent",
                 "playground"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         },
         "Tag": {
             "migration_date": "2010_09_30",
@@ -372,7 +419,9 @@
                 "parent",
                 "playground"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         },
         "Tagged": {
             "migration_date": "2010_09_30",
@@ -406,7 +455,9 @@
                 "playground",
                 "tags"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         }
     },
     "type": "",

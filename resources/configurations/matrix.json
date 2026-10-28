@@ -702,8 +702,14 @@
             "type": "flag",
             "value": true
         },
-        "published": {
-            "state": "published",
+        "featured": {
+            "state": "featured",
+            "description": "",
+            "type": "flag",
+            "value": true
+        },
+        "special": {
+            "state": "special",
             "description": "",
             "type": "flag",
             "value": true

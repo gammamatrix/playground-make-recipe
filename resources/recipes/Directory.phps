@@ -203,6 +203,7 @@ class Directory extends Playground
             unset($this->hasMany['revisions']);
             $this->handleTagged();
             $this->handleCircletHasOne();
+
             return;
         }
 
@@ -218,6 +219,7 @@ class Directory extends Playground
             $this->circletHasMany = [];
             $this->hasManyThrough = [];
             $this->handleCircletHasOne();
+
             return;
         }
 

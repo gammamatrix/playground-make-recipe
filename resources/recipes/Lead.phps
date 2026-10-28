@@ -602,6 +602,7 @@ class Lead extends Playground
             $this->allIds = $allIds;
             $this->handleTagged();
             $this->handleCircletHasOne();
+
             return;
         }
 
@@ -616,6 +617,7 @@ class Lead extends Playground
             $this->circletHasMany = [];
             $this->hasManyThrough = [];
             $this->handleCircletHasOne();
+
             return;
         }
 

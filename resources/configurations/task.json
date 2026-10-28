@@ -7,6 +7,7 @@
     "description": "A task management system.",
     "title": "Task",
     "name": "",
+    "ids": [],
     "columns": {
         "duration": {
             "column": "duration",
@@ -23,7 +24,9 @@
             "readOnly": false,
             "scale": null,
             "size": null,
-            "type": "integer"
+            "type": "integer",
+            "exclude": [],
+            "only": []
         },
         "day_of_week": {
             "column": "day_of_week",
@@ -40,7 +43,9 @@
             "readOnly": false,
             "scale": null,
             "size": null,
-            "type": "integer"
+            "type": "integer",
+            "exclude": [],
+            "only": []
         },
         "day_of_month": {
             "column": "day_of_month",
@@ -57,7 +62,9 @@
             "readOnly": false,
             "scale": null,
             "size": null,
-            "type": "integer"
+            "type": "integer",
+            "exclude": [],
+            "only": []
         },
         "day_of_quarter": {
             "column": "day_of_quarter",
@@ -74,7 +81,9 @@
             "readOnly": false,
             "scale": null,
             "size": null,
-            "type": "integer"
+            "type": "integer",
+            "exclude": [],
+            "only": []
         },
         "day_of_year": {
             "column": "day_of_year",
@@ -91,7 +100,9 @@
             "readOnly": false,
             "scale": null,
             "size": null,
-            "type": "integer"
+            "type": "integer",
+            "exclude": [],
+            "only": []
         },
         "week_of_month": {
             "column": "week_of_month",
@@ -108,7 +119,9 @@
             "readOnly": false,
             "scale": null,
             "size": null,
-            "type": "integer"
+            "type": "integer",
+            "exclude": [],
+            "only": []
         },
         "week_of_quarter": {
             "column": "week_of_quarter",
@@ -125,7 +138,9 @@
             "readOnly": false,
             "scale": null,
             "size": null,
-            "type": "integer"
+            "type": "integer",
+            "exclude": [],
+            "only": []
         },
         "week_of_year": {
             "column": "week_of_year",
@@ -142,7 +157,9 @@
             "readOnly": false,
             "scale": null,
             "size": null,
-            "type": "integer"
+            "type": "integer",
+            "exclude": [],
+            "only": []
         }
     },
     "dates": {
@@ -152,7 +169,9 @@
             "label": "Due at",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "skipped_at": {
             "column": "skipped_at",
@@ -160,7 +179,9 @@
             "label": "Skipped at",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         }
     },
     "factoryStates": {
@@ -192,7 +213,9 @@
             "index": false,
             "label": "Skipped",
             "nullable": false,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         }
     },
     "flavors": [
@@ -210,7 +233,9 @@
             "label": "Recur",
             "type": "JSON_OBJECT",
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         }
     },
     "models": [],
@@ -249,7 +274,9 @@
                 "playground",
                 "tags"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         },
         "TaskList": {
             "migration_date": "2002_02_05",
@@ -285,7 +312,9 @@
                 "playground",
                 "tags"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         },
         "TaskLog": {
             "migration_date": "2002_02_05",
@@ -321,7 +350,9 @@
                 "playground",
                 "tags"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         },
         "Tag": {
             "migration_date": "2002_02_05",
@@ -356,7 +387,9 @@
                 "parent",
                 "playground"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         },
         "Tagged": {
             "migration_date": "2002_02_05",
@@ -389,7 +422,9 @@
             "flavors": [
                 "tags"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         }
     },
     "type": "",

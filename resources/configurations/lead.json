@@ -7,6 +7,7 @@
     "description": "The recipe for the lead and sales campaign system packages.",
     "title": "Lead",
     "name": "",
+    "ids": [],
     "columns": {
         "email": {
             "column": "email",
@@ -23,7 +24,9 @@
             "readOnly": false,
             "scale": null,
             "size": null,
-            "type": "string"
+            "type": "string",
+            "exclude": [],
+            "only": []
         },
         "phone": {
             "column": "phone",
@@ -40,7 +43,9 @@
             "readOnly": false,
             "scale": null,
             "size": null,
-            "type": "string"
+            "type": "string",
+            "exclude": [],
+            "only": []
         },
         "team_role": {
             "column": "team_role",
@@ -57,7 +62,9 @@
             "readOnly": false,
             "scale": null,
             "size": null,
-            "type": "string"
+            "type": "string",
+            "exclude": [],
+            "only": []
         },
         "currency": {
             "column": "currency",
@@ -74,7 +81,9 @@
             "readOnly": false,
             "scale": null,
             "size": null,
-            "type": "string"
+            "type": "string",
+            "exclude": [],
+            "only": []
         },
         "amount": {
             "column": "amount",
@@ -91,7 +100,9 @@
             "readOnly": false,
             "scale": 4,
             "size": null,
-            "type": "decimal"
+            "type": "decimal",
+            "exclude": [],
+            "only": []
         },
         "bonus": {
             "column": "bonus",
@@ -108,7 +119,9 @@
             "readOnly": false,
             "scale": 4,
             "size": null,
-            "type": "decimal"
+            "type": "decimal",
+            "exclude": [],
+            "only": []
         },
         "bonus_rate": {
             "column": "bonus_rate",
@@ -125,7 +138,9 @@
             "readOnly": false,
             "scale": 4,
             "size": null,
-            "type": "decimal"
+            "type": "decimal",
+            "exclude": [],
+            "only": []
         },
         "commission": {
             "column": "commission",
@@ -142,7 +157,9 @@
             "readOnly": false,
             "scale": 4,
             "size": null,
-            "type": "decimal"
+            "type": "decimal",
+            "exclude": [],
+            "only": []
         },
         "commission_rate": {
             "column": "commission_rate",
@@ -159,7 +176,9 @@
             "readOnly": false,
             "scale": 4,
             "size": null,
-            "type": "decimal"
+            "type": "decimal",
+            "exclude": [],
+            "only": []
         },
         "estimate": {
             "column": "estimate",
@@ -176,7 +195,9 @@
             "readOnly": false,
             "scale": 4,
             "size": null,
-            "type": "decimal"
+            "type": "decimal",
+            "exclude": [],
+            "only": []
         },
         "fees": {
             "column": "fees",
@@ -193,7 +214,9 @@
             "readOnly": false,
             "scale": 4,
             "size": null,
-            "type": "decimal"
+            "type": "decimal",
+            "exclude": [],
+            "only": []
         },
         "materials": {
             "column": "materials",
@@ -210,7 +233,9 @@
             "readOnly": false,
             "scale": 4,
             "size": null,
-            "type": "decimal"
+            "type": "decimal",
+            "exclude": [],
+            "only": []
         },
         "services": {
             "column": "services",
@@ -227,7 +252,9 @@
             "readOnly": false,
             "scale": 4,
             "size": null,
-            "type": "decimal"
+            "type": "decimal",
+            "exclude": [],
+            "only": []
         },
         "shipping": {
             "column": "shipping",
@@ -244,7 +271,9 @@
             "readOnly": false,
             "scale": 4,
             "size": null,
-            "type": "decimal"
+            "type": "decimal",
+            "exclude": [],
+            "only": []
         },
         "subtotal": {
             "column": "subtotal",
@@ -261,7 +290,9 @@
             "readOnly": false,
             "scale": 4,
             "size": null,
-            "type": "decimal"
+            "type": "decimal",
+            "exclude": [],
+            "only": []
         },
         "taxable": {
             "column": "taxable",
@@ -278,7 +309,9 @@
             "readOnly": false,
             "scale": 4,
             "size": null,
-            "type": "decimal"
+            "type": "decimal",
+            "exclude": [],
+            "only": []
         },
         "tax_rate": {
             "column": "tax_rate",
@@ -295,7 +328,9 @@
             "readOnly": false,
             "scale": 4,
             "size": null,
-            "type": "decimal"
+            "type": "decimal",
+            "exclude": [],
+            "only": []
         },
         "taxes": {
             "column": "taxes",
@@ -312,7 +347,9 @@
             "readOnly": false,
             "scale": 4,
             "size": null,
-            "type": "decimal"
+            "type": "decimal",
+            "exclude": [],
+            "only": []
         },
         "total": {
             "column": "total",
@@ -329,7 +366,9 @@
             "readOnly": false,
             "scale": 4,
             "size": null,
-            "type": "decimal"
+            "type": "decimal",
+            "exclude": [],
+            "only": []
         }
     },
     "dates": {
@@ -339,7 +378,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "closed_at": {
             "column": "closed_at",
@@ -347,7 +388,9 @@
             "label": "",
             "index": true,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "embargo_at": {
             "column": "embargo_at",
@@ -355,7 +398,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "fixed_at": {
             "column": "fixed_at",
@@ -363,7 +408,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "planned_end_at": {
             "column": "planned_end_at",
@@ -371,7 +418,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "planned_start_at": {
             "column": "planned_start_at",
@@ -379,7 +428,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "postponed_at": {
             "column": "postponed_at",
@@ -387,7 +438,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "published_at": {
             "column": "published_at",
@@ -395,7 +448,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "released_at": {
             "column": "released_at",
@@ -403,7 +458,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "resolved_at": {
             "column": "resolved_at",
@@ -411,7 +468,9 @@
             "label": "",
             "index": true,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "resumed_at": {
             "column": "resumed_at",
@@ -419,7 +478,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "suspended_at": {
             "column": "suspended_at",
@@ -427,7 +488,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "timer_end_at": {
             "column": "timer_end_at",
@@ -435,7 +498,9 @@
             "label": "",
             "index": true,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "timer_start_at": {
             "column": "timer_start_at",
@@ -443,7 +508,9 @@
             "label": "",
             "index": true,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         }
     },
     "factoryStates": {
@@ -475,7 +542,9 @@
             "index": true,
             "label": "",
             "nullable": false,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "sms": {
             "column": "sms",
@@ -485,7 +554,9 @@
             "index": false,
             "label": "SMS",
             "nullable": false,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "special": {
             "column": "special",
@@ -495,7 +566,9 @@
             "index": true,
             "label": "",
             "nullable": false,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         }
     },
     "flavors": [
@@ -513,7 +586,9 @@
             "label": "",
             "type": "JSON_OBJECT",
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "assets": {
             "column": "assets",
@@ -523,7 +598,9 @@
             "label": "",
             "type": "JSON_OBJECT",
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "contact": {
             "column": "contact",
@@ -533,7 +610,9 @@
             "label": "",
             "type": "JSON_OBJECT",
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "meta": {
             "column": "meta",
@@ -543,7 +622,9 @@
             "label": "",
             "type": "JSON_OBJECT",
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "notes": {
             "column": "notes",
@@ -553,7 +634,9 @@
             "label": "",
             "type": "JSON_ARRAY",
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "options": {
             "column": "options",
@@ -563,7 +646,9 @@
             "label": "",
             "type": "JSON_OBJECT",
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "sources": {
             "column": "sources",
@@ -573,7 +658,9 @@
             "label": "",
             "type": "JSON_OBJECT",
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         }
     },
     "models": [],
@@ -611,7 +698,9 @@
                 "parent",
                 "playground"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         },
         "Goal": {
             "migration_date": "2010_09_30",
@@ -646,7 +735,9 @@
                 "parent",
                 "playground"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         },
         "Lead": {
             "migration_date": "2010_09_30",
@@ -681,7 +772,9 @@
                 "parent",
                 "playground"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         },
         "Opportunity": {
             "migration_date": "2010_09_30",
@@ -716,7 +809,9 @@
                 "parent",
                 "playground"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         },
         "Plan": {
             "migration_date": "2010_09_30",
@@ -751,7 +846,9 @@
                 "parent",
                 "playground"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         },
         "Region": {
             "migration_date": "2010_09_30",
@@ -786,7 +883,9 @@
                 "parent",
                 "playground"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         },
         "Report": {
             "migration_date": "2010_09_30",
@@ -821,7 +920,9 @@
                 "parent",
                 "playground"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         },
         "Source": {
             "migration_date": "2010_09_30",
@@ -856,7 +957,9 @@
                 "parent",
                 "playground"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         },
         "Task": {
             "migration_date": "2010_09_30",
@@ -891,7 +994,9 @@
                 "parent",
                 "playground"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         },
         "Team": {
             "migration_date": "2010_09_30",
@@ -926,7 +1031,9 @@
                 "parent",
                 "playground"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         },
         "Teammate": {
             "migration_date": "2010_09_30",
@@ -961,7 +1068,9 @@
                 "parent",
                 "playground"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         },
         "Tagged": {
             "migration_date": "2010_09_30",
@@ -995,7 +1104,9 @@
                 "playground",
                 "tags"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         },
         "Tag": {
             "migration_date": "2010_09_30",
@@ -1029,7 +1140,9 @@
                 "parent",
                 "playground"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         }
     },
     "type": "",

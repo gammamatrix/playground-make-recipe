@@ -7,6 +7,7 @@
     "description": "The recipe for the directory management system packages.",
     "title": "Directory",
     "name": "",
+    "ids": [],
     "columns": {
         "email": {
             "column": "email",
@@ -23,7 +24,9 @@
             "readOnly": false,
             "scale": null,
             "size": null,
-            "type": "string"
+            "type": "string",
+            "exclude": [],
+            "only": []
         },
         "phone": {
             "column": "phone",
@@ -40,7 +43,9 @@
             "readOnly": false,
             "scale": null,
             "size": null,
-            "type": "string"
+            "type": "string",
+            "exclude": [],
+            "only": []
         }
     },
     "dates": {
@@ -50,7 +55,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "closed_at": {
             "column": "closed_at",
@@ -58,7 +65,9 @@
             "label": "",
             "index": true,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "embargo_at": {
             "column": "embargo_at",
@@ -66,7 +75,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "fixed_at": {
             "column": "fixed_at",
@@ -74,7 +85,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "planned_end_at": {
             "column": "planned_end_at",
@@ -82,7 +95,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "planned_start_at": {
             "column": "planned_start_at",
@@ -90,7 +105,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "postponed_at": {
             "column": "postponed_at",
@@ -98,7 +115,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "published_at": {
             "column": "published_at",
@@ -106,7 +125,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "released_at": {
             "column": "released_at",
@@ -114,7 +135,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "resolved_at": {
             "column": "resolved_at",
@@ -122,7 +145,9 @@
             "label": "",
             "index": true,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "resumed_at": {
             "column": "resumed_at",
@@ -130,7 +155,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "suspended_at": {
             "column": "suspended_at",
@@ -138,7 +165,9 @@
             "label": "",
             "index": false,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "timer_end_at": {
             "column": "timer_end_at",
@@ -146,7 +175,9 @@
             "label": "",
             "index": true,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "timer_start_at": {
             "column": "timer_start_at",
@@ -154,7 +185,9 @@
             "label": "",
             "index": true,
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         }
     },
     "factoryStates": {
@@ -180,7 +213,9 @@
             "index": false,
             "label": "Sitemap",
             "nullable": false,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         }
     },
     "flavors": [
@@ -198,7 +233,9 @@
             "label": "",
             "type": "JSON_OBJECT",
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "assets": {
             "column": "assets",
@@ -208,7 +245,9 @@
             "label": "",
             "type": "JSON_OBJECT",
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "contact": {
             "column": "contact",
@@ -218,7 +257,9 @@
             "label": "",
             "type": "JSON_OBJECT",
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "meta": {
             "column": "meta",
@@ -228,7 +269,9 @@
             "label": "",
             "type": "JSON_OBJECT",
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         },
         "notes": {
             "column": "notes",
@@ -238,7 +281,9 @@
             "label": "",
             "type": "JSON_OBJECT",
             "nullable": true,
-            "readOnly": false
+            "readOnly": false,
+            "exclude": [],
+            "only": []
         }
     },
     "models": [],
@@ -277,7 +322,9 @@
                 "revision",
                 "tags"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         },
         "LocationRevision": {
             "migration_date": "2024_07_31",
@@ -311,7 +358,9 @@
                 "parent",
                 "playground"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         },
         "Contact": {
             "migration_date": "2024_07_31",
@@ -347,7 +396,9 @@
                 "revision",
                 "tags"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         },
         "ContactRevision": {
             "migration_date": "2024_07_31",
@@ -381,7 +432,9 @@
                 "parent",
                 "playground"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         },
         "Tag": {
             "migration_date": "2024_07_31",
@@ -415,7 +468,9 @@
                 "parent",
                 "playground"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         },
         "Tagged": {
             "migration_date": "2024_07_31",
@@ -449,7 +504,9 @@
                 "playground",
                 "tags"
             ],
-            "json": []
+            "json": [],
+            "exclude": [],
+            "only": []
         }
     },
     "type": "",
