@@ -14,8 +14,8 @@ use Playground\Make\Model\Recipe\Playground;
 use Playground\Make\Recipe\Configuration\Column;
 use Playground\Make\Recipe\Configuration\Date;
 use Playground\Make\Recipe\Configuration\Flag;
+use Playground\Make\Recipe\Configuration\Id;
 use Playground\Make\Recipe\Configuration\Json;
-use Playground\Make\Recipe\Configuration\PackageModel;
 use Playground\Make\Recipe\Configuration\Recipe;
 
 /**
@@ -42,12 +42,20 @@ trait BuildInit
             $code .= '$this->addIds();'.PHP_EOL;
         }
 
-        $unsetIds = $this->buildClass_init_unsetIds($recipe);
+        $unsetCircletHasOneIds = $this->buildClass_init_unsetCircletHasOneIds($recipe);
 
-        if (! empty($unsetIds)) {
-            $this->searches['init'] .= $this->buildClass_unsetIds_method($unsetIds);
+        if (! empty($unsetCircletHasOneIds)) {
+            $this->searches['init'] .= $this->buildClass_unsetCircletHasOneIds_method($unsetCircletHasOneIds);
             $code .= str_repeat(' ', 8);
-            $code .= '$this->unsetIds();'.PHP_EOL;
+            $code .= '$this->unsetCircletHasOneIds();'.PHP_EOL;
+        }
+
+        $unsetCircletHasManyIds = $this->buildClass_init_unsetCircletHasManyIds($recipe);
+
+        if (! empty($unsetCircletHasManyIds)) {
+            $this->searches['init'] .= $this->buildClass_unsetCircletHasManyIds_method($unsetCircletHasManyIds);
+            $code .= str_repeat(' ', 8);
+            $code .= '$this->unsetCircletHasManyIds();'.PHP_EOL;
         }
 
         $columns = $this->buildClass_init_addColumns($recipe);
@@ -182,11 +190,23 @@ $code
 PHP_CODE;
     }
 
-    protected function buildClass_unsetIds_method(string $code): string
+    protected function buildClass_unsetCircletHasOneIds_method(string $code): string
     {
         return <<<PHP_CODE
 
-    public function unsetIds(): void
+    public function unsetCircletHasOneIds(): void
+    {
+$code
+    }
+
+PHP_CODE;
+    }
+
+    protected function buildClass_unsetCircletHasManyIds_method(string $code): string
+    {
+        return <<<PHP_CODE
+
+    public function unsetCircletHasManyIds(): void
     {
 $code
     }
@@ -569,12 +589,14 @@ PHP_CODE;
 
         $i = 0;
         $total = count($recipe->packageModels());
-        foreach ($recipe->packageModels() as $modelClassName => $model) {
-            if (! empty($model->exclude())) {
+        foreach ($recipe->ids() as $column => $id) {
+            if (! empty($id->only())) {
                 $code .= str_repeat(' ', 8).'if (in_array($this->name, [';
-                $code .= PHP_EOL.str_repeat(' ', 12).sprintf('\'%1$s\',', implode('\', \'', $model->exclude()));
+                $code .= PHP_EOL.str_repeat(' ', 12).sprintf('\'%1$s\',', implode('\', \'', $id->only()));
                 $code .= PHP_EOL.str_repeat(' ', 8).'])) {';
-                $code .= $this->buildClass_init_addId($model, 12);
+                $code .= $this->buildClass_init_addId($id, 12);
+                $code .= PHP_EOL;
+                $code .= $this->buildClass_init_circletHasOne($id, 12);
                 $code .= PHP_EOL.str_repeat(' ', 8).'}';
             }
 
@@ -588,63 +610,93 @@ PHP_CODE;
     }
 
     protected function buildClass_init_addId(
-        PackageModel $model,
+        Id $id,
         int $indent = 8
     ): string {
 
-        //        dd([
-        //            '__METHOD__' => __METHOD__,
-        //            '$model' => $model,
-        //        ]);
-        $code = str_repeat(' ', $indent);
-        //        $code .= sprintf('$this->json[\'%1$s\'] = [', $json->column());
-        //
-        //        if ($json->comment()) {
-        //            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
-        //            $code .= sprintf('\'comment\' => \'%1$s\',', $json->comment());
-        //        }
-        //
-        //        if ($json->description()) {
-        //            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
-        //            $code .= sprintf('\'description\' => \'%1$s\',', $json->description());
-        //        }
-        //
-        //        $code .= PHP_EOL.str_repeat(' ', $indent + 4);
-        //        $code .= sprintf('\'label\' => \'%1$s\',', $json->label() ?: Str::of($json->column())->headline()->lower()->ucfirst()->toString());
-        //
-        //        $default = $json->default();
-        //
-        //        $defaultString = 'null';
-        //
-        //        switch (gettype($default)) {
-        //            case 'boolean':
-        //                $defaultString = $default ? 'true' : 'false';
-        //                break;
-        //            case 'string':
-        //                $defaultString = sprintf('\'%1$s\'', $default);
-        //                break;
-        //            case 'integer':
-        //                break;
-        //        }
-        //
-        //        $code .= PHP_EOL.str_repeat(' ', $indent + 4);
-        //        $code .= sprintf('\'default\' => %1$s,', $defaultString);
-        //
-        //        $code .= PHP_EOL.str_repeat(' ', $indent + 4);
-        //        $code .= sprintf('\'nullable\' => %1$s,', $json->nullable() ? 'true' : 'false');
-        //
-        //        if ($json->readOnly()) {
-        //            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
-        //            $code .= sprintf('\'readOnly\' => %1$s,', 'true');
-        //        }
-        //
-        //        if ($json->type()) {
-        //            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
-        //            $code .= sprintf('\'type\' => \'%1$s\',', $json->type());
-        //        }
-        //
-        //        $code .= PHP_EOL.str_repeat(' ', $indent);
-        //        $code .= '];';
+        $code = PHP_EOL.str_repeat(' ', $indent);
+        $code .= sprintf('$this->allIds[\'%1$s\'] = [', $id->column());
+
+        if ($id->label()) {
+            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
+            $code .= sprintf('\'label\' => \'%1$s\',', $id->label());
+        }
+
+        $code .= PHP_EOL.str_repeat(' ', $indent + 4);
+        $code .= sprintf('\'description\' => \'%1$s\',', $id->description());
+
+        if ($id->icon()) {
+            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
+            $code .= sprintf('\'icon\' => \'%1$s\',', $id->icon());
+        }
+
+        $code .= PHP_EOL.str_repeat(' ', $indent + 4);
+        $code .= '\'foreign\' => [';
+        $code .= PHP_EOL.str_repeat(' ', $indent + 8);
+        $code .= sprintf('\'references\' => \'%1$s\',', $id->references());
+        $code .= PHP_EOL.str_repeat(' ', $indent + 8);
+        $code .= sprintf('\'on\' => \'%1$s\',', $id->on());
+        $code .= PHP_EOL.str_repeat(' ', $indent + 4).'],';
+
+        $default = $id->default();
+
+        $defaultString = 'null';
+
+        switch (gettype($default)) {
+            case 'string':
+                $defaultString = sprintf('\'%1$s\'', $default);
+                break;
+            case 'integer':
+                break;
+        }
+
+        $code .= PHP_EOL.str_repeat(' ', $indent + 4);
+        $code .= sprintf('\'default\' => %1$s,', $defaultString);
+
+        $code .= PHP_EOL.str_repeat(' ', $indent + 4);
+        $code .= sprintf('\'index\' => %1$s,', $id->index() ? 'true' : 'false');
+
+        $code .= PHP_EOL.str_repeat(' ', $indent + 4);
+        $code .= sprintf('\'nullable\' => %1$s,', $id->nullable() ? 'true' : 'false');
+
+        if ($id->type()) {
+            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
+            $code .= sprintf('\'type\' => \'%1$s\',', $id->type());
+        }
+
+        $code .= PHP_EOL.str_repeat(' ', $indent);
+        $code .= '];';
+
+        return $code;
+    }
+
+    protected function buildClass_init_circletHasOne(
+        Id $id,
+        int $indent = 8
+    ): string {
+
+        $code = PHP_EOL.str_repeat(' ', $indent);
+        $code .= sprintf('$this->circletHasOne[\'%1$s\'] = [', $id->accessor());
+
+        if ($id->comment()) {
+            $code .= PHP_EOL.str_repeat(' ', $indent + 4);
+            $code .= sprintf('\'comment\' => \'%1$s\',', $id->comment());
+        }
+
+        $code .= PHP_EOL.str_repeat(' ', $indent + 4);
+        $code .= sprintf('\'accessor\' => \'%1$s\',', $id->accessor());
+
+        $code .= PHP_EOL.str_repeat(' ', $indent + 4);
+        $code .= sprintf('\'related\' => \'%1$s\',', ($id->related()));
+
+        $code .= PHP_EOL.str_repeat(' ', $indent + 4);
+        $code .= sprintf('\'foreignKey\' => \'%1$s\',', $id->foreign_key());
+
+        $code .= PHP_EOL.str_repeat(' ', $indent + 4);
+        $code .= sprintf('\'localKey\' => \'%1$s\',', $id->local_key());
+
+        $code .= PHP_EOL.str_repeat(' ', $indent);
+        $code .= '];';
 
         return $code;
     }
@@ -706,7 +758,7 @@ PHP_CODE;
         return $code;
     }
 
-    protected function buildClass_init_unsetIds(Recipe $recipe): string
+    protected function buildClass_init_unsetCircletHasOneIds(Recipe $recipe): string
     {
         $code = '';
 
@@ -719,7 +771,35 @@ PHP_CODE;
                 $code .= PHP_EOL.str_repeat(' ', 8).'])) {';
                 $code .= PHP_EOL.str_repeat(' ', 12).sprintf('unset($this->allIds[\'%1$s_id\']);', $model->snake());
                 $code .= PHP_EOL.str_repeat(' ', 12).sprintf('unset($this->circletHasOne[\'%1$s\']);', $model->snake());
-                $code .= PHP_EOL.str_repeat(' ', 12).sprintf('unset($this->circletHasMany[\'%1$s\']);', $model->snakes());
+                $code .= PHP_EOL.str_repeat(' ', 8).'}';
+            }
+
+            $i++;
+            if ($i < $total) {
+                $code .= PHP_EOL.PHP_EOL;
+            }
+        }
+
+        return rtrim($code, PHP_EOL);
+    }
+
+    protected function buildClass_init_unsetCircletHasManyIds(Recipe $recipe): string
+    {
+        $code = '';
+
+        $i = 0;
+        $total = count($recipe->packageModels());
+        foreach ($recipe->packageModels() as $modelClassName => $model) {
+            if (! empty($model->exclude())) {
+                $code .= str_repeat(' ', 8).'if (in_array($this->name, [';
+                $code .= PHP_EOL.str_repeat(' ', 12).sprintf('\'%1$s\',', $modelClassName);
+                $code .= PHP_EOL.str_repeat(' ', 8).'])) {';
+                foreach ($model->exclude() as $excludeModelClassName) {
+                    $camels = $recipe->packageModels()[$excludeModelClassName]?->camels();
+                    if (! empty($camels)) {
+                        $code .= PHP_EOL.str_repeat(' ', 12).sprintf('unset($this->circletHasMany[\'%1$s\']);', $camels);
+                    }
+                }
                 $code .= PHP_EOL.str_repeat(' ', 8).'}';
             }
 

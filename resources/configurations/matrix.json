@@ -1203,25 +1203,7 @@
                 "tags"
             ],
             "json": [],
-            "exclude": [
-                "Backlog",
-                "Board",
-                "Epic",
-                "Flow",
-                "Matrix",
-                "Milestone",
-                "Note",
-                "Project",
-                "Release",
-                "Roadmap",
-                "Source",
-                "Sprint",
-                "Tag",
-                "Team",
-                "Ticket",
-                "Version",
-                "Tagged"
-            ],
+            "exclude": [],
             "only": []
         },
         "Milestone": {

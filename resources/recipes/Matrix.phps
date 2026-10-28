@@ -78,6 +78,16 @@ class Matrix extends Playground
             'nullable' => true,
             'type' => 'uuid',
         ],
+        'matrix_id' => [
+            'description' => '',
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'matrix_matrices',
+            ],
+            'index' => true,
+            'nullable' => true,
+            'type' => 'uuid',
+        ],
         'milestone_id' => [
             'description' => '',
             'foreign' => [
@@ -208,7 +218,11 @@ class Matrix extends Playground
             'type' => 'flag',
             'value' => true,
         ],
-        'published' => [
+        'featured' => [
+            'type' => 'flag',
+            'value' => true,
+        ],
+        'special' => [
             'type' => 'flag',
             'value' => true,
         ],
@@ -471,17 +485,19 @@ class Matrix extends Playground
         if (in_array($this->name, [
             'Ticket',
         ])) {
-
             $this->allIds['completed_by_id'] = [
+                'label' => 'Completed by',
                 'description' => '',
                 'foreign' => [
                     'references' => 'id',
                     'on' => 'users',
                 ],
+                'default' => null,
                 'index' => true,
                 'nullable' => true,
                 'type' => 'uuid',
             ];
+
             $this->circletHasOne['completedBy'] = [
                 'comment' => 'The completed by user of the %1$s.',
                 'accessor' => 'completedBy',
@@ -489,17 +505,24 @@ class Matrix extends Playground
                 'foreignKey' => 'id',
                 'localKey' => 'completed_by_id',
             ];
+        }
 
+        if (in_array($this->name, [
+            'Ticket',
+        ])) {
             $this->allIds['duplicate_id'] = [
+                'label' => 'Duplicate by',
                 'description' => '',
                 'foreign' => [
                     'references' => 'id',
                     'on' => 'matrix_tickets',
                 ],
+                'default' => null,
                 'index' => true,
                 'nullable' => true,
                 'type' => 'uuid',
             ];
+
             $this->circletHasOne['duplicateBy'] = [
                 'comment' => 'The duplicate of the %1$s.',
                 'accessor' => 'duplicateBy',
@@ -507,17 +530,23 @@ class Matrix extends Playground
                 'foreignKey' => 'id',
                 'localKey' => 'duplicate_id',
             ];
+        }
 
+        if (in_array($this->name, [
+            'Ticket',
+        ])) {
             $this->allIds['fixed_by_id'] = [
                 'description' => '',
                 'foreign' => [
                     'references' => 'id',
                     'on' => 'users',
                 ],
+                'default' => null,
                 'index' => true,
                 'nullable' => true,
                 'type' => 'uuid',
             ];
+
             $this->circletHasOne['fixedBy'] = [
                 'comment' => 'The fixed by user of the %1$s.',
                 'accessor' => 'fixedBy',
@@ -525,17 +554,24 @@ class Matrix extends Playground
                 'foreignKey' => 'id',
                 'localKey' => 'fixed_by_id',
             ];
+        }
 
+        if (in_array($this->name, [
+            'Ticket',
+        ])) {
             $this->allIds['reported_by_id'] = [
+                'label' => 'Reported by',
                 'description' => '',
                 'foreign' => [
                     'references' => 'id',
                     'on' => 'users',
                 ],
+                'default' => null,
                 'index' => true,
                 'nullable' => true,
                 'type' => 'uuid',
             ];
+
             $this->circletHasOne['reportedBy'] = [
                 'comment' => 'The reported by user of the %1$s.',
                 'accessor' => 'reportedBy',
@@ -543,29 +579,35 @@ class Matrix extends Playground
                 'foreignKey' => 'id',
                 'localKey' => 'reported_by_id',
             ];
+        }
 
+        if (in_array($this->name, [
+            'Ticket',
+        ])) {
             $this->allIds['version_fixed_id'] = [
+                'label' => 'Version fixed',
                 'description' => '',
                 'foreign' => [
                     'references' => 'id',
-                    'on' => 'matrix_versions',
+                    'on' => 'users',
                 ],
+                'default' => null,
                 'index' => true,
                 'nullable' => true,
                 'type' => 'uuid',
             ];
+
             $this->circletHasOne['versionFixed'] = [
-                'comment' => 'The duplicate of the %1$s.',
+                'comment' => 'The fixed by user of the %1$s',
                 'accessor' => 'versionFixed',
                 'related' => 'Version',
                 'foreignKey' => 'id',
                 'localKey' => 'version_fixed_id',
             ];
-
         }
     }
 
-    public function unsetIds(): void
+    public function unsetCircletHasOneIds(): void
     {
         if (in_array($this->name, [
             'Flow', 'Matrix', 'Note', 'Source', 'Tag', 'Version', 'Tagged',
@@ -595,12 +637,7 @@ class Matrix extends Playground
             unset($this->circletHasOne['flow']);
         }
 
-        if (in_array($this->name, [
-            'Backlog', 'Board', 'Epic', 'Flow', 'Matrix', 'Milestone', 'Note', 'Project', 'Release', 'Roadmap', 'Source', 'Sprint', 'Tag', 'Team', 'Ticket', 'Version', 'Tagged',
-        ])) {
-            unset($this->allIds['matrix_id']);
-            unset($this->circletHasOne['matrix']);
-        }
+
 
         if (in_array($this->name, [
             'Flow', 'Matrix', 'Milestone', 'Note', 'Source', 'Version',
@@ -672,6 +709,149 @@ class Matrix extends Playground
         ])) {
             unset($this->allIds['version_id']);
             unset($this->circletHasOne['version']);
+        }
+    }
+
+    public function unsetCircletHasManyIds(): void
+    {
+        if (in_array($this->name, [
+            'Backlog',
+        ])) {
+            unset($this->circletHasMany['flows']);
+            unset($this->circletHasMany['matrices']);
+            unset($this->circletHasMany['notes']);
+            unset($this->circletHasMany['sources']);
+            unset($this->circletHasMany['tags']);
+            unset($this->circletHasMany['versions']);
+            unset($this->circletHasMany['tagged']);
+        }
+
+        if (in_array($this->name, [
+            'Board',
+        ])) {
+            unset($this->circletHasMany['flows']);
+            unset($this->circletHasMany['matrices']);
+            unset($this->circletHasMany['notes']);
+            unset($this->circletHasMany['sources']);
+            unset($this->circletHasMany['tags']);
+            unset($this->circletHasMany['versions']);
+            unset($this->circletHasMany['tagged']);
+        }
+
+        if (in_array($this->name, [
+            'Epic',
+        ])) {
+            unset($this->circletHasMany['epics']);
+            unset($this->circletHasMany['flows']);
+            unset($this->circletHasMany['matrices']);
+            unset($this->circletHasMany['notes']);
+            unset($this->circletHasMany['sources']);
+            unset($this->circletHasMany['versions']);
+        }
+
+        if (in_array($this->name, [
+            'Flow',
+        ])) {
+            unset($this->circletHasMany['matrices']);
+            unset($this->circletHasMany['notes']);
+            unset($this->circletHasMany['sources']);
+            unset($this->circletHasMany['versions']);
+        }
+
+
+
+        if (in_array($this->name, [
+            'Milestone',
+        ])) {
+            unset($this->circletHasMany['flows']);
+            unset($this->circletHasMany['matrices']);
+            unset($this->circletHasMany['milestones']);
+            unset($this->circletHasMany['notes']);
+            unset($this->circletHasMany['sources']);
+            unset($this->circletHasMany['versions']);
+        }
+
+        if (in_array($this->name, [
+            'Note',
+        ])) {
+            unset($this->circletHasMany['matrices']);
+            unset($this->circletHasMany['versions']);
+        }
+
+        if (in_array($this->name, [
+            'Project',
+        ])) {
+            unset($this->circletHasMany['flows']);
+            unset($this->circletHasMany['matrices']);
+            unset($this->circletHasMany['notes']);
+            unset($this->circletHasMany['sources']);
+        }
+
+        if (in_array($this->name, [
+            'Release',
+        ])) {
+            unset($this->circletHasMany['flows']);
+            unset($this->circletHasMany['matrices']);
+            unset($this->circletHasMany['notes']);
+            unset($this->circletHasMany['releases']);
+            unset($this->circletHasMany['sources']);
+            unset($this->circletHasMany['versions']);
+        }
+
+        if (in_array($this->name, [
+            'Roadmap',
+        ])) {
+            unset($this->circletHasMany['flows']);
+            unset($this->circletHasMany['matrices']);
+            unset($this->circletHasMany['notes']);
+            unset($this->circletHasMany['sources']);
+            unset($this->circletHasMany['versions']);
+        }
+
+        if (in_array($this->name, [
+            'Source',
+        ])) {
+            unset($this->circletHasMany['flows']);
+            unset($this->circletHasMany['matrices']);
+            unset($this->circletHasMany['notes']);
+            unset($this->circletHasMany['versions']);
+        }
+
+        if (in_array($this->name, [
+            'Sprint',
+        ])) {
+            unset($this->circletHasMany['flows']);
+            unset($this->circletHasMany['matrices']);
+            unset($this->circletHasMany['notes']);
+            unset($this->circletHasMany['sources']);
+            unset($this->circletHasMany['versions']);
+        }
+
+
+
+        if (in_array($this->name, [
+            'Team',
+        ])) {
+            unset($this->circletHasMany['matrices']);
+            unset($this->circletHasMany['notes']);
+        }
+
+        if (in_array($this->name, [
+            'Ticket',
+        ])) {
+            unset($this->circletHasMany['flows']);
+            unset($this->circletHasMany['matrices']);
+            unset($this->circletHasMany['notes']);
+            unset($this->circletHasMany['sources']);
+        }
+
+        if (in_array($this->name, [
+            'Version',
+        ])) {
+            unset($this->circletHasMany['flows']);
+            unset($this->circletHasMany['matrices']);
+            unset($this->circletHasMany['notes']);
+            unset($this->circletHasMany['sources']);
         }
     }
 
@@ -1058,7 +1238,7 @@ class Matrix extends Playground
         /**
          * @var array<string, array<string, mixed>> $allIds
          */
-        $allIds = \Illuminate\Support\Arr::except($this->allIds, ['parent_id', 'matrix_id']);
+        $allIds = \Illuminate\Support\Arr::except($this->allIds, ['parent_id']);
 
         if ($this->type === 'playground-model-tagged') {
             $this->circletHasOne['backlog']['comment'] = 'The tagged backlog.';
@@ -1108,7 +1288,8 @@ class Matrix extends Playground
         unset($this->circletHasMany['tags']);
 
         $this->addIds();
-        $this->unsetIds();
+        $this->unsetCircletHasOneIds();
+        $this->unsetCircletHasManyIds();
         $this->addColumns();
         $this->addDates();
         $this->addFlags();

@@ -154,7 +154,7 @@ class Cms extends Playground
          */
         $allIds = \Illuminate\Support\Arr::except($this->allIds, ['parent_id', 'matrix_id']);
 
-        if ($this->type === 'playground-model-tagged') { 
+        if ($this->type === 'playground-model-tagged') {
             $this->allIds = $allIds;
             unset($this->hasMany['revisions']);
             $this->handleTagged();
