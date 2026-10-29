@@ -197,7 +197,7 @@ class Cms extends Playground
     {
         $this->status['revision'] = [
             'type' => 'bigInteger',
-            'default' => false,
+            'default' => 0,
             'unsigned' => true,
             'readOnly' => true,
             'icon' => '',

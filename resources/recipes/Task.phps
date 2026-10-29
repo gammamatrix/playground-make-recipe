@@ -306,7 +306,7 @@ class Task extends Playground
          */
         $allIds = \Illuminate\Support\Arr::except($this->allIds, ['parent_id', 'matrix_id']);
 
-        if ($this->type === 'playground-model-tagged') {
+        if ($this->type === 'playground-model-tagged') { 
             $this->circletHasOne['task']['comment'] = 'The tagged task.';
             $this->circletHasOne['taskList']['comment'] = 'The tagged task list.';
             $this->circletHasOne['taskLog']['comment'] = 'The tagged task log.';

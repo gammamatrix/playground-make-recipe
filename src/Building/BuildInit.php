@@ -437,7 +437,7 @@ PHP_CODE;
         }
 
         $code .= PHP_EOL.str_repeat(' ', $indent);
-        $code .= '];';
+        $code .= '];'.PHP_EOL.PHP_EOL;
 
         return $code;
     }
